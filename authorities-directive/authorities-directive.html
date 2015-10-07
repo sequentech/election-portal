@@ -1,0 +1,17 @@
+<h1 class="text-center text-av-secondary" ng-i18next>avElection.authorities.title</h1>
+<p class="intro" ng-i18next>avElection.authorities.intro</p>
+<div ng-i18next ng-if="state === 'loading'">avElection.authorities.loading</div>
+<div ng-i18next ng-if="state === 'error'">avElection.authorities.error</div>
+<div ng-if="state === 'loaded'">
+  <ul class="list-unstyled">
+    <li ng-repeat="auth in auths">
+      <a href="{{auth.url}}" alt="{{auth.name}}" target="_blank">
+        <img ng-src="{{auth.image}}" alt="{{auth.name}}" />
+      </a>
+      <p class="description">
+        <strong>{{auth.name}}</strong>.
+        <span ng-bind-html="auth.description"></span>
+      </p>
+    </li>
+  </ul>
+</div>

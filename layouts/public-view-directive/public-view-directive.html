@@ -1,0 +1,7 @@
+<div ng-if="!fileDataHtml && !fileDataError">
+  <p class="text-center" ng-i18next="avElection.public.loadingDataText"></p>
+</div>
+<div ng-bind-html="fileDataHtml" ng-if="!!fileDataHtml && !fileDataError"></div>
+<div ng-if="fileDataError">
+  <p class="text-center" ng-i18next="avElection.public.errorNotFoundText"></p>
+</div>

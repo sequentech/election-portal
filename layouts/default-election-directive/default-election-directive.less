@@ -1,0 +1,59 @@
+[ave-default-election], [ave-public-view] {
+  .background {
+    background-color: @gray-lighter;
+
+    &.first {
+      background-color: @av-primary;
+      color: @av-primary-contrast;
+
+    .top-section {
+        background-color: @av-primary;
+        color: @av-primary-contrast;
+
+        h1.election-title {
+          color: @av-primary-contrast;
+        }
+
+        ul.election-links > li > a, ul.election-links > li.selected > a {
+          color: @av-primary-contrast;
+        }
+      }
+    }
+
+    .top-section {
+      border-radius: 5px;
+      color: @av-secondary;
+      background-color: @av-secondary-contrast;
+      margin-top: 14px;
+      padding: 10px;
+      min-height: 100px;
+
+      .election-status {
+      }
+
+      h1.election-title {
+        padding: 18px;
+        color: @av-primary;
+      }
+
+      h2 {
+        padding: 10px;
+      }
+
+      p.election-description {
+        padding: 10px 8%;
+        text-align: center;
+      }
+
+      > .pad {
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media(max-width: @screen-sm-max) {
+  .background > .container, .background  .top-section > .pad {
+    padding: 0;
+  }
+}

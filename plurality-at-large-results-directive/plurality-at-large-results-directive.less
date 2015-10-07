@@ -1,0 +1,35 @@
+[av-plurality-at-large-results] {
+  table.resume caption, table.results thead tr {
+    font-weight: bold;
+    background-color: @av-primary;
+    color: @av-primary-contrast;
+    padding: 5px;
+  }
+
+  .table-hover > tbody > tr:hover {
+    > td, > th {
+      background-color: @av-secondary;
+      color: @av-secondary-contrast;
+    }
+  }
+
+  table.resume tbody td.title {
+    font-weight: bold;
+  }
+
+  table.results tbody tr td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  table.results tbody tr.winner td {
+    font-weight: bold;
+  }
+
+  .background-percent {
+    height: 100%;
+    background-color: @gray-lighter;
+    display: block;
+    position: absolute;
+  }
+}

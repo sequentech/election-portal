@@ -1,0 +1,66 @@
+<nav class="navbar navbar-admin adminhead navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
+    <div ng-class="{'container-fluid': admin, 'container': !admin}">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://agoravoting.com"></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="{{getShareLink()}}" target="_blank" ng-i18next="avElection.public.shareLink">
+            </a>
+          </li>
+
+          <li class="dropdown" av-change-lang>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
+
+<div class="container-fluid background first">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 top-section">
+        <h1 class="text-center election-title">{{election.title}}</h1>
+        <p
+          class="election-description"
+          ng-bind-html="election.description | addTargetBlank"
+          ng-if="name().indexOf('home') !== -1">
+        </p>
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+              <a
+                ng-if="name().indexOf('home') !== -1 && electionState === 'started' && authEvent.census === 'open'"
+                class="btn btn-block btn-lg btn-transparent"
+                href="#/election/{{election.id}}/public/register"
+                ng-i18next="avElection.public.voteLink">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div ave-election-links></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid background">
+  <div class="container">
+    <div class="row">
+      <div ui-view></div>
+    </div>
+  </div>
+</div>
+
+<div av-admin-foot class="hidden-xs">
+</div>

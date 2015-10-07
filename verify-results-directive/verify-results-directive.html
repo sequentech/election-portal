@@ -1,0 +1,51 @@
+<div class="basic-booth-layout" ng-if="!!election">
+  <nav
+    class="navbar navbar-default navbar-fixed-top"
+    ng-if="!noHeader"
+    av-affix-top=".navbar-unfixed-top" role="navigation">
+    <div class="container">
+      <div class="row avb-top-navbar">
+        <div class="pull-left" ng-i18next="[html]avBooth.poweredBy">
+        </div>
+        <div class="pull-right">
+          <a href="#/election/{{electionId}}/public/verify-results" target="_blank">
+            <span
+              class="glyphicon glyphicon-share">
+            </span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="wrapper-unfixed" ng-class="{'no-header': noHeader}">
+    <div class="navbar-unfixed-top text-center">
+      <div class="container">
+        <div class="hidden unfixed-top-height"></div>
+        <h1 ng-i18next="avElection.verifyResults.title"></h1>
+        <p
+          ng-if="!noHeader"
+          ng-i18next="[i18next]({title: election.title})avElection.verifyResults.subtitle">
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content avb-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 padded-left padded-right">
+          <div
+          ng-if="electionState === 'results_pub'"
+          ng-i18next="[i18next:html]({title: election.title, electionId: electionId, publicURL: publicURL})avElection.verifyResults.verifyText">
+          </div>
+          <div
+          ng-if="electionState !== 'results_pub'"
+          ng-i18next="[i18next]avElection.verifyResults.stateNotPublished">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

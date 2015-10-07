@@ -1,0 +1,57 @@
+<ul class="election-links">
+  <li ng-class="{selected: name().indexOf('home') !== -1}">
+    <a
+      ui-sref="election.public.show.home({id: election.id})"
+      ng-i18next="avElection.public.homeText">
+    </a>
+  </li>
+  <li
+    ng-if="electionState === 'started' && authEvent.census === 'open'"
+    ng-class="{selected: name() === 'register'}">
+    <a
+      href="#/election/{{election.id}}/public/register"
+      ng-i18next="avElection.public.voteLink">
+    </a>
+  </li>
+  <li class="hidden" ng-class="{selected: pageName() === 'faqs.html'}">
+    <a
+      ui-sref="election.public.show.view({id: election.id, name: 'faqs.html'})"
+      ng-i18next="avElection.public.faqsLink">
+    </a>
+  </li>
+  <li ng-class="{selected: name() === 'auths'}">
+    <a
+      ui-sref="election.public.show.auths({id: election.id})"
+      ng-i18next="avElection.public.authoritiesLink">
+    </a>
+  </li>
+  <li class="hidden" ng-class="{selected: pageName() === 'overview.html'}">
+    <a
+      ui-sref="election.public.show.view({id: election.id, name: 'overview.html'})"
+      ng-i18next="avElection.public.overviewLink">
+    </a>
+  </li>
+  <li ng-if="checkState(['registered', 'created', 'started'])">
+    <a href="#/election/{{election.id}}/vote" target="_blank" ng-i18next="avElection.public.demoVotingBoothLink"></a>
+  </li>
+  <li
+    ng-if="checkState(['started', 'stopped', 'doing_tally', 'tally_ok', 'results_ok', 'results_pub'])"
+    ng-class="{selected: name() === 'ballot-locator'}">
+    <a
+      ui-sref="election.public.show.ballot-locator({id: election.id})">
+      <i class="fa fa-binoculars"></i>
+      <span ng-i18next="avElection.resultsDirective.ballotLocatorLink">
+      </span>
+    </a>
+  </li>
+  <li
+    ng-if="checkState(['results_pub'])"
+    ng-class="{selected: name() === 'verify-results'}">
+    <a
+      ui-sref="election.public.show.verify-results({id: election.id})">
+      <i class="fa fa-fw fa-check-square-o"></i>
+      <span ng-i18next="avElection.resultsDirective.verifiableResultsLink">
+      </span>
+    </a>
+  </li>
+</ul>

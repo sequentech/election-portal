@@ -1,0 +1,31 @@
+[ave-election-links] {
+  ul {
+    padding: 0;
+    text-align: center;
+
+    li {
+      display:inline-block;
+      font-size: 18px;
+      padding: 10px;
+      list-style-type: none;
+
+      a, &.selected a {
+        color: @av-primary-contrast;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:hover, a:active, a, &.selected a {
+        outline: 0;
+      }
+
+      &.selected {
+        font-size: 22px;
+        font-weight: bold;
+      }
+    }
+  }
+}

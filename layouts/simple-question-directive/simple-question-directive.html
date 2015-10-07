@@ -1,0 +1,15 @@
+<h3>Q{{qindex}}. {{question.title}}</h3>
+<p ng-bind-html="question.description | addTargetBlank"></p>
+<p>
+  <span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.votingSystemText"></span>
+  <span ng-i18next="[html:i18next]({min: question.min, max: question.max, numWinners: question.num_winners})avElection.public.questionInfoText"></span>
+</p>
+<p ng-if="question.randomize_answer_order">
+  <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answersRandomized"></strong>
+</p>
+<p ng-if="!question.randomize_answer_order">
+  <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answers"></strong>
+</p>
+<ul>
+  <li ng-repeat="answer in question.answers">{{answer.text}}</li>
+</ul>

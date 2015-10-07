@@ -1,0 +1,70 @@
+<div class="row" ng-if="!inside_iframe">
+</div>
+<div class="container">
+  <div class="row" ng-if="!inside_iframe && !noHeader">
+    <div class="col-xs-12">
+      <h1 ng-i18next="[i18next]({title: election.title})avElection.resultsHeader"></h1>
+    </div>
+  </div>
+  <div ng-if="electionState !== 'results_pub'">
+    <div ng-i18next="avElection.stateNotPublished"></div>
+  </div>
+  <div ng-if="electionState === 'results_pub'">
+    <div class="row">
+      <div ng-class="{'col-xs-8': !noHeader, 'col-xs-12': noHeader}">
+        <div ng-class="{'pull-left': !noHeader, 'text-center': noHeader}">
+          <p>
+            <a class="padding-right"
+              ng-if="!noHeader"
+              href="#election/{{election.id}}/public/ballot-locator">
+              <i class="fa fa-binoculars"></i>
+              <span ng-i18next="avElection.resultsDirective.ballotLocatorLink"></span>
+            </a>
+            <a class="padding-right"
+              ng-if="!noHeader"
+              href="#election/{{election.id}}/public/verify-results">
+              <i class="fa fa-fw fa-check-square-o"></i>
+              <span ng-i18next="avElection.resultsDirective.verifiableResultsLink"></span>
+            </a>
+            <a
+              href="{{electionDataUrl}}"
+              target="_blank"
+              ng-i18next="[alt]avElection.downloadElectionData">
+              <i class="fa fa-fw fa-cloud-download"></i>
+            </a>
+            <a
+              href="{{electionTwitterUrl}}"
+              ng-if="!noHeader"
+              ng-i18next="[alt]avElection.tweetElection"
+              target="_blank">
+              <i class="fa fa-fw fa-facebook"></i>
+            </a>
+            <a
+              href="{{electionFacebookUrl}}"
+              ng-if="!noHeader"
+              target="_blank"
+              ng-i18next="[alt]avElection.tweetElection">
+              <i class="fa fa-fw fa-twitter"></i>
+            </a>
+            <a
+              href="#election/{{election.id}}/public/home"
+              ng-if="!noHeader"
+              target="_blank">
+              <span class="glyphicon glyphicon-share"></span>
+            </a>
+            <span ng-i18next="[i18next]({date: last_updated})avElection.resultsLastUpdated"></span>
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-4" ng-if="!noHeader">
+        <div class="pull-right padding-right">
+          <a href="https://agoravoting.com" class="agoralogo" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12" ng-repeat="question in results.questions" av-question-results index="{{$index}}">
+      </div>
+    </div>
+  </div>
+</div>
