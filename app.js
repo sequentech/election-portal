@@ -13,7 +13,6 @@ angular.module(
   'avConfig',
   'jm.i18next',
   'avUi',
-  'avRegistration',
   'avTest',
   'avCrypto',
   'avElection',
@@ -125,26 +124,6 @@ angular.module('agora-core-view').config(
       })
       .state('election.public.show.home.borda', {
         template: '<div av-borda-results></div>',
-      })
-      .state('election.public.show.register', {
-        url: '/register',
-        templateUrl: 'avRegistration/register-controller/register-controller.html',
-        controller: "RegisterController"
-      })
-      .state('election.public.show.login', {
-        url: '/login',
-        templateUrl: 'avRegistration/login-controller/login-controller.html',
-        controller: "LoginController"
-      })
-      .state('election.public.show.login_email', {
-        url: '/login/:email',
-        templateUrl: 'avRegistration/login-controller/login-controller.html',
-        controller: "LoginController"
-      })
-      .state('election.public.show.login_email_code', {
-        url: '/login/:email/:code',
-        templateUrl: 'avRegistration/login-controller/login-controller.html',
-        controller: "LoginController"
       })
       .state('election.public.show.logout', {
         url: '/logout',
