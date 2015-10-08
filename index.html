@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html id="ng-app" ng-app="agora-core-view">
+  <head>
+    <title>Agora Voting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <base href="/">
+    <meta charset="utf-8" />
+    <link href="/themes/default/app.less" type="text/css" rel="stylesheet/less" id="themes" />
+  </head>
+<body>
+  <!-- Livereload script for development only (stripped during dist build) -->
+  <script src="http://localhost:35729/livereload.js"></script>
+
+  <!-- IE8 bind workaround (needed for less) -->
+  <script src="/ie8-bind-workaround.js"></script>
+  
+  <!-- JS from Bower Components -->
+  <script src="bower_components/less.js/dist/less-1.6.2.js"></script>
+  <script src="bower_components/jquery/jquery.js" class="libnocompat"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js" class="lib"></script>
+  <script src="bower_components/underscore/underscore.js" class="lib"></script>
+  <script src="bower_components/angular/angular.js" class="lib"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js" class="lib"></script>
+  <script src="bower_components/moment/moment.js" class="lib"></script>
+  <script src="bower_components/angular-moment/angular-moment.js" class="lib"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js" class="lib"></script>
+  <script src="bower_components/angular-animate/angular-animate.js" class="lib"></script>
+  <script src="bower_components/angular-resource/angular-resource.js" class="lib"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js" class="lib"></script>
+  <script src="bower_components/angular-bootstrap/dropdown.js" class="lib"></script>
+  <script src="bower_components/angular-ui-utils/ui-utils.js" class="lib"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js" class="lib"></script>
+  <script src="bower_components/angular-cookie/angular-cookie.js" class="lib"></script>
+  <script src="bower_components/angular-load/angular-load.js" class="lib"></script>
+  <script src="bower_components/i18next/i18next.js" class="lib"></script>
+  <script src="bower_components/ng-i18next/dist/ng-i18next.js" class="lib"></script>
+  <script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js" class="lib"></script>
+  <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js" class="lib"></script>
+  <script src="bower_components/papaparse/papaparse.min.js" class="lib"></script>
+  <script src="bower_components/file-saver/FileSaver.min.js" class="lib"></script>
+  <script src="bower_components/ng-file-upload/angular-file-upload.js" class="lib"></script>
+  <script src="bower_components/ng-autofocus/dist/ng-autofocus.js" class="lib"></script>
+  <script src="bower_components/css-element-queries/src/ResizeSensor.js" class="lib"></script>
+  <script src="bower_components/rng-js/rng.js" class="lib"></script>
+  <!-- Add New Bower Component JS Above -->
+
+  <!-- JS from Vendor Components -->
+  <script src="vendor/crypto/jsbn.js" class="lib"></script>
+  <script src="vendor/crypto/jsbn2.js" class="lib"></script>
+  <script src="vendor/crypto/bigint.js" class="lib"></script>
+  <script src="vendor/crypto/class.js" class="lib"></script>
+  <script src="vendor/crypto/elgamal.js" class="lib"></script>
+  <script src="vendor/crypto/random.js" class="lib"></script>
+  <script src="vendor/crypto/sha1.js" class="lib"></script>
+  <script src="vendor/crypto/sha2.js" class="lib"></script>
+  <script src="vendor/crypto/sjcl.js" class="lib"></script>
+  <script src="vendor/angular-date-picker-polyfill/angular-date-picker-polyfill.js" class="lib"></script>
+  <script src="vendor/jquery.nanoscroller/nanoscroller.js" class="lib"></script>
+  <script src="vendor/jquery.actual/jquery.actual.js" class="lib"></script>
+  <script src="vendor/iframe-resizer/iframeResizer.contentWindow.min.js" class="lib"></script>
+  <!-- Add New Vendor Component JS Above -->
+
+  <!-- Configuration file JS -->
+  <script src="/avConfig.js"></script>
+
+  <!-- Themes JS -->
+  <script src="/avThemes.js"></script>
+
+  <!-- Main App JS -->
+  <script src="avUi/avUi.js" class="app"></script>
+  <script src="avUi/jquery.flash.js" class="app"></script>
+  <script src="avUi/simple-error-directive/simple-error-directive.js" class="app"></script>
+  <script src="avUi/change-lang-directive/change-lang-directive.js" class="app"></script>
+  <script src="avUi/affix-bottom-directive.js" class="app"></script>
+  <script src="avUi/auto-height-directive.js" class="app"></script>
+  <script src="avUi/affix-top-offset-directive.js" class="app"></script>
+  <script src="avUi/affix-top-directive.js" class="app"></script>
+  <script src="avUi/collapsing-directive.js" class="app"></script>
+  <script src="avUi/recompile-directive.js" class="app"></script>
+  <script src="avUi/debounce-directive.js" class="app"></script>
+  <script src="avUi/inside-iframe-service.js" class="app"></script>
+  <script src="avUi/percent-votes-service.js" class="app"></script>
+  <script src="avUi/checker-service.js" class="app"></script>
+  <script src="avUi/add-dots-to-int-service.js" class="app"></script>
+  <script src="avUi/endswith-service.js" class="app"></script>
+  <script src="avUi/state-data-service.js" class="app"></script>
+  <script src="avUi/autoscroll-down-directive.js" class="app"></script>
+  <script src="avUi/add-target-blank-filter.js" class="app"></script>
+  <script src="avUi/html-to-text-filter.js" class="app"></script>
+  <script src="avUi/custom-delegates.js" class="app"></script>
+  <script src="avUi/learn-more-directive.js" class="app"></script>
+
+  <script src="crypto/crypto.js" class="app"></script>
+  <script src="crypto/random-service.js" class="app"></script>
+  <script src="crypto/random-helper-service.js" class="app"></script>
+  <script src="crypto/deterministic-json-stringify-service.js" class="app"></script>
+  <script src="crypto/bigint-service.js" class="app"></script>
+  <script src="crypto/sjcl-service.js" class="app"></script>
+  <script src="crypto/elgamal-service.js" class="app"></script>
+  <script src="crypto/encrypt-answer-service.js" class="app"></script>
+  <script src="crypto/encrypt-ballot-service.js" class="app"></script>
+  <script src="crypto/hmac-service.js" class="app"></script>
+  <script src="crypto/answer-encoder-service.js" class="app"></script>
+  <script src="crypto/cast-ballot-service.js" class="app"></script>
+
+  <script src="app.js" class="app"></script>
+  <script src="avBooth/booth.js" class="app"></script>
+  <script src="avBooth/ahoram-primaries-screen-directive/ahoram-primaries-screen-directive.js" class="app"></script>
+  <script src="avBooth/ahoram-primaries-option-directive/ahoram-primaries-option-directive.js" class="app"></script>
+  <script src="avBooth/ahoram-primaries-selected-option-directive/ahoram-primaries-selected-option-directive.js" class="app"></script>
+  <script src="avBooth/2questions-conditional-screen-directive/2questions-conditional-screen-directive.js" class="app"></script>
+  <script src="avBooth/conditional-accordion-screen-directive/conditional-accordion-screen-directive.js" class="app"></script>
+  <script src="avBooth/accordion-option-directive/accordion-option-directive.js" class="app"></script>
+  <script src="avBooth/accordion-options-directive/accordion-options-directive.js" class="app"></script>
+  <script src="avBooth/available-options-directive/available-options-directive.js" class="app"></script>
+  <script src="avBooth/audit-ballot-screen-directive/audit-ballot-screen-directive.js" class="app"></script>
+  <script src="avBooth/ballot-locator-screen-directive/ballot-locator-screen-directive.js" class="app"></script>
+  <script src="avBooth/confirm-null-vote-controller/confirm-null-vote-controller.js" class="app"></script>
+  <script src="avBooth/booth-directive/booth-directive.js" class="app"></script>
+  <script src="avBooth/busy-directive/busy-directive.js" class="app"></script>
+  <script src="avBooth/casting-ballot-screen-directive/casting-ballot-screen-directive.js" class="app"></script>
+  <script src="avBooth/encrypting-ballot-screen-directive/encrypting-ballot-screen-directive.js" class="app"></script>
+  <script src="avBooth/error-screen-directive/error-screen-directive.js" class="app"></script>
+  <script src="avBooth/help-screen-directive/help-screen-directive.js" class="app"></script>
+  <script src="avBooth/multi-question-directive/multi-question-directive.js" class="app"></script>
+  <script src="avBooth/pcandidates-election-screen-directive/pcandidates-election-screen-directive.js" class="app"></script>
+  <script src="avBooth/pcandidates-rows-directive/pcandidates-rows-directive.js" class="app"></script>
+  <script src="avBooth/pcandidates-row-directive/pcandidates-row-directive.js" class="app"></script>
+  <script src="avBooth/pcandidates-cell-directive/pcandidates-cell-directive.js" class="app"></script>
+  <script src="avBooth/pairwise-beta-directive/pairwise-beta-directive.js" class="app"></script>
+  <script src="avBooth/review-ballot-directive/review-ballot-directive.js" class="app"></script>
+  <script src="avBooth/review-screen-directive/review-screen-directive.js" class="app"></script>
+  <script src="avBooth/selected-options-directive/selected-options-directive.js" class="app"></script>
+  <script src="avBooth/start-screen-directive/start-screen-directive.js" class="app"></script>
+  <script src="avBooth/success-screen-directive/success-screen-directive.js" class="app"></script>
+  <script src="avBooth/circle-option-directive/circle-option-directive.js" class="app"></script>
+  <script src="avBooth/selected-options-filter.js" class="app"></script>
+  <script src="avBooth/count-selected-options-filter.js" class="app"></script>
+  <script src="avBooth/has-selected-options-filter.js" class="app"></script>
+
+  <!-- election -->
+  <script src="avElection/init.js" class="app"></script>
+  <script src="avElection/results-controller/results-controller.js" class="app"></script>
+  <script src="avElection/results-directive/results-directive.js" class="app"></script>
+  <script src="avElection/plurality-at-large-results-directive/plurality-at-large-results-directive.js" class="app"></script>
+  <script src="avElection/borda-results-directive/borda-results-directive.js" class="app"></script>
+  <script src="avElection/question-results-directive/question-results-directive.js" class="app"></script>
+  <script src="avElection/verify-results-directive/verify-results-directive.js" class="app"></script>
+  <script src="avElection/public-controller/public-controller.js" class="app"></script>
+  <script src="avElection/layouts/default-election-directive/default-election-directive.js" class="app"></script>
+  <script src="avElection/layouts/question-info-directive/question-info-directive.js" class="app"></script>
+  <script src="avElection/layouts/simple-question-directive/simple-question-directive.js" class="app"></script>
+  <script src="avElection/layouts/public-view-directive/public-view-directive.js" class="app"></script>
+  <script src="avElection/layouts/election-links-directive/election-links-directive.js" class="app"></script>
+  <script src="avElection/authorities-directive/authorities-directive.js" class="app"></script>
+
+  <!-- registration -->
+  <script src="avRegistration/init.js" class="app"></script>
+  <script src="avRegistration/login-controller/login-controller.js" class="app"></script>
+  <script src="avRegistration/login-directive/login-directive.js" class="app"></script>
+  <script src="avRegistration/logout-controller/logout-controller.js" class="app"></script>
+  <script src="avRegistration/register-controller/register-controller.js" class="app"></script>
+  <script src="avRegistration/register-directive/register-directive.js" class="app"></script>
+  <script src="avRegistration/validate-controller/validate-controller.js" class="app"></script>
+  <script src="avRegistration/validate-directive/validate-directive.js" class="app"></script>
+  <script src="avRegistration/patterns-service.js" class="app"></script>
+  <script src="avRegistration/auth-method-service.js" class="app"></script>
+  <script src="avRegistration/field-directive/field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/email-field-directive/email-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/password-field-directive/password-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/text-field-directive/text-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/dni-field-directive/dni-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/code-field-directive/code-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/tel-field-directive/tel-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/bool-field-directive/bool-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/int-field-directive/int-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/captcha-field-directive/captcha-field-directive.js" class="app"></script>
+  <script src="avRegistration/fields/textarea-field-directive/textarea-field-directive.js" class="app"></script>
+
+  <!-- Admin -->
+  <script src="avAdmin/init.js" class="app"></script>
+  <script src="avAdmin/admin-sidebar-directive/admin-sidebar-directive.js" class="app"></script>
+  <script src="avAdmin/admin-foot-directive/admin-foot-directive.js" class="app"></script>
+  <script src="avAdmin/admin-head-directive/admin-head-directive.js" class="app"></script>
+  <script src="avAdmin/admin-login-controller/admin-login-controller.js" class="app"></script>
+  <script src="avAdmin/admin-signup-controller/admin-signup-controller.js" class="app"></script>
+  <script src="avAdmin/admin-controller/admin-controller.js" class="app"></script>
+
+  <!-- admin directives -->
+  <script src="avAdmin/admin-directives/extra-field/extra-field.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elquestions/elquestions.js" class="app"></script>
+  <script src="avAdmin/admin-directives/question/question.js" class="app"></script>
+  <script src="avAdmin/admin-directives/eltally/eltally.js" class="app"></script>
+  <script src="avAdmin/admin-directives/create/create.js" class="app"></script>
+  <script src="avAdmin/admin-directives/success-action/success-action.js" class="app"></script>
+  <script src="avAdmin/admin-directives/census-field/census-field.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elections/elections.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elcensus/elcensus.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elcensus/add-person-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elcensus/add-csv-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elcensus/confirm-remove-people-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elcensus/confirm-activate-people-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elcensus/confirm-deactivate-people-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elcensus/export-all-census-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elcensus-config/elcensus-config.js" class="app"></script>
+  <script src="avAdmin/admin-directives/dashboard/dashboard.js" class="app"></script>
+  <script src="avAdmin/admin-directives/dashboard/confirm-create-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/dashboard/confirm-start-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/dashboard/confirm-stop-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/dashboard/confirm-tally-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/dashboard/confirm-publish-results-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/dashboard/send-auth-codes-modal.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elbasic/elbasic.js" class="app"></script>
+  <script src="avAdmin/admin-directives/elauth/elauth.js" class="app"></script>
+  <script src="avAdmin/admin-directives/billinginfo/billinginfo.js" class="app"></script>
+  <script src="avAdmin/admin-directives/billinghistory/billinghistory.js" class="app"></script>
+  <script src="avAdmin/admin-directives/account/account.js" class="app"></script>
+  <script src="avAdmin/admin-directives/import/import.js" class="app"></script>
+  <script src="avAdmin/admin-directives/question-option-simple/question-option-simple.js" class="app"></script>
+  <script src="avAdmin/admin-directives/question-option-details/question-option-details.js" class="app"></script>
+  <script src="avAdmin/admin-directives/column-filters/int/column-filter-int.js" class="app"></script>
+  <script src="avAdmin/admin-directives/column-filters/bool/column-filter-bool.js" class="app"></script>
+  <script src="avAdmin/admin-directives/column-filters/datetime/column-filter-datetime.js" class="app"></script>
+  <script src="avAdmin/import-service.js" class="app"></script>
+  <!-- endof admin directives -->
+
+  <script src="avAdmin/elections-api-service.js" class="app"></script>
+  <script src="avAdmin/must-extra-fields-service.js" class="app"></script>
+  <script src="avAdmin/admin-plugins.js" class="app"></script>
+
+  <script src="test/test.js" class="app"></script>
+
+  <!-- for security, we do not include the dynamic directive in the app,
+       so in the compiled app e2e tests are not expected work. -->
+  <script src="test/dynamic-directive.js"></script>
+  <script src="test/unit_test_e2e.js" class="app"></script>
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="/ie10-viewport-bug-workaround.js"></script>
+  
+  <!-- IE9 console workaround -->
+  <script src="/ie9-console-workaround.js"></script>
+  <!-- Add New Component JS Above -->
+
+  <div id="no-js">
+    Page is taking some time to load, wait a moment please. If it takes too long, please check that you have javascript activated, try with another browser or contact us.
+  </div>
+
+  <div id="unsupported-browser">
+    For security reasons, your browser is unsupported. Please use a newer web browser (if you are using Internet Explorer, use version 9 or newer).
+  </div>
+
+  <div>
+    <!-- Shown while loading -->
+    <div id="angular-preloading" class="avb-start-loading">
+    </div>
+    <!-- Main content -->
+    <div id="content">
+      <!-- This is where angular injects its content -->
+      <div ui-view>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div>
+    <div class="affix-placeholder"></div>
+    <h1
+      av-affix-top-offset="31"
+      affix-placeholder=".affix-placeholder">
+      <span ng-i18next>avAdmin.sidebar.questions</span>
+      <button
+        type="button"
+        ng-click="newQuestion()"
+        aria-expanded="false"
+        class="btn btn-success pull-right"
+        ng-if="electionEditable()">
+        <i class="fa fa-plus"></i>
+        <span ng-i18next>avAdmin.questions.new</span>
+      </button>
+    </h1>
+
+    <div av-admin-question question="q" ng-repeat="q in election.questions"> </div>
+    <button ng-click="saveQuestions()" class="btn btn-block btn-success" ng-i18next>next</button>
+</div>

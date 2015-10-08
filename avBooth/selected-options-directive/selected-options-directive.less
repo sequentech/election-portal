@@ -1,0 +1,66 @@
+[avb-selected-options] {
+  > .col-xs-12 {
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  .animate-repeat {
+    line-height: 40px;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  .animate-repeat.ng-move,
+  .animate-repeat.ng-enter,
+  .animate-repeat.ng-leave {
+    transition:all linear 0.1s;
+  }
+
+  .animate-repeat.ng-leave.ng-leave-active,
+  .animate-repeat.ng-move,
+  .animate-repeat.ng-enter {
+    opacity:0;
+    max-height:0;
+  }
+
+  .animate-repeat.ng-leave,
+  .animate-repeat.ng-move.ng-move-active,
+  .animate-repeat.ng-enter.ng-enter-active {
+    opacity:1;
+    max-height:40px;
+  }
+
+  [dnd-list], [dnd-draggable] {
+    position: relative;
+    user-select: none;
+  }
+
+  [dnd-list] {
+    /**
+      * The dnd-list should always have a min-height,
+      * otherwise you can't drop to it once it's empty
+      */
+    min-height: 42px;
+
+    /**
+      * The dndDraggingSource class will be applied to
+      * the source element of a drag operation. It makes
+      * sense to hide it to give the user the feeling
+      * that he's actually moving it.
+      */
+    .dndDraggingSource {
+      display: none;
+    }
+
+    /**
+      * An element with .dndPlaceholder class will be
+      * added to the dnd-list while the user is dragging
+      * over it.
+      */
+    .dndPlaceholder {
+      display: block;
+      background-color: @gray-light;
+      min-height: 42px;
+    }
+  }
+}

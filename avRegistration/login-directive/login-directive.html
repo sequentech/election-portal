@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 loginheader">
+        <h2 class="tex-center" ng-i18next="avRegistration.loginHeader"></h2>
+    </div>
+
+    <div class="col-sm-6">
+        <form name="form" id="loginForm" role="form" class="form-horizontal">
+            <div ng-repeat="field in login_fields" avr-field index="{{$index+1}}">
+            </div>
+
+          <div class="col-sm-offset-4 col-sm-8 button-group">
+              <div class="input-error">
+                  <div class="error text-danger" ng-if="error">{{ error }}</div>
+              </div>
+              <div class="input-warn">
+                <span
+                  class="text-warning"
+                  ng-if="!form.$valid || sendingData"
+                  ng-i18next>
+                  avRegistration.fillValidFormText
+                </span>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-block btn-success"
+                ng-i18next="avRegistration.loginButton"
+                ng-click="loginUser(form.$valid)"
+                tabindex="{{login_fields.length+1}}"
+                ng-disabled="!form.$valid || sendingData">
+              </button>
+          </div>
+        </form>
+    </div>
+    <div
+      class="col-sm-5 col-sm-offset-1 hidden-xs"
+      ng-if="registrationAllowed">
+      <h3 class="help-h3" ng-i18next="avRegistration.notRegisteredYet"></h3>
+      <p>
+        <a ng-if="!isAdmin" href="#/election/{{election.id}}/public/register" ng-i18next="avRegistration.registerHere" ng-click="goSignup()" tabindex="{{login_fields.length+2}}"></a><br/>
+        <a ng-if="isAdmin" ui-sref="admin.signup()" ng-i18next="avRegistration.registerHere" tabindex="{{login_fields.length+2}}"></a><br/>
+        <span ng-i18next="avRegistration.fewMinutes"></span>
+      </p>
+    </div>
+  </div>
+</div>
+

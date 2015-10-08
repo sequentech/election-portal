@@ -1,0 +1,26 @@
+<div class="col-sm-10">
+  <span
+    class="text"
+    ng-if="!editing"
+    ng-click="setEdit(electionEditable() && true)">
+      <span class="glyphicon glyphicon-edit"></span>
+      {{ answer.text }}
+    </span>
+  <input
+    type="text"
+    ng-if="editing"
+    ng-model="answer.text"
+    autofocus
+    ui-event="{
+      blur: 'setEdit(false)'}"
+    ui-keypress="{
+      enter: 'setEdit(false, $event)',
+      27: 'setEdit(false, $event)'}"/>
+</div>
+<div class="col-sm-2 buttons text-right">
+    <i
+      class="fa fa-times fa-sw"
+      ng-if="electionEditable()"
+      ng-click="delOption(questionIndex(), $index)">
+    </i>
+</div>

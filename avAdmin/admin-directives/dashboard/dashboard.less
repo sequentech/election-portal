@@ -1,0 +1,69 @@
+[av-admin-dashboard] {
+  /** statusbar **/
+  .stick {
+      background-image: url("/img/stick-green.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 8px;
+  }
+
+  .text-gray-light {
+    color: lighten(@gray-light, 10%);
+  }
+
+  .text-muted .stick {
+      background-image: url("/img/stick-gray.png");
+  }
+
+  .stickend,
+  .stickini {
+      background-size: 50% 8px;
+  }
+
+  .stickini {
+      background-position: center right;
+  }
+  .stickend {
+      background-position: center left;
+  }
+
+  .stick i {
+      background-color: white;
+      padding: 4px;
+  }
+
+  .stick i.fa-spin {
+      background-color: transparent;
+  }
+
+  .statusbar .col-xs-2 {
+      padding: 0px;
+  }
+
+  .statusbar {
+      margin-left: 40px;
+      margin-right: 40px;
+  }
+
+  /** info **/
+  .dashboard .info .block {
+      background-color: @av-secondary;
+      color: @av-secondary-contrast;
+      padding: 20px;
+      font-size: 1.4em;
+  }
+
+  .dashboard .info {
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+
+  .dashboard .general {
+      font-size: 1.5em;
+  }
+
+  .dashboard .actionbtn {
+      max-width: 100%;
+      white-space: normal;
+  }
+}

@@ -1,0 +1,70 @@
+[av-census-field] {
+
+  .dict {
+    transition:all 0.2s ease;
+
+    /* toggle */
+    &.collapsed {
+      [av-collapsing] {
+        display: block;
+        max-height: 22px;
+        overflow: hidden;
+        padding-bottom: 0;
+      }
+
+      .glyphicon-play {
+        transform: rotate(90deg) !important;
+        color: @gray-light;
+      }
+    }
+
+    .toggle {
+      max-height: 22px;
+      display: block;
+      width: 100%;
+      margin-top: -10px;
+      margin-bottom: -10px;
+      z-index: 1;
+      cursor: pointer;
+      background: linear-gradient(to bottom, fade(@gray-lighter, 0%) 0%, @gray-lighter 100%);
+
+      .glyphicon-play {
+        transition:all 0.2s ease;
+        transform: rotate(-90deg);
+      }
+
+      &:hover .glyphicon-play {
+        color: @gray;
+      }
+    }
+
+    [av-collapsing] {
+      padding-bottom: 20px;
+      transition:all 0.3s ease;
+    }
+
+    /* key value table */
+    .keyval {
+      display: block;
+      width: 100%;
+
+      .key {
+        display: inline-block;
+        font-weight: bold;
+        width: 30%;
+        text-align: right;
+        overflow: hidden;
+        word-break: break-all;
+        vertical-align: top;
+      }
+
+      .value {
+        display: inline-block;
+        width: 65%;
+        overflow: hidden;
+        word-break: break-all;
+        vertical-align: top;
+      }
+    }
+  }
+}

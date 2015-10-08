@@ -1,0 +1,36 @@
+<div class="col-xs-12" ng-if="layout === 'accordion' || layout === 'simple' || layout === 'details' || layout === 'conditional-accordion' || layout === 'ahoram-primaries'">
+  <div avb-accordion-options>
+  </div>
+</div>
+<div class="col-xs-12" ng-if="layout === 'circles'">
+  <!-- show blank-vote as a circle -->
+  <div
+    class="animate-repeat avb-circle-blank-option"
+    ng-class="{selected: numSelectedOptions() === 0}">
+    <div class="clickable-opt" ng-click="clearSelection()">
+      <div class="image-wrap">
+        <img src="" />
+      </div>
+      <span class="show-value text-center" ng-i18next>
+        avBooth.voteInBlank
+      </span>
+    </div>
+    <a
+      class="external-link text-center"
+      target="_blank"
+      ng-click="$event.preventDefault()">
+    </a>
+  </div>
+
+  <div avb-circle-option
+    ng-repeat="option in filteredOptions"
+    class="animate-repeat"
+    ng-class="{selected: option.selected > -1}">
+  </div>
+
+  <div
+    class="animate-repeat padded-left"
+    ng-if="filteredOptions.length == 0"
+    ng-i18next="avBooth.noResults">
+  </div>
+</div>

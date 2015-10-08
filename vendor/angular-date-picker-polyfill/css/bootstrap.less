@@ -1,0 +1,55 @@
+@import "_default_colors.less";
+
+// Custom Variables
+@bootstrap-blue: #428bca;
+@medium-border-color: #ddd;
+@cell-border-color: #fff;
+@calendar-border: solid 1px @medium-border-color;
+@other-month-cell-bg-color: #fff;
+@disabled-cell-bg-color: #fff;
+@selected-cell-color: #fff;
+@selected-cell-inner-border-color: @bootstrap-blue;
+@popup-padding: 0;
+@popup-bg: #fafafa;
+@popup-border: solid 1px #ddd;
+
+
+@import "_default_variables.less";
+@import "_calendar.less";
+@import "_popup.less";
+
+.aa-cal {
+  border-radius: 0;
+}
+// Inside Popup
+.aa-datepicker-popup {
+  box-shadow: 0px 5px 10px rgba(25, 25, 25, 0.92);
+  border-radius: 3px;
+  .aa-cal {
+    padding-top: 15px;
+    border: none;
+  }
+  .q-timepicker {
+    margin-bottom: 15px;
+  }
+}
+td.aa-cal-selected {
+  span {
+    border-radius: 0;
+    background-color: @bootstrap-blue;
+    color: @cell-bg-color;
+  }
+  &:hover {
+    background-color: #fff;
+    span {
+      background-color: darken(@bootstrap-blue, 15%);
+    }
+  }
+}
+td.aa-cal-today.aa-cal-selected {
+  color: #fff;
+  &:hover {
+    background-color: #fff;
+  }
+}
+

@@ -1,0 +1,178 @@
+<div>
+    <h2 ng-i18next>avAdmin.sidebar.census</h2>
+
+    <p class="text-muted">
+      <span ng-i18next>avAdmin.census.intro</span>
+      <a href="" class="learn-more" target="_blank" ng-i18next>
+        avAdmin.learnMore
+      </a>
+    </p>
+
+    <div ng-if="error" class="bg-danger">
+        <span ng-if="error.payload">{{ error.payload }}</span>
+        <span ng-if="!error.payload">{{ error }}</span>
+    </div>
+
+    <div ng-if="msg" class="bg-success">
+        <span ng-i18next="{{ msg }}"></span>
+    </div>
+
+    <div class="affix-placeholder"></div>
+    <h4
+      class="header-block"
+      av-affix-top-offset="50"
+      affix-placeholder=".affix-placeholder">
+      <span
+        class="glyphicon glyphicon-chevron-right"
+        aria-hidden="true">
+      </span>
+      <span ng-i18next>avAdmin.census.manage</span>
+      <button class="btn btn-default" ng-click="reloadCensus()"><i class="fa fa-refresh"></i></button>
+
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          <span ng-i18next>avAdmin.census.actionsDropdown</span>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li
+            ng-repeat="command in commands"
+            ng-class="{'disabled': !command.enableFunc()}">
+            <a ng-click="command.actionFunc()">
+              <i class="{{command.iconClass}}"></i>
+              <span ng-i18next>
+                [i18next]({num: numSelected(shown())})avAdmin.census.{{command.i18nString}}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="input-group search pull-right col-xs-3">
+        <input
+          type="text"
+          class="form-control"
+          ng-model="filterStr"
+          placeholder="{{'avAdmin.elections.filter' | i18next}}">
+        <span class="input-group-btn">
+          <button
+            class="btn btn-default"
+            type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </h4>
+    <table
+      class="table censustable"
+      infinite-scroll="loadMoreCensus()"
+      infinite-scroll-distance="0">
+      <thead>
+        <tr>
+          <th class="small-col text-right">
+            <div
+              av-column-filter-int
+              filter-options-var="filterOptions"
+              filter-prefix="census__user__user__id"
+              filter-i18n="avAdmin.census.idColumnHeader">
+            </div>
+          </th>
+          <th class="small-col text-right">
+            <div
+              av-column-filter-datetime
+              filter-options-var="filterOptions"
+              filter-prefix="census__user__user__date_joined"
+              filter-i18n="avAdmin.census.creationDateHeader">
+            </div>
+          </th>
+          <th class="small-col text-right">
+            <div
+              av-column-filter-bool
+              filter-options-var="filterOptions"
+              filter-prefix="census__user__user__is_active"
+              filter-i18n="avAdmin.census.activeColumnHeader"
+              filter-i18n-yes="yes"
+              filter-i18n-no="no">
+            </div>
+          </th>
+          <th class="small-col text-right" ng-i18next>
+            avAdmin.census.votedColumnHeader
+          </th>
+          <th ng-repeat="field in election.census.extra_fields">
+            {{ field.name| htmlToText }}
+          </th>
+        </tr>
+      </thead>
+      <tbody ng-if="!reloadingCensus">
+        <tr
+          ng-class="{'success': c.selected}"
+          ng-repeat="c in filteredVoters()">
+          <td class="small-col">
+            <input type="checkbox" ng-model="c.selected" />
+            <div class="text-right">{{c.id}}</div>
+          </td>
+          <td class="small-col text-right">
+            <span
+              am-time-ago="c.date_joined"
+              tooltip="{{c.date_joined | amDateFormat:'LLLL'}}"
+              tooltip-placement="right"
+              popover-trigger="mouseenter">
+            </span>
+          </td>
+          <td class="small-col text-right">
+            <strong ng-if="c.active" ng-i18next>
+                yes
+            </strong>
+            <span ng-if="!c.active" ng-i18next>
+                no
+            </span>
+          </td>
+          <td class="small-col text-right">
+            <strong ng-if="c.vote" ng-i18next>
+              avAdmin.census.voted
+            </strong>
+            <span ng-if="!c.vote" ng-i18next>
+              avAdmin.census.notVoted
+            </span>
+          </td>
+          <td ng-repeat="field in election.census.extra_fields" av-census-field>
+          </td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr ng-if="!loading && filteredVoters().length === 0 && election.census.voters.length > 0">
+          <td
+            class="wide text-muted"
+            colspan="{{election.census.extra_fields.length + 4}}"
+            ng-i18next>
+            avAdmin.census.filteredEmptyResults
+          </td>
+        </tr>
+        <tr ng-if="!loading && election.census.voters.length === 0">
+          <td
+            class="wide text-muted"
+            colspan="{{election.census.extra_fields.length + 4}}"
+            ng-i18next>
+            avAdmin.census.emptyCensus
+          </td>
+        </tr>
+        <tr ng-if="loading">
+          <td
+            class="wide text-muted"
+            colspan="{{election.census.extra_fields.length + 4}}">
+            <i class="fa fa-cog fa-spin fa-sw"></i>
+            <span ng-i18next>loading</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button
+      ui-sref="admin.successAction()"
+      ng-if="!election.id"
+      class="btn btn-block btn-success"
+      ng-i18next>
+      next
+    </button>
+
+</div>

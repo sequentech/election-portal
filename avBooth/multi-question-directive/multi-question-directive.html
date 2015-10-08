@@ -1,0 +1,210 @@
+<!-- top navbar with question title -->
+<nav class="navbar navbar-default navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
+  <div class="container">
+    <div class="row avb-top-navbar">
+      <div class="pull-left"
+        ng-i18next="[i18next]({sprintf:['1','3', stateData.questionNum+1, election.questions.length]})avBooth.stepAndQuestionNumber">
+      </div>
+      <div class="pull-right">
+        <span
+          class="glyphicon glyphicon-question-sign"
+          ng-click="launchHelp()">
+        </span>
+        <span ng-click="launchHelp()" ng-i18next="avBooth.helpTitle"></span>
+        <span class="dropdown left-padding" av-change-lang>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrapper-unfixed">
+  <div class="navbar-unfixed-top text-center" av-collapsing=".unfixed-top-height" data-toggle-selector="[avb-multi-question] #avb-toggle">
+    <div class="container">
+      <div class="hidden unfixed-top-height"></div>
+      <h1 ng-if="!showingPreset">{{stateData.question.title}}</h1>
+      <p
+        ng-if="!showingPreset"
+        class="description"
+        ng-bind-html="stateData.question.description | addTargetBlank"></p>
+    </div>
+  </div>
+</div>
+
+<div id="avb-toggle" class="text-center item-block hidden">
+  <span class="glyphicon glyphicon-play"></span>
+</div>
+
+<div class="content avb-content" ng-if="!showingPreset">
+  <div class="container">
+    <div class="row">
+      <!-- only shown if in mobile: a row with selected opts and filter -->
+      <div
+        ng-if="!hideSelection"
+        class="visible-xs col-xs-12 small-selected padded"
+        ng-class="{dropdown: stateData.affixDropDownShown}">
+        <div
+          class="pull-left"
+          ng-click="stateData.affixDropDownShown = !stateData.affixDropDownShown">
+          <h4 class="text-brand-success" ng-i18next="[i18next]({count: numSelectedOptions()})avBooth.numSelectedOptionsSmall"></h4>
+          <span
+            class="text-brand-success glyphicon glyphicon-play avb-toggle-span">
+            </span>
+        </div>
+        <div
+          class="pull-right filter-input"
+          ng-class="{hidden: stateData.affixDropDownShown}">
+          <div class="pull-right filter-input">
+            <input type="text"
+              class="filter-input"
+              id="filter-input"
+              ng-model="stateData.filter"
+              ng-model-options="{debounce: 500}"
+              ng-i18next="[placeholder]avBooth.filterOptionsPlaceholder"
+              />
+            <span class="glyphicon glyphicon-search"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- show available options and filter -->
+      <div class="col-xs-12" ng-class="{'col-sm-6': !hideSelection}">
+        <div class="pull-left hidden-xs">
+          <h4 class="text-brand-success" ng-i18next="avBooth.questionAvailableOptionsTitle"></h4>
+        </div>
+        <div class="pull-right filter-input hidden-xs">
+          <input type="text"
+            class="filter-input"
+            id="filter-input"
+            ng-model="stateData.filter"
+            ng-model-options="{debounce: 500}"
+            ng-i18next="[placeholder]avBooth.filterOptionsPlaceholder"
+            />
+          <span class="glyphicon glyphicon-search"></span>
+        </div>
+        <div avb-available-options
+          layout="stateData.question.layout"
+          max="stateData.question.max"
+          min="stateData.question.min"
+          question="stateData.question"
+          filter="{{stateData.filter}}"
+          ng-class="{hidden: stateData.affixIsSet && stateData.affixDropDownShown}">
+        </div>
+      </div>
+
+      <!-- show selected options -->
+      <div
+        class="col-xs-12 col-sm-6 padded"
+        ng-if="!hideSelection"
+        ng-class="{hidden: windowWidth < 768 && !stateData.affixDropDownShown, affixedSelection: windowWidth < 768 && stateData.affixIsSet}">
+        <h4
+          class="text-brand-success padded-left"
+          ng-if="!stateData.ordered"
+          ng-i18next>
+          [i18next]({count: numSelectedOptions()})avBooth.questionSelectedOptionsTitle
+        </h4>
+        <h4
+          class="text-brand-success padded-left"
+          ng-if="stateData.ordered"
+          ng-i18next>
+          [i18next]({count: numSelectedOptions()})avBooth.questionSelectedOptionsTitleOrdered
+        </h4>
+        <div avb-selected-options
+          preset-selected-size="stateData.question.presetSelectedSize"
+          layout="stateData.question.layout"
+          max="stateData.question.max"
+          min="stateData.question.min"
+          sorted="stateData.sorted"
+          ordered="stateData.ordered"
+          options="stateData.question.answers">
+        </div>
+      </div>
+    </div>
+
+    <!-- next button -->
+    <div class="row hidden" ng-cloak av-affix-bottom="stateData.affixIsSet" data-force-affix-width="768">
+      <p class="warnings">
+        <span
+          class="text-brand-warning"
+          id="selectMoreOptsWarning"
+          ng-i18next="[i18next]({min: stateData.question.min})avBooth.selectMoreOpts"
+          ng-if="numSelectedOptions() < stateData.question.min">
+        </span>
+        <span
+          class="text-brand-primary"
+          id="maxSelectedLimitTagReached"
+          ng-i18next="[i18next]({max: tagMax, tagName: tagName})avBooth.maxSelectedLimitTagReached"
+          ng-if="numSelectedOptions() !== stateData.question.max && numTaggedSelectedOptions() === tagMax">
+        </span>
+        <span
+          class="text-brand-primary"
+          id="maxSelectedLimitNoTagReached"
+          ng-i18next="[i18next]({max: noTagMax, tagName: tagName})avBooth.maxSelectedLimitNoTagReached"
+          ng-if="numSelectedOptions() !== stateData.question.max && numSelectedOptions() - numTaggedSelectedOptions() === noTagMax">
+        </span>
+        <span
+          class="text-brand-primary"
+          id="maxSelectedLimitReached"
+          ng-i18next="[i18next]({max: stateData.question.max})avBooth.maxSelectedLimitReached"
+          ng-if="numSelectedOptions() === stateData.question.max">
+        </span>
+        <span
+          ng-i18next="[i18next]({count: numSelectedOptions()})avBooth.numOptionsSelected"
+          ng-if="numSelectedOptions() !== stateData.question.max && numSelectedOptions() >= stateData.question.min && numTaggedSelectedOptions() !== tagMax && (!noTagMax || numSelectedOptions() - numTaggedSelectedOptions() !== noTagMax)">
+        </span>
+        <span
+          ng-i18next="[i18next]({min:stateData.question.min, max: stateData.question.max})avBooth.numOptionsLimits"
+          ng-if="numSelectedOptions() !== stateData.question.max && numSelectedOptions() >= stateData.question.min && (!noTagMax || numSelectedOptions() - numTaggedSelectedOptions() !== noTagMax) && numTaggedSelectedOptions() !== tagMax">
+        </span>
+      </p>
+      <button
+        class="btn btn-block btn-lg btn-success btn-plain"
+        ng-i18next="avBooth.continueButton"
+        ng-click="questionNext()">
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="content avb-content preset"  ng-if="showingPreset">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <span ng-if="showingPreset">
+          <h3 ng-bind-html="stateData.question.extra_options.recommended_preset__title | addTargetBlank"></h3>
+          <p class="description" ng-bind-html="stateData.question.description | addTargetBlank"></p>
+        </span>
+      </div>
+    </div>
+    <div class="row options-row">
+      <!-- show yes/no options -->
+      <div class="col-xs-6">
+        <div class="opt" ng-click="selectPresets()">
+          <span class="glyphicon"
+            ng-class="{'glyphicon-unchecked': stateData.question.presetSelected !== true,
+                       'glyphicon-check': stateData.question.presetSelected === true}">
+          </span>
+          <span ng-bind-html="stateData.question.extra_options.recommended_preset__accept_text"></span>
+        </div>
+      </div>
+      <div class="col-xs-6 left-border">
+        <div class="opt" ng-click="unselectPresets()">
+          <span class="glyphicon"
+            ng-class="{'glyphicon-unchecked': stateData.question.presetSelected !== false,
+                       'glyphicon-check': stateData.question.presetSelected === false}">
+          </span>
+          <span ng-bind-html="stateData.question.extra_options.recommended_preset__deny_text"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- next button -->
+    <div class="row hidden" ng-cloak av-affix-bottom data-force-affix-width="768">
+      <button
+        class="btn btn-block btn-lg btn-success btn-plain"
+        ng-i18next="avBooth.continueButton"
+        ng-click="presetNext()">
+      </button>
+    </div>
+  </div>
+</div>

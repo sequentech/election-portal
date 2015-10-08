@@ -1,0 +1,69 @@
+<nav class="navbar navbar-default navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
+  <div class="container">
+    <div class="row avb-top-navbar">
+      <div class="pull-right">
+        <span class="dropdown left-padding" av-change-lang>
+        </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="wrapper-unfixed">
+  <div class="navbar-unfixed-top text-center" av-collapsing=".unfixed-top-height" data-toggle-selector="[avb-success-screen] #avb-toggle">
+    <div class="container">
+      <div class="hidden unfixed-top-height"></div>
+      <h1 ng-i18next="avBooth.successTitle"></h1>
+      <p ng-i18next="avBooth.successSubheader"></p>
+    </div>
+  </div>
+</div>
+
+<div id="avb-toggle" class="text-center item-block hidden">
+  <span class="glyphicon glyphicon-play"></span>
+</div>
+
+<div class="container-fluid warning-demo" ng-if="isDemo">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p ng-i18next="[html]avBooth.thisisADemoNotification"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content avb-content">
+  <div class="container">
+    <div class="padded">
+      <p ng-i18next>
+        [html:i18next]({ballotHash: stateData.ballotHash, ballotLocatorUrl: "#/election/" +election.id + "/public/ballot-locator"})avBooth.successBallotHash
+      </p>
+<!--      <p ng-i18next>avBooth.relatedLinksText</p>
+      <ul>
+        <li>
+          <a href="#/election/{{election.id}}/public/view/faqs.html" target="_blank" ng-i18next>avElection.public.faqsLink</a>
+        </li>
+        <li>
+          <a href="#/election/{{election.id}}/public/authorities" target="_blank" ng-i18next>avElection.public.authoritiesLink</a>
+        </li>
+        <li>
+          <a href="#/election/{{election.id}}/public/view/overview.html" target="_blank" ng-i18next>avElection.public.overviewLink</a>
+        </li>
+        <li>
+          <a href="/election/{{election.id}}/public/view/tech_overview.pdf" target="_blank" ng-i18next>avElection.public.technicalOverviewLink</a>
+        </li>-->
+      </ul>
+      <div ng-bind-html="successText">
+      </div>
+      <h2 class="text-center" ng-if="!!election.presentation.share_text">
+        <a
+          ng-i18next
+          href="{{tweetLink}}"
+          target="_blank">
+          avElection.public.shareLink
+        </a>
+      </h2>
+    </div>
+  </div>
+</div>

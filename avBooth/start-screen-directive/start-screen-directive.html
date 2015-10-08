@@ -1,0 +1,79 @@
+<nav class="navbar start-screen navbar-default navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
+  <div class="container">
+    <div class="row avb-top-navbar">
+      <div class="pull-left" ng-i18next="[html]avBooth.poweredBy">
+      </div>
+      <div class="pull-right">
+        <span
+          class="glyphicon glyphicon-question-sign"
+          ng-click="launchHelp()">
+        </span>
+        <span ng-click="launchHelp()" ng-i18next="avBooth.helpTitle"></span>
+        <span class="dropdown left-padding" av-change-lang>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<div class="wrapper-unfixed">
+  <div class="navbar-unfixed-top text-center" av-collapsing=".unfixed-top-height" data-toggle-selector="[avb-start-screen] #avb-toggle">
+    <div class="container">
+      <div class="hidden unfixed-top-height"></div>
+      <h1>{{election.title}}</h1>
+      <p class="description" ng-bind-html="election.description | addTargetBlank"></p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid warning-demo" ng-if="isDemo">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p ng-i18next="[html]avBooth.thisisADemoNotification"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="avb-toggle" class="text-center item-block hidden">
+  <span class="glyphicon glyphicon-play"></span>
+</div>
+
+<div class="content avb-content start-screen">
+  <div class="container">
+    <div class="row">
+      <div class="padded col-xs-12">
+        <p ng-i18next="avBooth.stepsToVote"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="padded col-xs-12 col-sm-4">
+        <h3 class="text-brand-success" ng-i18next="avBooth.selectOptionsTitle"></h3>
+        <p ng-i18next="avBooth.selectOptionsText"></p>
+      </div>
+      <div class="padded col-xs-12 col-sm-4">
+        <h3 class="text-brand-success" ng-i18next="avBooth.reviewOptionsTitle"></h3>
+        <p ng-i18next="avBooth.reviewOptionsText"></p>
+      </div>
+      <div class="padded col-xs-12 col-sm-4">
+        <h3 class="text-brand-success" ng-i18next="avBooth.emitBallotTitle"></h3>
+        <p ng-i18next="avBooth.emitBallotText"></p>
+      </div>
+    </div>
+    <div class="row" ng-if="tosTitle.length > 0">
+      <div class="padded col-xs-12">
+        <h4>{{tosTitle}}</h4>
+        <div class="tos-text" ng-bind-html="tosText"></div>
+      </div>
+    </div>
+    <div class="row hidden" ng-cloak av-affix-bottom data-force-affix-width="768">
+      <button
+        class="btn btn-block btn-lg btn-success btn-plain"
+        ng-i18next="avBooth.startVoting"
+        ng-click="next()">
+      </button>
+    </div>
+  </div>
+</div>

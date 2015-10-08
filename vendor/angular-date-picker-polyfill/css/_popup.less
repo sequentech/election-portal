@@ -1,0 +1,36 @@
+.aa-datepicker-popup-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.aa-datepicker-popup {
+  border: @popup-border;
+  padding: @popup-padding;
+  position: absolute;
+  background-color: @popup-bg-color;
+  top: 22px;
+  left: 0px;
+  z-index: 10000;
+
+  .aa-datepicker-popup-close {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px;
+    &:hover {
+      background-color: @light-gray;
+    }
+    &:before {
+      content: "\d7";
+      position: absolute;
+      top: -2px;
+    }
+  }
+
+  .aa-timepicker {
+    text-align: center;
+  }
+}

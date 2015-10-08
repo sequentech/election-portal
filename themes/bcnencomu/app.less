@@ -1,0 +1,33 @@
+@import "../../external.less";
+
+/* Global Config */
+@av-primary: #E65C56;
+@av-secondary: #768BAB;
+@av-primary-contrast: white;
+@av-secondary-contrast: white;
+@brand-primary: @av-primary;
+@brand-success: @av-secondary;
+@link-color: @av-secondary;
+@text-success: @av-secondary;
+@state-success-text: @av-secondary;
+
+
+
+/* Admin Config */
+@av-bg: #EEE;
+@av-bg-hover: #DDD;
+@av-error-bg: #fff;
+@av-error-color: #990000;
+
+@imgdir: "../../img";
+
+@import "../../app.less";
+
+[av-booth] .navbar-unfixed-top a {
+  color: white;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

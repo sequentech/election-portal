@@ -1,0 +1,38 @@
+window.cookies_eu_plugin = {
+    show: function() {
+        var C = window.Cookies;
+        var t = window.i18n.t;
+        //var text = t("cookies-eu.text"); // this is not working...
+        var text = 'Utilizamos cookies propias y de terceros para mejorar nuestros servicios. Si continua navegando, consideramos que acepta su uso. <a href="cookies.txt" target="_blank">Más información</a> ';
+        var accept = "Aceptar";
+
+        var styles = 'position: fixed; left: 0; bottom: 0; right: 0; padding: 5px; text-align: center; display: none;';
+        $("body").append('<div id="cookies-eu" class="bg-primary" style="'+styles+'">'+text+'</div>');
+        $("#cookies-eu").append('<button id="cookies-eu-btn" class="btn btn-success">'+accept+'</button>');
+        $("#cookies-eu").fadeIn("fast");
+
+        $("#cookies-eu-btn").click(function() {
+            $("#cookies-eu").fadeOut("fast");
+            C.set('cookies-eu', "accept");
+        });
+    },
+
+    auto_hide_cookie: function() {
+        var C = window.Cookies;
+        $("#cookies-eu").fadeOut("fast");
+        C.set('cookies-eu', "accept");
+    },
+
+    init: function() {
+        $(document).ready(function() {
+            var C = window.Cookies;
+            var cookie = C.get('cookies-eu');
+            if (cookie !== 'accept') {
+                window.cookies_eu_plugin.show();
+                setTimeout(window.cookies_eu_plugin.auto_hide_cookie, 60 * 1000);
+            }
+        });
+    }
+};
+
+window.cookies_eu_plugin.init();

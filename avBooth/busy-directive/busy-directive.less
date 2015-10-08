@@ -1,0 +1,48 @@
+[avb-busy] {
+  .avb-busy-title {
+    width: 100%;
+    min-height: 45px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    color: black;
+    font-size: 14pt;
+    line-height: 16pt;
+    padding: 10px;
+    z-index: 999;
+  }
+
+  @media (min-width: 400px) {
+    .avb-busy-title {
+      max-width: 350px;
+    }
+  }
+
+  .avb-busy-loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -30px;
+      margin-left: -30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 7px;
+      background-image: url('@{imgdir}/loading.gif');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      z-index: 999;
+  }
+
+  .avb-busy-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.3);
+      z-index: 998;
+  }
+}

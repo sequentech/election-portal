@@ -1,0 +1,66 @@
+<div>
+    <h2 ng-i18next>[i18next]({'num': elections.length})avAdmin.create.summary</h2>
+
+    <div ng-repeat="election in elections">
+      <h3 ng-i18next>[i18next]({'title': election.title, 'index': $index+1})avAdmin.basic.title.labelH3</h3>
+      <table class="table table-bordered table-striped">
+          <tr>
+              <th ng-i18next> avAdmin.basic.description.label </th>
+              <td ng-bind-html="election.description | addTargetBlank"></td>
+          </tr>
+          <tr>
+              <th ng-i18next> avAdmin.sidebar.questions </th>
+              <td>
+                  <ol>
+                      <li ng-repeat="q in election.questions">
+                          <p>{{q.title|truncate:'50'}}</p>
+                          <p ng-i18next>[html:i18next]({'num_answers': q.answers.length, 'min': q.min, 'max': q.max, 'num_winners': q.num_winners, tally_method: q.tally_type, random: q.randomize_answer_order})avAdmin.basic.questionOptionsSummary</p>
+                      </li>
+                  </ol>
+              </td>
+          </tr>
+          <tr>
+              <th ng-i18next> avAdmin.sidebar.census </th>
+              <td>
+                {{ election.census.auth_method }} - {{ election.census.census }}
+                (<span ng-i18next>[i18next]({'num': election.census.voters.length})avAdmin.basic.censusSize</span>)
+              </td>
+          </tr>
+      </table>
+    </div>
+
+    <div class="panel panel-primary" ng-if="creating || log.length > 0" >
+      <div class="panel-heading" ng-i18next>avAdmin.create.logHeader</div>
+      <div class="panel-body" av-scroll-to-bottom ng-bind-html="log"></div>
+    </div>
+
+    <div class="form-group create-election hidden" ng-class="{'hidden': creating}">
+      <input
+        type="checkbox"
+        id="createElection"
+        ng-model="createElectionBool" />
+      <label for="createElection" ng-i18next>
+        avAdmin.basic.registerAndCreateElection
+      </label>
+    </div>
+
+    <div class="col-xs-12 text-brand-danger input-error" ng-if="!creating && errors.length > 0">
+      <ul>
+        <li
+          class="error"
+          ng-repeat="error in errors"
+          data-i18n="{{error.data}}"
+          ng-i18next>
+          [i18next]({{error.data}})avAdmin.create.errors.{{error.key}}
+        </li>
+      </ul>
+    </div>
+
+    <button class="btn btn-block btn-success" ng-disabled="errors.length > 0" ng-if="!creating" ng-click="createElections()">
+        <span ng-i18next>[i18next]({'num': elections.length})avAdmin.create.create</span>
+    </button>
+
+    <button class="btn btn-block btn-warning" ng-if="creating" ng-disabled="creating">
+        <i class="fa fa-cog fa-spin fa-sw fa-2x"></i><br/>
+    </button>
+</div>

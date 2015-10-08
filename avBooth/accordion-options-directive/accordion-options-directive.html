@@ -1,0 +1,44 @@
+<!-- shown when no filter is being applied (i.e. by default) -->
+<div ng-if="!question.presetSelected && filter.length == 0" class="accordion-mode">
+  <div avb-accordion-option
+    ng-repeat="option in emptyCategory.options"
+    class="animate-repeat highlight-selected"
+    ng-class="{selected: option.selected > -1}">
+  </div>
+  <div accordion close-others="folding_policy !== 'unfold-all'">
+    <div accordion-group ng-repeat="category in nonEmptyCategories" is-open="category.isOpen"
+        ng-class="{'in': category.isOpen}">
+      <div accordion-heading>
+        <span>{{category.title}}</span>
+        <span
+          class="pull-right glyphicon"
+          ng-class="{'glyphicon-chevron-down': category.isOpen, 'glyphicon-chevron-right': !category.isOpen}">
+        </span>
+        <span class="accordion-num-label pull-right label label-primary"
+          ng-if="(category.options | avbSelectedOptions).length > 0">
+          {{(category.options | avbSelectedOptions).length }}
+        </span>
+      </div>
+      <div avb-accordion-option
+        ng-repeat="option in category.options"
+        class="animate-repeat highlight-selected"
+        ng-class="{selected: option.selected > -1}">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- shown when user has entered a filter -->
+<div ng-if="question.presetSelected || filter.length > 0" class="filter-mode">
+  <div avb-accordion-option
+    ng-repeat="option in filteredOptions"
+    show-category="true"
+    class="animate-repeat highlight-selected"
+    ng-class="{selected: option.selected > -1}">
+  </div>
+  <div
+    class="animate-repeat padded-left"
+    ng-if="filteredOptions.length == 0"
+    ng-i18next="avBooth.noResults">
+  </div>
+</div>

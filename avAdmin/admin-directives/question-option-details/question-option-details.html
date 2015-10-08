@@ -1,0 +1,156 @@
+<!-- shown when not being edited -->
+<div ng-if="!answerBeingEdited()" class="not-editing">
+  <div class="col-sm-10">
+    <span
+      class="text"
+      ng-click="setEdit(electionEditable() && true)">
+      <span
+        ng-if="electionEditable()"
+        class="glyphicon glyphicon-edit">
+      </span>
+      {{ answer.text }}
+    </span>
+  </div>
+  <div class="col-sm-2 buttons text-right">
+      <i
+        class="fa fa-times fa-sw"
+        ng-if="electionEditable()"
+        ng-click="delOption(questionIndex(), $index)">
+      </i>
+  </div>
+</div>
+
+<!-- shown when being edited -->
+<form ng-if="answerBeingEdited()" name="answer-form" class="answer-form">
+  <!-- buttons -->
+  <div class="row">
+    <div class="pull-left">
+      <div class="btn-group action-buttons" role="group">
+        <button
+          type="button"
+          class="btn btn-default active"
+          ng-click="setEdit(false)">
+          <span class="glyphicon glyphicon-edit"></span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-default"
+          ng-click="delOption(questionIndex(), $index)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- text -->
+  <div class="row">
+    <div class="form-group">
+      <label
+        for="text"
+        class="control-label col-sm-3"
+        ng-i18next="avAdmin.questions.option.textFieldLabel">
+      </label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          autofocus
+          ng-model="answer.text"
+          name="text"
+          ui-keypress="{
+            enter: 'setEdit(false, $event)',
+            27: 'setEdit(false, $event)'}"
+          ng-i18next="[placeholder]avAdmin.questions.option.textFieldPlaceholder"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- details -->
+  <div class="row">
+    <div class="form-group">
+      <label
+        for="text"
+        class="control-label col-sm-3"
+        ng-i18next="avAdmin.questions.option.detailsFieldLabel">
+      </label>
+      <div class="col-sm-9">
+        <textarea
+          type="text"
+          class="form-control"
+          ng-model="answer.details"
+          name="text"
+          ui-keypress="{
+            enter: 'setEdit(false, $event)',
+            27: 'setEdit(false, $event)'}"
+          ng-i18next="avAdmin.questions.option.detailsFieldPlaceholder">
+        </textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- category -->
+  <div class="row">
+    <div class="form-group">
+      <label
+        for="text"
+        class="control-label col-sm-3"
+        ng-i18next="avAdmin.questions.option.categoryFieldLabel">
+      </label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          ng-model="answer.category"
+          name="text"
+          ui-keypress="{
+            enter: 'setEdit(false, $event)',
+            27: 'setEdit(false, $event)'}"
+          ng-i18next="[placeholder]avAdmin.questions.option.categoryFieldPlaceholder" />
+      </div>
+    </div>
+  </div>
+
+  <!-- URL -->
+  <div class="row">
+    <div class="form-group">
+      <label
+        for="text"
+        class="control-label col-sm-3"
+        ng-i18next="avAdmin.questions.option.urlFieldLabel">
+      </label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          ng-model="answer.urls[0].url"
+          name="text"
+          ui-keypress="{
+            enter: 'setEdit(false, $event)',
+            27: 'setEdit(false, $event)'}"
+          ng-i18next="[placeholder]avAdmin.questions.option.urlFieldPlaceholder" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Image URL -->
+  <div class="row">
+    <div class="form-group">
+      <label
+        for="text"
+        class="control-label col-sm-3"
+        ng-i18next="avAdmin.questions.option.imageUrlFieldLabel">
+      </label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          class="form-control"
+          ng-model="answer.urls[1].url"
+          name="text"
+          ui-keypress="{
+            enter: 'setEdit(false, $event)',
+            27: 'setEdit(false, $event)'}"
+          ng-i18next="[placeholder]avAdmin.questions.option.imageUrlFieldPlaceholder" />
+      </div>
+    </div>
+  </div>
+</form>

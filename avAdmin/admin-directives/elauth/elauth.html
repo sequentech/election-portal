@@ -1,0 +1,53 @@
+<div>
+    <h2 ng-i18next>avAdmin.sidebar.auth</h2>
+
+    <form class="form form-horizontal" role="form">
+        <!-- Auth method -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="auth" ng-i18next="avAdmin.auth.auth"></label>
+            <div class="col-sm-10">
+                <div class="radio" ng-repeat="a in auth">
+                    <label>
+                        <input
+                          type="radio"
+                          name="auth"
+                          value="{{ a }}"
+                          ng-disabled="!electionEditable()"
+                          ng-model="election.census.auth_method"/>
+                        <span ng-i18next="avAdmin.auth.auths.{{ a }}"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SMS conf -->
+        <div class="well" ng-if="election.census.auth_method == 'sms'">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" ng-i18next="avAdmin.auth.sms"></label>
+                <div class="col-sm-10">
+                    <p class="text-muted" ng-i18next> avAdmin.auth.smstemp </p>
+                    <textarea class="form-control" ng-model="election.census.config.msg"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email conf -->
+        <div class="well" ng-if="election.census.auth_method == 'email'">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" ng-i18next="avAdmin.auth.emailsub"></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="election.census.config.subject"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" ng-i18next="avAdmin.auth.email"></label>
+                <div class="col-sm-10">
+                    <p class="text-muted" ng-i18next> avAdmin.auth.emailtemp </p>
+                    <textarea class="form-control" ng-model="election.census.config.msg"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <button ui-sref="admin.censusConfig()" ng-if="!election.id" class="btn btn-block btn-success" ng-i18next>next</button>
+</div>

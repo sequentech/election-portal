@@ -1,0 +1,60 @@
+<div
+  class="question padded"
+  ng-repeat="question in election.questions"
+  ng-click="goToQuestion($index, true)">
+
+  <!-- title -->
+  <h3 class="text-brand-success">
+    {{$index + 1}}. {{question.title}}
+    <div class="pull-right">
+      <span class="glyphicon glyphicon-edit"></span>
+    </div>
+  </h3>
+
+  <!-- "Selected items:" line -->
+  <p
+    ng-if="!question.isPairWise && (question.answers | avbSelectedOptions).length < 2"
+    ng-i18next="avBooth.selectedOptionFollow">
+  </p>
+  <p
+    ng-if="!question.isPairWise && (question.answers | avbSelectedOptions).length >= 2"
+    ng-i18next="[i18next]({num: (question.answers | avbSelectedOptions).length})avBooth.selectedOptionsFollow">
+  </p>
+  <p
+    ng-if="question.isPairWise && question.min > 1"
+    ng-i18next="[i18next]({num: question.selection.length})avBooth.selectedOptionsFollow">
+  </p>
+
+  <!-- items list -->
+  <ul ng-if="question.isPairWise">
+    <li
+      ng-repeat="pair in question.selection"
+      class="animate-repeat selected-answer" ng-i18next>
+        [html:i18next]({one: pair[0].text, two: pair[1].text})avBooth.reviewScreen.pair
+    </li>
+  </ul>
+  <ul ng-if="!question.isPairWise && !mapQuestion(question).ordered">
+    <li
+      ng-repeat="answer in question.answers | avbSelectedOptions"
+      class="animate-repeat selected-answer">
+      {{answer.text}}
+    </li>
+    <li
+      class="empty-answer"
+      ng-if="(question.answers | avbSelectedOptions).length == 0"
+      ng-i18next="avBooth.emptyAnswer">
+    </li>
+  </ul>
+  <ol ng-if="!question.isPairWise && mapQuestion(question).ordered">
+    <li
+      ng-repeat="answer in question.answers | avbSelectedOptions"
+      class="animate-repeat selected-answer">
+      {{answer.text}}
+    </li>
+    <li
+      class="empty-answer"
+      ng-if="(question.answers | avbSelectedOptions).length == 0"
+      ng-i18next="avBooth.emptyAnswer">
+    </li>
+  </ul>
+</div>

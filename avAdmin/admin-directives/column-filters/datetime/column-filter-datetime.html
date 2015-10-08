@@ -1,0 +1,63 @@
+<div class="dropdown">
+  <a
+    class="dropdown-toggle"
+    data-toggle="dropdown"
+    aria-expanded="false">
+    <span ng-i18next>
+      [i18next]{{filterI18n}}
+    </span>
+    <span class="glyphicon glyphicon-chevron-down"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <div class="block" ng-click="$event.preventDefault(); $event.stopPropagation()">
+        <span ng-i18next class="spaced">
+          avAdmin.columnFilter.sort
+        </span>
+        <div class="btn-group">
+          <label class="btn btn-default" ng-model="filter.sort" btn-radio="''">
+            <span ng-i18next>
+              avAdmin.columnFilter.noSort
+            </span>
+          </label>
+          <label class="btn btn-default" ng-model="filter.sort" btn-radio="'desc'">
+            <i class="fa fa-sort-amount-desc"></i>
+            <span ng-i18next>
+              avAdmin.columnFilter.sortDesc
+            </span>
+          </label>
+          <label class="btn btn-default" ng-model="filter.sort" btn-radio="'asc'">
+            <i class="fa fa-sort-amount-asc"></i>
+            <span ng-i18next>
+              avAdmin.columnFilter.sortAsc
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="block" ng-click="$event.preventDefault(); $event.stopPropagation()">
+        <span class="spaced" ng-i18next>
+          avAdmin.columnFilter.minDate
+        </span>
+        <button type='button' tabindex='0' ng-model='filter.min' aa-date-time-input>
+          <span ng-show='filter.min'>{{ filter.min | date:'short'}}</span>
+          <span ng-hide='filter.min'>-</span>
+        </button>
+        <a ng-click="filter.min=''" ng-disabled="!filter.min" class="times">
+          <i class="fa fa-times"></i>
+        </a>
+      </div>
+      <div class="block" ng-click="$event.preventDefault(); $event.stopPropagation()">
+        <span class="spaced" ng-i18next>
+          avAdmin.columnFilter.maxDate
+        </span>
+        <button type='button' tabindex='0' ng-model='filter.max' aa-date-time-input>
+          <span ng-show='filter.max'>{{ filter.max | date:'short'}}</span>
+          <span ng-hide='filter.max'>-</span>
+        </button>
+        <a ng-click="filter.max=''" ng-disabled="!filter.max" class="times">
+          <i class="fa fa-times"></i>
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>

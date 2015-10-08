@@ -1,0 +1,23 @@
+<div
+  class="col-xs-12"
+  ng-if="layout === 'accordion' || layout === 'conditional-accordion' || layout === 'simple' || layout === 'details'"
+  dnd-list="options"
+  dnd-drop="moveOption(item, index)">
+  <div avb-accordion-option
+    dnd-draggable="option"
+    dnd-effect-allowed="move"
+    dnd-disable-if="!ordered || (options | avbSelectedOptions).length < 2 || (presetSelectedSize > 0 && option.selected - presetSelectedSize < 0)"
+    ng-repeat="option in options | avbSelectedOptions"
+    show-category="true"
+    show-selected-pos="true"
+    class="animate-repeat"
+    ng-class="{
+      selected: option.selected > -1,
+      preset: presetSelectedSize > 0 && option.selected - presetSelectedSize < 0}">
+  </div>
+  <div
+    class="padded"
+    ng-if="(options | avbSelectedOptions).length == 0"
+    ng-i18next="avBooth.noOptionsSelected">
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
+  <div class="container">
+    <div class="row avb-top-navbar">
+      <div class="pull-right">
+        <span class="dropdown left-padding" av-change-lang>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="wrapper-unfixed">
+  <div class="navbar-unfixed-top text-center" av-collapsing=".unfixed-top-height" data-toggle-selector="[avb-error-screen] #avb-toggle">
+    <div class="container">
+      <div class="hidden unfixed-top-height"></div>
+      <h1 ng-i18next="avBooth.errorTitle"></h1>
+    </div>
+  </div>
+</div>
+
+<div id="avb-toggle" class="text-center item-block hidden">
+  <span class="glyphicon glyphicon-play"></span>
+</div>
+
+<div class="content avb-content">
+  <div class="container">
+    <p>{{statusData.error}}</p>
+    <span ng-i18next="[html:i18next]({email: config.contact.email, error: stateData.error, errorId: errorId})avBooth.errorHtml">
+    </span>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="modal-header dialog-header-warning">
+  <h4 class="modal-title">
+    <span class="glyphicon glyphicon-warning-sign">
+    </span>
+    <span class="title" ng-i18next>
+      avAdmin.dashboard.modals.sendAuthCodesHeader
+    </span>
+    <button type="button" class="close pull-right" ng-click="cancel()">×</button>
+  </h4>
+</div>
+<div class="modal-body">
+  <p>
+    <span ng-i18next>
+      avAdmin.dashboard.modals.sendAuthCodesBody
+    </span>
+    <a href="" class="learn-more" target="_blank" ng-i18next>
+      avAdmin.learnMore
+    </a>
+  </p>
+  <!-- SMS conf -->
+  <div class="container-fluid">
+    <div class="row">
+      <div ng-if="election.census.auth_method == 'sms'">
+          <div class="form-group">
+              <label class="col-xs-2 control-label" ng-i18next="avAdmin.auth.sms"></label>
+              <div class="col-xs-10">
+                  <p class="text-muted" ng-i18next> avAdmin.auth.smstemp </p>
+                  <textarea class="form-control" ng-model="election.census.config.msg"></textarea>
+              </div>
+          </div>
+      </div>
+      <!-- Email conf -->
+      <div ng-if="election.census.auth_method == 'email'">
+          <div class="form-group">
+              <label class="col-xs-2 control-label" ng-i18next="avAdmin.auth.emailsub"></label>
+              <div class="col-xs-10">
+                  <input type="text" class="form-control" ng-model="election.census.config.subject"/>
+              </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="form-group">
+              <label class="col-xs-2 control-label" ng-i18next="avAdmin.auth.email"></label>
+              <div class="col-xs-10">
+                  <p class="text-muted" ng-i18next> avAdmin.auth.emailtemp </p>
+                  <textarea class="form-control" ng-model="election.census.config.msg"></textarea>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-success" ng-click="ok()">
+    <span ng-if="!user_ids || user_ids.length === 0" ng-i18next>
+      avAdmin.dashboard.modals.confirmSendAuthCodesButton
+    </span>
+    <span ng-if="!!user_ids && user_ids.length > 0" ng-i18next>
+      avAdmin.dashboard.modals.confirmSendAuthCodesIdsButton
+    </span>
+  </button>
+  <button class="btn" ng-click="cancel()" ng-i18next>
+    avAdmin.dashboard.modals.cancel
+  </button>
+</div>

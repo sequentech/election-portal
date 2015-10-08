@@ -1,0 +1,60 @@
+<div
+  class="opt-data vertilize-wrapper"
+  ng-class="{
+    'hide-link': !urls.URL,
+    'show-category': showCategory && !!option.category,
+    'preset': isPreset}"
+  ng-click="!isPreset && toggleSelectItem(option)">
+
+  <span class="label label-default" ng-if="showCategory && !!option.category">
+    {{option.category}}
+  </span>
+
+  <div class="vertilize">
+    <div class="vertilize-col vert-align-top">
+      <img
+        av-auto-height
+        additional-height="-5"
+        parent-selector=".vertilize"
+        sibling-selector=".text-sibling"
+
+        parent
+        ng-if="!!urls['Image URL']"
+        ng-src="{{urls['Image URL']}}"
+        alt="{{option.text}}" />
+    </div>
+
+    <!-- texts -->
+    <div class="vertilize-col">
+      <div class="text-sibling">
+        <strong class="show-value">
+          <span ng-if="ordered && showSelectedPos && option.selected > -1">
+            {{option.selected + 1}}.
+          </span>
+          <span ng-if="option.tag">{{option.tag}}:</span>
+          <span>{{option.text}}</span>
+        </strong>
+        <p class="details" ng-if="option.details && option.details.length > 1" ng-bind-html="option.details">
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- remove action -->
+  <div class="show-remove">
+    <span ng-i18next="avBooth.removeSelectedItem"></span>
+    <span class="glyphicon glyphicon-remove"></span>
+  </div>
+</div>
+
+<!-- show the link if needed -->
+<a
+  ng-if="!!urls.URL"
+  class="btn btn-default btn-right"
+  ng-class="{'show-category': showCategory && !!option.category}"
+  href="{{urls.URL}}"
+  ng-i18next="[alt]avBooth.openOptionLink"
+  target="_blank">
+  <span class="glyphicon glyphicon-link">
+  </span>
+</a>

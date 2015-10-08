@@ -1,0 +1,127 @@
+[avb-pcandidates-row] {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+  transition:all linear 0.5s;
+
+  * {
+    transition: all linear 0.5s;
+  }
+
+  > .team-title-wrapper, > .col-sm-2 {
+    min-height: 60px;
+    padding: 0;
+  }
+
+
+  > .col-sm-2.empty-cell {
+    display: none;
+    height: 0;
+  }
+
+  .team-title {
+    font-size: 20px;
+    line-height: 20px;
+    padding: 15px 15px 0 15px;
+    font-weight: bold;
+    float: left;
+    overflow: hidden;
+    width: 88%;
+  }
+
+  .show-remove {
+    display: none;
+    padding: 0 10px;
+    position: absolute;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: normal;
+    background-color: @brand-danger;
+    top: 8px;
+    right: 8px;
+    transition: none;
+  }
+
+  &:hover {
+    background-color: @gray-lighter;
+  }
+
+  .btn-right {
+    display: none;
+    float: left;
+    width: 12%;
+    color: white;
+    height: 59px;
+    border: 0 none;
+    background-color: @brand-success;
+    margin: 0;
+    border-radius: 0;
+
+    &:hover, &.in {
+      background-color: darken(@brand-success, 10%);
+    }
+  }
+
+  &.selected {
+    color: white;
+    background-color: @av-primary;
+
+    .btn-right {
+      background-color: @av-primary;
+      color: white;
+
+      &:hover {
+        background-color: darken(@brand-danger, 20%);
+      }
+    }
+  }
+
+  &.selected:hover {
+    background-color: @brand-danger;
+
+    .show-remove {
+      color: white;
+      display: block !important;
+    }
+
+    .btn-right {
+      background-color: @brand-danger;
+
+      &:hover {
+        background-color: darken(@brand-danger, 20%);
+      }
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  [avb-pcandidates-row] {
+    > .col-xs-11 {
+      margin-left: 2%;
+      width: 98%;
+    }
+  }
+}
+
+@media(min-width: 768px) {
+  [avb-pcandidates-row] {
+    .show-remove {
+      right: 15%;
+    }
+
+    .col-sm-2 {
+/*       width: 19.4443%; */
+
+      &.empty-cell {
+        display: block;
+      }
+    }
+
+    .btn-right {
+      display: block;
+    }
+  }
+}

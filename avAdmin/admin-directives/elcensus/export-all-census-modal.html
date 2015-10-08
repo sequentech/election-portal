@@ -1,0 +1,45 @@
+<div class="modal-header dialog-header-warning export-all-census-modal">
+  <h4 class="modal-title">
+    <span class="glyphicon glyphicon-warning-sign">
+    </span>
+    <span class="title" ng-i18next>
+      avAdmin.census.modals.exportAllCensusHeader
+    </span>
+    <button type="button" class="close pull-right" ng-click="cancel()">×</button>
+  </h4>
+</div>
+<div class="modal-body">
+  <div ng-if="error" class="bg-danger">{{error}}</div>
+  <p>
+    <span ng-i18next>
+      [i18next]({total: totalCensusCount})avAdmin.census.modals.exportAllCensusBody
+    </span>
+    <a href="" class="learn-more" target="_blank" ng-i18next>
+      avAdmin.learnMore
+    </a>
+  </p>
+  <div class="row-fluid">
+    <div class="col-xs-12">
+      <progressbar
+        ng-if="downloading"
+        class="progress-striped active"
+        max="totalCensusCount"
+        value="currentCount"
+        type="success">
+        <strong>{{currentCount}} / {{totalCensusCount}}</strong>
+      </progressbar>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    class="btn btn-success"
+    ng-click="ok()"
+    ng-disabled="downloading"
+    ng-i18next>
+    [i18next]({total: totalCensusCount})avAdmin.census.modals.confirmexportAllCensusButton
+  </button>
+  <button class="btn" ng-click="cancel()" ng-i18next>
+    avAdmin.dashboard.modals.cancel
+  </button>
+</div>

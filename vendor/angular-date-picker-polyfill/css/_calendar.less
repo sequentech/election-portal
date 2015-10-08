@@ -1,0 +1,127 @@
+.aa-cal {
+  font-family: @font-family;
+  display: inline-block;
+  padding: 5px;
+  border: @calendar-border;
+  background-color: @calendar-bg;
+
+  .aa-cal-title {
+    display: inline-block;
+    font-size: @title-font-size;
+    padding: @title-padding;
+  }
+  .aa-cal-next-month, .aa-cal-next-year, .aa-cal-prev-month, .aa-cal-prev-year {
+    font-size: @arrow-font-size;
+    padding: @arrow-padding;
+    background-color: @arrow-bg-color;
+    cursor: pointer;
+    border: @arrow-border;
+    &:hover {
+      background-color: @arrow-hover-bg-color;
+      border: @arrow-hover-border;
+    }
+  }
+  .aa-cal-next-month, .aa-cal-next-year { float:right; }
+  .aa-cal-prev-month, .aa-cal-prev-year { float:left; }
+  .aa-cal-next-month:before { content: "\203A"; }
+  .aa-cal-prev-month:before { content: "\2039"; }
+  .aa-cal-next-year:before { content: "\00bb"; }
+  .aa-cal-prev-year:before { content: "\00ab"; }
+  .aa-cal-month {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  caption {
+    color: @title-bar-text-color;
+    background-color: @title-bar-bg-color;
+    padding: @title-bar-padding;
+    vertical-align: middle;
+  }
+  td, th {
+    margin: 0;
+    text-align: center;
+    color: @cell-color;
+    border: 1px solid @cell-border-color;
+  }
+  td {
+    padding: 0;
+    cursor: pointer;
+    color: @cell-color;
+    background-color: @cell-bg-color;
+    span {
+      position: relative;
+      display: block;
+      padding: @cell-padding;
+      border: solid 1px @cell-bg-color;
+    }
+    &:hover {
+      background-color: @cell-hover-bg-color;
+      span { border-color: @cell-hover-bg-color; }
+    }
+  }
+  th {
+    padding: @cell-padding;
+    color: @header-row-color;
+    background-color: @header-row-bg-color;
+    font-weight: @header-row-font-weight;
+  }
+}
+
+
+td.aa-cal-other-month {
+  color: @other-month-cell-color;
+  background-color: @other-month-cell-bg-color;
+  font-weight: @other-month-cell-font-weight;
+  span {
+    border: none;
+  }
+  &:hover {
+    background-color: @other-month-cell-hover-bg-color;
+  }
+}
+td.aa-cal-selected {
+  color: @selected-cell-color;
+  background-color: @selected-cell-bg-color;
+  font-weight: @selected-cell-font-weight;
+  span {
+    border: none;
+  }
+  &:hover {
+    background-color: @selected-cell-hover-bg-color;
+  }
+}
+
+td.aa-cal-today {
+  color: @today-cell-color;
+  background-color: @today-cell-bg-color;
+  font-weight: @today-cell-font-weight;
+  span {
+    border: none;
+  }
+  &:hover {
+    background-color: @today-cell-hover-bg-color;
+  }
+  &.aa-cal-selected {
+    color: @today-cell-color;
+    background-color: @today-cell-bg-color;
+    font-weight: @today-cell-font-weight;
+    span {
+      border: none;
+    }
+    &:hover {
+      background-color: darken(@today-cell-bg-color, 10%);
+    }
+  }
+}
+td.aa-cal-disabled {
+  cursor: default;
+  color: @disabled-cell-color;
+  background-color: @disabled-cell-bg-color;
+  font-weight: @disabled-cell-font-weight;
+  span {
+    border: none;
+  }
+  &:hover {
+    background-color: @disabled-cell-hover-bg-color;
+  }
+}

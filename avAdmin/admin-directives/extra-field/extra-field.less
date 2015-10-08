@@ -1,0 +1,71 @@
+[av-extra-field] {
+  .view-field {
+    .btn-group {
+      opacity: 0;
+      margin-bottom: -20px;
+      margin-left: 5px;
+    }
+
+    &.always-show {
+     .btn-group {
+        opacity: 1;
+      }
+    }
+
+    &.editable:hover {
+      background-color: @gray-lighter;
+
+      .btn-group {
+        z-index: 2;
+        opacity: 1;
+      }
+
+      input, label {
+        cursor: move !important;
+      }
+
+      cursor: move;
+    }
+  }
+
+  .editting {
+    box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    padding: 8px 14px 8px 8px;
+
+    .btn-group {
+      z-index: 2;
+      margin-left: 14px;
+    }
+
+    input[type="checkbox"].form-control {
+      width: auto;
+      float: right;
+      height: auto;
+      margin-top: -5px;
+    }
+  }
+
+  .non-editable {
+      margin-bottom: -20px;
+      padding-top: 20px;
+      color: @gray-light;
+  }
+
+  &.dndDragging {
+    box-shadow: 1px 0px 10px 1px rgba(0, 0, 0, 0.3);
+
+    .editting {
+      box-shadow: none;
+    }
+  }
+
+  &.dndDraggingSource {
+    display: none;
+  }
+
+  .dict-field {
+    padding: 7px 15px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,78 @@
+{
+    "authorities": [
+        "agora-auth4"
+    ],
+    "description": "Blah blah",
+    "director": "wadobo-auth3",
+    "end_date": "2014-12-28T09:00:00",
+    "id": 1,
+    "layout": "pcandidates-election",
+    "presentation": {
+        "share_text": "Ya he votado en las primarias en Madrid de @ahorapodemos ¿y tú?",
+        "theme": "podemos",
+        "theme_css": "",
+        "urls": []
+    },
+    "questions": [
+        {
+            "answer_total_votes_percentage": "over-total-valid-votes",
+            "answers": [
+                {
+                    "category": "Claro que Podemos",
+                    "details": "",
+                    "id": 0,
+                    "sort_order": 0,
+                    "text": "Fulanito",
+                    "urls": []
+                },
+                {
+                    "category": "Candidaturas no agrupadas",
+                    "details": "",
+                    "id": 1,
+                    "sort_order": 1,
+                    "text": "Menganito",
+                    "urls": []
+                }
+            ],
+            "description": "Elige quien quieres que sea tu Secretario General en tu municipio",
+            "layout": "",
+            "max": "1",
+            "min": "0",
+            "num_winners": "1",
+            "randomize_answer_order": true,
+            "tally_type": "plurality-at-large",
+            "title": "Secretario General"
+        },
+        {
+            "answer_total_votes_percentage": "over-total-valid-votes",
+            "answers": [
+                {
+                    "category": "Claro que Podemos",
+                    "details": "",
+                    "id": 0,
+                    "sort_order": 0,
+                    "text": "Fulanita",
+                    "urls": []
+                },
+                {
+                    "category": "Claro que Podemos",
+                    "details": "",
+                    "id": 1,
+                    "sort_order": 1,
+                    "text": "Menganita",
+                    "urls": []
+                }
+            ],
+            "description": "Elige los miembros del Consejo Ciudadano",
+            "layout": "-",
+            "max": "7",
+            "min": "0",
+            "num_winners": "7",
+            "randomize_answer_order": true,
+            "tally_type": "plurality-at-large",
+            "title": "Consejo Ciudadano"
+        }
+    ],
+    "start_date": "2014-12-26T09:00:00",
+    "title": "Votaciones Municipales"
+}

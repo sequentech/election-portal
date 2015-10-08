@@ -1,0 +1,65 @@
+<div class="basic-booth-layout">
+  <nav ng-if="!noHeader" class="navbar navbar-default navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
+    <div class="container">
+      <div class="row avb-top-navbar">
+        <div class="pull-left" ng-i18next="[html]avBooth.poweredBy">
+        </div>
+        <div class="pull-right">
+          <a href="#/election/{{electionId}}/public/ballot-locator" target="_blank">
+            <span
+              class="glyphicon glyphicon-share">
+            </span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="wrapper-unfixed" ng-class="{'no-header': noHeader}">
+    <div class="navbar-unfixed-top text-center" av-collapsing=".unfixed-top-height" data-toggle-selector="[audit-ballot-screen] #avb-toggle">
+      <div class="container">
+        <div class="hidden unfixed-top-height"></div>
+        <h1 ng-i18next="avBooth.ballotLocatorTitle"></h1>
+        <p
+          ng-if="!noHeader"
+          ng-i18next="[i18next]({title: election.title})avBooth.ballotLocatorSubtitle"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="avb-toggle" class="text-center item-block hidden" ng-if="!noHeader">
+    <span class="glyphicon glyphicon-play"></span>
+  </div>
+
+  <div class="content avb-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7 padded-left padded-right">
+          <p><strong ng-i18next="avBooth.ballotLocatorPTitle"></strong></p>
+          <input
+            type="text"
+            ng-model="locator"
+            class="input-lg form-control locator-input"
+            ng-i18next="[placeholder]avBooth.inputLocatorPlaceholder" />
+          <p ng-i18next="avBooth.locatorInfoText" class="text-muted"></p>
+          <button
+            class="btn btn-block btn-lg btn-success btn-plain"
+            ng-i18next="avBooth.searchLocatorButton"
+            ng-disabled="!searchEnabled"
+            ng-click="searchLocator()">
+          </button>
+          <div class="locatorStatus visible-xs" ng-bind-html="locatorStatus"></div>
+          <div ng-if="ballot.length > 0">
+            <div class="results" ng-i18next="[html:i18next]({locator:foundLocator})avBooth.locatorFoundText"></div>
+            <div class="ballot">{{ballot}}</div>
+          </div>
+        </div>
+        <div class="hidden-xs col-sm-5 padded-left locator-desc">
+          <p ng-i18next="[html]avBooth.locatorDescription"></p>
+          <div class="locatorStatus hidden-xs" ng-bind-html="locatorStatus"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

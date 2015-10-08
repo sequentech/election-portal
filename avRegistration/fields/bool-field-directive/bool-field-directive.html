@@ -1,0 +1,21 @@
+<div class="form-group">
+    <label class="control-label col-sm-4">
+        <input
+            type="checkbox"
+            class="form-control"
+            id="{{index}}Text"
+            ng-model="field.value"
+            ng-disabled="field.disabled"
+            tabindex="{{index}}"
+            ng-required={{field.required}} />
+    </label>
+    <div class="col-sm-8">
+        <label class="text-left" for="{{index}}Text">
+          <span ng-bind-html="field.name | addTargetBlank"></span>
+        </label>
+        <p class="help-block" ng-if="field.help" ng-bind-html="field.help | addTargetBlank">
+        </p>
+        <div class="input-error">
+        </div>
+    </div>
+</div>

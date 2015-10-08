@@ -1,0 +1,43 @@
+<nav class="navbar navbar-admin adminhead navbar-fixed-top" av-affix-top=".admin-unfixed-top" role="navigation">
+    <div ng-class="{'container-fluid': admin, 'container': !admin}">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://agoravoting.com"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-if="!admin">
+              <a
+                href="https://agoravoting.com/overview/"
+                target="_blank"
+                ng-i18next="avAdmin.topbar.features">
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://bit.ly/avguiadeuso"
+                target="_blank">
+                <i class="fa fa-question-circle"></i>
+              </a>
+            </li>
+
+            <li class="signup" ng-if="!admin"><a ui-sref="admin.signup()" ng-i18next="avAdmin.topbar.freesignup"></a></li>
+            <li ng-if="!nologin"><a ui-sref="admin.login()" ng-i18next="avAdmin.topbar.login"></a></li>
+
+            <li ng-if="admin"><a ui-sref="admin.logout()"><i class="fa fa-user"></i> {{ admin }}</a></li>
+            <li ng-if="admin"><a ui-sref="admin.logout()"><i class="fa fa-power-off"></i></a></li>
+
+            <li class="dropdown" av-change-lang></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>

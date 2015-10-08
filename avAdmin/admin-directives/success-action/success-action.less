@@ -1,0 +1,53 @@
+[av-admin-success-action] {
+  .form-group .radio {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 10px 15px 10px 45px;
+    text-align: left;
+    cursor: pointer;
+
+    &.selected {
+      background-color: @av-primary-contrast;
+      border-color: @gray-lighter;
+
+      .header {
+        color: @av-secondary;
+      }
+    }
+
+    &:hover {
+      border-color: @gray-lighter;
+    }
+
+    &.disabled {
+      &.selected,  &.selected:hover {
+        border-color: @gray-lighter;
+      }
+
+      &:hover {
+        border-color: transparent;
+        cursor: default;
+      }
+    }
+
+    input[type="radio"] {
+      margin-left: -30px;
+      margin-right: 10px;
+    }
+
+    .header {
+      display: block;
+      text-align: left;
+      font-size: 16px;
+      padding-bottom: 6px;
+    }
+
+    .description {
+      color: @gray-light;
+    }
+
+    .input-error {
+      min-height: 23px;
+    }
+  }
+}

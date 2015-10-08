@@ -1,0 +1,56 @@
+[av-question-option-simple] {
+  .row();
+
+  &.editable {
+    cursor: move;
+  }
+  
+  padding: 10px;
+  background-color: @av-bg-hover;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  transition: .5s;
+
+  span.text {
+    min-width: 50%;
+    display: inline-block;
+    min-height: 26px;
+    display: inline-block;
+    padding-top: 3px;
+    padding-left: 0;
+    margin-left: -7px;
+
+    > .glyphicon {
+      margin-right: 10px;
+    }
+
+  }
+
+  input {
+    margin-left: 16px;
+    width: 100%;
+  }
+
+  .fa {
+    transition: .5s;
+    padding: 7px;
+    margin-right: -10px;
+  }
+
+  .fa:hover {
+    .text-brand-danger();
+  }
+}
+
+[av-question-option-simple].editable {
+  &:hover {
+    background-color: darken(@av-bg-hover, 10%);
+  }
+
+  span.text {
+    cursor: text !important;
+  }
+}

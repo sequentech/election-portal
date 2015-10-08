@@ -1,0 +1,21 @@
+<div avb-busy overlay ng-if="loading"></div>
+
+<div
+  ng-file-drop
+  ng-model="filesDrop"
+  drag-over-class="dragover"
+  ng-multiple="false"
+  allow-dir="false"
+  accept=".csv">
+  <div class="drop-files-here">
+    <div class="drop-wrap">
+      <h1 class="text-center" ng-i18next>avAdmin.import.dropFilesHere</h1>
+    </div>
+  </div>
+  <h2 ng-i18next>avAdmin.sidebar.import</h2>
+
+  <p ng-i18next="[html]avAdmin.import.desc"> </p>
+
+  <input type="file" id="importfile" class="hidden" onchange="angular.element(this).scope().uploadFile(this)"/>
+  <button ng-click="selectFile()" class="btn btn-block btn-success" ng-i18next>avAdmin.import.file</button>
+</div>
