@@ -1,7 +1,7 @@
 /*
  * Show the authorities of an election directive.
  */
-angular.module('avBooth')
+angular.module('avElection')
   .directive('aveAuthorities',  function(ConfigService, $http) {
 
     function link(scope, element, attrs) {

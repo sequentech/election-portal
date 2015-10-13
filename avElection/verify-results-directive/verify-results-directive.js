@@ -1,7 +1,7 @@
 /*
  * Ballot locator screen directive.
  */
-angular.module('avBooth')
+angular.module('avElection')
   .directive('avVerifyResults',  function(ConfigService, $stateParams) {
 
     function link(scope, element, attrs) {
