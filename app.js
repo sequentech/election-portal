@@ -12,9 +12,9 @@ angular.module(
   'angularMoment',
   'avConfig',
   'jm.i18next',
+  'avCommon',
   'avUi',
   'avTest',
-  'avCrypto',
   'avElection',
   'angularFileUpload',
   'dndLists',
@@ -60,19 +60,6 @@ angular.module('agora-core-view').config(
     $locationProvider.html5Mode(ConfigServiceProvider.locationHtml5mode);
 
     /* App states and urls are defined here */
-    // Admin interface
-    $stateProvider
-      .state('admin', {
-        abstract: true,
-        url: '/admin',
-        template: '<div ui-view autoscroll></div>'
-      })
-      .state('admin.logout', {
-        url: '/logout',
-        controller: "LogoutController"
-      });
-
-    // END of Admin interface
     $stateProvider
       .state('election', {
         abstract: true,
@@ -129,7 +116,6 @@ angular.module('agora-core-view').config(
         url: '/logout',
         controller: "LogoutController"
       })
-
       .state('election.results', {
         url: '/:id/results',
         templateUrl: 'avElection/results-controller/results-controller.html',
