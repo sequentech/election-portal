@@ -25,7 +25,7 @@
     "moment": "~2.5",
     "less.js": "~1.6",
     "font-awesome": "~4.3",
-    "i18next":"1.9.0",
+    "i18next": "1.9.0",
     "ng-i18next": "0.4.2",
     "ngInfiniteScroll": "1.2.0",
     "papaparse": "~4.1.0",
@@ -38,6 +38,6 @@
     "angular-cookie": "~4.0.9"
   },
   "resolutions": {
-    "angular": "1.2.28"
+    "angular": "~1.2"
   }
 }

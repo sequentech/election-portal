@@ -8,16 +8,16 @@ var avConfigData = {
   // getting info about an election. This url is usually in the form of
   // 'https://foo/api/v3/' and always ends in '/'.
   theme: "default",
-  baseUrl: "http://agora.dev/elections/api/",
+  baseUrl: "https://agora/elections/api/",
   freeAuthId: 1,
 
   // AuthApi base url
-  authAPI: "http://agora.dev/authapi/api/",
-  dnieUrl: "http://agora.dev/authapi/api/authmethod/dnie/auth/",
+  authAPI: "https://agora/authapi/api/",
+  dnieUrl: "https://agora.dev/authapi/api/authmethod/dnie/auth/",
   // Agora Elections base url
-  electionsAPI: "http://agora.dev/elections/api/",
+  electionsAPI: "https://agora/elections/api/",
 
-  authorities: [ "local-auth2" ],
+  authorities: ['local-auth2'],
   director: "local-auth1",
 
   // i18next language options, see http://i18next.com/pages/doc_init.html for
@@ -27,21 +27,21 @@ var avConfigData = {
     //
     // Default: 'en'
     //
-    // language: "en",
+    language: "es",
 
 
     // Forces a specific language.
     //
     // Default: not set
     //
-    // lng: "en",
+    lng: "es",
 
 
     // specifies the set language query string.
     //
     // Default: "lang"
     //
-    // detectLngQS: 'lang',
+    detectLngQS: 'lang',
 
 
     // Specifies what translations will be available.
@@ -82,7 +82,7 @@ var avConfigData = {
 
   timeoutSeconds: 3600,
 
-  publicURL: "http://agora.dev/elections/public/",
+  publicURL: "https://agora/elections/public/",
 
   // if we are in debug mode or not
   debug: true,
