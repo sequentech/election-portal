@@ -77,7 +77,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          src: ['themes/**/app.less'],
+          src: ['bower_components/avCommon/themes/**/app.less'],
           dest: 'temp/',
           ext: '.css',
         }]
@@ -88,7 +88,7 @@ module.exports = function (grunt) {
         browsers: ['ie >= 8', 'ff > 4', 'last 8 versions']
       },
       main: {
-        src: 'temp/themes/**/app.css'
+        src: 'temp/bower_components/avCommon/themes/**/app.css'
       }
     },
     ngtemplates: {
@@ -109,7 +109,7 @@ module.exports = function (grunt) {
           {src: ['temp_data/**'], dest: 'dist/'},
           {
             expand: true,
-            cwd:'themes',
+            cwd:'bower_components/avCommon/themes',
             src: ['**/*.png'],
             dest: 'dist/themes/',
             ext: '.png',
@@ -173,7 +173,7 @@ module.exports = function (grunt) {
       main: {
         files: [{
             expand: true,
-            cwd:'temp/themes',
+            cwd:'temp/bower_components/avCommon/themes',
             src: ['**/app.css'],
             dest: 'dist/themes/',
             ext: '.min.css',
@@ -193,7 +193,7 @@ module.exports = function (grunt) {
           'temp/lib.js': ['<%= dom_munger.data.libjs %>'],
           'temp/app.js': ['<%= dom_munger.data.appjs %>','<%= ngtemplates.main.dest %>'],
           'dist/avConfig-v3.0.1.js': ['avConfig.js'],
-          'dist/avThemes-v3.0.1.js': ['avThemes.js'],
+          'dist/avThemes-v3.0.1.js': ['bower_components/avCommon/dist/avThemes-v3.0.1.js'],
           'dist/avPlugins-v3.0.1.js': ['plugins/**/*.js']
         }
       }
@@ -222,7 +222,7 @@ module.exports = function (grunt) {
       main: {
         options:{
           mangle: false,
-          compress: true,
+          compress: {},
           beautify: true
         },
         files: {
