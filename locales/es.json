@@ -20,7 +20,9 @@
     "name": "Agora Voting"
   },
   "avCommon": {
+    "cancel": "Cancel",
     "poweredBy": "Funciona amb <strong><a href=\"https://agoravoting.com\" target=\"_blank\">Agora Voting</a></strong>",
+    "shareLink": "¡Twittea aquesta votació!",
     "votingSystem": "Voting System",
     "votings": {"plurality-at-large": "Plurality at large", "borda-nauru": "Nauru's Borda Count or Borda Dowdall (1/n)", "borda": "Borda Count (traditional)", "pairwise-beta": "Pairwise (beta-distribution)"}
   },
@@ -49,7 +51,6 @@
       "loadingText": "Cargando votación",
       "voteLink": "Vota",
       "loadingDataText": "Cargando datos..",
-      "shareLink": "¡Twitea esta votación!",
       "errorNotFoundText": "Error cargando la información.",
       "errorLoadingText": "Error cargando la votación. Puede que esta votación no exista o no se haya publicado todavía.",
       "faqsLink": "Preguntas frecuentes",
