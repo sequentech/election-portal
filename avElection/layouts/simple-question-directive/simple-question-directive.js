@@ -1,7 +1,7 @@
 angular.module('avElection')
   .directive('aveSimpleQuestion', function(AddDotsToIntService, PercentVotesService, $i18next) {
     function link(scope, element, attrs) {
-      scope.tallyMethod = $i18next("avAdmin.questions.votings." + scope.question.tally_type);
+      scope.tallyMethod = $i18next("avCommon.votings." + scope.question.tally_type);
 
       if (scope.question.randomize_answer_order) {
           var i = -1;
