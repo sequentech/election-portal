@@ -14,7 +14,8 @@ angular.module('avElection').controller('PublicController',
       "conditional-accordion": "default",
       "ahoram-primaries": "default"
     };
-    $("#theme").attr("href", "themes/" + ConfigService.theme + "/app.min.css");
+    $("#theme").attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
+    //window.avThemes.change(ConfigService.theme);
     $scope.layout = mapLayouts["simple"];
     $scope.statePrefix = "election.public.show.home";
         $scope.inside_iframe = InsideIframeService();
