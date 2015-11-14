@@ -12,7 +12,6 @@ angular.module(
   'angularMoment',
   'avConfig',
   'jm.i18next',
-  'avCommon',
   'avUi',
   'avRegistration',
   'avTest',
