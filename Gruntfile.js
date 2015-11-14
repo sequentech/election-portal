@@ -97,10 +97,7 @@ module.exports = function (grunt) {
             module: pkg.name,
             htmlmin:'<%= htmlmin.main.options %>'
         },
-        src: [createFolderGlobs('*.html'),'!index.html','!_SpecRunner.html',
-              "bower_components/avCommon/avRegistration/**/*.html",
-              "bower_components/avCommon/avUi/**/*.html"
-             ],
+        src: [createFolderGlobs('*.html'),'!index.html','!_SpecRunner.html'],
         dest: 'temp/templates.js'
       },
       common: {
