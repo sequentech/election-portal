@@ -2,6 +2,7 @@
 'use strict';
 
 var pkg = require('./package.json');
+var AV_CONFIG_VERSION = '3.1.0';
 
 //Using exclusion patterns slows down Grunt significantly
 //instead of creating a set of patterns like '**/*.js' and '!**/node_modules/**'
@@ -34,6 +35,32 @@ module.exports = function (grunt) {
 
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
+
+  // custom grunt task to check avConfig.js
+  grunt.registerTask('check_config', function() {
+    var fs = require('fs');
+    var done = this.async();
+    grunt.log.ok('Checking avConfig.js...');
+    var conf = fs.readFile('avConfig.js', function(err, data) {
+        if (err) {
+            grunt.log.error('No avConfig.js file found');
+            done(false);
+        } else {
+            var match = data.toString().match(/AV_CONFIG_VERSION = [\'\"]([\w\.]*)[\'\"];/);
+            if (!match) {
+                grunt.log.error('Invalid avConfig.js version');
+            } else {
+                var v = match[1];
+                if (v === AV_CONFIG_VERSION) {
+                    return done();
+                } else {
+                    grunt.log.error('Invalid avConfig.js version: ' + v);
+                }
+            }
+            done(false);
+        }
+    });
+  });
 
   // Project configuration.
   grunt.initConfig({
@@ -319,7 +346,7 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.registerTask('build',['jshint','clean:before','less','autoprefixer','dom_munger','ngtemplates','cssmin','concat','merge-json','ngAnnotate','uglify','copy','htmlmin','imagemin','clean:after']);
+  grunt.registerTask('build',['check_config', 'jshint','clean:before','less','autoprefixer','dom_munger','ngtemplates','cssmin','concat','merge-json','ngAnnotate','uglify','copy','htmlmin','imagemin','clean:after']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
