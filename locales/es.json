@@ -27,6 +27,19 @@
     "votings": {"plurality-at-large": "Plurality at large", "borda-nauru": "Nauru's Borda Count or Borda Dowdall (1/n)", "borda": "Borda Count (traditional)", "pairwise-beta": "Pairwise (beta-distribution)"}
   },
   "avElection": {
+    "ballotLocatorTitle": "Encuentra tu papeleta",
+    "ballotLocatorSubtitle": "Election: __title__",
+    "inputLocatorPlaceholder": "Introduce aquí el localizador",
+    "ballotLocatorPTitle": "Localizador de la papeleta",
+    "searchLocatorButton": "Encontrar papeleta",
+    "locatorDescription": "Cuando emites tu voto, te aparece el localizador de tu papeleta para que puedas seguirle el rastro sin desvelar el sentido del voto. Aquí puedes introducir ese localizador y ver que efectivamente esa papeleta cifrada fue emitida y registrada correctamente.",
+    "locatorFoundText": "¡Papeleta encontrada! Efectivamente, la papeleta con el localizador <strong>__locator__</strong> fue emitida y registrada correctamente. El texto de la papeleta cifrada es:",
+    "locatorSearchingStatus": "<span class=\"text-primary\">Buscando localizador..</span>",
+    "locatorFoundStatus": "<span class=\"text-success\">¡Localizador encontrado!</span>",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Localizador no encontrado</span>",
+    "locatorInfoText": "Ejemplo de localizador: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
+
+
     "resultsLoadingText": "Cargando resultados",
     "errorLoadingText": "Error cargando resultados. Puede que el recuento aun no se haya publicado, que no tengas permisos o incluso que la votación no exista",
     "defaultShareText": "Vota en __title__ con @agoravoting __url__",

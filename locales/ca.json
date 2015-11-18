@@ -25,6 +25,19 @@
     "votings": {"plurality-at-large": "Plurality at large", "borda-nauru": "Nauru's Borda Count or Borda Dowdall (1/n)", "borda": "Borda Count (traditional)", "pairwise-beta": "Pairwise (beta-distribution)"}
   },
   "avElection": {
+    "ballotLocatorTitle": "Troba la teva papereta",
+    "ballotLocatorSubtitle": "Election: __title__",
+    "inputLocatorPlaceholder": "Introdueix aquí el localitzador",
+    "ballotLocatorPTitle": "Localitzador de la papereta",
+    "searchLocatorButton": "Troba la papereta",
+    "locatorDescription": "Quan emets el teu vot, t'apareix el localitzador de la teva papereta perquè puguis seguir-li el rastre sense desvetllar-ne el sentit del vot. Aquí pots introduir aquest localitzador i comprovar que efectivament aquesta papereta xifrada ha estat emesa i registrada correctament.",
+    "locatorFoundText": "¡Papereta trobada! Efectivament, la papereta amb el localitzador <strong>__locator__</strong> ha estat emesa i registrada correctament. El text de la papereta xifrada és:",
+    "locatorSearchingStatus": "<span class=\"text-primary\">Cercant localitzador..</span>",
+    "locatorFoundStatus": "<span class=\"text-success\">Localitzador trobat!</span>",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Localitzador no trobat</span>",
+    "locatorInfoText": "Exemple de localitzador: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
+
+
     "resultsLoadingText": "Cargando resultados",
     "errorLoadingText": "Error cargando resultados. Puede que el recuento aun no se haya publicado, que no tengas permisos o incluso que la votació no exista",
     "defaultShareText": "Vota en __title__ con @agoravoting __url__",
