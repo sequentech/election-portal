@@ -42,6 +42,10 @@ angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServicePro
     ConfigServiceProvider.i18nextInitOptions);
 });
 
+angular.module('agora-core-view').config(function($sceDelegateProvider, ConfigServiceProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist(ConfigServiceProvider.resourceUrlWhitelist);
+});
+
 angular.module('agora-core-view').config(
   function(
     $stateProvider,
