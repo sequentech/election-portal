@@ -8,6 +8,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "avCommon": "https://github.com/agoravoting/agora-gui-common.git"
+    "avCommon": "https://github.com/agoravoting/agora-gui-common.git#next"
   }
 }
