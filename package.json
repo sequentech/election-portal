@@ -1,5 +1,5 @@
 {
-  "name": "agora-core-view",
+  "name": "agora-gui-elections",
   "version": "0.0.0",
   "devDependencies": {
     "grunt": "~0.4",
