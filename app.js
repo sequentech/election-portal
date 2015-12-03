@@ -158,7 +158,7 @@ angular.module('agora-gui-elections').config(
       .state('election.results.show.unknown', {
         templateUrl: 'avElection/question-results-directive/unknown.html'
       })
-      .state('election.results.show.home.borda', {
+      .state('election.results.show.borda', {
         template: '<div av-borda-results></div>',
       })
       .state('election.results.show.plurality-at-large', {
