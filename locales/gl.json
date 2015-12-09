@@ -25,6 +25,7 @@
     "votings": {"plurality-at-large": "Plurality at large", "borda-nauru": "Nauru's Borda Count or Borda Dowdall (1/n)", "borda": "Borda Count (traditional)", "pairwise-beta": "Pairwise (beta-distribution)"}
   },
   "avElection": {
+    "thisisATest": "<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> <strong>Warning!</strong> This is a TEST election",
     "ballotLocatorTitle": "Atopa a túa papeleta",
     "ballotLocatorSubtitle": "Elección: __title__",
     "inputLocatorPlaceholder": "Introduce aquí o localizador",
