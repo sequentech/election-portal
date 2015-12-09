@@ -1,3 +1,5 @@
+window.avConfigData.base = '/election';
+
 angular.module(
   'agora-gui-elections',
   ['ui.bootstrap',
