@@ -25,6 +25,20 @@
     "votings": {"plurality-at-large": "Plurality at large", "borda-nauru": "Nauru's Borda Count or Borda Dowdall (1/n)", "borda": "Borda Count (traditional)", "pairwise-beta": "Pairwise (beta-distribution)"}
   },
   "avElection": {
+    "thisisATest": "<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> <strong>Warning!</strong> This is a TEST election",
+    "ballotLocatorTitle": "Atopa a túa papeleta",
+    "ballotLocatorSubtitle": "Elección: __title__",
+    "inputLocatorPlaceholder": "Introduce aquí o localizador",
+    "ballotLocatorPTitle": "Localizador da papeleta",
+    "searchLocatorButton": "Atopar papeleta",
+    "locatorDescription": "Cando emites o teu voto, aparéceche o localizador da túa papeleta para que poidas seguirlle o rastro sen desvelar o sentido do voto. Aquí podes introducir ese localizador e ver que efectivamente esa papeleta cifrada foi emitida e rexistrada correctamente.",
+    "locatorFoundText": "¡Papeleta atopada! Efectivamente, a papeleta co localizador <strong>__locator__</strong> foi emitida e rexistrada correctamente. O texto da papeleta cifrada é:",
+    "locatorSearchingStatus": "<span class=\"text-primary\">Buscando localizador..</span>",
+    "locatorFoundStatus": "<span class=\"text-success\">¡Localizador atopado!</span>",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Localizador non atopado</span>",
+    "locatorInfoText": "Exemplo de localizador: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
+
+
     "resultsLoadingText": "Cargando resultados",
     "errorLoadingText": "Erro cargando resultados. Poida que o reconto aínda non se publicara, que non teñas permisos ou mesmo que a votación non exista",
     "defaultShareText": "Vota en __title__ con @agoravoting __url__",

@@ -1,0 +1,56 @@
+[av-ballot-locator-screen] {
+  background: none;
+
+  .locator-desc {
+    padding-top: 25px !important;
+  }
+
+  .locator-input {
+    font-size: 17px;
+  }
+
+  .locatorStatus {
+    width: 100%;
+    min-height: 30px;
+    font-weight: bold;
+  }
+
+  .results {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  button[disabled] {
+    background-color: @gray-lighter;
+  }
+
+  .no-header {
+    &:after {
+      background: transparent !important;
+    }
+
+    .navbar-unfixed-top {
+      background: transparent !important;
+    }
+    color: @gray-dark;
+
+    h1 {
+      color: @av-secondary;
+      font-size: 30px;
+    }
+  }
+
+  .ballot {
+    border: 0 none;
+    border-radius: 5px;
+    background-color: @gray-lighter;
+    width: 100%;
+    word-break: break-all;
+    overflow: hidden;
+    padding: 10px;
+    font-size: 14px;
+  }
+}

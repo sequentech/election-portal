@@ -18,7 +18,7 @@ angular.module('avAdmin').run(function(AdminPlugins) {
 
 // Using the admin controller to get the topbar and the sidebar
 // The state name should be admin.NAME
-angular.module('agora-core-view').config(
+angular.module('agora-gui-elections').config(
   function($stateProvider) {
     $stateProvider
       .state('admin.test',

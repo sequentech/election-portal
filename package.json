@@ -1,5 +1,5 @@
 {
-  "name": "agora-core-view",
+  "name": "agora-gui-elections",
   "version": "0.0.0",
   "devDependencies": {
     "grunt": "~0.4",
@@ -12,7 +12,6 @@
     "grunt-contrib-copy": "~0.5",
     "grunt-contrib-cssmin": "~0.7",
     "grunt-contrib-htmlmin": "~0.1",
-    "grunt-contrib-imagemin": "~0.4",
     "grunt-contrib-jshint": "~0.9",
     "grunt-contrib-less": "~0.8",
     "grunt-contrib-uglify": "~0.6",
