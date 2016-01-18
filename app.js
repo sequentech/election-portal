@@ -174,7 +174,7 @@ angular.module('agora-gui-elections').config(
       });
 });
 
-angular.module('agora-gui-elections').run(function($http, $rootScope) {
+angular.module('agora-gui-elections').run(function($http, $rootScope, $window, ConfigService) {
 
   $rootScope.safeApply = function(fn) {
     var phase = $rootScope.$$phase;
@@ -190,6 +190,12 @@ angular.module('agora-gui-elections').run(function($http, $rootScope) {
   $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams) {
       console.log("change start from " + fromState.name + " to " + toState.name);
+      // redirect to /admin/login if this login link is invalid
+      if (toState.name === 'election.public.show.login' &&
+        ConfigService.freeAuthId+"" === toParams.id)
+      {
+        $window.location.href = "/admin/login";
+      }
       $("#angular-preloading").show();
     });
   $rootScope.$on('$stateChangeSuccess',
