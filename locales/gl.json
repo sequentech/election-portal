@@ -18,11 +18,11 @@
     "name": "Agora Voting"
   },
   "avCommon": {
-    "cancel": "Cancel",
-    "poweredBy": "Funciona amb <strong><a href=\"https://agoravoting.com\" target=\"_blank\">Agora Voting</a></strong>",
-    "shareLink": "¡Twittea aquesta votació!",
-    "votingSystem": "Voting System",
-    "votings": {"plurality-at-large": "Plurality at large", "borda-nauru": "Nauru's Borda Count or Borda Dowdall (1/n)", "borda": "Borda Count (traditional)", "pairwise-beta": "Pairwise (beta-distribution)"}
+    "cancel": "Cancelar",
+    "poweredBy": "Funciona con <strong><a href=\"https://agoravoting.com\" target=\"_blank\">Agora Voting</a></strong>",
+    "shareLink": "¡Twittea esta votación!",
+    "votingSystem": "Sistema de Voto",
+    "votings": {"plurality-at-large": "Voto en bloque o Escrutinio Mayoritario Plurinominal", "borda-nauru": "Borda de Nauru o Borda Dowdall (1/n)", "borda": "Borda Count (tradicional)", "pairwise-beta": "Comparación de pares (distribución beta)"}
   },
   "avElection": {
     "thisisATest": "<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> <strong>Warning!</strong> This is a TEST election",
