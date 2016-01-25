@@ -111,9 +111,6 @@
     },
     "legal": {
         "title": "Términos legales",
-        "name": "nombre",
-        "org": "empresa",
-        "nif": "nif",
         "contact": "contacto"
     }
   }

@@ -5,7 +5,7 @@
     <span ng-if="election.extra_data.name">{{election.extra_data.name}}, </span>
     <span ng-if="election.extra_data.org">{{election.extra_data.org}} </span>
     <span ng-if="election.extra_data.nif">({{election.extra_data.nif}}). </span>
-    <a ng-if="election.extra_data.contact" href="election.extra_data.contact" ng-i18next="avElection.legal.contact"></a>
+    <a ng-if="election.extra_data.contact" href="mailto:{{election.extra_data.contact}}" ng-i18next="avElection.legal.contact"></a>
     <!-- End legal terms -->
   </div>
 </div>

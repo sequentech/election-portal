@@ -111,9 +111,6 @@
     },
     "legal": {
         "title": "Legal terms",
-        "name": "name",
-        "org": "organization",
-        "nif": "nif",
         "contact": "contact"
     }
   }

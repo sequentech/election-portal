@@ -24,6 +24,7 @@ angular.module('avElection').controller('PublicController',
     $http.get(ConfigService.baseUrl + "election/" + $stateParams.id)
       .success(function(value) {
         $scope.election = value.payload.configuration;
+        $scope.election.extra_data = JSON.parse($scope.election.extra_data);
         $scope.layout = mapLayouts[$scope.election.layout];
         $scope.electionState = value.payload.state;
         $scope.results = angular.fromJson(value.payload.results);
