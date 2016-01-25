@@ -1,0 +1,27 @@
+<div class="legalfoot">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+              <h3 ng-i18next="avElection.foot.legal"></h3>
+              <div ng-if="extra_data.name">
+                  <span ng-i18next="avElection.foot.name"></span>
+                  <span ng-i18next>{{extra_data.name}}</span>
+              </div>
+
+              <div ng-if="extra_data.org">
+                  <span ng-i18next="avElection.foot.org"></span>
+                  <span ng-i18next>{{extra_data.org}}</span>
+              </div>
+
+              <div ng-if="extra_data.nif">
+                  <span ng-i18next="avElection.foot.nif"></span>
+                  <span ng-i18next>{{extra_data.nif}}</span>
+              </div>
+
+              <div ng-if="extra_data.contact">
+                  <a href="extra_data.contact" ng-i18next="avElection.foot.contact"></a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

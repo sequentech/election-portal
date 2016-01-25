@@ -107,6 +107,13 @@
     "resultsDirective": {
       "ballotLocatorLink": "Localitzar papereta",
       "verifiableResultsLink": "Recuento verificable"
+    },
+    "foot": {
+        "legal": "legal",
+        "name": "nombre",
+        "org": "empresa",
+        "nif": "nif",
+        "contact": "contacto"
     }
   }
 }
