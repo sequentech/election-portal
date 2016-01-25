@@ -109,8 +109,8 @@
       "ballotLocatorLink": "Localizar papeleta",
       "verifiableResultsLink": "Reconto verificable"
     },
-    "foot": {
-        "legal": "legal",
+    "legal": {
+        "title": "Términos legales",
         "name": "nombre",
         "org": "empresa",
         "nif": "nif",
