@@ -107,6 +107,10 @@
     "resultsDirective": {
       "ballotLocatorLink": "Localitzar papereta",
       "verifiableResultsLink": "Recuento verificable"
+    },
+    "legal": {
+        "title": "Términos legales",
+        "contact": "contacto"
     }
   }
 }

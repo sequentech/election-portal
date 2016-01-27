@@ -110,6 +110,10 @@
     "resultsDirective": {
       "ballotLocatorLink": "Localizar papeleta",
       "verifiableResultsLink": "Recuento verificable"
+    },
+    "legal": {
+        "title": "Términos legales",
+        "contact": "contacto"
     }
   }
 }

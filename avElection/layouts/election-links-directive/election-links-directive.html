@@ -54,4 +54,10 @@
       </span>
     </a>
   </li>
+  <li ng-class="{selected: name().indexOf('legal-terms') !== -1}">
+    <a
+      ui-sref="election.public.show.legal"
+      ng-i18next="avElection.legal.title">
+    </a>
+  </li>
 </ul>
