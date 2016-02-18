@@ -11,6 +11,7 @@ angular.module('avElection')
       scope.noHeader = (attrs.noHeader !== undefined);
       scope.foundLocator = "";
       scope.searchEnabled = true;
+      scope.organization = ConfigService.organization;
 
       if (!scope.noHeader && !scope.election) {
         $http.get(ConfigService.baseUrl + "election/" + scope.electionId)
