@@ -2,7 +2,7 @@
   <nav ng-if="!noHeader" class="navbar navbar-default navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
     <div class="container">
       <div class="row avb-top-navbar">
-        <div class="pull-left" ng-i18next="[html]avCommon.poweredBy">
+        <div class="pull-left" ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
         </div>
         <div class="pull-right">
           <a href="#/election/{{electionId}}/public/ballot-locator" target="_blank">

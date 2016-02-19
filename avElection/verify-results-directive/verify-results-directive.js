@@ -9,6 +9,7 @@ angular.module('avElection')
       scope.verifier = ConfigService.verifier;
       scope.noHeader = (attrs.noHeader !== undefined);
       scope.electionId = $stateParams.id;
+      scope.organization = ConfigService.organization;
     }
 
     return {

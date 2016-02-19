@@ -5,7 +5,7 @@
     av-affix-top=".navbar-unfixed-top" role="navigation">
     <div class="container">
       <div class="row avb-top-navbar">
-        <div class="pull-left" ng-i18next="[html]avCommon.poweredBy">
+        <div class="pull-left" ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
         </div>
         <div class="pull-right">
           <a href="#/election/{{electionId}}/public/verify-results" target="_blank">
@@ -38,7 +38,7 @@
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 padded-left padded-right">
           <div
           ng-if="electionState === 'results_pub'"
-          ng-i18next="[i18next:html]({title: election.title, electionId: electionId, publicURL: publicURL})avElection.verifyResults.verifyText">
+          ng-i18next="[i18next:html]({title: election.title, electionId: electionId, publicURL: publicURL, name: organization.orgName})avElection.verifyResults.verifyText">
           </div>
           <div
           ng-if="electionState !== 'results_pub'"

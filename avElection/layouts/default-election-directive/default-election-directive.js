@@ -2,7 +2,7 @@
  * Public lading page for an election
  */
 angular.module('avElection')
-  .directive('aveDefaultElection', function($state, $stateParams, $i18next, $location) {
+  .directive('aveDefaultElection', function($state, $stateParams, $i18next, $location, ConfigService) {
     function link(scope, element, attrs) {
       scope.getShareLink = function() {
         if (!scope.election) {
@@ -19,7 +19,8 @@ angular.module('avElection')
             "avElection.defaultShareText",
             {
               title: title,
-              url: $location.absUrl()
+              url: $location.absUrl(),
+              handle: ConfigService.social.twitterHandle
             });
         }
 
