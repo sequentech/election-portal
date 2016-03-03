@@ -181,6 +181,7 @@ angular.module('agora-gui-elections').config(
 
 angular.module('agora-gui-elections').run(function($http, $rootScope, $window, ConfigService) {
 
+  $rootScope.electionsTitle = ConfigService.webTitle;
   $rootScope.safeApply = function(fn) {
     var phase = $rootScope.$$phase;
     if (phase === '$apply' || phase === '$digest') {
