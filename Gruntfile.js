@@ -198,7 +198,7 @@ module.exports = function (grunt) {
             {selector:'body',html:'<script src="/election/avThemes-v3.0.1.js"></script>'},
             {selector:'body',html:'<script src="/election/app-v3.0.1.min.js"></script>'},
             {selector:'body',html:'<script src="/election/avPlugins-v3.0.1.js"></script>'},
-            {selector:'head',html:'<link rel="stylesheet" id="theme" data-base="/election/" href="/election/themes/default/app.min.css">'}
+            {selector:'head',html:'<link rel="stylesheet" id="theme" data-base="/election/" href="/election/themes/default/app.min.css">'},
             {selector:'head',html:'<link rel="stylesheet" id="plugins" data-base="/election/" href="/election/plugins.css">'}
           ]
         },
