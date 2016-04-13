@@ -16,6 +16,8 @@ angular.module('avElection').controller('PublicController',
     };
     $("#theme").attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
     //window.avThemes.change(ConfigService.theme);
+
+    scope.helpInfo = ConfigService.help.info;
     $scope.layout = mapLayouts["simple"];
     $scope.statePrefix = "election.public.show.home";
         $scope.inside_iframe = InsideIframeService();
