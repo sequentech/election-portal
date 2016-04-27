@@ -104,7 +104,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          src: ['bower_components/avCommon/themes/**/app.less'],
+          src: ['bower_components/avCommon/themes/**/app.less', 'plugins/**/*.less'],
           dest: 'temp/',
           ext: '.css',
         }]
@@ -198,7 +198,8 @@ module.exports = function (grunt) {
             {selector:'body',html:'<script src="/election/avThemes-v3.0.1.js"></script>'},
             {selector:'body',html:'<script src="/election/app-v3.0.1.min.js"></script>'},
             {selector:'body',html:'<script src="/election/avPlugins-v3.0.1.js"></script>'},
-            {selector:'head',html:'<link rel="stylesheet" id="theme" data-base="/election/" href="/election/themes/default/app.min.css">'}
+            {selector:'head',html:'<link rel="stylesheet" id="theme" data-base="/election/" href="/election/themes/default/app.min.css">'},
+            {selector:'head',html:'<link rel="stylesheet" id="plugins" data-base="/election/" href="/election/plugins.css">'}
           ]
         },
         src:'index.html',
@@ -220,6 +221,7 @@ module.exports = function (grunt) {
     concat: {
       main: {
         files: {
+          'dist/plugins.css': ['temp/plugins/**/*.css'],
           'temp/libcompat.js': [
             'vendor/jquery.compat/jquery-1.11.1.js',
             'vendor/json3/json-v3.3.2.js',
@@ -230,7 +232,10 @@ module.exports = function (grunt) {
           'temp/app.js': ['<%= dom_munger.data.appjs %>','<%= ngtemplates.main.dest %>','<%= ngtemplates.common.dest %>'],
           'dist/avConfig-v3.0.1.js': ['avConfig.js'],
           'dist/avThemes-v3.0.1.js': ['bower_components/avCommon/dist/avThemes-v3.0.1.js'],
-          'dist/avPlugins-v3.0.1.js': ['plugins/**/*.js']
+          'dist/avPlugins-v3.0.1.js': [
+            'plugins/**/*.js',
+            '!plugins/**/*-spec.js'
+          ]
         }
       }
     },
@@ -304,6 +309,7 @@ module.exports = function (grunt) {
           '<%= ngtemplates.main.dest %>',
           '<%= ngtemplates.common.dest %>',
           'bower_components/angular-mocks/angular-mocks.js',
+          'plugins/**/*.js',
           createFolderGlobs('*-spec.js')
         ],
         logLevel:'ERROR',
@@ -338,7 +344,29 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.registerTask('build',['check_config', 'jshint','clean:before','less','autoprefixer','dom_munger','ngtemplates','cssmin','concat','merge-json','ngAnnotate','uglify','copy','htmlmin','clean:after']);
+  /*
+   * Register the tasks
+   */
+  grunt.registerTask(
+    'build',
+    [
+      'check_config', 
+      'jshint',
+      'clean:before',
+      'less',
+      'autoprefixer',
+      'dom_munger',
+      'ngtemplates',
+      'cssmin',
+      'concat',
+      'merge-json',
+      'ngAnnotate',
+      'uglify',
+      'copy',
+      'htmlmin',
+      'clean:after'
+    ]
+  );
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
@@ -354,7 +382,7 @@ module.exports = function (grunt) {
       grunt.config('jshint.main.src', filepath);
       tasksToRun.push('jshint');
 
-      //find the appropriate unit t est for the changed file
+      //find the appropriate unit test for the changed file
       var spec = filepath;
       if (filepath.lastIndexOf('-spec.js') === -1 || filepath.lastIndexOf('-spec.js') !== filepath.length - 8) {
         spec = filepath.substring(0,filepath.length - 3) + '-spec.js';
