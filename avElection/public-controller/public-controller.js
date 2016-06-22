@@ -1,3 +1,20 @@
+/**
+ * This file is part of agora-gui-elections.
+ * Copyright (C) 2015-2016  Agora Voting SL <agora@agoravoting.com>
+
+ * agora-gui-elections is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License.
+
+ * agora-gui-elections  is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+
+ * You should have received a copy of the GNU Affero General Public License
+ * along with agora-gui-elections.  If not, see <http://www.gnu.org/licenses/>.
+**/
+
 /*
  * Shows the public view of an election. Controls mainly the changing inner states
  * loading config, showing results, showing error if needed.
@@ -16,6 +33,8 @@ angular.module('avElection').controller('PublicController',
     };
     $("#theme").attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
     //window.avThemes.change(ConfigService.theme);
+
+    $scope.helpInfo = ConfigService.help.info;
     $scope.layout = mapLayouts["simple"];
     $scope.statePrefix = "election.public.show.home";
         $scope.inside_iframe = InsideIframeService();
@@ -24,6 +43,12 @@ angular.module('avElection').controller('PublicController',
     $http.get(ConfigService.baseUrl + "election/" + $stateParams.id)
       .success(function(value) {
         $scope.election = value.payload.configuration;
+        var extra_data = $scope.election.extra_data;
+        if (extra_data && typeof extra_data === 'string') {
+            $scope.election.extra_data = JSON.parse(extra_data);
+        } else {
+            $scope.election.extra_data = {};
+        }
         $scope.layout = mapLayouts[$scope.election.layout];
         $scope.electionState = value.payload.state;
         $scope.results = angular.fromJson(value.payload.results);

@@ -1,6 +1,6 @@
 {
   "name": "agoraGuiElections",
-  "version": "0.0.0",
+  "version": "3.2.0",
   "main": "index.html",
   "ignore": [
     "**/.*",
@@ -8,6 +8,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "avCommon": "https://github.com/agoravoting/agora-gui-common.git"
+    "avCommon": "https://github.com/agoravoting/agora-gui-common.git#next"
   }
 }

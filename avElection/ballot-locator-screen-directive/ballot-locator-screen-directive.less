@@ -15,42 +15,59 @@
  * along with agora-gui-elections.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
-[av-borda-results] {
-  table.resume caption, table.results thead tr {
-    font-weight: bold;
-    background-color: @av-primary;
-    color: @av-primary-contrast;
-    padding: 5px;
+[av-ballot-locator-screen] {
+  background: none;
+
+  .locator-desc {
+    padding-top: 25px !important;
   }
 
-  .table-hover > tbody > tr:hover {
-    > td, > th {
-      background-color: @av-secondary;
-      color: @av-secondary-contrast;
+  .locator-input {
+    font-size: 17px;
+  }
+
+  .locatorStatus {
+    width: 100%;
+    min-height: 30px;
+    font-weight: bold;
+  }
+
+  .results {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  button[disabled] {
+    background-color: @gray-lighter;
+  }
+
+  .no-header {
+    &:after {
+      background: transparent !important;
+    }
+
+    .navbar-unfixed-top {
+      background: transparent !important;
+    }
+    color: @gray-dark;
+
+    h1 {
+      color: @av-secondary;
+      font-size: 30px;
     }
   }
 
-  table.resume tbody td.title {
-    font-weight: bold;
-  }
-
-  table.results tbody tr td {
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  table.results tbody tr.winner td {
-    font-weight: bold;
-  }
-
-  .table-responsive {
-    overflow-y: hidden;
-  }
-
-  .background-percent {
-    height: 100%;
+  .ballot {
+    border: 0 none;
+    border-radius: 5px;
     background-color: @gray-lighter;
-    display: block;
-    position: absolute;
+    width: 100%;
+    word-break: break-all;
+    overflow: hidden;
+    padding: 10px;
+    font-size: 14px;
   }
 }

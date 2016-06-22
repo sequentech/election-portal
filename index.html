@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html id="ng-app" ng-app="agora-core-view">
+<html id="ng-app" ng-app="agora-gui-elections">
   <head>
-    <title>Agora Voting</title>
+    <title>{{ electionsTitle }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <base href="/">
     <meta charset="utf-8" />
@@ -17,6 +17,7 @@
   <!-- JS from Bower Components -->
   <script src="bower_components/avCommon/dist/libnocompat-v3.0.1.js" class="libnocompat"></script>
   <script src="bower_components/avCommon/dist/libCommon-v3.0.1.js" class="lib"></script>
+  <script src="bower_components/angular-local-storage/dist/angular-local-storage.js" class="lib"></script>
 
   <script src="vendor/angular-date-picker-polyfill/angular-date-picker-polyfill.js" class="lib"></script>
   <script src="vendor/jquery.nanoscroller/nanoscroller.js" class="lib"></script>
@@ -27,32 +28,11 @@
   <!-- Configuration file JS -->
   <script src="/avConfig.js"></script>
 
-  <!-- Main App JS: avUI TODO -->
+  <!-- Themes JS -->
   <script src="bower_components/avCommon/dist/avTheme-v3.0.1.js"></script>
 
-  <!-- ui -->
-  <script src="bower_components/avCommon/avUi/avUi.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/jquery.flash.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/simple-error-directive/simple-error-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/change-lang-directive/change-lang-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/affix-bottom-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/auto-height-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/affix-top-offset-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/affix-top-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/collapsing-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/recompile-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/debounce-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/inside-iframe-service.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/percent-votes-service.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/checker-service.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/add-dots-to-int-service.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/endswith-service.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/state-data-service.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/autoscroll-down-directive.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/add-target-blank-filter.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/html-to-text-filter.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/custom-delegates.js" class="app"></script>
-  <script src="bower_components/avCommon/avUi/learn-more-directive.js" class="app"></script>
+  <!-- avCommon -->
+  <script src="bower_components/avCommon/dist/appCommon-v3.0.1.js" class="app"></script>
 
   <!-- registration -->
   <script src="bower_components/avCommon/avRegistration/init.js" class="app"></script>
@@ -77,6 +57,7 @@
   <script src="bower_components/avCommon/avRegistration/fields/captcha-field-directive/captcha-field-directive.js" class="app"></script>
   <script src="bower_components/avCommon/avRegistration/fields/textarea-field-directive/textarea-field-directive.js" class="app"></script>
   <script src="bower_components/avCommon/avRegistration/fields/image-field-directive/image-field-directive.js" class="app"></script>
+  <script src="bower_components/avCommon/avRegistration/plugins.js" class="app"></script>
 
   <script src="app.js" class="app"></script>
 
@@ -95,6 +76,7 @@
   <script src="avElection/layouts/public-view-directive/public-view-directive.js" class="app"></script>
   <script src="avElection/layouts/election-links-directive/election-links-directive.js" class="app"></script>
   <script src="avElection/authorities-directive/authorities-directive.js" class="app"></script>
+  <script src="avElection/ballot-locator-screen-directive/ballot-locator-screen-directive.js" class="app"></script>
 
   <script src="test/test.js" class="app"></script>
 

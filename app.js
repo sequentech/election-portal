@@ -1,5 +1,24 @@
+/**
+ * This file is part of agora-gui-elections.
+ * Copyright (C) 2015-2016  Agora Voting SL <agora@agoravoting.com>
+
+ * agora-gui-elections is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License.
+
+ * agora-gui-elections  is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+
+ * You should have received a copy of the GNU Affero General Public License
+ * along with agora-gui-elections.  If not, see <http://www.gnu.org/licenses/>.
+**/
+
+window.avConfigData.base = '/election';
+
 angular.module(
-  'agora-core-view',
+  'agora-gui-elections',
   ['ui.bootstrap',
   'ui.utils',
   'ui.router',
@@ -20,7 +39,8 @@ angular.module(
   'dndLists',
   'angularLoad',
   'angular-date-picker-polyfill',
-  'ng-autofocus'
+  'ng-autofocus',
+  'agora-gui-common'
 ]);
 
 angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServiceProvider) {
@@ -42,7 +62,11 @@ angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServicePro
     ConfigServiceProvider.i18nextInitOptions);
 });
 
-angular.module('agora-core-view').config(
+angular.module('agora-gui-elections').config(function($sceDelegateProvider, ConfigServiceProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist(ConfigServiceProvider.resourceUrlWhitelist);
+});
+
+angular.module('agora-gui-elections').config(
   function(
     $stateProvider,
     $urlRouterProvider,
@@ -136,6 +160,11 @@ angular.module('agora-core-view').config(
         url: '/logout',
         controller: "LogoutController"
       })
+      .state('election.public.show.legal', {
+        url: '/legal',
+        templateUrl: 'avElection/public-controller/legal.html',
+        controller: "PublicController"
+      })
       .state('election.results', {
         url: '/:id/results',
         templateUrl: 'avElection/results-controller/results-controller.html',
@@ -153,7 +182,7 @@ angular.module('agora-core-view').config(
       .state('election.results.show.unknown', {
         templateUrl: 'avElection/question-results-directive/unknown.html'
       })
-      .state('election.results.show.home.borda', {
+      .state('election.results.show.borda', {
         template: '<div av-borda-results></div>',
       })
       .state('election.results.show.plurality-at-large', {
@@ -167,8 +196,9 @@ angular.module('agora-core-view').config(
       });
 });
 
-angular.module('agora-core-view').run(function($http, $rootScope) {
+angular.module('agora-gui-elections').run(function($http, $rootScope, $window, ConfigService) {
 
+  $rootScope.electionsTitle = ConfigService.webTitle;
   $rootScope.safeApply = function(fn) {
     var phase = $rootScope.$$phase;
     if (phase === '$apply' || phase === '$digest') {
@@ -183,6 +213,12 @@ angular.module('agora-core-view').run(function($http, $rootScope) {
   $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams) {
       console.log("change start from " + fromState.name + " to " + toState.name);
+      // redirect to /admin/login if this login link is invalid
+      if (toState.name === 'election.public.show.login' &&
+        ConfigService.freeAuthId+"" === toParams.id)
+      {
+        $window.location.href = "/admin/login";
+      }
       $("#angular-preloading").show();
     });
   $rootScope.$on('$stateChangeSuccess',
@@ -196,7 +232,7 @@ angular.module('agora-core-view').run(function($http, $rootScope) {
 /*
 This directive allows us to pass a function in on an enter key to do what we want.
  */
-angular.module('agora-core-view').directive('ngEnter', function () {
+angular.module('agora-gui-elections').directive('ngEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if(event.which === 13) {
@@ -217,7 +253,7 @@ angular.module('agora-core-view').directive('ngEnter', function () {
  * @Param end, default is "..."
  * @return string
  */
-angular.module('agora-core-view').filter('truncate', function () {
+angular.module('agora-gui-elections').filter('truncate', function () {
         return function (text, length, end) {
             if (isNaN(length)) {
                 length = 10;
