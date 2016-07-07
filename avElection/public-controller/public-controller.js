@@ -43,10 +43,13 @@ angular.module('avElection').controller('PublicController',
     var extra_data  = {};
     $http.get(ConfigService.authAPI + "legal/")
       .success(function(value) {
+        console.log(value);
+        console.log("FF -");
         extra_data = value;
         return  $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
       })
       .success(function(value) {
+        console.log(value);
         $scope.election = value.payload.configuration;
         $scope.election.extra_data = extra_data;
         $scope.layout = mapLayouts[$scope.election.layout];
