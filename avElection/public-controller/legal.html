@@ -4,10 +4,10 @@
   </div>
   <div>
     <!-- Legal terms -->
-    <span ng-if="election.extra_data.name">{{election.extra_data.name}}, </span>
-    <span ng-if="election.extra_data.org">{{election.extra_data.org}} </span>
-    <span ng-if="election.extra_data.nif">({{election.extra_data.nif}}). </span>
-    <a ng-if="election.extra_data.contact" href="mailto:{{election.extra_data.contact}}" ng-i18next="avElection.legal.contact"></a>
+    <span ng-if="election.extra_data.legal_name">{{election.extra_data.legal_name}}, </span>
+    <span ng-if="election.extra_data.legal_org">{{election.extra_data.legal_org}} </span>
+    <span ng-if="election.extra_data.legal_id">({{election.extra_data.legal_id}}). </span>
+    <a ng-if="election.extra_data.legal_contact" href="mailto:{{election.extra_data.legal_contact}}" ng-i18next="avElection.legal.contact"></a>
     <!-- End legal terms -->
   </div>
 </div>

@@ -40,15 +40,15 @@ angular.module('avElection').controller('PublicController',
         $scope.inside_iframe = InsideIframeService();
 
     // get election config
-    $http.get(ConfigService.baseUrl + "election/" + $stateParams.id)
+    var extra_data  = {};
+    $http.get(ConfigService.authAPI + "legal/")
+      .success(function(value) {
+        extra_data = value;
+        return  $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
+      })
       .success(function(value) {
         $scope.election = value.payload.configuration;
-        var extra_data = $scope.election.extra_data;
-        if (extra_data && typeof extra_data === 'string') {
-            $scope.election.extra_data = JSON.parse(extra_data);
-        } else {
-            $scope.election.extra_data = {};
-        }
+        $scope.election.extra_data = extra_data;
         $scope.layout = mapLayouts[$scope.election.layout];
         $scope.electionState = value.payload.state;
         $scope.results = angular.fromJson(value.payload.results);
