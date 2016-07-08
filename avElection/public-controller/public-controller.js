@@ -42,22 +42,19 @@ angular.module('avElection').controller('PublicController',
     // get election config
     var extra_data  = {};
     $http.get(ConfigService.authAPI + "legal/")
-      .success(function(value) {
-        console.log(value);
-        console.log("FF -");
-        extra_data = value;
-        return  $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
+      .then(function(value) {
+        extra_data = value.data;
+        return $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
       })
-      .success(function(value) {
-        console.log(value);
-        $scope.election = value.payload.configuration;
+      .then(function(value) {
+        $scope.election = value.data.payload.configuration;
         $scope.election.extra_data = extra_data;
         $scope.layout = mapLayouts[$scope.election.layout];
-        $scope.electionState = value.payload.state;
-        $scope.results = angular.fromJson(value.payload.results);
+        $scope.electionState = value.data.payload.state;
+        $scope.results = angular.fromJson(value.data.payload.results);
       })
       // on error, like parse error or 404
-      .error(function (error) {
+      .catch(function (error) {
         $state.go("election.public.error");
       });
 
