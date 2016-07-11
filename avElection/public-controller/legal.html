@@ -1,12 +1,12 @@
 <div class="col-xs-12 top-section">
   <h2 class="text-center text-av-secondary" ng-i18next="avElection.legal.title"></h2>
-  <div>
-    <!-- Legal terms -->
+  <div class="text-center">
+    <!-- Legal info -->
     <span ng-if="election.extra_data.legal_name">{{election.extra_data.legal_name}}, </span>
     <span ng-if="election.extra_data.legal_org">{{election.extra_data.legal_org}} </span>
     <span ng-if="election.extra_data.legal_id">({{election.extra_data.legal_id}}). </span>
     <a ng-if="election.extra_data.legal_contact" href="mailto:{{election.extra_data.legal_contact}}" ng-i18next="avElection.legal.contact"></a>
-    <!-- End legal terms -->
+    <!-- End legal info -->
   </div>
   <div ng-bind-html="legal_html_include">
   </div>
