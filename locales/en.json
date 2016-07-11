@@ -112,16 +112,6 @@
     "legal": {
         "title": "Legal",
         "contact": "contact"
-    },
-    
-    "documentation": { 
-      "title": "Documentation",
-      "first_line": "You can find more information about this election in the following links:",
-      "faq": "Frequently Asked Questions",
-      "overview": "General Overview",
-      "authorities": "List of Authorities",
-      "technical": "Technical Description",
-      "security_contact": "Security Contact"
     }
   }
 }

@@ -111,16 +111,6 @@
     "legal": {
         "title": "Legal",
         "contact": "contacto"
-    },
-    
-    "documentation": { 
-      "title": "Documentación",
-      "first_line": "Puedes encontrar más información sobre la votación en los siguientes enlaces:",
-      "faq": "Preguntas Frecuentes",
-      "overview": "Esquema General",
-      "authorities": "Lista de Autoridades",
-      "technical": "Descripción técnica",
-      "security_contact": "Contacto de seguridad"
     }
   }
 }
