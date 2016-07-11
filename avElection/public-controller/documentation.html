@@ -3,33 +3,39 @@
   <p ng-i18next="avElection.documentation.first_line"></p>
   <ul>
     <li>
-      <a 
-        href="documentation.faq" 
+      <a
+        href="{{documentation.faq}}" 
         ng-i18next="avElection.documentation.faq">
       </a>
     </li>
     <li>
-      <a 
-        href="documentation.overview" 
+      <a
+        href="{{documentation.overview}}" 
         ng-i18next="avElection.documentation.overview">
       </a>
     </li>
     <li>
-      <a 
-        ui-sref="election.public.show.auths" 
+      <a
+        ui-sref="election.public.show.auths"
         ng-i18next="avElection.documentation.authorities">
       </a>
     </li>
     <li>
-      <a 
-        href="documentation.technical" 
+      <a
+        href="{{documentation.technical}}" 
         ng-i18next="avElection.documentation.technical">
       </a>
     </li>
     <li>
-      <a 
-        href="documentation.security_contact" 
+      <a
+        href="{{documentation.security_contact}}" 
         ng-i18next="avElection.documentation.security_contact">
+      </a>
+    </li>
+    <li>
+      <a
+        ui-sref="election.public.show.legal"
+        ng-i18next="avElection.legal.title">
       </a>
     </li>
   </ul>
