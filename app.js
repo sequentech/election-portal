@@ -165,6 +165,11 @@ angular.module('agora-gui-elections').config(
         templateUrl: 'avElection/public-controller/legal.html',
         controller: "PublicController"
       })
+      .state('election.public.show.documentation', {
+        url: '/documentation',
+        templateUrl: 'avElection/public-controller/documentation.html',
+        controller: "PublicController"
+      })
       .state('election.results', {
         url: '/:id/results',
         templateUrl: 'avElection/results-controller/results-controller.html',

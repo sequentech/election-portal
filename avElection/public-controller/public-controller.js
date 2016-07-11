@@ -33,11 +33,13 @@ angular.module('avElection').controller('PublicController',
     };
     $("#theme").attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
     //window.avThemes.change(ConfigService.theme);
-
-    $scope.helpInfo = ConfigService.help.info;
     $scope.layout = mapLayouts["simple"];
     $scope.statePrefix = "election.public.show.home";
         $scope.inside_iframe = InsideIframeService();
+    $scope.documentation = ConfigService.documentation;
+    $scope.documentation.security_contact = ConfigService.legal.security_contact;
+    $scope.documentation_html_include = ConfigService.documentation_html_include;
+    $scope.legal_html_include = ConfigService.legal_html_include;
 
     // get election config
     var extra_data  = {};
