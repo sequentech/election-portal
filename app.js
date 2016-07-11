@@ -35,6 +35,7 @@ angular.module(
   'avRegistration',
   'avTest',
   'avElection',
+  'avDocumentation'
   'angularFileUpload',
   'dndLists',
   'angularLoad',
@@ -167,8 +168,8 @@ angular.module('agora-gui-elections').config(
       })
       .state('election.public.show.documentation', {
         url: '/documentation',
-        templateUrl: 'avElection/public-controller/documentation.html',
-        controller: "PublicController"
+        templateUrl: 'bower_components/avCommon/avDocumentation/documentation-controller.html',
+        controller: "DocumentationController"
       })
       .state('election.results', {
         url: '/:id/results',
