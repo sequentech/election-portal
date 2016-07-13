@@ -40,12 +40,12 @@ angular.module('avElection').controller('PublicController',
 
     // get election config
     var extra_data  = {};
-    $http.get(ConfigService.authAPI + "legal/" + $stateParams.id)
+    $http.get(ConfigService.authAPI + "legal/" + $stateParams.id + "/")
       .then(function(value) {
         if(value.data) {
           extra_data = value.data;
         }
-        return $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
+        return $http.get(ConfigService.baseUrl + "election/" + $stateParams.id + "/");
       })
       .then(function(value) {
         $scope.election = value.data.payload.configuration;
