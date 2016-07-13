@@ -45,7 +45,7 @@ angular.module('avElection').controller('PublicController',
         if(value.data) {
           extra_data = value.data;
         }
-        return $http.get(ConfigService.baseUrl + "election/" + $stateParams.id + "/");
+        return $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
       })
       .then(function(value) {
         $scope.election = value.data.payload.configuration;
