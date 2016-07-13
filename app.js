@@ -35,7 +35,6 @@ angular.module(
   'avRegistration',
   'avTest',
   'avElection',
-  'avDocumentation',
   'angularFileUpload',
   'dndLists',
   'angularLoad',
