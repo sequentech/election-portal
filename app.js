@@ -168,8 +168,7 @@ angular.module('agora-gui-elections').config(
       })
       .state('election.public.show.documentation', {
         url: '/documentation',
-        templateUrl: 'avDocumentation/documentation-controller.html',
-        controller: "DocumentationController"
+        template: '<div class="col-xs-12 top-section" documentation-directive></div>'
       })
       .state('election.results', {
         url: '/:id/results',
