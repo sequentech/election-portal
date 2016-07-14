@@ -153,7 +153,7 @@ module.exports = function (grunt) {
             htmlmin:'<%= htmlmin.main.options %>'
         },
         cwd: 'bower_components/avCommon',
-        src: ["avRegistration/**/*.html", "avUi/**/*.html" ],
+        src: ["avRegistration/**/*.html", "avUi/**/*.html"],
         dest: 'temp/templates-common.js'
       }
     },
