@@ -19,7 +19,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-var AV_CONFIG_VERSION = '3.2.0';
+var AV_CONFIG_VERSION = '3.3.0';
 
 //Using exclusion patterns slows down Grunt significantly
 //instead of creating a set of patterns like '**/*.js' and '!**/node_modules/**'
@@ -81,6 +81,9 @@ module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    variables: {
+      elections_html_body_include: ''
+    },
     connect: {
       main: {
         options: {
@@ -150,7 +153,7 @@ module.exports = function (grunt) {
             htmlmin:'<%= htmlmin.main.options %>'
         },
         cwd: 'bower_components/avCommon',
-        src: ["avRegistration/**/*.html", "avUi/**/*.html" ],
+        src: ["avRegistration/**/*.html", "avUi/**/*.html"],
         dest: 'temp/templates-common.js'
       }
     },
@@ -208,6 +211,7 @@ module.exports = function (grunt) {
         options: {
           remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
           append: [
+            {selector:'body',html:'<%= variables.elections_html_body_include %>'},
             {selector:'body',html:'<!--[if lte IE 8]><script src="/election/libcompat-v3.0.1.min.js"></script><![endif]--><!--[if gte IE 9]><script src="/election/libnocompat-v3.0.1.min.js"></script><![endif]--><!--[if !IE]><!--><script src="/election/libnocompat-v3.0.1.min.js"></script><!--<![endif]-->'},
             {selector:'body',html:'<!--All the source code of this program under copyright. Take a look at the license details at https://github.com/agoravoting/agora-core-view/blob/master/README.md -->'},
             {selector:'body',html:'<script src="/election/lib-v3.0.1.min.js"></script>'},

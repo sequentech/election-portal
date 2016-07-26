@@ -33,28 +33,29 @@ angular.module('avElection').controller('PublicController',
     };
     $("#theme").attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
     //window.avThemes.change(ConfigService.theme);
-
-    $scope.helpInfo = ConfigService.help.info;
     $scope.layout = mapLayouts["simple"];
     $scope.statePrefix = "election.public.show.home";
-        $scope.inside_iframe = InsideIframeService();
+    $scope.inside_iframe = InsideIframeService();
+    $scope.legal_html_include = ConfigService.legal_html_include;
 
     // get election config
-    $http.get(ConfigService.baseUrl + "election/" + $stateParams.id)
-      .success(function(value) {
-        $scope.election = value.payload.configuration;
-        var extra_data = $scope.election.extra_data;
-        if (extra_data && typeof extra_data === 'string') {
-            $scope.election.extra_data = JSON.parse(extra_data);
-        } else {
-            $scope.election.extra_data = {};
+    var extra_data  = {};
+    $http.get(ConfigService.authAPI + "legal/" + $stateParams.id + "/")
+      .then(function(value) {
+        if(value.data) {
+          extra_data = value.data;
         }
+        return $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
+      })
+      .then(function(value) {
+        $scope.election = value.data.payload.configuration;
+        $scope.election.extra_data = extra_data;
         $scope.layout = mapLayouts[$scope.election.layout];
-        $scope.electionState = value.payload.state;
-        $scope.results = angular.fromJson(value.payload.results);
+        $scope.electionState = value.data.payload.state;
+        $scope.results = angular.fromJson(value.data.payload.results);
       })
       // on error, like parse error or 404
-      .error(function (error) {
+      .catch(function (error) {
         $state.go("election.public.error");
       });
 
