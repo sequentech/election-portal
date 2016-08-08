@@ -30,12 +30,30 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 top-section">
-        <h1 class="text-center election-title">{{election.title}}</h1>
-        <p
-          class="election-description"
-          ng-bind-html="election.description | addTargetBlank"
-          ng-if="name().indexOf('home') !== -1">
-        </p>
+        <div class="container" ng-if="election.logo_url">
+          <div class="row">
+            <div class="padded col-xs-12 col-sm-4">
+              <img class="alignleft" src="{{election.logo_url}}" style="max-height: 120px; max-width: 120px; width: auto;">
+              </img>
+            </div>
+            <div class="padded col-xs-12 col-sm-4">
+              <h1 class="text-center election-title">{{election.title}}</h1>
+              <p
+                class="election-description"
+                ng-bind-html="election.description | addTargetBlank"
+                ng-if="name().indexOf('home') !== -1">
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container" ng-if="!election.logo_url">
+          <h1 class="text-center election-title">{{election.title}}</h1>
+          <p
+            class="election-description"
+            ng-bind-html="election.description | addTargetBlank"
+            ng-if="name().indexOf('home') !== -1">
+          </p>
+        </div>
 
         <div class="container-fluid">
           <div class="row">
