@@ -12,16 +12,51 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="{{getShareLink()}}" target="_blank" ng-i18next="avCommon.shareLink">
-            </a>
-          </li>
+      <div 
+        class="collapse navbar-collapse"
+        id="navbar-collapse-1"
+      >
+        <div class="container">
+          <div class="row avb-top-navbar">
+            <div class="pull-left">
+              <span ng-if="election.logo_url">
+                <img 
+                  class="logo-img" 
+                  src="{{election.logo_url}}"
+                >
+                </img>
+              </span>
+              <span 
+                ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy"
+                ng-if="!election.logo_url"
+              >
+              </span>
+            </div>
+            <div class="pull-right">
+              <span>
+                <a 
+                  href="{{getShareLink()}}"
+                  target="_blank"
+                  ng-i18next="avCommon.shareLink"
+                >
+                </a>
+              </span>
 
-          <li class="dropdown" av-change-lang>
-          </li>
-        </ul>
+              <span
+                class="dropdown"
+                av-change-lang
+              >
+              </span>
+            </div>
+            <div
+              class="text-center"
+              ng-if="election.logo_url"
+            >
+              <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
+              </span>
+            </div>
+          </div>
+        </div>
       </div><!-- /.navbar-collapse -->
     </div>
 </nav>
@@ -30,30 +65,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 top-section">
-        <div class="container text-center" ng-if="election.logo_url">
-          <div class="row">
-            <div class="padded col-xs-12 col-sm-4">
-              <img class="alignleft logo-img" src="{{election.logo_url}}">
-              </img>
-            </div>
-            <div class="padded col-xs-12 col-sm-4">
-              <h1 class="text-center election-title">{{election.title}}</h1>
-              <p
-                class="election-description"
-                ng-bind-html="election.description | addTargetBlank"
-                ng-if="name().indexOf('home') !== -1">
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="container" ng-if="!election.logo_url">
-          <h1 class="text-center election-title">{{election.title}}</h1>
-          <p
-            class="election-description"
-            ng-bind-html="election.description | addTargetBlank"
-            ng-if="name().indexOf('home') !== -1">
-          </p>
-        </div>
+        <h1 class="text-center election-title">{{election.title}}</h1>
+        <p
+          class="election-description"
+          ng-bind-html="election.description | addTargetBlank"
+          ng-if="name().indexOf('home') !== -1">
+        </p>
 
         <div class="container-fluid">
           <div class="row">
