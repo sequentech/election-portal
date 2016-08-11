@@ -21,6 +21,7 @@
 angular.module('avElection')
   .directive('aveDefaultElection', function($state, $stateParams, $i18next, $location, ConfigService) {
     function link(scope, element, attrs) {
+      scope.organization = ConfigService.organization;
       scope.getShareLink = function() {
         if (!scope.election) {
           return "";
@@ -50,7 +51,7 @@ angular.module('avElection')
       scope.pageName = function() {
         return $stateParams.name;
       };
-      
+
       scope.checkState = function (validStates) {
         return _.contains(validStates, scope.electionState);
       };
