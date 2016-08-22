@@ -44,6 +44,15 @@
                     class="logo-img"
                     src="{{ getSocialImg(q.network) }}"
                   />
+                </a>
+                <a
+                  href="{{ getSocialLink(q.network, q.social_message) }}"
+                  target="_blank"
+                  ng-if="q.button_text.length > 0">
+                  <img
+                    class="logo-img"
+                    src="{{ getSocialImg(q.network) }}"
+                  />
                   {{ q.button_text }}
                 </a>
               </span>
