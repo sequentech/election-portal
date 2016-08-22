@@ -22,28 +22,27 @@ angular.module('avElection')
   .directive('aveDefaultElection', function($state, $stateParams, $i18next, $location, ConfigService) {
     function link(scope, element, attrs) {
       scope.organization = ConfigService.organization;
-      scope.getShareLink = function() {
-        if (!scope.election) {
-          return "";
-        }
 
-        var text = scope.election.presentation.share_text;
-        if (!text || text.length === 0) {
-          var title = scope.election.title.substr(0, 40);
-          if (title.length > 40) {
-            title += "..";
-          }
-          text = $i18next(
-            "avElection.defaultShareText",
-            {
-              title: title,
-              url: $location.absUrl(),
-              handle: ConfigService.social.twitterHandle
-            });
+      scope.getSocialLink = function (network, message) {
+        var ret ='';
+        if('Facebook' === network) {
+          ret = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(message);
+        } else if('Twitter' === network) {
+          ret = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(message) + '&source=webclient';
         }
-
-        return "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&source=webclient";
+        return ret;
       };
+
+      scope.getSocialImg = function (network) {
+        var ret ='';
+        if('Facebook' === network) {
+          ret = '/election/img/facebook_logo_50.png';
+        } else if('Twitter' === network) {
+          ret = '/election/img/twitter_logo_48.png';
+        }
+        return ret;
+      };
+
       scope.name = function () {
         return $state.current.name.replace("election.public.show.", "");
       };

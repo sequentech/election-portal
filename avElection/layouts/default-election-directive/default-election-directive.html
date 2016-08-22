@@ -33,12 +33,18 @@
               </span>
             </div>
             <div class="pull-right">
-              <span>
-                <a 
-                  href="{{getShareLink()}}"
-                  target="_blank"
-                  ng-i18next="avCommon.shareLink"
-                >
+              <span 
+                ng-if="!!election.presentation.share_text"
+                ng-repeat="q in election.presentation.share_text"
+              >
+                <a
+                  href="{{ getSocialLink(q.network, q.social_message) }}"
+                  target="_blank">
+                  <img
+                    class="logo-img"
+                    src="{{ getSocialImg(q.network) }}"
+                  />
+                  {{ q.button_text }}
                 </a>
               </span>
 
