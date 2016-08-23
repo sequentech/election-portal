@@ -23,25 +23,40 @@ angular.module('avElection')
     function link(scope, element, attrs) {
       scope.organization = ConfigService.organization;
 
-      scope.getSocialLink = function (network, message) {
-        var ret ='';
-        if('Facebook' === network) {
-          ret = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(message);
-        } else if('Twitter' === network) {
-          ret = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(message) + '&source=webclient';
-        }
-        return ret;
-      };
+      function generateButtonsInfo() {
+        scope.buttonsInfo = [];
 
-      scope.getSocialImg = function (network) {
-        var ret ='';
-        if('Facebook' === network) {
-          ret = '/election/img/facebook_logo_50.png';
-        } else if('Twitter' === network) {
-          ret = '/election/img/twitter_logo_48.png';
-        }
-        return ret;
-      };
+        scope.$watch(
+          "election",
+          function() {
+            if(scope.election) {
+              var data = scope.election.presentation.share_text;
+              for(var i = 0, length = data.length; i < length; i++) {
+                var p = data[i];
+                var buttonInfo = {
+                  link: '',
+                  img: '',
+                  button_text: p.button_text,
+                  class: 'btn btn-primary'
+                };
+
+                if('Facebook' === p.network) {
+                  buttonInfo.link = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(p.social_message);
+                  buttonInfo.img = '/election/img/facebook_logo_50.png';
+                  buttonInfo.class = buttonInfo.class + ' btn-facebook';
+                } else if('Twitter' === p.network) {
+                  buttonInfo.link = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(p.social_message) + '&source=webclient';
+                  buttonInfo.img = '/election/img/twitter_logo_48.png';
+                  buttonInfo.class = buttonInfo.class + ' btn-twitter';
+                }
+
+                scope.buttonsInfo.push(buttonInfo);
+              }
+            }
+        });
+      }
+
+      generateButtonsInfo();
 
       scope.name = function () {
         return $state.current.name.replace("election.public.show.", "");

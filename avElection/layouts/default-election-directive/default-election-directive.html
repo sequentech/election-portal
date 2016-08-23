@@ -34,15 +34,17 @@
             </div>
             <div class="pull-right">
               <span 
-                ng-if="!!election.presentation.share_text"
-                ng-repeat="q in election.presentation.share_text"
+                ng-if="!!buttonsInfo"
+                ng-repeat="q in buttonsInfo"
               >
                 <a
-                  href="{{ getSocialLink(q.network, q.social_message) }}"
-                  target="_blank">
+                  href="{{ q.link }}"
+                  target="_blank"
+                  class="{{ q.class }}"
+                >
                   <img
                     class="logo-img"
-                    src="{{ getSocialImg(q.network) }}"
+                    src="{{ q.img }}"
                   />
                   {{ q.button_text }}
                 </a>
