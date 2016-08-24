@@ -39,13 +39,18 @@ angular.module('avElection')
                   button_text: p.button_text,
                   class: 'btn btn-primary'
                 };
+                var message = p.social_message;
+                message = message.replace(
+                  '__URL__',
+                  window.location.protocol + '//' + window.location.host + '/election/' + scope.election.id + '/public/login'
+                );
 
                 if('Facebook' === p.network) {
-                  buttonInfo.link = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(p.social_message);
+                  buttonInfo.link = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(message);
                   buttonInfo.img = '/election/img/facebook_logo_50.png';
                   buttonInfo.class = buttonInfo.class + ' btn-facebook';
                 } else if('Twitter' === p.network) {
-                  buttonInfo.link = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(p.social_message) + '&source=webclient';
+                  buttonInfo.link = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(message) + '&source=webclient';
                   buttonInfo.img = '/election/img/twitter_logo_48.png';
                   buttonInfo.class = buttonInfo.class + ' btn-twitter';
                 }
