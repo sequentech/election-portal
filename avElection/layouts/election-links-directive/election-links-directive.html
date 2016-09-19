@@ -1,4 +1,4 @@
-<ul class="election-links">
+<ul class="election-links" ng-if="name().indexOf('login') === -1">
   <li ng-class="{selected: name().indexOf('home') !== -1}">
     <a
       ui-sref="election.public.show.home({id: election.id})"
