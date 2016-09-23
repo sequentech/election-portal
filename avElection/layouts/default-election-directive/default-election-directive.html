@@ -33,12 +33,20 @@
               </span>
             </div>
             <div class="pull-right">
-              <span>
-                <a 
-                  href="{{getShareLink()}}"
+              <span 
+                ng-if="!!buttonsInfo"
+                ng-repeat="q in buttonsInfo"
+              >
+                <a
+                  href="{{ q.link }}"
                   target="_blank"
-                  ng-i18next="avCommon.shareLink"
+                  class="{{ q.class }}"
                 >
+                  <img
+                    class="social-img"
+                    src="{{ q.img }}"
+                  />
+                  {{ q.button_text|truncate:25 }}
                 </a>
               </span>
 
