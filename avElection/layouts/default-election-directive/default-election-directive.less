@@ -22,28 +22,33 @@
     width: auto;
   }
 
+  .no-hpadding {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .navbar-fixed-top {
-    color: #fff;
+    color: @av-secondary;
     background-color: @av-primary;
   }
 
   .background {
-    background-color: @gray-lighter;
+    background-color: lighten(@av-primary-contrast, 30%);
 
     &.first {
       background-color: @av-primary;
-      color: @av-primary-contrast;
+      color: @av-secondary;
 
     .top-section {
         background-color: @av-primary;
-        color: @av-primary-contrast;
+        color: @av-secondary;
 
         h1.election-title {
-          color: @av-primary-contrast;
+          color: @av-secondary;
         }
 
         ul.election-links > li > a, ul.election-links > li.selected > a {
-          color: @av-primary-contrast;
+          color: @av-secondary;
         }
       }
     }
@@ -51,17 +56,15 @@
     .top-section {
       border-radius: 5px;
       color: @av-secondary;
-      background-color: @av-secondary-contrast;
+      background-color: @av-primary;
       margin-top: 14px;
       padding: 10px;
       min-height: 100px;
-
-      .election-status {
-      }
+      margin-bottom: 30px;
 
       h1.election-title {
         padding: 18px;
-        color: @av-primary;
+        color: @av-secondary;
       }
 
       h2 {
@@ -76,6 +79,35 @@
       > .pad {
         padding: 15px;
       }
+    }
+  }
+
+  .social-img {
+    max-height: 20px;
+    max-width: 50px;
+    width: auto;
+  }
+
+  .btn-primary {
+    border: 0px;
+    margin-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-twitter {
+    background-color: #1da1f2;
+
+    &:hover {
+      background-color: darken(#1da1f2, 20%);
+    }
+  }
+
+  .btn-facebook {
+    background-color: #3b579d;
+
+    &:hover {
+      background-color: darken(#3b579d, 20%);
     }
   }
 }

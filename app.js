@@ -218,8 +218,11 @@ angular.module('agora-gui-elections').run(function($http, $rootScope, $window, C
     function(event, toState, toParams, fromState, fromParams) {
       console.log("change start from " + fromState.name + " to " + toState.name);
       // redirect to /admin/login if this login link is invalid
-      if (toState.name === 'election.public.show.login' &&
-        ConfigService.freeAuthId+"" === toParams.id)
+      if (_.contains (['election.public.show.login', 
+                       'election.public.show.login_email_code', 
+                       'election.public.show.login_email'], 
+                      toState.name) &&
+          ConfigService.freeAuthId+"" === toParams.id)
       {
         $window.location.href = "/admin/login";
       }
