@@ -77,6 +77,7 @@
           class="election-description"
           ng-bind-html="election.description | addTargetBlank"
           ng-if="name().indexOf('home') !== -1">
+
         </p>
 
         <div class="container-fluid">
@@ -116,5 +117,5 @@
   </div>
 </div>
 
-<div av-foot class="hidden-xs">
+<div av-foot class="hidden-xs" ng-if="name().indexOf('login') === -1">
 </div>

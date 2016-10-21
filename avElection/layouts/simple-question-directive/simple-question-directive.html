@@ -11,5 +11,8 @@
   <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answers"></strong>
 </p>
 <ul>
-  <li ng-repeat="answer in question.answers">{{answer.text}}</li>
+  <li
+    ng-repeat="answer in question.answers"
+    ng-bind-html="answer.text">
+  </li>
 </ul>
