@@ -4,15 +4,17 @@
   <span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.votingSystemText"></span>
   <span ng-i18next="[html:i18next]({min: question.min, max: question.max, numWinners: question.num_winners})avElection.public.questionInfoText"></span>
 </p>
-<p ng-if="question.randomize_answer_order">
+<p ng-if="!!question.extra_options.shuffle_categories && !!question.extra_options.shuffle_all_options">
   <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answersRandomized"></strong>
 </p>
-<p ng-if="!question.randomize_answer_order">
+<p ng-if="!question.extra_options.shuffle_categories || !question.extra_options.shuffle_all_options">
   <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answers"></strong>
 </p>
 <ul>
-  <li
-    ng-repeat="answer in question.answers"
-    ng-bind-html="answer.text">
-  </li>
+  <div category-group ng-repeat="category in categories">
+    <li
+      ng-repeat="option in category.options"
+      ng-bind-html="option.text">
+    </li>
+  </div>
 </ul>
