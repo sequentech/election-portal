@@ -23,17 +23,9 @@ angular.module('avElection').controller('PublicController',
   function($state, $stateParams, $http, $scope, $i18next, ConfigService, InsideIframeService, Authmethod) {
 //     $state.go('election.public.loading');
 
-    var mapLayouts = {
-      "": "default",
-      "simple": "default",
-      "pcandidates-election": "default",
-      "2questions-conditional": "default",
-      "conditional-accordion": "default",
-      "ahoram-primaries": "default"
-    };
     $("#theme").attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
     //window.avThemes.change(ConfigService.theme);
-    $scope.layout = mapLayouts["simple"];
+    $scope.layout = "default";
     $scope.statePrefix = "election.public.show.home";
     $scope.inside_iframe = InsideIframeService();
     $scope.legal_html_include = ConfigService.legal_html_include;
@@ -50,7 +42,7 @@ angular.module('avElection').controller('PublicController',
       .then(function(value) {
         $scope.election = value.data.payload.configuration;
         $scope.election.extra_data = extra_data;
-        $scope.layout = mapLayouts[$scope.election.layout];
+        $scope.layout = "default";
         $scope.electionState = value.data.payload.state;
         $scope.results = angular.fromJson(value.data.payload.results);
       })
