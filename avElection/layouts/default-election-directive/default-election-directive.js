@@ -21,28 +21,48 @@
 angular.module('avElection')
   .directive('aveDefaultElection', function($state, $stateParams, $i18next, $location, ConfigService) {
     function link(scope, element, attrs) {
-      scope.getShareLink = function() {
-        if (!scope.election) {
-          return "";
-        }
+      scope.organization = ConfigService.organization;
 
-        var text = scope.election.presentation.share_text;
-        if (!text || text.length === 0) {
-          var title = scope.election.title.substr(0, 40);
-          if (title.length > 40) {
-            title += "..";
-          }
-          text = $i18next(
-            "avElection.defaultShareText",
-            {
-              title: title,
-              url: $location.absUrl(),
-              handle: ConfigService.social.twitterHandle
-            });
-        }
+      function generateButtonsInfo() {
+        scope.buttonsInfo = [];
 
-        return "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&source=webclient";
-      };
+        scope.$watch(
+          "election",
+          function() {
+            if(scope.election) {
+              var data = scope.election.presentation.share_text;
+              for(var i = 0, length = data.length; i < length; i++) {
+                var p = data[i];
+                var buttonInfo = {
+                  link: '',
+                  img: '',
+                  button_text: p.button_text,
+                  class: 'btn btn-primary'
+                };
+                var message = p.social_message;
+                message = message.replace(
+                  '__URL__',
+                  window.location.protocol + '//' + window.location.host + '/election/' + scope.election.id + '/public/login'
+                );
+
+                if('Facebook' === p.network) {
+                  buttonInfo.link = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(message);
+                  buttonInfo.img = '/election/img/facebook_logo_50.png';
+                  buttonInfo.class = buttonInfo.class + ' btn-facebook';
+                } else if('Twitter' === p.network) {
+                  buttonInfo.link = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(message) + '&source=webclient';
+                  buttonInfo.img = '/election/img/twitter_logo_48.png';
+                  buttonInfo.class = buttonInfo.class + ' btn-twitter';
+                }
+
+                scope.buttonsInfo.push(buttonInfo);
+              }
+            }
+        });
+      }
+
+      generateButtonsInfo();
+
       scope.name = function () {
         return $state.current.name.replace("election.public.show.", "");
       };
@@ -50,7 +70,7 @@ angular.module('avElection')
       scope.pageName = function() {
         return $stateParams.name;
       };
-      
+
       scope.checkState = function (validStates) {
         return _.contains(validStates, scope.electionState);
       };

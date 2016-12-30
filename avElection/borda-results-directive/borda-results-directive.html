@@ -1,4 +1,5 @@
 <h2>{{question.title}}</h2>
+<p>{{question.description}}</p>
 <div class="col-xs-12 col-md-4 col-md-offset-1 pull-right">
   <table class="table table-hover table-condensed resume">
     <caption ng-i18next="avElection.resultsSummary"></caption>
@@ -59,7 +60,7 @@
           ng-repeat="answer in question.answers"
           ng-class="{winner: winnerPosition(answer) > 0}"
           style="background: linear-gradient(to right, rgba(220,220,220,1) 0%,rgba(220,220,220,1) {{percentVotes(answer.total_votes, question)}},rgba(255,255,255,1) {{percentVotes(answer.total_votes, question)}},rgba(255,255,255,1) 100%);">
-        <td>{{answer.text}}</td>
+        <td ng-bind-html="answer.text"></td>
         <td class="text-right">{{numVotes(answer.total_count)}}</td>
         <td class="text-right">{{percentVotes(answer.total_count, question)}}</td>
         <td class="text-right">{{winnerPosition(answer)}}</td>

@@ -20,16 +20,41 @@ angular.module('avElection')
     function link(scope, element, attrs) {
       scope.tallyMethod = $i18next("avCommon.votings." + scope.question.tally_type);
 
-      if (scope.question.randomize_answer_order) {
-          var i = -1;
-          var answers = scope.question.answers;
-          var shuffledNumbers = _.shuffle(_.map(answers, function () { i += 1; return i;}));
-          // map different sort orders
-          var shuffledAnswers = _.map(shuffledNumbers, function (index) { return answers[index].sort_order;});
-          // now, assign
-          _.each(answers, function (opt, index) { opt.sort_order = shuffledAnswers[index];});
-          answers.sort(function (item1, item2) { return item1.sort_order - item2.sort_order; });
-          scope.question.answers = answers;
+      // group by category
+      var categories = _.groupBy(scope.question.answers, "category");
+      // convert this associative array to a list of objects with title and
+      // options attributes
+      scope.categories = _.map(_.pairs(categories), function(pair) {
+        var i = -1;
+        var title = pair[0];
+        var answers = pair[1];
+
+        return {
+          title: title,
+          options: answers,
+          isOpen: (scope.folding_policy === "unfold-all")
+        };
+      });
+
+      // apply shuffling policy
+      if (angular.isDefined(scope.question.extra_options)) {
+        if(true === scope.question.extra_options.shuffle_categories) {
+          scope.categories = _.shuffle(scope.categories);
+        }
+
+        if (true === scope.question.extra_options.shuffle_all_options) {
+          scope.categories = _.each( scope.categories, function(category) {
+            category.options = _.shuffle(category.options);
+          });
+        } else if (false === scope.question.extra_options.shuffle_all_options &&
+                 angular.isArray(scope.question.extra_options.shuffle_category_list) &&
+                 scope.question.extra_options.shuffle_category_list.length > 0) {
+          scope.categories = _.each( scope.categories, function(category) {
+            if (-1 !== scope.question.extra_options.shuffle_category_list.indexOf(category.title)) {
+              category.options = _.shuffle(category.options);
+            }
+          });
+        }
       }
       scope.qindex = parseInt(scope.question_index) + 1;
     }

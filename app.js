@@ -55,7 +55,7 @@ angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServicePro
       fallbackLng: 'en',
       cookieName: 'lang',
       detectLngQS: 'lang',
-      lngWhitelist: ['en', 'es', 'gl', 'ca'],
+      lngWhitelist: ['en', 'es', 'gl', 'ca', 'nb'],
       resGetPath: '/election/locales/__lng__.json',
       defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
     },
@@ -218,8 +218,11 @@ angular.module('agora-gui-elections').run(function($http, $rootScope, $window, C
     function(event, toState, toParams, fromState, fromParams) {
       console.log("change start from " + fromState.name + " to " + toState.name);
       // redirect to /admin/login if this login link is invalid
-      if (toState.name === 'election.public.show.login' &&
-        ConfigService.freeAuthId+"" === toParams.id)
+      if (_.contains (['election.public.show.login', 
+                       'election.public.show.login_email_code', 
+                       'election.public.show.login_email'], 
+                      toState.name) &&
+          ConfigService.freeAuthId+"" === toParams.id)
       {
         $window.location.href = "/admin/login";
       }

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-admin adminhead navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
-    <div ng-class="{'container-fluid': admin, 'container': !admin}">
+    <div class="no-hpadding" ng-class="{'container-fluid': admin, 'container': !admin}">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -8,20 +8,62 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://agoravoting.com"></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="{{getShareLink()}}" target="_blank" ng-i18next="avCommon.shareLink">
-            </a>
-          </li>
+      <div 
+        class="collapse navbar-collapse"
+        id="navbar-collapse-1"
+      >
+        <div class="container">
+          <div class="row avb-top-navbar">
+            <div class="pull-left">
+              <span ng-if="election.logo_url">
+                <img 
+                  class="logo-img" 
+                  ng-src="{{election.logo_url}}"
+                >
+                </img>
+              </span>
+              <span 
+                ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy"
+                ng-if="!election.logo_url"
+              >
+              </span>
+            </div>
+            <div class="pull-right">
+              <span 
+                ng-if="!!buttonsInfo"
+                ng-repeat="q in buttonsInfo"
+              >
+                <a
+                  href="{{ q.link }}"
+                  target="_blank"
+                  class="{{ q.class }}"
+                >
+                  <img
+                    class="social-img"
+                    ng-src="{{ q.img }}"
+                  />
+                  {{ q.button_text|truncate:25 }}
+                </a>
+              </span>
 
-          <li class="dropdown" av-change-lang>
-          </li>
-        </ul>
+              <span
+                class="dropdown"
+                av-change-lang
+              >
+              </span>
+            </div>
+            <div
+              class="text-center"
+              ng-if="election.logo_url"
+            >
+              <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
+              </span>
+            </div>
+          </div>
+        </div>
       </div><!-- /.navbar-collapse -->
     </div>
 </nav>
@@ -35,6 +77,7 @@
           class="election-description"
           ng-bind-html="election.description | addTargetBlank"
           ng-if="name().indexOf('home') !== -1">
+
         </p>
 
         <div class="container-fluid">
@@ -74,5 +117,5 @@
   </div>
 </div>
 
-<div av-foot class="hidden-xs">
+<div av-foot class="hidden-xs" ng-if="name().indexOf('login') === -1">
 </div>
