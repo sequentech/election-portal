@@ -77,3 +77,47 @@ angular.module('avElection')
       templateUrl: 'avElection/plurality-at-large-results-directive/plurality-at-large-results-directive.html'
     };
   });
+
+
+//PIE GRAPHICS ABOUT PERCENT OF VALID,NULL AND BLANK VOTES
+
+var pieData = [
+ {
+  value: question.totals.null_votes,
+  color : "#FF0000"
+ },
+ {
+  value : question.totals.valid_votes,
+  color:"#00FF11"
+ },
+ {
+  value : question.totals.blank_votes,
+  color : "#596D5A"
+ }
+];
+var pieOptions = {
+ segmentShowStroke : false,
+ animateScale : true
+}
+
+var pie= document.getElementById("pieTypes").getContext("2d");
+new Chart(pie).Pie(pieData, pieOptions);
+
+
+
+//BAR GRAPHICS
+
+var barData = {
+ labels : question.answers.text,
+ datasets : [
+  {
+   fillColor : "#48A497",
+   strokeColor : "#48A4D1",
+   data : numVotes(answer.total_count)
+  }
+
+ ]
+}
+
+var income = document.getElementById("barVotes").getContext("2d");
+new Chart(income).Bar(barData);
