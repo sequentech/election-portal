@@ -88,7 +88,9 @@
       "status-doing_tally": "Status: <strong>opptelling pågår</strong>",
       "status-tally_ok": "Status: <strong>opptelling ferdig</strong>",
       "status-results_ok": "Status: <strong>resultat klart</strong>",
-      "status-results_pub": "Status: <strong>resultat offentliggjort</strong>"
+      "status-results_pub": "Status: <strong>resultat offentliggjort</strong>",
+      "details": "Detaljer",
+      "webPage": "Nettsted"
     },
 
     "authorities": {

@@ -88,7 +88,9 @@
       "status-doing_tally": "Status: <strong>doing tally</strong>",
       "status-tally_ok": "Status: <strong>tally done</strong>",
       "status-results_ok": "Status: <strong>results calculated</strong>",
-      "status-results_pub": "Status: <strong>results published</strong>"
+      "status-results_pub": "Status: <strong>results published</strong>",
+      "details": "Details",
+      "webPage": "Web Page"
     },
 
     "authorities": {

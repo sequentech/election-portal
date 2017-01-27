@@ -87,7 +87,9 @@
       "status-doing_tally": "Estado: <strong>haciendo recuento</strong>",
       "status-tally_ok": "Estado: <strong>recuento hecho</strong>",
       "status-results_ok": "Status: <strong>resultados calculados</strong>",
-      "status-results_pub": "Estado: <strong>resultados publicados</strong>"
+      "status-results_pub": "Estado: <strong>resultados publicados</strong>",
+      "details": "Detalles",
+      "webPage": "Página web"
     },
 
     "authorities": {
