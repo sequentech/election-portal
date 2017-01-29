@@ -26,7 +26,8 @@ angular.module('avElection')
         "plurality-at-large": "plurality-at-large",
         "borda-nauru": "borda",
         "borda": "borda",
-        "pairwise-beta": "borda"
+        "pairwise-beta": "borda",
+        "desborda": "borda"
       };
 
       var key = scope.question.layout + "." + scope.question.tally_type;
