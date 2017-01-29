@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 
-<head></head>
+<head>Bar Example</head>
 
 <body>
-  <canvas id="c" width="500" height="500"></canvas>
+  <canvas id="bar"width="500" height="500"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
   <script>
-    var ctx = document.getElementById("c").getContext("2d");
+    var ctx = document.getElementById("bar").getContext("2d");
     var data = {
       labels: ["Manuel", "Antonio", "Alejandro", "Alfredo"],
       datasets: [{
@@ -48,7 +48,7 @@
         data: [0, 0, 0, 19]
       }]
     };
-    var MyNewChart = new Chart(ctx).Bar(data);
+    var barChart = new Chart(ctx).Bar(data);
   </script>
 </body>
 

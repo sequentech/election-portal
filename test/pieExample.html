@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 
-<head></head>
+<head>Pie example</head>
 
 <body>
-  <canvas id="c" width="500" height="500"></canvas>
+  <canvas id="pie" width="500" height="500"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
   <script>
-    var ctx = document.getElementById("c").getContext("2d");
+    var ctx = document.getElementById("pie").getContext("2d");
     var data =  [{
         value: 70,
         color: "rgba(220,0,0,0.5)"
@@ -26,7 +26,7 @@
 };
  
 
-    var MyNewChart = new Chart(ctx).Pie(data,pieOptions);
+    var pieChart = new Chart(ctx).Pie(data,pieOptions);
   </script>
 </body>
 
