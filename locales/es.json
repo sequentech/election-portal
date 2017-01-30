@@ -89,7 +89,8 @@
       "status-results_ok": "Status: <strong>resultados calculados</strong>",
       "status-results_pub": "Estado: <strong>resultados publicados</strong>",
       "details": "Detalles",
-      "webPage": "Página web"
+      "webPage": "Página web",
+      "showMore": "Mostrar más"
     },
 
     "authorities": {

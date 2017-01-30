@@ -90,7 +90,8 @@
       "status-results_ok": "Status: <strong>resultat klart</strong>",
       "status-results_pub": "Status: <strong>resultat offentliggjort</strong>",
       "details": "Detaljer",
-      "webPage": "Nettsted"
+      "webPage": "Nettsted",
+      "showMore": "Vis mes"
     },
 
     "authorities": {

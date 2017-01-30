@@ -90,7 +90,8 @@
       "status-results_ok": "Status: <strong>results calculated</strong>",
       "status-results_pub": "Status: <strong>results published</strong>",
       "details": "Details",
-      "webPage": "Web Page"
+      "webPage": "Web Page",
+      "showMore": "Show more"
     },
 
     "authorities": {

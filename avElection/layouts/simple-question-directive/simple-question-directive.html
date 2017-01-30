@@ -11,18 +11,22 @@
   <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answers"></strong>
 </p>
 <ul>
-  <div category-group ng-repeat="category in categories">
-    <div class="text-header" ng-repeat="option in category.options" ng-bind-html="option.text">
-      <div ng-show="option.urls[1].url">
-        <img class="img-responsive img-thumbnail omg-option" ng-src="{{option.urls[1].url}}"></img>
-      </div>
-      <p ng-show="option.urls[0].url">
-        <a ng-href="{{option.urls[1].url}}"><span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.webPage"></span></a>
-      </p>
-      <div ng-show="option.details">
-        <h4><span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.details"></span></h4>
-        <p><pre>{{option.details}}</pre></p>
-      </div>
+    <div category-group ng-repeat="category in categories"> <label>
+            <button class="nbutton" ng-mouseup="showdiv= !showdiv" ng-model="showdiv" ng-init="showdiv=false">
+            <label ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.showMore"></label>
+            </button>
+        </label>
+    <div class="text-header animate-if" ng-repeat="option in category.options" ng-bind-html="option.text" ng-if="showdiv" >
+        <div ng-show="option.urls[1].url">
+          <img class="img-responsive img-thumbnail omg-option" ng-src="{{option.urls[1].url}}" />
+        </div>
+        <p ng-show="option.urls[0].url">
+          <a ng-href="{{option.urls[1].url}}"><span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.webPage"></span></a>
+        </p>
+        <div ng-show="option.details">
+          <h4><span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.details"></span></h4>
+          <p> <pre>{{option.details}}</pre> </p>
+        </div>
     </div>
   </div>
 </ul>

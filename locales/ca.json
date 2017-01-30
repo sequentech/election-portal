@@ -86,7 +86,8 @@
       "status-results_ok": "Estat: <strong>resultats calculats</strong>",
       "status-results_pub": "Estat: <strong>resultats publicats</strong>",
       "details": "Detalls",
-      "webPage": "Ṕàgina web"
+      "webPage": "Ṕàgina web",
+      "showMore": "Mostrar més"
     },
 
     "authorities": {
