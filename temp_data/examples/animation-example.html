@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Example</title>
+        <link href="animations.css" rel="stylesheet" type="text/css">
+
+
+        <script src="https://code.angularjs.org/snapshot/angular.min.js"></script>
+        <script src="https://code.angularjs.org/snapshot/angular-animate.js"></script>
+
+
+
+    </head>
+    <body ng-app="ngAnimate">
+        <p>     
+            <label>
+                <button class="nbutton" ng-mouseup="showdiv = !showdiv" ng-model="showdiv" ng-init="showdiv = false">
+                    <label>Show More</label>
+                </button>
+            </label>
+        </p>
+        <ul>
+            <li> This is a title
+                <div class="animate-if"  ng-if="showdiv">
+                    <div>
+                        <img class="img-option" ng-src="https://camo.mybb.com/e01de90be6012adc1b1701dba899491a9348ae79/687474703a2f2f7777772e6a71756572797363726970742e6e65742f696d616765732f53696d706c6573742d526573706f6e736976652d6a51756572792d496d6167652d4c69676874626f782d506c7567696e2d73696d706c652d6c69676874626f782e6a7067" />
+                    </div>
+                    <p>
+                        <a ng-href="http://wallpaper-gallery.net/wallpapers/image.html"><span>WebPage</span></a>
+                    </p>
+                    <p>
+                        <span>Category: Connecting people</span>
+                    </p>
+                    <div>
+                        <h4><span>Will it work</span></h4>
+                        <p> It seems it will</p>
+                    </div>
+                </div>
+            </li>
+            <li> This is a title
+                <div class="animate-if"  ng-if="showdiv">
+                    <div>
+                        <img class="img-option" ng-src="http://www.w3schools.com/css/trolltunga.jpg" />
+                    </div>
+                    <p>
+                        <a ng-href="http://wallpaper-gallery.net/wallpapers/image.html"><span>WebPage</span></a>
+                    </p>
+                    <p>
+                        <span>Category: Connected people</span>
+                    </p>
+                    <div>
+                        <h4><span>Will it work</span></h4>
+                        <p> It did!!</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </body>
+</html>
