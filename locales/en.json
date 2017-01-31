@@ -91,7 +91,8 @@
       "status-results_pub": "Status: <strong>results published</strong>",
       "details": "Details",
       "webPage": "Web Page",
-      "showMore": "Show more"
+      "showMore": "Show more",
+      "category": "Category"
     },
 
     "authorities": {

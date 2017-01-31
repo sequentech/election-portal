@@ -91,7 +91,8 @@
       "status-results_pub": "Status: <strong>resultat offentliggjort</strong>",
       "details": "Detaljer",
       "webPage": "Nettsted",
-      "showMore": "Vis mes"
+      "showMore": "Vis mes",
+      "category": "Kategori"
     },
 
     "authorities": {

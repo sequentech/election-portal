@@ -1,32 +1,40 @@
 <h3>Q{{qindex}}. {{question.title}}</h3>
 <p ng-bind-html="question.description | addTargetBlank"></p>
 <p>
-  <span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.votingSystemText"></span>
-  <span ng-i18next="[html:i18next]({min: question.min, max: question.max, numWinners: question.num_winners})avElection.public.questionInfoText"></span>
+    <span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.votingSystemText"></span>
+    <span ng-i18next="[html:i18next]({min: question.min, max: question.max, numWinners: question.num_winners})avElection.public.questionInfoText"></span>
 </p>
 <p ng-if="!!question.extra_options.shuffle_categories && !!question.extra_options.shuffle_all_options">
-  <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answersRandomized"></strong>
+    <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answersRandomized"></strong>
 </p>
 <p ng-if="!question.extra_options.shuffle_categories || !question.extra_options.shuffle_all_options">
-  <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answers"></strong>
+    <strong ng-i18next="[i18next]({count: question.answers.length})avElection.public.answers"></strong>
+</p>
+<p>     
+    <label>
+        <button class="nbutton" ng-mouseup="showdiv = !showdiv" ng-model="showdiv" ng-init="showdiv = false">
+            <label ng-i18next="[html:i18next]avElection.public.showMore"></label>
+        </button>
+    </label>
 </p>
 <ul>
-    <div category-group ng-repeat="category in categories"> <label>
-            <button class="nbutton" ng-mouseup="showdiv= !showdiv" ng-model="showdiv" ng-init="showdiv=false">
-            <label ng-i18next="[html:i18next]avElection.public.showMore"></label>
-            </button>
-        </label>
-    <div class="text-header animate-if" ng-repeat="option in category.options" ng-bind-html="option.text" ng-if="showdiv" >
-        <div ng-show="option.urls[1].url">
-          <img class="img-responsive img-thumbnail omg-option" ng-src="{{option.urls[1].url}}" />
-        </div>
-        <p ng-show="option.urls[0].url">
-          <a ng-href="{{option.urls[1].url}}"><span ng-i18next="[html:i18next]avElection.public.webPage"></span></a>
-        </p>
-        <div ng-show="option.details">
-          <h4><span ng-i18next="[html:i18next]avElection.public.details"></span></h4>
-          <p> <pre>{{option.details}}</pre> </p>
-        </div>
+    <div category-group ng-repeat="category in categories"> 
+        <li class="text-header" ng-repeat="option in category.options" ng-bind-html="option.text"  >
+            <div class="animate-if"  ng-if="showdiv">
+                <div ng-show="option.urls[1].url">
+                    <img class="img-responsive img-thumbnail omg-option" ng-src="{{option.urls[1].url}}" />
+                </div>
+                <p ng-show="option.urls[0].url">
+                    <a ng-href="{{option.urls[1].url}}"><span ng-i18next="[html:i18next]avElection.public.webPage"></span></a>
+                </p>
+                <p ng-show="option.category">
+                    <span ng-i18next="[html:i18next]avElection.public.category">: {{option.category}}</span>
+                </p>
+                <div ng-show="option.details">
+                    <h4><span ng-i18next="[html:i18next]avElection.public.details"></span></h4>
+                    <p> {{option.details}} </p>
+                </div>
+            </div>
+        </li>
     </div>
-  </div>
 </ul>

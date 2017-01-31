@@ -88,7 +88,8 @@
       "status-results_pub": "Estado: <strong>resultados publicados</strong>",
       "details": "Detalles",
       "webPage": "Sitio",
-      "showMore": "Amosar máis"
+      "showMore": "Amosar máis",
+      "category": "Categoría"
     },
 
     "authorities": {

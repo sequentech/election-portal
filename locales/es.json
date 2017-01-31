@@ -90,7 +90,8 @@
       "status-results_pub": "Estado: <strong>resultados publicados</strong>",
       "details": "Detalles",
       "webPage": "Página web",
-      "showMore": "Mostrar más"
+      "showMore": "Mostrar más",
+      "category": "Categoría"
     },
 
     "authorities": {
