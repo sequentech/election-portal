@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>Bar Example</head>
+
+<body>
+  <canvas id="bar"width="500" height="500"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+  <script>
+    var ctx = document.getElementById("bar").getContext("2d");
+    var data = {
+      labels: ["Manuel", "Antonio", "Alejandro", "Alfredo"],
+      datasets: [{
+        label: "Votos de Manuel",
+        fillColor: "rgba(220,0,0,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: [65, 0, 0, 0,]
+      }, {
+        label: "Votos de Antonio",
+        fillColor: "rgba(0,220,0,0.5)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(151,187,205,1)",
+        data: [0, 48, 0, 0]
+      }, {
+        label: "Votos de Alejandro",
+        fillColor: "rgba(0,0,220,0.5)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(151,187,205,1)",
+        data: [0, 0, 80, 0]
+      }, {
+        label: "Votos de Alfredo",
+        fillColor: "rgba(220,220,0,0.5)",
+        strokeColor: "rgba(151,187,205,1)",
+        pointColor: "rgba(151,187,205,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(151,187,205,1)",
+        data: [0, 0, 0, 19]
+      }]
+    };
+    var barChart = new Chart(ctx).Bar(data);
+  </script>
+</body>
+
+</html>

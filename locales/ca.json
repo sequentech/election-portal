@@ -84,7 +84,11 @@
       "status-doing_tally": "Estat: <strong>fent recompte</strong>",
       "status-tally_ok": "Estat: <strong>recompte fet</strong>",
       "status-results_ok": "Estat: <strong>resultats calculats</strong>",
-      "status-results_pub": "Estat: <strong>resultats publicats</strong>"
+      "status-results_pub": "Estat: <strong>resultats publicats</strong>",
+      "details": "Detalls",
+      "webPage": "Ṕàgina web",
+      "showMore": "Mostrar més",
+      "category": "Categoria"
     },
 
     "authorities": {
