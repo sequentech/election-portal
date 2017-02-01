@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>Pie example</head>
+
+<body>
+  <canvas id="pie" width="500" height="500"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+  <script>
+    var ctx = document.getElementById("pie").getContext("2d");
+    var data =  [{
+        value: 70,
+        color: "rgba(220,0,0,0.5)"
+      }, {
+        value: 10,
+        color: "rgba(0,220,0,0.5)"
+       
+      }, {
+        value : 20,
+       	color: "rgba(0,0,220,0.5)"
+      }];
+    
+ var pieOptions = {
+ segmentShowStroke : false,
+ animateScale : true
+};
+ 
+
+    var pieChart = new Chart(ctx).Pie(data,pieOptions);
+  </script>
+</body>
+
+</html>
