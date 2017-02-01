@@ -76,48 +76,45 @@ angular.module('avElection')
       link: link,
       templateUrl: 'avElection/plurality-at-large-results-directive/plurality-at-large-results-directive.html'
     };
-  });
-
-
+ 
+    
+    //BAR GRAPHICS
+  var ctx = document.getElementById("barVotes").getContext("2d");
+    var data = {
+      labels: question.answers.text,
+      datasets: [{
+        fillColor: "rgba(220,0,0,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: numVotes(answer.total_count)
+      }]
+    };
+    var barChart = new Chart(ctx).Bar(data);    
+    
 //PIE GRAPHICS ABOUT PERCENT OF VALID,NULL AND BLANK VOTES
-
-var pieData = [
- {
-  value: question.totals.null_votes,
-  color : "#FF0000"
- },
- {
-  value : question.totals.valid_votes,
-  color:"#00FF11"
- },
- {
-  value : question.totals.blank_votes,
-  color : "#596D5A"
- }
-];
-var pieOptions = {
+    
+      var ctx = document.getElementById("pieTypes").getContext("2d");
+    var data =  [{
+        value: question.totals.null_votes,
+        color: "rgba(220,0,0,0.5)"
+      }, {
+        value: question.totals.valid_votes,
+        color: "rgba(0,220,0,0.5)"
+       
+      }, {
+        value : question.totals.blank_votes,
+       	color: "rgba(0,0,220,0.5)"
+      }];
+    
+ var pieOptions = {
  segmentShowStroke : false,
  animateScale : true
-}
+};
+ 
 
-var pie= document.getElementById("pieTypes").getContext("2d");
-new Chart(pie).Pie(pieData, pieOptions);
-
-
-
-//BAR GRAPHICS
-
-var barData = {
- labels : question.answers.text,
- datasets : [
-  {
-   fillColor : "#48A497",
-   strokeColor : "#48A4D1",
-   data : numVotes(answer.total_count)
-  }
-
- ]
-}
-
-var income = document.getElementById("barVotes").getContext("2d");
-new Chart(income).Bar(barData);
+    var pieChart = new Chart(ctx).Pie(data,pieOptions);
+  });
+  
