@@ -1,6 +1,6 @@
 {
   "name": "agoraGuiElections",
-  "version" : "3.4.0",
+  "version" : "17.04",
   "main": "index.html",
   "ignore": [
     "**/.*",
