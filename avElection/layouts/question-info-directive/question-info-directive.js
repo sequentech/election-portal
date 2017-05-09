@@ -23,14 +23,17 @@ angular.module('avElection')
         "simple.borda-nauru": "simple",
         "simple.borda": "simple",
         "simple.pairwise-beta": "simple",
+        "simple.desborda2": "simple",
         "simple.desborda": "simple",
         "circles.plurality-at-large": "simple",
         "circles.borda": "simple",
         "circles.borda-nauru": "simple",
+        "circles.desborda2": "simple",
         "circles.desborda": "simple",
         "details.plurality-at-large": "simple",
         "details.borda": "simple",
         "details.borda-nauru": "simple",
+        "details.desborda2": "simple",
         "details.desborda": "simple"
       };
 
