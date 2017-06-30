@@ -19,7 +19,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-var AV_CONFIG_VERSION = '103.111.1';
+var AV_CONFIG_VERSION = '103111.1';
 
 //Using exclusion patterns slows down Grunt significantly
 //instead of creating a set of patterns like '**/*.js' and '!**/node_modules/**'
@@ -212,13 +212,13 @@ module.exports = function (grunt) {
           remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
           append: [
             {selector:'body',html:'<%= variables.elections_html_body_include %>'},
-            {selector:'body',html:'<!--[if lte IE 8]><script src="/election/libcompat-v103.111.1.min.js"></script><![endif]--><!--[if gte IE 9]><script src="/election/libnocompat-v103.111.1.min.js"></script><![endif]--><!--[if !IE]><!--><script src="/election/libnocompat-v103.111.1.min.js"></script><!--<![endif]-->'},
+            {selector:'body',html:'<!--[if lte IE 8]><script src="/election/libcompat-v103111.1.min.js"></script><![endif]--><!--[if gte IE 9]><script src="/election/libnocompat-v103111.1.min.js"></script><![endif]--><!--[if !IE]><!--><script src="/election/libnocompat-v103111.1.min.js"></script><!--<![endif]-->'},
             {selector:'body',html:'<!--All the source code of this program under copyright. Take a look at the license details at https://github.com/agoravoting/agora-core-view/blob/master/README.md -->'},
-            {selector:'body',html:'<script src="/election/lib-v103.111.1.min.js"></script>'},
-            {selector:'body',html:'<script src="/election/avConfig-v103.111.1.js"></script>'},
-            {selector:'body',html:'<script src="/election/avThemes-v103.111.1.js"></script>'},
-            {selector:'body',html:'<script src="/election/app-v103.111.1.min.js"></script>'},
-            {selector:'body',html:'<script src="/election/avPlugins-v103.111.1.js"></script>'},
+            {selector:'body',html:'<script src="/election/lib-v103111.1.min.js"></script>'},
+            {selector:'body',html:'<script src="/election/avConfig-v103111.1.js"></script>'},
+            {selector:'body',html:'<script src="/election/avThemes-v103111.1.js"></script>'},
+            {selector:'body',html:'<script src="/election/app-v103111.1.min.js"></script>'},
+            {selector:'body',html:'<script src="/election/avPlugins-v103111.1.js"></script>'},
             {selector:'head',html:'<link rel="stylesheet" id="theme" data-base="/election/" href="/election/themes/default/app.min.css">'},
             {selector:'head',html:'<link rel="stylesheet" id="plugins" data-base="/election/" href="/election/plugins.css">'}
           ]
@@ -251,9 +251,9 @@ module.exports = function (grunt) {
           'temp/libnocompat.js': ['<%= dom_munger.data.libnocompatjs %>'],
           'temp/lib.js': ['<%= dom_munger.data.libjs %>'],
           'temp/app.js': ['<%= dom_munger.data.appjs %>','<%= ngtemplates.main.dest %>','<%= ngtemplates.common.dest %>'],
-          'dist/avConfig-v103.111.1.js': ['avConfig.js'],
-          'dist/avThemes-v103.111.1.js': ['bower_components/avCommon/dist/avThemes-v103.111.1.js'],
-          'dist/avPlugins-v103.111.1.js': [
+          'dist/avConfig-v103111.1.js': ['avConfig.js'],
+          'dist/avThemes-v103111.1.js': ['bower_components/avCommon/dist/avThemes-v103111.1.js'],
+          'dist/avPlugins-v103111.1.js': [
             'plugins/**/*.js',
             '!plugins/**/*-spec.js'
           ]
@@ -289,10 +289,10 @@ module.exports = function (grunt) {
           beautify: true
         },
         files: {
-          'dist/app-v103.111.1.min.js': 'temp/app.js',
-          'dist/lib-v103.111.1.min.js': 'temp/lib.js',
-          'dist/libnocompat-v103.111.1.min.js': 'temp/libnocompat.js',
-          'dist/libcompat-v103.111.1.min.js': 'temp/libcompat.js',
+          'dist/app-v103111.1.min.js': 'temp/app.js',
+          'dist/lib-v103111.1.min.js': 'temp/lib.js',
+          'dist/libnocompat-v103111.1.min.js': 'temp/libnocompat.js',
+          'dist/libcompat-v103111.1.min.js': 'temp/libcompat.js',
           'dist/avWidgets.min.js': 'avWidgets.js',
 
           "dist/locales/moment/en.js": "bower_components/moment/lang/en-gb.js",
