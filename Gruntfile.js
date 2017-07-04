@@ -79,6 +79,64 @@ module.exports = function (grunt) {
     });
   });
 
+  // custom grunt task to check avPluginsConfig.js
+  grunt.registerTask('check_plugins_config', function() {
+    var fs = require('fs');
+    var done = this.async();
+    grunt.log.ok('Checking avPluginsConfig.js...');
+    function checkAvPluginsConfig() {
+        fs.readFile('avPluginsConfig.js', function(err, data) {
+            if (err) {
+                grunt.log.ok('No avPluginsConfig.js file found, creating...');
+                var avPluginsConfigText = 
+                    "var AV_PLUGINS_CONFIG_VERSION = '" + AV_CONFIG_VERSION + "';\n" +
+                    "angular.module('avPluginsConfig', [])\n" +
+                    "  .factory('PluginsConfigService', function() {\n" +
+                    "    return {};\n" +
+                    "  });\n" +
+                    "\n" +
+                    "angular.module('avPluginsConfig')\n" +
+                    "  .provider('PluginsConfigService', function PluginsConfigServiceProvider() {\n" +
+                    "    _.extend(this, {});\n" +
+                    "\n" +
+                    "    this.$get = [function PluginsConfigServiceProviderFactory() {\n" +
+                    "    return new PluginsConfigServiceProvider();\n" +
+                    "    }];\n" +
+                    "   });";
+                fs.writeFile("avPluginsConfig.js", 
+                    avPluginsConfigText, 
+                    function(err) {
+                        if(err) {
+                            grunt.log.error(
+                                'Error creating avPluginsConfig.js file');
+                            done(false);
+                        } else {
+                            grunt.log.ok('Created avPluginsConfig.js file, ' + 
+                                'trying to read it again...');
+                            checkAvPluginsConfig();
+                        }
+                }); 
+            } else {
+                var match = data.toString().match(
+                    /AV_PLUGINS_CONFIG_VERSION = [\'\"]([\w\.]*)[\'\"];/);
+                if (!match) {
+                    grunt.log.error('Invalid avPluginsConfig.js version');
+                } else {
+                    var v = match[1];
+                    if (v === AV_CONFIG_VERSION) {
+                        return done();
+                    } else {
+                        grunt.log.error('Invalid avPluginsConfig.js version: ' +
+                            v);
+                    }
+                }
+                done(false);
+            }
+        });
+    }
+    var conf = checkAvPluginsConfig();
+  });
+
   // Project configuration.
   grunt.initConfig({
     variables: {
