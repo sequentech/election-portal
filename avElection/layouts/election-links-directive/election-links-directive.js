@@ -19,9 +19,19 @@
  * Shows election links, highlighting the one selected
  */
 angular.module('avElection')
-  .directive('aveElectionLinks', function() {
+  .directive('aveElectionLinks',
+  function(Plugins) {
+    function link(scope, element, attrs) {
+      var hookData = {
+        tabs: []
+      };
+      Plugins.hook('elections-links', hookData);
+      scope.tabs = hookData.tabs;
+    }
+
     return {
       restrict: 'AE',
+      link: link,
       templateUrl: 'avElection/layouts/election-links-directive/election-links-directive.html'
     };
   });

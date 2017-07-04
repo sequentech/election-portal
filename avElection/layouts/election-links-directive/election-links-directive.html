@@ -31,12 +31,6 @@
       ng-i18next="avElection.public.overviewLink">
     </a>
   </li>
-  <li ng-class="{selected: name() === 'test'}">
-    <a
-      ui-sref="election.public.show.home.test({id: election.id, name: 'test'})">
-      test
-    </a>
-  </li>
   <li ng-if="checkState(['registered', 'created', 'started'])">
     <a href="/booth/{{election.id}}/vote" target="_blank" ng-i18next="avElection.public.demoVotingBoothLink"></a>
   </li>
@@ -64,6 +58,12 @@
     <a
       ui-sref="election.public.show.documentation"
       ng-i18next="avDocumentation.documentation.title">
+    </a>
+  </li>
+  <li ng-repeat="tab in tabs" ng-class="{selected: name() === tab}">
+    <a
+      ui-sref="election.public.show.{{ tab }}">
+      test
     </a>
   </li>
 </ul>
