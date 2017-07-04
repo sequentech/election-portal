@@ -312,6 +312,7 @@ module.exports = function (grunt) {
           'dist/avConfig-v103111.1.js': ['avConfig.js'],
           'dist/avThemes-v103111.1.js': ['bower_components/avCommon/dist/avThemes-v103111.1.js'],
           'dist/avPlugins-v103111.1.js': [
+            'avPluginsConfig.js',
             'plugins/**/*.js',
             '!plugins/**/*-spec.js'
           ]
