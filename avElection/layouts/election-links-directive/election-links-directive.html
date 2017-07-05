@@ -60,10 +60,10 @@
       ng-i18next="avDocumentation.documentation.title">
     </a>
   </li>
-  <li ng-repeat="tab in tabs" ng-class="{selected: name() === tab}">
+  <li ng-repeat="tab in tabs" ng-class="{selected: name() === tab.path_name}">
     <a
-      ui-sref="election.public.show.{{ tab }}">
-      test
+      ui-sref="election.public.show.{{ tab.path_name }}">
+      {{ tab.label }}
     </a>
   </li>
 </ul>
