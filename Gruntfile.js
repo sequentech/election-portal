@@ -432,6 +432,7 @@ module.exports = function (grunt) {
     'build',
     [
       'check_config', 
+      'check_plugins_config',
       'jshint',
       'clean:before',
       'less',
