@@ -221,6 +221,8 @@ module.exports = function (grunt) {
           {src: ['img/**'], dest: 'dist/'},
           {src: ['img/**'], dest: 'dist/'},
           {src: ['temp_data/**'], dest: 'dist/'},
+          {src: ['bower_components/avCommon/dist/utils.js'], dest: 'dist/utils.js'},
+          {src: ['bower_components/avCommon/dist/img/flags.png'], dest: 'dist/flags.png'},
           {
             expand: true,
             cwd:'bower_components/avCommon/themes',
