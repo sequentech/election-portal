@@ -1,6 +1,6 @@
 {
   "name": "agora-gui-elections",
-  "version" : "103111.8.0",
+  "version" : "103111.9.0",
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-angular-templates": "~0.5",
