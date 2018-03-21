@@ -60,9 +60,6 @@
       ng-i18next="avDocumentation.documentation.title">
     </a>
   </li>
-  <li ng-if="checkState(['started']) && election.presentation.show_login_link_on_home">
-    <a href="/election/{{election.id}}/public/login/" target="_blank" ng-i18next="avElection.public.votingBoothLink"></a>
-  </li>
   <li ng-repeat="tab in tabs" ng-class="{selected: name() === tab.path_name}">
     <a
       ui-sref="election.public.show.{{ tab.path_name }}">
