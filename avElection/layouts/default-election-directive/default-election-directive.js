@@ -37,7 +37,8 @@ angular.module('avElection')
                   link: '',
                   img: '',
                   button_text: p.button_text,
-                  class: 'btn btn-primary'
+                  class: 'btn btn-primary',
+                  network: p.network
                 };
                 var message = p.social_message;
                 message = message.replace(
