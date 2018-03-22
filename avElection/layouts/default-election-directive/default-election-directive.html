@@ -89,6 +89,12 @@
                 href="#/election/{{election.id}}/public/register"
                 ng-i18next="avElection.public.voteLink">
               </a>
+              <a
+                ng-if="name().indexOf('home') !== -1 && electionState === 'started' && authEvent.census !== 'open' && election.presentation.show_login_link_on_home"
+                class="btn btn-block btn-lg btn-transparent"
+                href="#/election/{{election.id}}/public/login"
+                ng-i18next="avElection.public.voteLink">
+              </a>
             </div>
           </div>
         </div>
