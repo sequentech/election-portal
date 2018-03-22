@@ -1,7 +1,7 @@
 <ul class="election-links" ng-if="name().indexOf('login') === -1 && name().indexOf('register') === -1">
   <li ng-class="{selected: name().indexOf('home') !== -1}">
     <a
-      aria-current="{name().indexOf('home') !== -1}"
+      aria-current="{{name().indexOf('home') !== -1}}"
       ui-sref="election.public.show.home({id: election.id})"
       ng-i18next="avElection.public.homeText">
     </a>
@@ -10,28 +10,28 @@
     ng-if="electionState === 'started' && authEvent.census === 'open'"
     ng-class="{selected: name() === 'register'}">
     <a
-      aria-current="{name() === 'register'}"
+      aria-current="{{name() === 'register'}}"
       href="#/election/{{election.id}}/public/register"
       ng-i18next="avElection.public.voteLink">
     </a>
   </li>
   <li class="hidden" ng-class="{selected: pageName() === 'faqs.html'}">
     <a
-      aria-current="{pageName() === 'faqs.html'}"
+      aria-current="{{pageName() === 'faqs.html'}}"
       ui-sref="election.public.show.view({id: election.id, name: 'faqs.html'})"
       ng-i18next="avElection.public.faqsLink">
     </a>
   </li>
   <li ng-class="{selected: name() === 'auths'}">
     <a
-      aria-current="{name() === 'auths'}"
+      aria-current="{{name() === 'auths'}}"
       ui-sref="election.public.show.auths({id: election.id})"
       ng-i18next="avElection.public.authoritiesLink">
     </a>
   </li>
   <li class="hidden" ng-class="{selected: pageName() === 'overview.html'}">
     <a
-      aria-current="{pageName() === 'overview.html'}"
+      aria-current="{{pageName() === 'overview.html'}}"
       ui-sref="election.public.show.view({id: election.id, name: 'overview.html'})"
       ng-i18next="avElection.public.overviewLink">
     </a>
@@ -46,7 +46,7 @@
     ng-if="checkState(['started', 'stopped', 'doing_tally', 'tally_ok', 'results_ok', 'results_pub'])"
     ng-class="{selected: name() === 'ballot-locator'}">
     <a
-      aria-current="{name() === 'ballot-locator'}"
+      aria-current="{{name() === 'ballot-locator'}}"
       ui-sref="election.public.show.ballot-locator({id: election.id})">
       <i class="fa fa-binoculars"></i>
       <span ng-i18next="avElection.resultsDirective.ballotLocatorLink">
@@ -57,7 +57,7 @@
     ng-if="checkState(['results_pub'])"
     ng-class="{selected: name() === 'verify-results'}">
     <a
-      aria-current="{name() === 'verify-results'}"
+      aria-current="{{name() === 'verify-results'}}"
       ui-sref="election.public.show.verify-results({id: election.id})">
       <i class="fa fa-fw fa-check-square-o"></i>
       <span ng-i18next="avElection.resultsDirective.verifiableResultsLink">
@@ -66,14 +66,14 @@
   </li>
   <li ng-class="{selected: name() === 'documentation'}">
     <a
-      aria-current="{name() === 'documentation'}"
+      aria-current="{{name() === 'documentation'}}"
       ui-sref="election.public.show.documentation"
       ng-i18next="avDocumentation.documentation.title">
     </a>
   </li>
   <li ng-repeat="tab in tabs" ng-class="{selected: name() === tab.path_name}">
     <a
-      aria-current="{name() === tab.path_name}"
+      aria-current="{{name() === tab.path_name}}"
       ui-sref="election.public.show.{{ tab.path_name }}">
       {{ tab.label }}
     </a>
