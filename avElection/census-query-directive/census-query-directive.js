@@ -18,10 +18,11 @@
 angular.module('avElection')
   .directive(
     'avCensusQuery',
-    function()
+    function($stateParams)
     {
       function link(scope, element, attrs)
       {
+        scope.electionId = $stateParams.id;
       }
 
       return {
