@@ -13,6 +13,12 @@
       ng-i18next="avElection.public.voteLink">
     </a>
   </li>
+  <li ng-if="checkState(['created', 'started']) && !!authEvent.allow_public_census_query">
+    <a
+      ui-sref="election.public.show.censusQuery({id: election.id})"
+      ng-i18next="avElection.public.censusQueryLink">
+    </a>
+  </li>
   <li class="hidden" ng-class="{selected: pageName() === 'faqs.html'}">
     <a
       ui-sref="election.public.show.view({id: election.id, name: 'faqs.html'})"
