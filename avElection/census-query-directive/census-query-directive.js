@@ -20,6 +20,10 @@ angular.module('avElection')
     'avCensusQuery',
     function()
     {
+      function link(scope, element, attrs)
+      {
+      }
+
       return {
         restrict: 'AE',
         scope: true,
