@@ -65,6 +65,7 @@
       "resultsTitle": "Results",
       "loadingText": "Loading election",
       "voteLink": "Vote",
+      "censusQueryLink": "Census query",
       "loadingDataText": "Cargando datos..",
       "errorNotFoundText": "Error loading the information.",
       "errorLoadingText": "Error loading the election. This election might not exist, or maybe it has not been published yet.",
