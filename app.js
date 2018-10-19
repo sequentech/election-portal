@@ -161,6 +161,11 @@ angular.module('agora-gui-elections').config(
         templateUrl: 'avRegistration/login-controller/login-controller.html',
         controller: "LoginController"
       })
+      .state('election.public.show.login_openid_connect', {
+        url: '/login-openid-connect/:provider',
+        templateUrl: 'avRegistration/login-controller/login-controller.html',
+        controller: "LoginController"
+      })
       .state('election.public.show.logout', {
         url: '/logout',
         controller: "LogoutController"
