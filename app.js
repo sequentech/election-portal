@@ -162,7 +162,12 @@ angular.module('agora-gui-elections').config(
         controller: "LoginController"
       })
       .state('election.public.show.login_openid_connect', {
-        url: '/login-openid-connect/:provider',
+        url: '/login-openid-connect/:provider/:randomness',
+        templateUrl: 'avRegistration/login-controller/login-controller.html',
+        controller: "LoginController"
+      })
+      .state('election.public.show.login_openid_connect_redirect', {
+        url: '/login-openid-connect-redirect/:provider/:randomness/:is_redirect',
         templateUrl: 'avRegistration/login-controller/login-controller.html',
         controller: "LoginController"
       })
