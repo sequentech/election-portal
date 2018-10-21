@@ -91,6 +91,14 @@ angular.module('agora-gui-elections').config(
         url: '/election',
         template: '<div ui-view></div>'
       })
+      .state('login_openid_connect_redirect', {
+        url: '/login-openid-connect-redirect/',
+        templateUrl: 'avRegistration/login-controller/login-controller.html',
+        controller: "LoginController",
+        params: {
+          isOpenId: true
+        }
+      })
       .state('election.public', {
         url: '/:id/public',
         templateUrl: 'avElection/public-controller/public-controller.html',
@@ -158,16 +166,6 @@ angular.module('agora-gui-elections').config(
       })
       .state('election.public.show.login_email_code', {
         url: '/login/:email/:code',
-        templateUrl: 'avRegistration/login-controller/login-controller.html',
-        controller: "LoginController"
-      })
-      .state('election.public.show.login_openid_connect', {
-        url: '/login-openid-connect/:provider/:randomState',
-        templateUrl: 'avRegistration/login-controller/login-controller.html',
-        controller: "LoginController"
-      })
-      .state('election.public.show.login_openid_connect_redirect', {
-        url: '/login-openid-connect-redirect/:provider/:randomState/:is_redirect',
         templateUrl: 'avRegistration/login-controller/login-controller.html',
         controller: "LoginController"
       })
