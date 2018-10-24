@@ -88,7 +88,7 @@ module.exports = function (grunt) {
         fs.readFile('avPluginsConfig.js', function(err, data) {
             if (err) {
                 grunt.log.ok('No avPluginsConfig.js file found, creating...');
-                var avPluginsConfigText = 
+                var avPluginsConfigText =
                     "var AV_PLUGINS_CONFIG_VERSION = '" + AV_CONFIG_VERSION + "';\n" +
                     "angular.module('avPluginsConfig', [])\n" +
                     "  .factory('PluginsConfigService', function() {\n" +
@@ -103,19 +103,19 @@ module.exports = function (grunt) {
                     "    return new PluginsConfigServiceProvider();\n" +
                     "    }];\n" +
                     "   });";
-                fs.writeFile("avPluginsConfig.js", 
-                    avPluginsConfigText, 
+                fs.writeFile("avPluginsConfig.js",
+                    avPluginsConfigText,
                     function(err) {
                         if(err) {
                             grunt.log.error(
                                 'Error creating avPluginsConfig.js file');
                             done(false);
                         } else {
-                            grunt.log.ok('Created avPluginsConfig.js file, ' + 
+                            grunt.log.ok('Created avPluginsConfig.js file, ' +
                                 'trying to read it again...');
                             checkAvPluginsConfig();
                         }
-                }); 
+                });
             } else {
                 var match = data.toString().match(
                     /AV_PLUGINS_CONFIG_VERSION = [\'\"]([\w\.]*)[\'\"];/);
@@ -330,7 +330,8 @@ module.exports = function (grunt) {
             "dist/locales/es.json": ["locales/es.json", "plugins/**/locales/es.json", "bower_components/avCommon/locales/es.json"],
             "dist/locales/gl.json": ["locales/gl.json", "plugins/**/locales/gl.json", "bower_components/avCommon/locales/gl.json"],
             "dist/locales/ca.json": ["locales/ca.json", "plugins/**/locales/ca.json", "bower_components/avCommon/locales/ca.json"],
-            "dist/locales/nb.json": ["locales/nb.json", "plugins/**/locales/nb.json", "bower_components/avCommon/locales/nb.json"]
+            "dist/locales/nb.json": ["locales/nb.json", "plugins/**/locales/nb.json", "bower_components/avCommon/locales/nb.json"],
+            "dist/locales/sv.json": ["locales/sv.json", "plugins/**/locales/sv.json", "bower_components/avCommon/locales/sv.json"]
         }
       }
     },
@@ -435,7 +436,7 @@ module.exports = function (grunt) {
   grunt.registerTask(
     'build',
     [
-      'check_config', 
+      'check_config',
       'check_plugins_config',
       'jshint',
       'clean:before',
