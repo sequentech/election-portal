@@ -33,7 +33,7 @@
     "inputLocatorPlaceholder": "Mata in kontrollnumret för din röst",
     "ballotLocatorPTitle": "Uppföljning av rösten",
     "searchLocatorButton": "Hitta min röst",
-    "locatorDescription": "När du lagrar din röst får du ett kontrollnummer för din röst. Med hjälp av kontrollnumret kan du kontrollera att din röst verkligen har lagrats i den elektroniska valurnan, utan att innehållet i din röst visas. Du kan mata in kontrollnumret här.",
+    "locatorDescription": "När du lagrar din röst får du ett kontrollnummer för din röst. Med hjälp av kontrollnumret kan du kontrollera att din röst verkligen har lagrats i den elektroniska valurnan, utan att innehållet i din röst visas. Du kan mata in kontrollnumret här.",
     "locatorFoundText": "Rösten hittades! En röst som getts med kontrollnumret <strong>__locator__</strong> har verkligen lagrats rätt i den elektroniska valurnan. Uppgifterna på valsedeln är:",
     "locatorSearchingStatus": "<span class=\"text-primary\">Gräver i den elektroniska valurnan...</span>",
     "locatorFoundStatus": "<span class=\"text-success\">Rösten hittades!</span>",
