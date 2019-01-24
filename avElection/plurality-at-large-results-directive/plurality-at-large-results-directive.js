@@ -20,7 +20,7 @@
  * is of show with the plurality at large layout
  */
 angular.module('avElection')
-  .directive('avPluralityAtLargeResults', function(AddDotsToIntService, PercentVotesService) {
+  .directive('avPluralityAtLargeResults', function(AddDotsToIntService, PercentVotesService, $sce) {
     // works like a controller
     function link(scope, element, attrs) {
 
@@ -30,6 +30,7 @@ angular.module('avElection')
       function initData() {
         // copy questions before sort
         scope.question = angular.copy(scope.question);
+        scope.question.descriptionHtml = $sce.trustAsHtml('<p>' + scope.question.description + '</p>');
           _.each(scope.question.answers, function (answer) {
             answer.is_winner = (answer.winner_position !== null);
           });

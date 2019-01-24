@@ -19,7 +19,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-var AV_CONFIG_VERSION = '17.04';
+var AV_CONFIG_VERSION = '103111.8';
 
 //Using exclusion patterns slows down Grunt significantly
 //instead of creating a set of patterns like '**/*.js' and '!**/node_modules/**'
@@ -77,6 +77,64 @@ module.exports = function (grunt) {
             done(false);
         }
     });
+  });
+
+  // custom grunt task to check avPluginsConfig.js
+  grunt.registerTask('check_plugins_config', function() {
+    var fs = require('fs');
+    var done = this.async();
+    grunt.log.ok('Checking avPluginsConfig.js...');
+    function checkAvPluginsConfig() {
+        fs.readFile('avPluginsConfig.js', function(err, data) {
+            if (err) {
+                grunt.log.ok('No avPluginsConfig.js file found, creating...');
+                var avPluginsConfigText = 
+                    "var AV_PLUGINS_CONFIG_VERSION = '" + AV_CONFIG_VERSION + "';\n" +
+                    "angular.module('avPluginsConfig', [])\n" +
+                    "  .factory('PluginsConfigService', function() {\n" +
+                    "    return {};\n" +
+                    "  });\n" +
+                    "\n" +
+                    "angular.module('avPluginsConfig')\n" +
+                    "  .provider('PluginsConfigService', function PluginsConfigServiceProvider() {\n" +
+                    "    _.extend(this, {});\n" +
+                    "\n" +
+                    "    this.$get = [function PluginsConfigServiceProviderFactory() {\n" +
+                    "    return new PluginsConfigServiceProvider();\n" +
+                    "    }];\n" +
+                    "   });";
+                fs.writeFile("avPluginsConfig.js", 
+                    avPluginsConfigText, 
+                    function(err) {
+                        if(err) {
+                            grunt.log.error(
+                                'Error creating avPluginsConfig.js file');
+                            done(false);
+                        } else {
+                            grunt.log.ok('Created avPluginsConfig.js file, ' + 
+                                'trying to read it again...');
+                            checkAvPluginsConfig();
+                        }
+                }); 
+            } else {
+                var match = data.toString().match(
+                    /AV_PLUGINS_CONFIG_VERSION = [\'\"]([\w\.]*)[\'\"];/);
+                if (!match) {
+                    grunt.log.error('Invalid avPluginsConfig.js version');
+                } else {
+                    var v = match[1];
+                    if (v === AV_CONFIG_VERSION) {
+                        return done();
+                    } else {
+                        grunt.log.error('Invalid avPluginsConfig.js version: ' +
+                            v);
+                    }
+                }
+                done(false);
+            }
+        });
+    }
+    var conf = checkAvPluginsConfig();
   });
 
   // Project configuration.
@@ -163,6 +221,9 @@ module.exports = function (grunt) {
           {src: ['img/**'], dest: 'dist/'},
           {src: ['img/**'], dest: 'dist/'},
           {src: ['temp_data/**'], dest: 'dist/'},
+          {src: ['bower_components/avCommon/dist/utils.js'], dest: 'dist/utils.js'},
+          {src: ['bower_components/avCommon/dist/intlTelInput.css'], dest: 'dist/intlTelInput.css'},
+          {src: ['bower_components/avCommon/dist/img/flags.png'], dest: 'dist/img/flags.png'},
           {
             expand: true,
             cwd:'bower_components/avCommon/themes',
@@ -212,15 +273,16 @@ module.exports = function (grunt) {
           remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
           append: [
             {selector:'body',html:'<%= variables.elections_html_body_include %>'},
-            {selector:'body',html:'<!--[if lte IE 8]><script src="/election/libcompat-v17.04.min.js"></script><![endif]--><!--[if gte IE 9]><script src="/election/libnocompat-v17.04.min.js"></script><![endif]--><!--[if !IE]><!--><script src="/election/libnocompat-v17.04.min.js"></script><!--<![endif]-->'},
+            {selector:'body',html:'<!--[if lte IE 8]><script src="/election/libcompat-v103111.8.min.js"></script><![endif]--><!--[if gte IE 9]><script src="/election/libnocompat-v103111.8.min.js"></script><![endif]--><!--[if !IE]><!--><script src="/election/libnocompat-v103111.8.min.js"></script><!--<![endif]-->'},
             {selector:'body',html:'<!--All the source code of this program under copyright. Take a look at the license details at https://github.com/agoravoting/agora-core-view/blob/master/README.md -->'},
-            {selector:'body',html:'<script src="/election/lib-v17.04.min.js"></script>'},
-            {selector:'body',html:'<script src="/election/avConfig-v17.04.js"></script>'},
-            {selector:'body',html:'<script src="/election/avThemes-v17.04.js"></script>'},
-            {selector:'body',html:'<script src="/election/app-v17.04.min.js"></script>'},
-            {selector:'body',html:'<script src="/election/avPlugins-v17.04.js"></script>'},
+            {selector:'body',html:'<script src="/election/lib-v103111.8.min.js"></script>'},
+            {selector:'body',html:'<script src="/election/avConfig-v103111.8.js"></script>'},
+            {selector:'body',html:'<script src="/election/avThemes-v103111.8.js"></script>'},
+            {selector:'body',html:'<script src="/election/app-v103111.8.min.js"></script>'},
+            {selector:'body',html:'<script src="/election/avPlugins-v103111.8.js"></script>'},
             {selector:'head',html:'<link rel="stylesheet" id="theme" data-base="/election/" href="/election/themes/default/app.min.css">'},
-            {selector:'head',html:'<link rel="stylesheet" id="plugins" data-base="/election/" href="/election/plugins.css">'}
+            {selector:'head',html:'<link rel="stylesheet" id="plugins" data-base="/election/" href="/election/plugins.css">'},
+            {selector:'head',html:'<link rel="stylesheet" href="election/intlTelInput.css" />'}
           ]
         },
         src:'index.html',
@@ -251,9 +313,10 @@ module.exports = function (grunt) {
           'temp/libnocompat.js': ['<%= dom_munger.data.libnocompatjs %>'],
           'temp/lib.js': ['<%= dom_munger.data.libjs %>'],
           'temp/app.js': ['<%= dom_munger.data.appjs %>','<%= ngtemplates.main.dest %>','<%= ngtemplates.common.dest %>'],
-          'dist/avConfig-v17.04.js': ['avConfig.js'],
-          'dist/avThemes-v17.04.js': ['bower_components/avCommon/dist/avThemes-v17.04.js'],
-          'dist/avPlugins-v17.04.js': [
+          'dist/avConfig-v103111.8.js': ['avConfig.js'],
+          'dist/avThemes-v103111.8.js': ['bower_components/avCommon/dist/avThemes-v103111.8.js'],
+          'dist/avPlugins-v103111.8.js': [
+            'avPluginsConfig.js',
             'plugins/**/*.js',
             '!plugins/**/*-spec.js'
           ]
@@ -289,10 +352,10 @@ module.exports = function (grunt) {
           beautify: true
         },
         files: {
-          'dist/app-v17.04.min.js': 'temp/app.js',
-          'dist/lib-v17.04.min.js': 'temp/lib.js',
-          'dist/libnocompat-v17.04.min.js': 'temp/libnocompat.js',
-          'dist/libcompat-v17.04.min.js': 'temp/libcompat.js',
+          'dist/app-v103111.8.min.js': 'temp/app.js',
+          'dist/lib-v103111.8.min.js': 'temp/lib.js',
+          'dist/libnocompat-v103111.8.min.js': 'temp/libnocompat.js',
+          'dist/libcompat-v103111.8.min.js': 'temp/libcompat.js',
           'dist/avWidgets.min.js': 'avWidgets.js',
 
           "dist/locales/moment/en.js": "bower_components/moment/lang/en-gb.js",
@@ -373,6 +436,7 @@ module.exports = function (grunt) {
     'build',
     [
       'check_config', 
+      'check_plugins_config',
       'jshint',
       'clean:before',
       'less',

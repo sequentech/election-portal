@@ -19,7 +19,8 @@
           <div class="row avb-top-navbar">
             <div class="pull-left">
               <span ng-if="election.logo_url">
-                <img 
+                <img
+                  alt="Logo Image"
                   class="logo-img" 
                   ng-src="{{election.logo_url}}"
                 >
@@ -44,6 +45,7 @@
                   <img
                     class="social-img"
                     ng-src="{{ q.img }}"
+                    alt="{{ q.network }}"
                   />
                   {{ q.button_text|truncate:25 }}
                 </a>
@@ -89,21 +91,17 @@
                 href="#/election/{{election.id}}/public/register"
                 ng-i18next="avElection.public.voteLink">
               </a>
+              <a
+                ng-if="name().indexOf('home') !== -1 && electionState === 'started' && authEvent.census !== 'open' && election.presentation.show_login_link_on_home"
+                class="btn btn-block btn-lg btn-transparent"
+                href="#/election/{{election.id}}/public/login"
+                ng-i18next="avElection.public.voteLink">
+              </a>
             </div>
           </div>
         </div>
         <div ave-election-links></div>
 
-      </div>
-    </div>
-  </div>
-</div>
-
-<div ng-if="!election.real" class="container-fluid warning-demo">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p ng-i18next="[html]avElection.thisisATest"></p>
       </div>
     </div>
   </div>
