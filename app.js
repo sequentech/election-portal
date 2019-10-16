@@ -91,8 +91,16 @@ angular.module('agora-gui-elections').config(
         url: '/election',
         template: '<div ui-view></div>'
       })
+      .state('election.login_openid_connect_redirect', {
+        url: '/login-openid-connect-redirect',
+        templateUrl: 'avRegistration/login-controller/login-controller.html',
+        controller: "LoginController",
+        params: {
+          isOpenId: true
+        }
+      })
       .state('election.public', {
-        url: '/:id/public',
+        url: '/{id:[0-9]{1,15}}/public',
         templateUrl: 'avElection/public-controller/public-controller.html',
         controller: "PublicController"
       })

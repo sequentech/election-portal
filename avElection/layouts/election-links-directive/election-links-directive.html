@@ -7,11 +7,20 @@
     </a>
   </li>
   <li
-    ng-if="electionState === 'started' && authEvent.census === 'open'"
+    ng-if="electionState === 'started' && authEvent.census === 'open' && authEvent.auth_method !== 'openid-connect'"
     ng-class="{selected: name() === 'register'}">
     <a
       aria-current="{{name() === 'register'}}"
       href="#/election/{{election.id}}/public/register"
+      ng-i18next="avElection.public.voteLink">
+    </a>
+  </li>
+  <li
+    ng-if="electionState === 'started' && authEvent.auth_method === 'openid-connect'"
+    ng-class="{selected: name() === 'login'}">
+    <a
+      aria-current="{{name() === 'login'}}"
+      ui-sref="election.public.show.login({id: election.id})"
       ng-i18next="avElection.public.voteLink">
     </a>
   </li>
