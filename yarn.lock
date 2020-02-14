@@ -64,7 +64,7 @@ agent-base@^4.3.0:
 
 "agora-gui-common@https://github.com/agoravoting/agora-gui-common.git#dep-updates":
   version "20.2.0"
-  resolved "https://github.com/agoravoting/agora-gui-common.git#1c7f5ab7b56666875e40a481641ef4a9605875a0"
+  resolved "https://github.com/agoravoting/agora-gui-common.git#87ab2645f1838ea29b9ee56c8fd96b51676fe6b2"
 
 ajv@^6.5.5:
   version "6.11.0"
