@@ -1,6 +1,6 @@
 {
   "name": "agora-gui-elections",
-  "version": "20.2",
+  "version": "20.2.0",
   "devDependencies": {
     "angular-local-storage": "^0.7.1",
     "angular-mocks": "~1.2",
