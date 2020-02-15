@@ -32,9 +32,8 @@ angular.module('avElection')
 
       if (!scope.noHeader && !scope.election) {
         $http.get(ConfigService.baseUrl + "election/" + scope.electionId)
-          // on success
-          .success(function(value) {
-            scope.election = value.payload.configuration;
+          .then(function onSuccess(response) {
+            scope.election = response.data.payload.configuration;
           });
       }
 
@@ -44,18 +43,19 @@ angular.module('avElection')
         scope.foundLocator = scope.locator;
         scope.locatorStatus = $i18next("avElection.locatorSearchingStatus");
         $http.get(ConfigService.baseUrl + "election/" + scope.election.id + "/hash/" + scope.locator)
-          // on success
-          .success(function(value) {
-            scope.searchEnabled = true;
-            scope.locatorStatus = $i18next("avElection.locatorFoundStatus");
-            scope.ballot = value.payload.vote;
-          })
-          // on error, like parse error or 404
-          .error(function (error) {
-            scope.searchEnabled = true;
-            scope.ballot = "";
-            scope.locatorStatus = $i18next("avElection.locatorNotFoundStatus");
-          });
+          .then(
+            function onSuccess(response) {
+              scope.searchEnabled = true;
+              scope.locatorStatus = $i18next("avElection.locatorFoundStatus");
+              scope.ballot = response.data.payload.vote;
+            },
+            // on error, like parse error or 404
+            function onError(response) {
+              scope.searchEnabled = true;
+              scope.ballot = "";
+              scope.locatorStatus = $i18next("avElection.locatorNotFoundStatus");
+            }
+          );
       };
     }
 
