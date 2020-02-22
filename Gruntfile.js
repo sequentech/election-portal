@@ -216,6 +216,22 @@ module.exports = function (grunt) {
       }
     },
     copy: {
+      temp: {
+        files: [
+          {
+            expand: true,
+            cwd: 'node_modules/nanoscroller/bin/css/', 
+            src: ['*'],
+            dest: 'temp/node_modules/agora-gui-common/'
+          },
+          {
+            expand: true,
+            cwd: 'node_modules/intl-tel-input/build/css/', 
+            src: ['*'],
+            dest: 'temp/node_modules/agora-gui-common/'
+          }
+        ]
+      },
       main: {
         files: [
           {src: ['img/**'], dest: 'dist/'},
@@ -293,7 +309,7 @@ module.exports = function (grunt) {
       main: {
         files: [{
             expand: true,
-            cwd:'temp/node_modules/agora-gui-common/dist/themes',
+            cwd:'temp/node_modules/agora-gui-common/themes',
             src: ['**/app.css'],
             dest: 'dist/themes/',
             ext: '.min.css',
@@ -316,6 +332,7 @@ module.exports = function (grunt) {
           'dist/avConfig-v20.2.0.js': ['avConfig.js'],
           'dist/avThemes-v20.2.0.js': ['node_modules/agora-gui-common/dist/avThemes-v20.2.0.js'],
           'dist/avPlugins-v20.2.0.js': [
+            'avPluginsConfig.js',
             'plugins/**/*.js',
             '!plugins/**/*-spec.js'
           ]
@@ -468,6 +485,7 @@ module.exports = function (grunt) {
       'check_plugins_config',
       'jshint',
       'clean:before',
+      'copy:temp',
       'less',
       'autoprefixer',
       'dom_munger',
