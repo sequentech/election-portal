@@ -27,6 +27,8 @@ angular.module('avElection')
         "borda-nauru": "borda",
         "borda": "borda",
         "pairwise-beta": "borda",
+        "desborda3": "borda",
+        "desborda2": "borda",
         "desborda": "borda"
       };
 

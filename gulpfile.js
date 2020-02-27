@@ -62,7 +62,7 @@ gulp.task('css', ['clean'], function() {
 
 gulp.task('js', ['clean'], function() {
 
-    var templateStream = gulp.src(['!node_modules/**','!index.html','!_SpecRunner.html','!.grunt/**','!dist/**','!bower_components/**','**/*.html'])
+    var templateStream = gulp.src(['!node_modules/**','!index.html','!_SpecRunner.html','!.grunt/**','!dist/**','**/*.html'])
         .pipe(htmlmin(htmlminOptions))
         .pipe(ngHtml2js({
             moduleName: packagejson.name
@@ -116,12 +116,12 @@ gulp.task('images', ['clean'], function(){
 });
 
 gulp.task('fonts', ['clean'], function(){
-    return gulp.src('bower_components/font-awesome/fonts/**')
-        .pipe(gulp.dest('dist/bower_components/font-awesome/fonts/'));
+    return gulp.src('node_modules/font-awesome/fonts/**')
+        .pipe(gulp.dest('dist/node_modules/font-awesome/fonts/'));
 });
 
 gulp.task('jshint', function(){
-    gulp.src(['!node_modules/**','!.grunt/**','!dist/**','!bower_components/**','**/*.js'])
+    gulp.src(['!node_modules/**','!.grunt/**','!dist/**','**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
 });

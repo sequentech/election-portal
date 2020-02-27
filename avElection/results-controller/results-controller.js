@@ -26,20 +26,22 @@ angular.module('avElection').controller('ResultsController',
     // get election config and check if they contain the results
     // TODO: change config to results
     $http.get(ConfigService.baseUrl + "election/" + $stateParams.id)
-      .success(function(value) {
-        if (value.payload.state !== "results_pub") {
+      .then(
+        function onSuccess(response) {
+          if (response.data.payload.state !== "results_pub") {
+            $state.go("election.results.error");
+          }
+          $scope.election = response.data.payload.configuration;
+          $scope.electionState = response.data.payload.state;
+          $scope.results = angular.fromJson(response.data.payload.results);
+          $scope.statePrefix = "election.results.show";
+          $scope.inside_iframe = InsideIframeService();
+          $state.go($scope.statePrefix);
+        },
+        // on error, like parse error or 404
+        function onError(response) {
           $state.go("election.results.error");
         }
-        $scope.election = value.payload.configuration;
-        $scope.electionState = value.payload.state;
-        $scope.results = angular.fromJson(value.payload.results);
-        $scope.statePrefix = "election.results.show";
-        $scope.inside_iframe = InsideIframeService();
-        $state.go($scope.statePrefix);
-      })
-      // on error, like parse error or 404
-      .error(function (error) {
-        $state.go("election.results.error");
-      });
+      );
   }
 );

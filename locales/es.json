@@ -24,7 +24,7 @@
     "poweredBy": "Funciona con <strong><a href=\"__url__\" target=\"_blank\">__name__</a></strong>",
     "shareLink": "¡Twittea esta votación!",
     "votingSystem": "Sistema de Voto",
-    "votings": {"plurality-at-large": "Voto en bloque o Escrutinio Mayoritario Plurinominal", "borda-nauru": "Borda de Nauru o Borda Dowdall (1/n)", "borda": "Borda Count (tradicional)", "pairwise-beta": "Comparación de pares (distribución beta)", "desborda": "DesBorda"}
+    "votings": {"plurality-at-large": "Voto en bloque o Escrutinio Mayoritario Plurinominal", "borda-nauru": "Borda de Nauru o Borda Dowdall (1/n)", "borda": "Borda Count (tradicional)", "pairwise-beta": "Comparación de pares (distribución beta)", "desborda3": "DesBorda3", "desborda2": "DesBorda2", "desborda": "DesBorda"}
   },
   "avElection": {
     "thisisATest": "<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> <strong>¡Atención!</strong> Esto es una votación de PRUEBA",

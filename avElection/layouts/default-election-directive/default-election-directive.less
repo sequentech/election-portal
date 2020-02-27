@@ -16,6 +16,17 @@
 **/
 
 [ave-default-election], [ave-public-view] {
+  .navbar-admin .navbar-toggle {
+    border-color: @av-primary-contrast;
+  }
+  .navbar-admin .navbar-toggle:hover,
+  .navbar-admin .navbar-toggle:focus {
+    background-color: @av-secondary;
+  }
+  .navbar-admin .navbar-toggle .icon-bar {
+    background-color: @av-primary-contrast;
+  }
+
   .logo-img {
     max-height: 30px;
     max-width: 130px;
@@ -100,6 +111,14 @@
 
     &:hover {
       background-color: darken(#1da1f2, 20%);
+    }
+  }
+
+  .btn-login {
+    background-color: #bd2719;
+
+    &:hover {
+      background-color: darken(#bd2719, 20%);
     }
   }
 

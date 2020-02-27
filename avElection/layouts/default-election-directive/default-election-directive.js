@@ -37,12 +37,13 @@ angular.module('avElection')
                   link: '',
                   img: '',
                   button_text: p.button_text,
-                  class: 'btn btn-primary'
+                  class: 'btn btn-primary',
+                  network: p.network
                 };
                 var message = p.social_message;
                 message = message.replace(
                   '__URL__',
-                  window.location.protocol + '//' + window.location.host + '/election/' + scope.election.id + '/public/login'
+                  window.location.protocol + '//' + window.location.host + '/election/' + scope.election.id + '/public/home'
                 );
 
                 if('Facebook' === p.network) {

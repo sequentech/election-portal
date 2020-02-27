@@ -23,14 +23,23 @@ angular.module('avElection')
         "simple.borda-nauru": "simple",
         "simple.borda": "simple",
         "simple.pairwise-beta": "simple",
+        "simple.desborda3": "simple",
+        "simple.desborda2": "simple",
         "simple.desborda": "simple",
+        "simple.borda-mas-madrid": "simple",
         "circles.plurality-at-large": "simple",
         "circles.borda": "simple",
         "circles.borda-nauru": "simple",
+        "circles.desborda3": "simple",
+        "circles.desborda2": "simple",
         "circles.desborda": "simple",
+        "circles.borda-mas-madrid": "simple",
         "details.plurality-at-large": "simple",
         "details.borda": "simple",
+        "details.borda-mas-madrid": "simple",
         "details.borda-nauru": "simple",
+        "details.desborda3": "simple",
+        "details.desborda2": "simple",
         "details.desborda": "simple"
       };
 

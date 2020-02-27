@@ -11,7 +11,7 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div 
+      <div
         class="collapse navbar-collapse"
         id="navbar-collapse-1"
       >
@@ -19,20 +19,21 @@
           <div class="row avb-top-navbar">
             <div class="pull-left">
               <span ng-if="election.logo_url">
-                <img 
+                <img
+                  alt="Logo Image"
                   class="logo-img" 
                   ng-src="{{election.logo_url}}"
                 >
                 </img>
               </span>
-              <span 
+              <span
                 ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy"
                 ng-if="!election.logo_url"
               >
               </span>
             </div>
             <div class="pull-right">
-              <span 
+              <span
                 ng-if="!!buttonsInfo"
                 ng-repeat="q in buttonsInfo"
               >
@@ -44,6 +45,7 @@
                   <img
                     class="social-img"
                     ng-src="{{ q.img }}"
+                    alt="{{ q.network }}"
                   />
                   {{ q.button_text|truncate:25 }}
                 </a>
@@ -84,9 +86,21 @@
           <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-8">
               <a
-                ng-if="name().indexOf('home') !== -1 && electionState === 'started' && authEvent.census === 'open'"
+                ng-if="name().indexOf('home') !== -1 && electionState === 'started' && authEvent.census === 'open' && !election.presentation.show_login_link_on_home && authEvent.auth_method !== 'openid-connect'"
                 class="btn btn-block btn-lg btn-transparent"
-                href="#/election/{{election.id}}/public/register"
+                ui-sref="election.public.show.register({id: election.id})"
+                ng-i18next="avElection.public.voteLink">
+              </a>
+              <a
+                ng-if="name().indexOf('home') !== -1 && electionState === 'started' &&  (authEvent.auth_method == 'openid-connect' || authEvent.census !== 'open' && election.presentation.show_login_link_on_home)"
+                class="btn btn-block btn-lg btn-transparent"
+                ui-sref="election.public.show.login({id: election.id})"
+                ng-i18next="avElection.public.voteLink">
+              </a>
+              <a
+                ng-if="name().indexOf('home') !== -1 && electionState === 'started' && authEvent.census !== 'open' && election.presentation.show_login_link_on_home"
+                class="btn btn-block btn-lg btn-transparent"
+                href="#/election/{{election.id}}/public/login"
                 ng-i18next="avElection.public.voteLink">
               </a>
             </div>
@@ -94,16 +108,6 @@
         </div>
         <div ave-election-links></div>
 
-      </div>
-    </div>
-  </div>
-</div>
-
-<div ng-if="!election.real" class="container-fluid warning-demo">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p ng-i18next="[html]avElection.thisisATest"></p>
       </div>
     </div>
   </div>

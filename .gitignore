@@ -1,5 +1,4 @@
 dist
-bower_components
 node_modules
 temp
 _SpecRunner.html
@@ -7,3 +6,4 @@ _SpecRunner.html
 agora-core-view.kdev4
 .kdev4
 *.swp
+.yarnclean

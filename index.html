@@ -13,11 +13,11 @@
 
   <!-- IE8 bind workaround (needed for less) -->
   <script src="/ie8-bind-workaround.js"></script>
-  
+
   <!-- JS from Bower Components -->
-  <script src="bower_components/avCommon/dist/libnocompat-v17.04.js" class="libnocompat"></script>
-  <script src="bower_components/avCommon/dist/libCommon-v17.04.js" class="lib"></script>
-  <script src="bower_components/angular-local-storage/dist/angular-local-storage.js" class="lib"></script>
+  <script src="node_modules/agora-gui-common/dist/libnocompat-v20.2.0.js" class="libnocompat"></script>
+  <script src="node_modules/agora-gui-common/dist/libCommon-v20.2.0.js" class="lib"></script>
+  <script src="node_modules/angular-local-storage/dist/angular-local-storage.js" class="lib"></script>
 
   <script src="vendor/angular-date-picker-polyfill/angular-date-picker-polyfill.js" class="lib"></script>
   <script src="vendor/jquery.nanoscroller/nanoscroller.js" class="lib"></script>
@@ -28,11 +28,14 @@
   <!-- Configuration file JS -->
   <script src="/avConfig.js"></script>
 
+  <!-- Configuration file JS -->
+  <script src="/avPluginsConfig.js"></script>
+
   <!-- Themes JS -->
-  <script src="bower_components/avCommon/dist/avTheme-v17.04.js"></script>
+  <script src="node_modules/agora-gui-common/dist/avTheme-v20.2.0.js"></script>
 
   <!-- avCommon -->
-  <script src="bower_components/avCommon/dist/appCommon-v17.04.js" class="app"></script>
+  <script src="node_modules/agora-gui-common/dist/appCommon-v20.2.0.js" class="app"></script>
 
   <script src="app.js" class="app"></script>
 
@@ -52,6 +55,7 @@
   <script src="avElection/layouts/election-links-directive/election-links-directive.js" class="app"></script>
   <script src="avElection/authorities-directive/authorities-directive.js" class="app"></script>
   <script src="avElection/ballot-locator-screen-directive/ballot-locator-screen-directive.js" class="app"></script>
+  <script src="avElection/census-query-directive/census-query-directive.js" class="app"></script>
 
   <script src="test/test.js" class="app"></script>
 
@@ -62,7 +66,7 @@
 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="/ie10-viewport-bug-workaround.js"></script>
-  
+
   <!-- IE9 console workaround -->
   <script src="/ie9-console-workaround.js"></script>
   <!-- Add New Component JS Above -->

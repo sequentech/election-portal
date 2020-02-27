@@ -45,14 +45,16 @@ angular.module('avElection')
 
         // get election config
         $http.get(ConfigService.electionsAPI + "authorities")
-          .success(function(value) {
-            scope.allAuths = value.payload;
-            scope.state = 'loaded';
-          })
-          // on error, like parse error or 404
-          .error(function (error) {
-            scope.state = "error";
-          });
+          .then(
+            function onSuccess(response) {
+              scope.allAuths = response.data.payload;
+              scope.state = 'loaded';
+            },
+            // on error, like parse error or 404
+            function onError(response) {
+              scope.state = "error";
+            }
+          );
 
         scope.$watch("election", function (newValue, oldValue) {
           console.log("newelection");

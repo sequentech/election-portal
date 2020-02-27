@@ -30,6 +30,7 @@ angular.module(
   'infinite-scroll',
   'angularMoment',
   'avConfig',
+  'avPluginsConfig',
   'jm.i18next',
   'avUi',
   'avRegistration',
@@ -90,8 +91,16 @@ angular.module('agora-gui-elections').config(
         url: '/election',
         template: '<div ui-view></div>'
       })
+      .state('election.login_openid_connect_redirect', {
+        url: '/login-openid-connect-redirect',
+        templateUrl: 'avRegistration/login-controller/login-controller.html',
+        controller: "LoginController",
+        params: {
+          isOpenId: true
+        }
+      })
       .state('election.public', {
-        url: '/:id/public',
+        url: '/{id:[0-9]{1,15}}/public',
         templateUrl: 'avElection/public-controller/public-controller.html',
         controller: "PublicController"
       })
@@ -115,6 +124,10 @@ angular.module('agora-gui-elections').config(
       .state('election.public.show.auths', {
         url: '/authorities',
         templateUrl: 'avElection/public-controller/authorities.html'
+      })
+      .state('election.public.show.censusQuery', {
+        url: '/census-query',
+        templateUrl: 'avElection/public-controller/census_query.html'
       })
       .state('election.public.show.verify-results', {
         url: '/verify-results',
@@ -218,9 +231,9 @@ angular.module('agora-gui-elections').run(function($http, $rootScope, $window, C
     function(event, toState, toParams, fromState, fromParams) {
       console.log("change start from " + fromState.name + " to " + toState.name);
       // redirect to /admin/login if this login link is invalid
-      if (_.contains (['election.public.show.login', 
-                       'election.public.show.login_email_code', 
-                       'election.public.show.login_email'], 
+      if (_.contains (['election.public.show.login',
+                       'election.public.show.login_email_code',
+                       'election.public.show.login_email'],
                       toState.name) &&
           ConfigService.freeAuthId+"" === toParams.id)
       {
