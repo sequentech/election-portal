@@ -62,9 +62,9 @@ agent-base@^4.3.0:
   dependencies:
     es6-promisify "^5.0.0"
 
-"agora-gui-common@https://github.com/agoravoting/agora-gui-common.git#dep-updates":
+"agora-gui-common@https://github.com/agoravoting/agora-gui-common.git#master":
   version "20.2.0"
-  resolved "https://github.com/agoravoting/agora-gui-common.git#a8cc67a9f02acd7c328e1e42387e57f95cdb3fc0"
+  resolved "https://github.com/agoravoting/agora-gui-common.git#7c9e689dd1595d95465b732fd17c319385197ec0"
 
 ajv@^6.5.5:
   version "6.11.0"

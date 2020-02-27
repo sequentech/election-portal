@@ -38,6 +38,6 @@
     "yarn": "^1.22.0"
   },
   "dependencies": {
-    "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#dep-updates"
+    "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#master"
   }
 }
