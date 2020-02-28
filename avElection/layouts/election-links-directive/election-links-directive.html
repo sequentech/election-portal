@@ -16,7 +16,7 @@
     </a>
   </li>
   <li
-    ng-if="electionState === 'started' && authEvent.auth_method === 'openid-connect'"
+    ng-if="electionState === 'started' && ['openid-connect', 'email-otp', 'sms-otp'].indexOf(authEvent.auth_method) !== -1"
     ng-class="{selected: name() === 'login'}">
     <a
       aria-current="{{name() === 'login'}}"
