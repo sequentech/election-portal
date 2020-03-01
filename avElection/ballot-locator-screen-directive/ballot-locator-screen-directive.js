@@ -22,20 +22,13 @@ angular.module('avElection')
   .directive('avBallotLocatorScreen',  function(ConfigService, $http, $i18next, $sce) {
 
     function link(scope, element, attrs) {
-      scope.locator = "";
+      scope.locator = attrs.locator;
       scope.locatorStatus = "";
       scope.ballot = "";
       scope.noHeader = (attrs.noHeader !== undefined);
       scope.foundLocator = "";
       scope.searchEnabled = true;
       scope.organization = ConfigService.organization;
-
-      if (!scope.noHeader && !scope.election) {
-        $http.get(ConfigService.baseUrl + "election/" + scope.electionId)
-          .then(function onSuccess(response) {
-            scope.election = response.data.payload.configuration;
-          });
-      }
 
       scope.searchLocator = function() {
         scope.searchEnabled = false;
@@ -57,6 +50,18 @@ angular.module('avElection')
             }
           );
       };
+
+
+      if (!scope.noHeader && !scope.election) {
+        $http.get(ConfigService.baseUrl + "election/" + scope.electionId)
+          .then(function onSuccess(response) {
+            scope.election = response.data.payload.configuration;
+
+            if (attrs.locator.length > 0) {
+              $scope.searchLocator();       
+            }
+          });
+      }
     }
 
     return {

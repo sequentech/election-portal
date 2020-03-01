@@ -135,7 +135,13 @@ angular.module('agora-gui-elections').config(
       })
       .state('election.public.show.ballot-locator', {
         url: '/ballot-locator',
-        templateUrl: 'avElection/public-controller/ballot_locator.html'
+        templateUrl: 'avElection/ballot-locator-controller/ballot-locator-controller.html',
+        controller: "BallotLocatorController"
+      })
+      .state('election.public.show.ballot-locator-included', {
+        url: '/ballot-locator/:locator',
+        templateUrl: 'avElection/ballot-locator-controller/ballot-locator-controller.html',
+        controller: "BallotLocatorController"
       })
       .state('election.public.show.home.simple', {
         template: '<div ave-simple-question></div>'
