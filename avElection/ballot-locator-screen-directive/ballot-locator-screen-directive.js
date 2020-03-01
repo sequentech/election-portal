@@ -46,25 +46,26 @@ angular.module('avElection')
             function onError(response) {
               scope.searchEnabled = true;
               scope.ballot = "";
-              scope.locatorStatus = $i18next("avElection.locatorNotFoundStatus");
+              scope.locatorStatus = $i18next(
+                "avElection.locatorNotFoundStatus", 
+                {locator: scope.foundLocator}
+              );
             }
           );
       };
 
 
-      if (!scope.noHeader && !scope.election) {
+      if (!scope.election && (!scope.noHeader || attrs.locator.length > 0)) {
         $http.get(ConfigService.baseUrl + "election/" + scope.electionId)
           .then(function onSuccess(response) {
-            scope.election = response.data.payload.configuration;
+            if (!scope.election) {
+              scope.election = response.data.payload.configuration;
+            }
 
             if (attrs.locator.length > 0) {
               scope.searchLocator();       
             }
           });
-      } else {
-        if (attrs.locator.length > 0) {
-          scope.searchLocator();       
-        }
       }
     }
 
