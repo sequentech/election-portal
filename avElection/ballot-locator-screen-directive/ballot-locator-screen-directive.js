@@ -19,7 +19,7 @@
  * Ballot locator screen directive.
  */
 angular.module('avElection')
-  .directive('avBallotLocatorScreen',  function(ConfigService, $http, $i18next, $sce) {
+  .directive('avBallotLocatorScreen',  function(ConfigService, $http, $i18next) {
 
     function link(scope, element, attrs) {
       scope.locator = attrs.locator;
@@ -35,7 +35,7 @@ angular.module('avElection')
         scope.ballot = "";
         scope.foundLocator = scope.locator;
         scope.locatorStatus = $i18next("avElection.locatorSearchingStatus");
-        $http.get(ConfigService.baseUrl + "election/" + scope.election.id + "/hash/" + scope.locator)
+        $http.get(ConfigService.baseUrl + "election/" + attrs.electionId + "/hash/" + scope.locator)
           .then(
             function onSuccess(response) {
               scope.searchEnabled = true;
@@ -54,16 +54,15 @@ angular.module('avElection')
           );
       };
 
+      if (attrs.locator.length > 0) {
+        scope.searchLocator();       
+      }
 
-      if (!scope.election && (!scope.noHeader || attrs.locator.length > 0)) {
-        $http.get(ConfigService.baseUrl + "election/" + scope.electionId)
+      if (!scope.election && !scope.noHeader) {
+        $http.get(ConfigService.baseUrl + "election/" + attrs.electionId)
           .then(function onSuccess(response) {
             if (!scope.election) {
               scope.election = response.data.payload.configuration;
-            }
-
-            if (attrs.locator.length > 0) {
-              scope.searchLocator();       
             }
           });
       }

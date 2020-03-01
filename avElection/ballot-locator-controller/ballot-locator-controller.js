@@ -29,5 +29,6 @@ angular.module('avElection')
       Authmethod)
     {
       $scope.locator = $stateParams.locator || "";
+      $scope.electionId = $stateParams.id || "";
     }
   );
