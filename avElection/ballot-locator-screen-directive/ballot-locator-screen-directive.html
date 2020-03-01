@@ -41,6 +41,7 @@
             type="text"
             aria-label="label-locator-input"
             ng-model="locator"
+            ng-disabled="!searchEnabled"
             class="input-lg form-control locator-input"
             ng-i18next="[placeholder]avElection.inputLocatorPlaceholder" />
           <p ng-i18next="avElection.locatorInfoText" class="text-muted wrap-words"></p>

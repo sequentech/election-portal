@@ -37,7 +37,7 @@
     "locatorFoundText": "¡Papeleta encontrada! Efectivamente, la papeleta con el localizador <strong>__locator__</strong> fue emitida y registrada correctamente. El texto de la papeleta cifrada es:",
     "locatorSearchingStatus": "<span class=\"text-primary\">Buscando localizador..</span>",
     "locatorFoundStatus": "<span class=\"text-success\">¡Localizador encontrado!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\">Localizador no encontrado</span>",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Localizador no encontrado: <strong>__locator__</strong></span>",
     "locatorInfoText": "Ejemplo de localizador: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
 

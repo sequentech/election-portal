@@ -19,10 +19,10 @@
  * Ballot locator screen directive.
  */
 angular.module('avElection')
-  .directive('avBallotLocatorScreen',  function(ConfigService, $http, $i18next, $sce) {
+  .directive('avBallotLocatorScreen',  function(ConfigService, $http, $i18next) {
 
     function link(scope, element, attrs) {
-      scope.locator = "";
+      scope.locator = attrs.locator;
       scope.locatorStatus = "";
       scope.ballot = "";
       scope.noHeader = (attrs.noHeader !== undefined);
@@ -30,19 +30,12 @@ angular.module('avElection')
       scope.searchEnabled = true;
       scope.organization = ConfigService.organization;
 
-      if (!scope.noHeader && !scope.election) {
-        $http.get(ConfigService.baseUrl + "election/" + scope.electionId)
-          .then(function onSuccess(response) {
-            scope.election = response.data.payload.configuration;
-          });
-      }
-
       scope.searchLocator = function() {
         scope.searchEnabled = false;
         scope.ballot = "";
         scope.foundLocator = scope.locator;
         scope.locatorStatus = $i18next("avElection.locatorSearchingStatus");
-        $http.get(ConfigService.baseUrl + "election/" + scope.election.id + "/hash/" + scope.locator)
+        $http.get(ConfigService.baseUrl + "election/" + attrs.electionId + "/hash/" + scope.locator)
           .then(
             function onSuccess(response) {
               scope.searchEnabled = true;
@@ -53,10 +46,26 @@ angular.module('avElection')
             function onError(response) {
               scope.searchEnabled = true;
               scope.ballot = "";
-              scope.locatorStatus = $i18next("avElection.locatorNotFoundStatus");
+              scope.locatorStatus = $i18next(
+                "avElection.locatorNotFoundStatus", 
+                {locator: scope.foundLocator}
+              );
             }
           );
       };
+
+      if (attrs.locator.length > 0) {
+        scope.searchLocator();       
+      }
+
+      if (!scope.election && !scope.noHeader) {
+        $http.get(ConfigService.baseUrl + "election/" + attrs.electionId)
+          .then(function onSuccess(response) {
+            if (!scope.election) {
+              scope.election = response.data.payload.configuration;
+            }
+          });
+      }
     }
 
     return {

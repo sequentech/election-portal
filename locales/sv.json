@@ -37,7 +37,7 @@
     "locatorFoundText": "Rösten hittades! En röst som getts med kontrollnumret <strong>__locator__</strong> har verkligen lagrats rätt i den elektroniska valurnan. Uppgifterna på valsedeln är:",
     "locatorSearchingStatus": "<span class=\"text-primary\">Gräver i den elektroniska valurnan...</span>",
     "locatorFoundStatus": "<span class=\"text-success\">Rösten hittades!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\">Ingen röst hittades!</span>",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Ingen röst hittades!: <strong>__locator__</strong></span>",
     "locatorInfoText": "Kontrollnumret ser ut ungefär så här: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
     "resultsLoadingText": "Letar efter resultat",
