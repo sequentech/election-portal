@@ -15,7 +15,7 @@
  * along with agora-gui-common.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
-angular.module('avRegistration')
+angular.module('avElection')
   .controller(
     'BallotLocatorController',
     function(
