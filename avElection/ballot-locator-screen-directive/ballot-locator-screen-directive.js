@@ -58,7 +58,7 @@ angular.module('avElection')
             scope.election = response.data.payload.configuration;
 
             if (attrs.locator.length > 0) {
-              $scope.searchLocator();       
+              scope.searchLocator();       
             }
           });
       }
