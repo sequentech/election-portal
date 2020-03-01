@@ -37,7 +37,7 @@
     "locatorFoundText": "¡Ballot found! Indeed, the ballot with the ballot tracker <strong>__locator__</strong> was cast correctly. The text of the encrypted ballot is:",
     "locatorSearchingStatus": "<span class=\"text-primary\">Locating ballot tracker..</span>",
     "locatorFoundStatus": "<span class=\"text-success\">¡Ballot tracker found!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\">Ballot tracker not found</span>",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Ballot tracker not found: <strong>__locator__</strong></span>",
     "locatorInfoText": "Ballot tracker example: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
     "resultsLoadingText": "Loading results",

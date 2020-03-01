@@ -37,7 +37,7 @@
     "locatorFoundText": "Stemmeseddel funnet! Stemmeseddelen med sporings-ID <strong>__locator__</strong> er inkludert i resultatet. Teksten er:",
     "locatorSearchingStatus": "<span class=\"text-primary\">Søker etter sporings-ID..</span>",
     "locatorFoundStatus": "<span class=\"text-success\">Sporings-ID funnet!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\">Sporings-ID ikke funnet</span>",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Sporings-ID ikke funnet: <strong>__locator__</strong></span>",
     "locatorInfoText": "Eksempel på sporings-ID: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
     "resultsLoadingText": "Laster resultat",

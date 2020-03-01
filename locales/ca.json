@@ -35,7 +35,7 @@
     "locatorFoundText": "Vot trobat! Efectivament, el vot amb el localitzador <strong>__locator__</strong> ha estat emès i registrat correctament. El text del vot xifrat és:",
     "locatorSearchingStatus": "<span class=\"text-primary\">Cercant localitzador..</span>",
     "locatorFoundStatus": "<span class=\"text-success\">Localitzador trobat!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\">Localitzador no trobat</span>",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Localitzador no trobat: <strong>__locator__</strong></span>",
     "locatorInfoText": "Exemple de localitzador: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
 

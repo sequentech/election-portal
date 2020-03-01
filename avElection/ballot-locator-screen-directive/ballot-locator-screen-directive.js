@@ -61,6 +61,10 @@ angular.module('avElection')
               scope.searchLocator();       
             }
           });
+      } else {
+        if (attrs.locator.length > 0) {
+          scope.searchLocator();       
+        }
       }
     }
 
