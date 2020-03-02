@@ -190,6 +190,12 @@ var avConfigData = {
     // page ("Login into __NAME__ admin account"), in the poweredBy, etc
     orgName: 'Agora Voting',
 
+    // Subtitle of the organization, used in the ballot ticket PDF
+    orgSubtitle: '',
+
+    //  Big logo of the organization, used in the ballot ticket PDF
+    orgBigLogo: '',
+
     // URL that the logo links to
     orgUrl: 'https://agoravoting.com'
   },
