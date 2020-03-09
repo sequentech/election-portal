@@ -7,7 +7,7 @@
     </a>
   </li>
   <li
-    ng-if="electionState === 'started' && authEvent.census === 'open' && authEvent.auth_method !== 'openid-connect'"
+    ng-if="electionState === 'started' && authEvent.census === 'open' && authEvent.auth_method !== 'openid-connect' && !authEvent.parent_id"
     ng-class="{selected: name() === 'register'}">
     <a
       aria-current="{{name() === 'register'}}"
@@ -16,7 +16,7 @@
     </a>
   </li>
   <li
-    ng-if="electionState === 'started' && ['openid-connect', 'email-otp', 'sms-otp'].indexOf(authEvent.auth_method) !== -1"
+    ng-if="electionState === 'started' && ['openid-connect', 'email-otp', 'sms-otp'].indexOf(authEvent.auth_method) !== -1 && !authEvent.parent_id"
     ng-class="{selected: name() === 'login'}">
     <a
       aria-current="{{name() === 'login'}}"
@@ -25,7 +25,7 @@
     </a>
   </li>
   <li
-    ng-if="checkState(['created', 'started']) && !!authEvent.allow_public_census_query"
+    ng-if="checkState(['created', 'started']) && !!authEvent.allow_public_census_query && !authEvent.parent_id"
     ng-class="{selected: pageName() === 'census_query.html'}">
     <a
       ui-sref="election.public.show.censusQuery({id: election.id})"
