@@ -53,7 +53,7 @@ angular
             {
               extra_data = value.data;
             }
-            $scope.autoreloadResults($stateParams.id);
+            return $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
           }
         )
         .then(
@@ -63,7 +63,7 @@ angular
             $scope.election.extra_data = extra_data;
             $scope.layout = "default";
             $scope.electionState = value.data.payload.state;
-            $scope.results = angular.fromJson(value.data.payload.results);
+            $scope.autoReloadReceive(value);
           }
         )
         // on error, like parse error or 404
@@ -95,6 +95,20 @@ angular
        * @param {number} electionId election whose results should be shown.
        */
       $scope.autoreloadResultsTimer = null;
+      $scope.autoReloadReceive = function (value)
+      {
+        $scope.results = angular.fromJson(value.data.payload.results);
+
+        // reload every 15 seconds
+        $scope.autoreloadResultsTimer = setTimeout(
+          function() 
+          {
+            $scope.autoreloadResults(value.data.payload.id); 
+          }, 
+          15000
+        );
+      };
+
       $scope.autoreloadResults = function(electionId) 
       {
         clearTimeout($scope.autoreloadResultsTimer);
@@ -105,21 +119,7 @@ angular
 
         $http
           .get(ConfigService.baseUrl + "election/" + electionId)
-          .then(
-            function(value) 
-            {
-              $scope.results = angular.fromJson(value.data.payload.results);
-
-              // reload every 15 seconds
-              $scope.autoreloadResultsTimer = setTimeout(
-                function() 
-                {
-                  $scope.autoreloadResults(electionId); 
-                }, 
-                15000
-              );
-            }
-          )
+          .then($scope.autoReloadReceive)
           // on error, like parse error or 404
           .catch(
             function (error)
