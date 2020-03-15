@@ -75,6 +75,20 @@
     <div class="row">
       <div class="col-xs-12 top-section">
         <h1 class="text-center election-title">{{election.title}}</h1>
+
+        <div
+          ng-if="!!election.children_election_info"
+          class="text-center">
+          <div
+            av-children-elections
+            mode="toggle-and-callback"
+            callback="autoreloadResults(electionId)"
+            parent-election-id="{{election.id}}"
+            children-election-info="{{election.children_election_info}}"
+          >
+          </div>
+        </div>
+
         <p
           class="election-description"
           ng-bind-html="election.description | addTargetBlank"
