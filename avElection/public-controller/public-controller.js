@@ -19,43 +19,115 @@
  * Shows the public view of an election. Controls mainly the changing inner states
  * loading config, showing results, showing error if needed.
  */
-angular.module('avElection').controller('PublicController',
-  function($state, $stateParams, $http, $scope, $i18next, ConfigService, InsideIframeService, Authmethod) {
-//     $state.go('election.public.loading');
+angular
+  .module('avElection')
+  .controller(
+    'PublicController',
+    function(
+      $state,
+      $stateParams,
+      $http,
+      $scope,
+      $i18next,
+      ConfigService,
+      InsideIframeService,
+      Authmethod
+    ) {
+      $("#theme")
+        .attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
+      
+      $scope.layout = "default";
+      $scope.statePrefix = "election.public.show.home";
+      $scope.inside_iframe = InsideIframeService();
+      $scope.legal_html_include = ConfigService.legal_html_include;
 
-    $("#theme").attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
-    //window.avThemes.change(ConfigService.theme);
-    $scope.layout = "default";
-    $scope.statePrefix = "election.public.show.home";
-    $scope.inside_iframe = InsideIframeService();
-    $scope.legal_html_include = ConfigService.legal_html_include;
+      // get election config
+      var extra_data  = {};
+      
+      $http
+        .get(ConfigService.authAPI + "legal/" + $stateParams.id + "/")
+        .then(
+          function(value) 
+          {
+            if(value.data) 
+            {
+              extra_data = value.data;
+            }
+            $scope.autoreloadResults($stateParams.id);
+          }
+        )
+        .then(
+          function(value)
+          {
+            $scope.election = value.data.payload.configuration;
+            $scope.election.extra_data = extra_data;
+            $scope.layout = "default";
+            $scope.electionState = value.data.payload.state;
+            $scope.results = angular.fromJson(value.data.payload.results);
+          }
+        )
+        // on error, like parse error or 404
+        .catch(
+          function (error)
+          {
+            $state.go("election.public.error");
+          }
+        );
 
-    // get election config
-    var extra_data  = {};
-    $http.get(ConfigService.authAPI + "legal/" + $stateParams.id + "/")
-      .then(function(value) {
-        if(value.data) {
-          extra_data = value.data;
+      Authmethod
+        .viewEvent($stateParams.id)
+        .then(
+          function onSuccess(response)
+          {
+            if (response.data.status === "ok")
+            {
+              $scope.authEvent = response.data.events;
+            }
+          }
+        );
+      
+
+
+      /**
+       * Shows the election results of the given election. Called by the
+       * children elections directive when a children election is clicked.
+       * 
+       * @param {number} electionId election whose results should be shown.
+       */
+      $scope.autoreloadResultsTimer = null;
+      $scope.autoreloadResults = function(electionId) 
+      {
+        clearTimeout($scope.autoreloadResultsTimer);
+        if (!electionId)
+        {
+          return;
         }
-        return $http.get(ConfigService.baseUrl + "election/" + $stateParams.id);
-      })
-      .then(function(value) {
-        $scope.election = value.data.payload.configuration;
-        $scope.election.extra_data = extra_data;
-        $scope.layout = "default";
-        $scope.electionState = value.data.payload.state;
-        $scope.results = angular.fromJson(value.data.payload.results);
-      })
-      // on error, like parse error or 404
-      .catch(function (error) {
-        $state.go("election.public.error");
-      });
 
-    Authmethod.viewEvent($stateParams.id)
-      .then(function onSuccess(response) {
-        if (response.data.status === "ok") {
-          $scope.authEvent = response.data.events;
-        }
-      });
+        $http
+          .get(ConfigService.baseUrl + "election/" + electionId)
+          .then(
+            function(value) 
+            {
+              $scope.results = angular.fromJson(value.data.payload.results);
+
+              // reload every 15 seconds
+              $scope.autoreloadResultsTimer = setTimeout(
+                function() 
+                {
+                  $scope.autoreloadResults(electionId); 
+                }, 
+                15000
+              );
+            }
+          )
+          // on error, like parse error or 404
+          .catch(
+            function (error)
+            {
+              $state.go("election.public.error");
+            }
+          );
+      };
+
   }
 );

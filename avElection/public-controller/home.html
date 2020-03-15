@@ -1,12 +1,47 @@
 <div class="col-xs-12 top-section">
-  <div class="election-status pull-right" ng-i18next="[html]avElection.public.status-{{electionState}}"></div>
+  <div 
+    class="election-status pull-right" 
+    ng-i18next>
+    [html]avElection.public.status-{{electionState}}
+  </div>
+  
   <div ng-if="electionState !== 'results_pub'">
-    <h2 class="text-center text-av-secondary" ng-i18next="avElection.public.questionsTitle"></h2>
-    <div ave-question-info ng-repeat="question in election.questions" index="{{$index}}">
+    <h2 
+      class="text-center text-av-secondary"
+      ng-i18next
+    >
+      avElection.public.questionsTitle
+    </h2>
+
+    <div 
+      ave-question-info 
+      ng-repeat="question in election.questions" 
+      index="{{$index}}"
+    >
     </div>
   </div>
+
   <div ng-if="electionState === 'results_pub'">
-    <h2 class="text-center text-av-secondary" ng-i18next="avElection.public.resultsTitle"></h2>
+    <h2 
+      class="text-center text-av-secondary" 
+      ng-i18next
+    >
+      avElection.public.resultsTitle
+    </h2>
+
+    <div
+      ng-if="!!election.children_election_info"
+      class="text-center">
+      <div
+        av-children-elections
+        mode="toggle-and-callback"
+        callback="autoreloadResults(electionId)"
+        parent-election-id="{{election.id}}"
+        children-election-info="{{election.children_election_info}}"
+      >
+      </div>
+    </div>
+
     <div av-results no-header></div>
   </div>
 </div>

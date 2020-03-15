@@ -95,40 +95,6 @@ angular
       {
         return _.contains(validStates, scope.electionState);
       };
-
-      /**
-       * Shows the election results of the given election. Called by the
-       * children elections directive when a children election is clicked.
-       * 
-       * @param {number} electionId election whose results should be shown.
-       */
-      scope.autoreloadResultsTimer = null;
-      scope.autoreloadResults = function(electionId) 
-      {
-        clearTimeout(scope.autoreloadResultsTimer);
-        if (!electionId)
-        {
-          return;
-        }
-
-        $http
-          .get(ConfigService.baseUrl + "election/" + electionId)
-          .then(
-            function(value) 
-            {
-              scope.results = angular.fromJson(value.data.payload.results);
-
-              // reload every 15 seconds
-              scope.autoreloadResultsTimer = setTimeout(
-                function() 
-                {
-                  scope.autoreloadResults(electionId); 
-                }, 
-                15000
-              );
-            }
-          );
-      };
     }
     return {
       restrict: 'AE',
