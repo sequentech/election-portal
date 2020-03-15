@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div ng-if="electionState === 'results_pub'" class="children-elections-chooser">
+  <div ng-if="electionState === 'results_pub'">
     <h2 
       class="text-center text-av-secondary" 
       ng-i18next
@@ -30,7 +30,7 @@
     
     <div
     ng-if="!!election.children_election_info"
-    class="text-center">
+    class="text-center children-elections-chooser">
       <p ng-i18next>
         avElection.public.chooseElectionResults
       </p>
@@ -43,7 +43,7 @@
       >
       </div>
     </div>
-
+    
     <div av-results no-header></div>
   </div>
 </div>
