@@ -21,17 +21,20 @@
     </div>
   </div>
 
-  <div ng-if="electionState === 'results_pub'">
+  <div ng-if="electionState === 'results_pub'" class="children-elections-chooser">
     <h2 
       class="text-center text-av-secondary" 
       ng-i18next
     >
       avElection.public.resultsTitle
     </h2>
-
+    
     <div
-      ng-if="!!election.children_election_info"
-      class="text-center">
+    ng-if="!!election.children_election_info"
+    class="text-center">
+      <p ng-i18next>
+        avElection.public.chooseElectionResults
+      </p>
       <div
         av-children-elections
         mode="toggle-and-callback"

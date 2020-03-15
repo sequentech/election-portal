@@ -19,6 +19,9 @@
   "app": {
     "name": "Agora Voting"
   },
+  "avAdmin": {
+    "childrenElections": "Main election"
+  },
   "avCommon": {
     "cancel": "Cancel",
     "poweredBy": "Powered by <strong><a href=\"__url__\" target=\"_blank\">__name__</a></strong>",
@@ -63,6 +66,7 @@
     "public": {
       "homeText": "Home",
       "resultsTitle": "Results",
+      "chooseElectionResults": "Select the election results to view:",
       "loadingText": "Loading election",
       "voteLink": "Vote",
       "censusQueryLink": "Census query",
