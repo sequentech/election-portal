@@ -64,6 +64,15 @@ angular
             $scope.layout = "default";
             $scope.electionState = value.data.payload.state;
             $scope.autoReloadReceive(value);
+
+            $http
+            .get(ConfigService.authAPI + "auth-event/" + $stateParams.id + "/")
+            .then(
+              function(authEventResponse)
+              {
+                $scope.election.children_election_info = authEventResponse.data.events.children_election_info;
+              }
+            );
           }
         )
         // on error, like parse error or 404
