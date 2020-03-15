@@ -20,7 +20,9 @@
     "name": "Agora Voting"
   },
   "avAdmin": {
-    "childrenElections": "Main election"
+    "childrenElections": {
+      "main":"Main election"
+    }
   },
   "avCommon": {
     "cancel": "Cancel",
