@@ -54,6 +54,10 @@ var avConfigData = {
   // Allowed values: true|false
   allowEditElectionJson: true,
 
+  // Allow admin users registration
+  // Allowed values: true|false
+  allowAdminRegistration: false,
+
   // show the documentation links after successfully casting a vote
   // allowed values: true| false
   showDocOnVoteCast: false,
