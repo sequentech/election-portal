@@ -28,6 +28,7 @@ angular
       $stateParams,
       $http,
       $scope,
+      $window,
       $i18next,
       ConfigService,
       InsideIframeService,
@@ -106,6 +107,16 @@ angular
       $scope.autoreloadResultsTimer = null;
       $scope.autoReloadReceive = function (value)
       {
+
+        // if state is not started but we are in login, redirect to default url
+        if (
+          $state.current.name === "election.public.show.login" &&
+          value.data.payload.state !== 'started'
+        ) {
+          $window.location.href = ConfigService.defaultRoute;
+          return;
+        }
+
         $scope.results = angular.fromJson(value.data.payload.results);
 
         // reload every 15 seconds
