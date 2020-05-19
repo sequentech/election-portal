@@ -52,7 +52,12 @@
               target="_blank">
               <span class="glyphicon glyphicon-share"></span>
             </a>
-            <span ng-i18next="[i18next]({date: last_updated})avElection.resultsLastUpdated"></span>
+            <span
+              ng-click="toggleRotateQuestions()"
+              class="glyphicon glyphicon-retweet"
+              ng-class="{'text-success': rotateQuestions}"
+            >
+            </span>
           </p>
         </div>
       </div>
@@ -63,7 +68,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12" ng-repeat="question in results.questions" av-question-results index="{{$index}}">
+      <div
+        ng-if="!rotateQuestions || currentQuestion === $index"
+        class="col-xs-12" 
+        ng-repeat="question in results.questions" 
+        av-question-results index="{{$index}}"
+      >
       </div>
     </div>
   </div>
