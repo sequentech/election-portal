@@ -49,7 +49,7 @@ angular.module('avElection')
           scope.currentQuestion = (scope.currentQuestion + 1) % scope.election.questions.length;
           scope.rotateQuestionsTimer = setTimeout(rotateQuestions, 8000);
           // trigger a redraw
-          $scope.apply();
+          scope.$apply();
         }
 
         scope.toggleRotateQuestions = function () 
