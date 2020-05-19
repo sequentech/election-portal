@@ -53,7 +53,7 @@ angular.module('avElection')
         scope.toggleRotateQuestions = function () 
         {
           scope.rotateQuestions = !scope.rotateQuestions;
-          scope.currentQuestion = 0;
+          scope.currentQuestion = -1;
           rotateQuestions();
         };
 
