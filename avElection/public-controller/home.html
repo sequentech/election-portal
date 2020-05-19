@@ -41,11 +41,12 @@
         >
         </span>
       </div>
-      
+
       <p ng-i18next>
         avElection.public.chooseElectionResults
       </p>
       <div
+        ng-if="showSelectResults"
         av-children-elections
         mode="toggle-and-callback"
         callback="autoreloadResults(electionId)"
