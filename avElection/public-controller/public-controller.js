@@ -111,7 +111,8 @@ angular
         // if state is not started but we are in login, redirect to default url
         if (
           $state.current.name === "election.public.show.login" &&
-          value.data.payload.state !== 'started'
+          value.data.payload.state !== 'started' && 
+          $window.location.href !== ConfigService.defaultRoute
         ) {
           $window.location.href = ConfigService.defaultRoute;
           return;
