@@ -112,7 +112,7 @@ angular
         if (
           $state.current.name === "election.public.show.login" &&
           value.data.payload.state !== 'started' && 
-          $window.location.href !== ConfigService.defaultRoute
+          $window.location.pathname !== ConfigService.defaultRoute
         ) {
           $window.location.href = ConfigService.defaultRoute;
           return;
