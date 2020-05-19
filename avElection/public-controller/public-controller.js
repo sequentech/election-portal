@@ -105,6 +105,7 @@ angular
        * @param {number} electionId election whose results should be shown.
        */
       $scope.autoreloadResultsTimer = null;
+
       $scope.autoReloadReceive = function (value)
       {
 
@@ -148,6 +149,18 @@ angular
               $state.go("election.public.error");
             }
           );
+      };
+
+      /**
+       * Saves the state of the button to show or hide the results to view 
+       * selector.
+       */
+      $scope.showSelectResults = true;
+
+
+      $scope.toggleShowSelectResults = function () 
+      {
+        $scope.showSelectResults = !$scope.showSelectResults;
       };
 
   }

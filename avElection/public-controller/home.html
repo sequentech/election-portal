@@ -29,8 +29,19 @@
     </h2>
     
     <div
-    ng-if="!!election.children_election_info"
-    class="text-center children-elections-chooser">
+      ng-if="!!election.children_election_info"
+      class="text-center children-elections-chooser"
+    >
+      <div class="pull-left">
+        <span 
+          class="glyphicon" 
+          ng-class="{'glyphicon-chevron-right': !showSelectResults, 'glyphicon-chevron-down': showSelectResults}"
+          aria-hidden="true"
+          ng-click="toggleShowSelectResults()"
+        >
+        </span>
+      </div>
+      
       <p ng-i18next>
         avElection.public.chooseElectionResults
       </p>
