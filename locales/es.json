@@ -59,7 +59,7 @@
     "resultsLastUpdated": "Última actualización: __date__",
     "resultsSummary": "Resumen de escrutinio",
     "totalNumberOfVotes": "Total de votos:",
-    "validVotes": "Votos válidos:",
+    "validVotes": "Votos a opciones:",
     "blankVotes": "Votos en blanco:",
     "nullVotes": "Votos nulos:",
     "stateNotPublished": "Lo sentimos. No se pueden mostrar los resultados porque aun no han sido publicados.",

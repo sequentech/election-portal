@@ -58,7 +58,7 @@
     "resultsLastUpdated": "Last updated: __date__",
     "resultsSummary": "Scrutiny summary",
     "totalNumberOfVotes": "Total number of votes:",
-    "validVotes": "Valid votes:",
+    "validVotes": "Votes to options:",
     "blankVotes": "Blank votes:",
     "nullVotes": "Null votes:",
     "stateNotPublished": "Sorry: the results cannot be shown because they haven't been published yet.",
