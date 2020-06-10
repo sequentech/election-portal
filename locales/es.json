@@ -19,6 +19,11 @@
   "app": {
     "name": "Agora Voting"
   },
+  "avAdmin": {
+    "childrenElections": {
+      "main":"Votación principal"
+    }
+  },
   "avCommon": {
     "cancel": "Cancelar",
     "poweredBy": "Funciona con <strong><a href=\"__url__\" target=\"_blank\">__name__</a></strong>",
@@ -54,7 +59,7 @@
     "resultsLastUpdated": "Última actualización: __date__",
     "resultsSummary": "Resumen de escrutinio",
     "totalNumberOfVotes": "Total de votos:",
-    "validVotes": "Votos válidos:",
+    "validVotes": "Votos a opciones:",
     "blankVotes": "Votos en blanco:",
     "nullVotes": "Votos nulos:",
     "stateNotPublished": "Lo sentimos. No se pueden mostrar los resultados porque aun no han sido publicados.",

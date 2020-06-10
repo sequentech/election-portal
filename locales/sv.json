@@ -53,7 +53,7 @@
     "resultsLastUpdated": "Senast uppdaterad: __date__",
     "resultsSummary": "Sammandrag",
     "totalNumberOfVotes": "Den totala mängden röster:",
-    "validVotes": "Godkända röster:",
+    "validVotes": "Giltiga röster:",
     "blankVotes": "Blanka röster:",
     "nullVotes": "Ogiltiga röster:",
     "stateNotPublished": "Tyvärr kan resultaten inte visas eftersom de inte ännu publicerats.",

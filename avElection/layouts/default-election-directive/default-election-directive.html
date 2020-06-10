@@ -23,8 +23,7 @@
                   alt="Logo Image"
                   class="logo-img" 
                   ng-src="{{election.logo_url}}"
-                >
-                </img>
+                />
               </span>
               <span
                 ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy"
@@ -63,6 +62,7 @@
             >
               <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
               </span>
+              <h1 class="election-title">{{election.title}}</h1>
             </div>
           </div>
         </div>
@@ -74,7 +74,10 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 top-section">
-        <h1 class="text-center election-title">{{election.title}}</h1>
+        <!--<h1 class="text-center election-title">
+          {{election.title}}
+        </h1>-->
+        
         <p
           class="election-description"
           ng-bind-html="election.description | addTargetBlank"

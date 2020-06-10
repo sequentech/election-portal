@@ -30,6 +30,34 @@ angular.module('avElection')
         scope.last_updated = moment(scope.election.last_updated).format('lll');
         scope.electionDataUrl = ConfigService.baseUrl + "election/" + $stateParams.id;
         scope.noHeader = (attrs.noHeader !== undefined);
+        scope.rotateQuestions = false;
+        scope.rotateQuestionsTimer = null;
+        scope.currentQuestion = 0;
+
+        function rotateQuestions()
+        {
+          if (!scope.rotateQuestions || !scope.election) 
+          {
+            if (scope.rotateQuestionsTimer)
+            {
+              clearTimeout(scope.rotateQuestionsTimer);
+            }
+            scope.rotateQuestionsTimer = null;
+            return;
+          }
+
+          scope.currentQuestion = (scope.currentQuestion + 1) % scope.election.questions.length;
+          scope.rotateQuestionsTimer = setTimeout(rotateQuestions, 8000);
+          // trigger a redraw
+          scope.$apply();
+        }
+
+        scope.toggleRotateQuestions = function () 
+        {
+          scope.rotateQuestions = !scope.rotateQuestions;
+          scope.currentQuestion = -1;
+          rotateQuestions();
+        };
 
         // generate share links
         var shortedTitle = scope.election.title;

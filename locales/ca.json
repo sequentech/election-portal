@@ -51,7 +51,7 @@
     "resultsLastUpdated": "Última actualització: __date__",
     "resultsSummary": "Resum d'escrutini",
     "totalNumberOfVotes": "Total de vots:",
-    "validVotes": "Vots válids:",
+    "validVotes": "Vots a opcions:",
     "blankVotes": "Vots en blanc:",
     "nullVotes": "Vots nuls:",
     "stateNotPublished": "Ho sentim. No es poden mostrar els resultats perquè encara no han estat publicats.",

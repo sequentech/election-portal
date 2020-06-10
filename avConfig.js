@@ -54,6 +54,10 @@ var avConfigData = {
   // Allowed values: true|false
   allowEditElectionJson: true,
 
+  // Allow admin users registration
+  // Allowed values: true|false
+  allowAdminRegistration: false,
+
   // show the documentation links after successfully casting a vote
   // allowed values: true| false
   showDocOnVoteCast: false,
@@ -174,6 +178,7 @@ var avConfigData = {
   },
 
   documentation: {
+    show_help: true,
     faq: 'https://nvotes.com/doc/en/',
     overview: 'https://agoravoting.com/overview/',
     technical: 'https://agoravoting.com/static/generic_tech_overview_20_08_15.pdf',

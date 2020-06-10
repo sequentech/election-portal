@@ -19,6 +19,11 @@
   "app": {
     "name": "Agora Voting"
   },
+  "avAdmin": {
+    "childrenElections": {
+      "main":"Main election"
+    }
+  },
   "avCommon": {
     "cancel": "Cancel",
     "poweredBy": "Powered by <strong><a href=\"__url__\" target=\"_blank\">__name__</a></strong>",
@@ -53,7 +58,7 @@
     "resultsLastUpdated": "Last updated: __date__",
     "resultsSummary": "Scrutiny summary",
     "totalNumberOfVotes": "Total number of votes:",
-    "validVotes": "Valid votes:",
+    "validVotes": "Votes to options:",
     "blankVotes": "Blank votes:",
     "nullVotes": "Null votes:",
     "stateNotPublished": "Sorry: the results cannot be shown because they haven't been published yet.",
@@ -63,6 +68,7 @@
     "public": {
       "homeText": "Home",
       "resultsTitle": "Results",
+      "chooseElectionResults": "Select the election results to view:",
       "loadingText": "Loading election",
       "voteLink": "Vote",
       "censusQueryLink": "Census query",
