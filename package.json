@@ -33,8 +33,8 @@
     "karma-mocha-reporter": "~0.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "load-grunt-tasks": "^3.5.0",
-    "nanoscroller": "^0.8.7",
     "moment": "2.19.3",
+    "nanoscroller": "^0.8.7",
     "yarn": "^1.22.0"
   },
   "dependencies": {
