@@ -3,7 +3,7 @@
   "version": "20.2.0",
   "devDependencies": {
     "angular-local-storage": "^0.7.1",
-    "angular-mocks": "~1.2",
+    "angular-mocks": "~1.4",
     "bootstrap": "3.4.1",
     "font-awesome": "~4.3",
     "grunt": "^1.0.4",
