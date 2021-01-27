@@ -41,6 +41,8 @@
     "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#master"
   },
   "resolutions": {
+    "**/diff": "4.0.0",
+    "**/socket.io": "2.4.0",
     "**/ws": "7.2.1",
     "**/lodash": "^4.17.19",
     "**/minimist": "1.2.5",
