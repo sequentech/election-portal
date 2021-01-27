@@ -28,7 +28,7 @@ var AV_CONFIG_VERSION = '20.2.0';
 //This enables users to create any directory structure they desire.
 var createFolderGlobs = function(fileTypePatterns) {
   fileTypePatterns = Array.isArray(fileTypePatterns) ? fileTypePatterns : [fileTypePatterns];
-  var ignore = ['node_modules','dist','temp'];
+  var ignore = ['node_modules','dist','temp', 'env'];
   var fs = require('fs');
   return fs.readdirSync(process.cwd())
           .map(function(file){

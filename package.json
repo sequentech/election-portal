@@ -3,7 +3,7 @@
   "version": "20.2.0",
   "devDependencies": {
     "angular-local-storage": "^0.7.1",
-    "angular-mocks": "~1.2",
+    "angular-mocks": "~1.4",
     "bootstrap": "3.4.1",
     "font-awesome": "~4.3",
     "grunt": "^1.0.4",
@@ -33,11 +33,19 @@
     "karma-mocha-reporter": "~0.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "load-grunt-tasks": "^3.5.0",
-    "nanoscroller": "^0.8.7",
     "moment": "2.19.3",
+    "nanoscroller": "^0.8.7",
     "yarn": "^1.22.0"
   },
   "dependencies": {
     "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#master"
+  },
+  "resolutions": {
+    "**/ws": "7.2.1",
+    "**/lodash": "^4.17.19",
+    "**/minimist": "1.2.5",
+    "**/yargs-parser": "13.1.2",
+    "**/cheerio": "0.12.3",
+    "**/cheerio-select": "0.0.3"
   }
 }
