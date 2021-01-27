@@ -1,14 +1,20 @@
 {
   "name": "agora-gui-elections",
   "version": "20.2.0",
+  "browsers": [
+    "ie >= 8",
+    "ff > 4",
+    "last 8 versions"
+  ],
   "devDependencies": {
+    "@lodder/grunt-postcss": "^3.0.0",
     "angular-local-storage": "^0.7.1",
     "angular-mocks": "~1.4",
+    "autoprefixer": "^10.2.3",
     "bootstrap": "3.4.1",
     "font-awesome": "~4.3",
     "grunt": "^1.0.4",
     "grunt-angular-templates": "^1.2.0",
-    "grunt-autoprefixer": "^1.0.1",
     "grunt-browser-output": "1.0.3",
     "grunt-contrib-clean": "~0.5",
     "grunt-contrib-concat": "~0.5",
@@ -35,12 +41,14 @@
     "load-grunt-tasks": "^3.5.0",
     "moment": "2.19.3",
     "nanoscroller": "^0.8.7",
+    "postcss": "^8.2.4",
     "yarn": "^1.22.0"
   },
   "dependencies": {
     "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#master"
   },
   "resolutions": {
+    "**/socket.io": "2.4.0",
     "**/ws": "7.2.1",
     "**/lodash": "^4.17.19",
     "**/minimist": "1.2.5",
