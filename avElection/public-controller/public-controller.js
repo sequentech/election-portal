@@ -41,6 +41,9 @@ angular
       $scope.statePrefix = "election.public.show.home";
       $scope.inside_iframe = InsideIframeService();
       $scope.legal_html_include = ConfigService.legal_html_include;
+      
+      // This is used to enable custom css overriding
+      $scope.allowCustomElectionThemeCss = ConfigService.allowCustomElectionThemeCss;
 
       // get election config
       var extra_data  = {};
