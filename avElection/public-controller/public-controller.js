@@ -45,6 +45,59 @@ angular
       // This is used to enable custom css overriding
       $scope.allowCustomElectionThemeCss = ConfigService.allowCustomElectionThemeCss;
 
+      /**
+       * Shows the election results of the given election. Called by the
+       * children elections directive when a children election is clicked.
+       * 
+       * @param {number} electionId election whose results should be shown.
+       */
+      $scope.autoreloadResultsTimer = null;
+
+      $scope.autoReloadReceive = function (value)
+      {
+
+        // if state is not started but we are in login, redirect to default url
+        if (
+          $state.current.name === "election.public.show.login" &&
+          value.data.payload.state !== 'started' && 
+          $window.location.pathname !== ConfigService.defaultRoute
+        ) {
+          $window.location.href = ConfigService.defaultRoute;
+          return;
+        }
+
+        $scope.results = angular.fromJson(value.data.payload.results);
+
+        // reload every 15 seconds
+        $scope.autoreloadResultsTimer = setTimeout(
+          function() 
+          {
+            $scope.autoreloadResults(value.data.payload.id); 
+          }, 
+          15000
+        );
+      };
+
+      $scope.autoreloadResults = function(electionId) 
+      {
+        clearTimeout($scope.autoreloadResultsTimer);
+        if (!electionId)
+        {
+          return;
+        }
+
+        $http
+          .get(ConfigService.baseUrl + "election/" + electionId)
+          .then($scope.autoReloadReceive)
+          // on error, like parse error or 404
+          .catch(
+            function (error)
+            {
+              $state.go("election.public.error");
+            }
+          );
+      };
+
       // get election config
       var extra_data  = {};
       
@@ -98,61 +151,6 @@ angular
             }
           }
         );
-      
-
-
-      /**
-       * Shows the election results of the given election. Called by the
-       * children elections directive when a children election is clicked.
-       * 
-       * @param {number} electionId election whose results should be shown.
-       */
-      $scope.autoreloadResultsTimer = null;
-
-      $scope.autoReloadReceive = function (value)
-      {
-
-        // if state is not started but we are in login, redirect to default url
-        if (
-          $state.current.name === "election.public.show.login" &&
-          value.data.payload.state !== 'started' && 
-          $window.location.pathname !== ConfigService.defaultRoute
-        ) {
-          $window.location.href = ConfigService.defaultRoute;
-          return;
-        }
-
-        $scope.results = angular.fromJson(value.data.payload.results);
-
-        // reload every 15 seconds
-        $scope.autoreloadResultsTimer = setTimeout(
-          function() 
-          {
-            $scope.autoreloadResults(value.data.payload.id); 
-          }, 
-          15000
-        );
-      };
-
-      $scope.autoreloadResults = function(electionId) 
-      {
-        clearTimeout($scope.autoreloadResultsTimer);
-        if (!electionId)
-        {
-          return;
-        }
-
-        $http
-          .get(ConfigService.baseUrl + "election/" + electionId)
-          .then($scope.autoReloadReceive)
-          // on error, like parse error or 404
-          .catch(
-            function (error)
-            {
-              $state.go("election.public.error");
-            }
-          );
-      };
 
       /**
        * Saves the state of the button to show or hide the results to view 
