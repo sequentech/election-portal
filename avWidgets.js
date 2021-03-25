@@ -47,7 +47,7 @@
   // generic interface for html5 messaging api
   function requestAuthorization(e) {
     var reqAuth = "avRequestAuthorization:";
-    if (e.data.substr(0, reqAuth.length) !== reqAuth) {
+    if (!e || !e.data || e.data.substr(0, reqAuth.length) !== reqAuth) {
       return;
     }
 
