@@ -22,5 +22,7 @@ jobs:
         yarn
 
     - name: tests
-      run: |
-        grunt test
+      run: grunt test
+
+    - name: build
+      run: grunt build
