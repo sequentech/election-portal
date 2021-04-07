@@ -36,9 +36,14 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-7 padded-left padded-right">
-          <p><strong ng-i18next="avElection.ballotLocatorPTitle"></strong></p>
+          <p>
+            <label for="ballot-locator-input">
+              <strong ng-i18next="avElection.ballotLocatorPTitle"></strong>
+            </label>
+          </p>
           <input
             type="text"
+            id="ballot-locator-input"
             aria-label="label-locator-input"
             ng-model="locator"
             ng-disabled="!searchEnabled"

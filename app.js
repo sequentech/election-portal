@@ -22,6 +22,7 @@ angular.module(
   ['ui.bootstrap',
   'ui.utils',
   'ui.router',
+  'ngAria',
   'ngAnimate',
   'ngResource',
   'ngCookies',
