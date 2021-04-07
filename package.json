@@ -45,7 +45,8 @@
     "yarn": "^1.22.0"
   },
   "dependencies": {
-    "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#master"
+    "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#master",
+    "angular-aria": "^1.8.2"
   },
   "resolutions": {
     "**/socket.io": "2.4.0",
