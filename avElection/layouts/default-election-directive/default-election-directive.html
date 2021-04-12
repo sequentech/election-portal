@@ -63,7 +63,7 @@
             >
               <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
               </span>
-              <h1 class="election-title">{{election.title}}</h1>
+              <h1 class="election-title">{{ election.presentation && election.presentation.extra_options && election.presentation.extra_options.public_title || election.title}}</h1>
             </div>
           </div>
         </div>
@@ -75,9 +75,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 top-section">
-        <!--<h1 class="text-center election-title">
-          {{election.title}}
-        </h1>-->
+        <h1 class="text-center election-title" ng-if="!election.logo_url">
+          {{ election.presentation && election.presentation.extra_options && election.presentation.extra_options.public_title || election.title}}
+        </h1>
         
         <p
           class="election-description"
