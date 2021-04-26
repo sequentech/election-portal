@@ -24,6 +24,7 @@ angular.module('avElection')
     function link(scope, element, attrs) {
       var mappings = {
         "plurality-at-large": "plurality-at-large",
+        "cumulative": "borda",
         "borda-nauru": "borda",
         "borda": "borda",
         "pairwise-beta": "borda",
