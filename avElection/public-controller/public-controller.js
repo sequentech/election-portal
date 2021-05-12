@@ -62,7 +62,7 @@ angular
           value.data.payload.state !== 'started' && 
           $window.location.pathname !== ConfigService.defaultRoute
         ) {
-          $window.location.href = ConfigService.defaultRoute;
+          $window.location.href = '/election/' + $stateParams.id + '/public/home';
           return;
         }
 
