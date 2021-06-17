@@ -1,8 +1,16 @@
 <div class="basic-booth-layout">
-  <nav ng-if="!noHeader" class="navbar navbar-default navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
+  <nav 
+    ng-if="!noHeader" 
+    class="navbar navbar-default navbar-fixed-top" 
+    av-affix-top=".navbar-unfixed-top" 
+    role="navigation"
+  >
     <div class="container">
       <div class="row avb-top-navbar">
-        <div class="pull-left" ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
+        <div 
+          class="pull-left" 
+          ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy"
+        >
         </div>
         <div class="pull-right">
           <a href="#/election/{{electionId}}/public/ballot-locator" target="_blank">
@@ -17,13 +25,18 @@
   </nav>
 
   <div class="wrapper-unfixed" ng-class="{'no-header': noHeader}">
-    <div class="navbar-unfixed-top text-center" av-collapsing=".unfixed-top-height" data-toggle-selector="[audit-ballot-screen] #avb-toggle">
+    <div 
+      class="navbar-unfixed-top text-center"
+      av-collapsing=".unfixed-top-height"
+      data-toggle-selector="[audit-ballot-screen] #avb-toggle"
+    >
       <div class="container">
         <div class="hidden unfixed-top-height"></div>
         <h1 ng-i18next="avElection.ballotLocatorTitle"></h1>
         <p
           ng-if="!noHeader"
-          ng-i18next="[i18next]({title: election.title})avElection.ballotLocatorSubtitle"></p>
+          ng-i18next="[i18next]({title: election.title})avElection.ballotLocatorSubtitle">
+        </p>
       </div>
     </div>
   </div>
@@ -48,17 +61,32 @@
             ng-model="locator"
             ng-disabled="!searchEnabled"
             class="input-lg form-control locator-input"
-            ng-i18next="[placeholder]avElection.inputLocatorPlaceholder" />
-          <p ng-i18next="avElection.locatorInfoText" class="text-muted wrap-words"></p>
+            ng-i18next="[placeholder]avElection.inputLocatorPlaceholder"
+          />
+
+          <p 
+            ng-i18next="avElection.locatorInfoText"
+            class="text-muted wrap-words"
+          >
+          </p>
+          
           <button
             class="btn btn-block btn-lg btn-success btn-plain"
             ng-i18next="avElection.searchLocatorButton"
             ng-disabled="!searchEnabled"
             ng-click="searchLocator()">
           </button>
-          <div class="locatorStatus visible-xs" ng-bind-html="locatorStatus"></div>
+          
+          <div 
+            class="locatorStatus visible-xs" 
+            ng-bind-html="locatorStatus">
+          </div>
+          
           <div ng-if="ballot.length > 0">
-            <div class="results" ng-i18next="[html:i18next]({locator:foundLocator})avElection.locatorFoundText"></div>
+            <div 
+              class="results" 
+              ng-i18next="[html:i18next]({locator:foundLocator})avElection.locatorFoundText"
+            ></div>
             <div class="ballot">{{ballot}}</div>
           </div>
         </div>
