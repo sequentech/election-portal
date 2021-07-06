@@ -57,6 +57,7 @@
     "**/minimist": "1.2.5",
     "**/yargs-parser": "13.1.2",
     "**/cheerio": "0.12.3",
-    "**/cheerio-select": "0.0.3"
+    "**/cheerio-select": "0.0.3",
+    "**/ws": "7.4.6"
   }
 }
