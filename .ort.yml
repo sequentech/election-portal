@@ -1,0 +1,6 @@
+---
+resolutions:
+  rule_violations:
+  - message: "The package Yarn::agora-gui-elections:.* has the declared ScanCode copyleft catalogized license AGPL-3.0-only."
+    reason: "LICENSE_ACQUIRED_EXCEPTION"
+    comment: "The project is open source so it's normal that it's set as such."

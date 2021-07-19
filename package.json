@@ -1,6 +1,12 @@
 {
   "name": "agora-gui-elections",
   "version": "20.2.0",
+  "license": "AGPL-3.0-only",
+  "author": {
+    "name": "Agora Voting SL and others",
+    "email": "legal@nvotes.com",
+    "url": "https://nvotes.com"
+  },
   "browsers": [
     "ie >= 8",
     "ff > 4",
