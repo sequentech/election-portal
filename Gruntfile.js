@@ -63,7 +63,7 @@ module.exports = function (grunt) {
             grunt.log.error('No avConfig.js file found');
             done(false);
         } else {
-            var match = data.toString().match(/AV_CONFIG_VERSION = [\'\"]([\w\.]*)[\'\"];/);
+            var match = data.toString().match(/AV_CONFIG_VERSION = [\'\"]([\w\-\.]*)[\'\"];/);
             if (!match) {
                 grunt.log.error('Invalid avConfig.js version');
             } else {
@@ -118,7 +118,7 @@ module.exports = function (grunt) {
                 }); 
             } else {
                 var match = data.toString().match(
-                    /AV_PLUGINS_CONFIG_VERSION = [\'\"]([\w\.]*)[\'\"];/);
+                    /AV_PLUGINS_CONFIG_VERSION = [\'\"]([\w\.\-]*)[\'\"];/);
                 if (!match) {
                     grunt.log.error('Invalid avPluginsConfig.js version');
                 } else {

@@ -70,9 +70,12 @@ agent-base@^4.3.0:
   dependencies:
     es6-promisify "^5.0.0"
 
-"agora-gui-common@https://github.com/agoravoting/agora-gui-common.git#master":
-  version "20.2.0"
-  resolved "https://github.com/agoravoting/agora-gui-common.git#0c42c7341a8c6f86448227ac45f6e176ad309cd4"
+"agora-gui-common@https://github.com/agoravoting/agora-gui-common.git#4.0.0-beta.1":
+  version "4.0.0-beta.1"
+  resolved "https://github.com/agoravoting/agora-gui-common.git#27e5acf07c9e3226fcfebd133e5502abc02a4cd9"
+  dependencies:
+    browser-update "^3.3.28"
+    karma-ng-html2js-preprocessor "^1.0.0"
 
 ajv@^6.12.3:
   version "6.12.6"
@@ -440,6 +443,11 @@ braces@^3.0.2, braces@~3.0.2:
   integrity sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
   dependencies:
     fill-range "^7.0.1"
+
+browser-update@^3.3.28:
+  version "3.3.30"
+  resolved "https://registry.yarnpkg.com/browser-update/-/browser-update-3.3.30.tgz#b4c362699f1fb0d98f6d3d5302f0157f8cf958fd"
+  integrity sha512-g9ARwuNqvq3mCWbfTZvg9IjF5tkzv6AccyMcXn41sisF1d6M3xi+jQ5wz8A7lfFxApdpvMnLn7t035x5mwD5dw==
 
 browserslist@^4.16.1:
   version "4.16.6"
@@ -2504,6 +2512,11 @@ karma-mocha-reporter@~0.2.5:
   dependencies:
     chalk "^0.5.1"
     log-symbols "^1.0.0"
+
+karma-ng-html2js-preprocessor@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/karma-ng-html2js-preprocessor/-/karma-ng-html2js-preprocessor-1.0.0.tgz#10d8c8cfaa4136f1c8a76d91a4cbceedebec4a31"
+  integrity sha1-ENjIz6pBNvHIp22RpMvO7evsSjE=
 
 karma-phantomjs-launcher@^1.0.4:
   version "1.0.4"

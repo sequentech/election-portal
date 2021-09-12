@@ -1,4 +1,4 @@
-var AV_PLUGINS_CONFIG_VERSION = '20.2.0';
+var AV_PLUGINS_CONFIG_VERSION = '4.0.0-beta.1';
 angular.module('avPluginsConfig', [])
   .factory('PluginsConfigService', function() {
     return {};
