@@ -1,6 +1,6 @@
 {
   "name": "agora-gui-elections",
-  "version": "20.2.0",
+  "version" : "master",
   "license": "AGPL-3.0-only",
   "author": {
     "name": "Agora Voting SL and others",
@@ -51,7 +51,7 @@
     "yarn": "^1.22.0"
   },
   "dependencies": {
-    "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#master",
+    "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#4.0.0",
     "angular-aria": "^1.8.2"
   },
   "resolutions": {
