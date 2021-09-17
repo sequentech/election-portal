@@ -11,12 +11,12 @@
     ng-class="{selected: name() === 'register'}">
     <a
       aria-current="{{name() === 'register'}}"
-      href="#/election/{{election.id}}/public/register"
+      ui-sref="election.public.show.register({id: election.id})"
       ng-i18next="avElection.public.voteLink">
     </a>
   </li>
   <li
-    ng-if="electionState === 'started' && ['openid-connect', 'email-otp', 'sms-otp'].indexOf(authEvent.auth_method) !== -1 && !authEvent.parent_id"
+    ng-if="electionState === 'started' && authEvent.census !== 'open' && ['openid-connect', 'email-otp', 'sms-otp'].indexOf(authEvent.auth_method) !== -1 && !authEvent.parent_id"
     ng-class="{selected: name() === 'login'}">
     <a
       aria-current="{{name() === 'login'}}"
