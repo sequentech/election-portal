@@ -176,6 +176,14 @@ angular.module('agora-gui-elections').config(
         templateUrl: 'avRegistration/login-controller/login-controller.html',
         controller: "LoginController"
       })
+      .state('election.public.show.login_with_code', {
+        url: '/login-with-code/:username',
+        templateUrl: 'avRegistration/login-controller/login-controller.html',
+        controller: "LoginController",
+        params: {
+          withCode: true
+        }
+      })
       .state('election.public.show.logout', {
         url: '/logout',
         controller: "LogoutController"
