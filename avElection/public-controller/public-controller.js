@@ -60,9 +60,26 @@ angular
         if (
           $state.current.name === "election.public.show.login" &&
           value.data.payload.state !== 'started' && 
-          $window.location.pathname !== ConfigService.defaultRoute
+          $window.location.pathname !== ConfigService.defaultRoute &&
+          (
+            !value.data.payload.configuration.presentation ||
+            !value.data.payload.configuration.presentation.extra_options ||
+            !value.data.payload.configuration.presentation.extra_options.disable__public_home
+          )
         ) {
           $window.location.href = '/election/' + $stateParams.id + '/public/home';
+          return;
+        }
+
+        // if we are showing the election home but it is disable, redirect to
+        // login
+        if (
+          $state.current.name === "election.public.show.home" &&
+          value.data.payload.configuration.presentation &&
+          value.data.payload.configuration.presentation.extra_options &&
+          value.data.payload.configuration.presentation.extra_options.disable__public_home
+        ) {
+          $window.location.href = '/election/' + $stateParams.id + '/public/login';
           return;
         }
 
