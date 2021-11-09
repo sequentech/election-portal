@@ -53,7 +53,7 @@
       ng-i18next="avElection.public.overviewLink">
     </a>
   </li>
-  <li ng-if="checkState(['registered', 'created', 'started'])">
+  <li ng-if="checkState(['registered', 'created', 'started']) && (!election.presentation || !election.presentation.extra_options || !election.presentation.extra_options.disable__demo_voting_booth)">
     <a
       href="/booth/{{election.id}}/vote"
       target="_blank"
