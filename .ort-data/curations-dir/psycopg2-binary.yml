@@ -1,0 +1,5 @@
+- id: "PyPI::psycopg2-binary"
+  curations:
+    comment: "Incorrectly matched license."
+    declared_license_mapping:
+      "LGPL with exceptions": "LGPL-2.0-only"

@@ -1,0 +1,7 @@
+- id: "dragandroptouch"
+  curations:
+    comment: "This package needs to be downloaded from git"
+    vcs:
+      type: "git"
+      url: "https://github.com/Bernardo-Castilho/dragdroptouch.git"
+      revision: "058f0eca96e57ad695f0d5dd2d7bd492ef1c4e47"

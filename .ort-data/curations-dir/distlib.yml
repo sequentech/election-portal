@@ -1,0 +1,6 @@
+- id: "PyPI::distlib"
+  curations:
+    comment: "Invalid license with a space."
+    declared_license_mapping:
+      "BSD License": "BSD-3-Clause"
+      "Python license": "PSF-2.0"

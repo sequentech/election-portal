@@ -1,0 +1,5 @@
+- id: "NPM::rng-js"
+  curations:
+    comment: "Declared license is misspelled with a 'c' - UK vs. US English."
+    declared_license_mapping:
+      Unlicence: "Unlicense"
