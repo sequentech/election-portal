@@ -220,8 +220,9 @@ val ruleSet = ruleSet(ortResult, licenseInfoResolver) {
 
             issue(
                 Severity.ERROR,
-                "The project ${project.id.toCoordinates()} has a dependency licensed under the ScanCode " +
-                        "copyleft categorized license $license.",
+                "The project ${project.id.toCoordinates()} has the dependency " +
+                "${dependency.id.toCoordinates()} licensed under the ScanCode " +
+                "copyleft categorized license $license.",
                 howToFixDefault()
             )
         }
