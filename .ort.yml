@@ -1,6 +1,4 @@
 ---
-excludes:
-
 resolutions:
   rule_violations:
   - message: "The package Yarn::agora-gui-elections:.* has the declared ScanCode copyleft catalogized license AGPL-3.0-only."
