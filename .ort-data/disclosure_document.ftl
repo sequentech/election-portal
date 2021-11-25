@@ -50,12 +50,36 @@ If not present, the text is displayed normally.
 :revdate: ${now?date?iso_local}
 :revnumber: 1.0.0
 
+== Issue Summary
 
+[#-- List all issues and their status --]
+[#if tabularScanRecord.issueSummary.rows?size > 0]
+
+[#assign
+issueErrors = tabularScanRecord
+    .issueSummary
+    .errorCount
+]
+
+[#assign
+issueWarns = tabularScanRecord
+    .issueSummary
+    .warningCount
+]
+
+[#assign
+issueHint = tabularScanRecord
+    .issueSummary
+    .hintCount
+]
+${issueErrors} errors, ${issueWarns} warnings, ${issueHint} hints to resolve
+[#else]
+0 errors, 0 warnings, 0 hints to resolve[/#if]
+
+== Projects Licenses
 [#if projects?has_content]
 [#--Merge the licenses and copyrights of all projects into a single list. The default LicenseView.ALL is used because--]
 [#--projects cannot have a concluded license (compare with the handling of packages below). --]
-
-== Projects Licenses
 
 [#list projects as project]
 
@@ -71,14 +95,10 @@ If not present, the text is displayed normally.
 [#assign copyrights = resolvedLicense.getCopyrights(true)]
 [#list copyrights as copyright]
 ** +${copyright}+
-[#else]
-** No copyright found.
 [/#list]
-
 [/#list]
 [/#list]
 [/#if]
-<<<
 
 [#-- List all rule violations and their status --]
 == Rule Violation Summary
@@ -127,31 +147,6 @@ No rule violations found.
 
 [/#if]
 
-[#-- List all issues and their status --]
-[#if tabularScanRecord.issueSummary.rows?size > 0]
-== Issue Summary
-
-[#assign
-issueErrors = tabularScanRecord
-    .issueSummary
-    .errorCount
-]
-
-[#assign
-issueWarns = tabularScanRecord
-    .issueSummary
-    .warningCount
-]
-
-[#assign
-issueHint = tabularScanRecord
-    .issueSummary
-    .hintCount
-]
-${issueErrors} errors, ${issueWarns} warnings, ${issueHint} hints to resolve
-
-[/#if]
-
 [#-- Add the licenses of all dependencies. --]
 == Dependencies
 
@@ -179,8 +174,6 @@ License File: <<${ModelExtensions.toPurl(package.id)} ${licenseFile.path}, ${lic
 [#assign copyrights = licenseFile.getCopyrights()]
 [#list copyrights as copyright]
 ** +${copyright}+
-[#else]
-** No copyright found.
 [/#list]
 
 [/#list]
@@ -216,14 +209,11 @@ The following licenses and copyrights were found in the source code of this pack
 [#assign copyrights = resolvedLicense.getCopyrights(true)]
 [#list copyrights as copyright]
 ** +${copyright}+
-[#else]
-** No copyright found.
 [/#list]
 
 [/#list]
 [/#if]
 [/#list]
-<<<
 
 [#assign
 packagesWithLicenseFiles = 
@@ -297,6 +287,4 @@ ${exceptionText}
 
 [/#if]
 [/#if]
-++++
-<<<
 [/#list]
