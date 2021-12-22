@@ -32,10 +32,10 @@ angular.module('avElection')
           scope.name().indexOf('login') === -1 &&
           scope.name().indexOf('register') === -1 &&
           (
-            scope.name().indexOf('ballot-locator') === -1 ||
-            !scope.authEvent.presentation ||
-            !scope.authEvent.presentation.extra_otions ||
-            !scope.authEvent.presentation.extra_otions.disable__public_home
+            !scope.election ||
+            !scope.election.presentation ||
+            !scope.election.presentation.extra_options ||
+            !scope.election.presentation.extra_options.disable__public_home
           )
         );
       };
