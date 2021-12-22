@@ -27,6 +27,18 @@ angular.module('avElection')
       };
       Plugins.hook('elections-links', hookData);
       scope.tabs = hookData.tabs;
+      scope.shouldEnableElectionLinks = function () {
+        return (
+          scope.name().indexOf('login') === -1 &&
+          scope.name().indexOf('register') === -1 &&
+          (
+            !scope.election ||
+            !scope.election.presentation ||
+            !scope.election.presentation.extra_options ||
+            !scope.election.presentation.extra_options.disable__public_home
+          )
+        );
+      };
     }
 
     return {
