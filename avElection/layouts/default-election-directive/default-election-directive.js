@@ -24,13 +24,11 @@ angular
     'aveDefaultElection', 
     function (
       $state, 
-      $http,
       $stateParams,
-      $i18next, 
-      $location, 
-      ConfigService
+      ConfigService,
+      ShowVersionsModalService
     ) {
-    function link(scope, element, attrs) 
+    function link(scope, _element, _attrs) 
     {
       scope.organization = ConfigService.organization;
 
@@ -95,6 +93,8 @@ angular
       {
         return _.contains(validStates, scope.electionState);
       };
+      scope.showVersionsModal = ShowVersionsModalService;
+      scope.configService = ConfigService;
     }
     return {
       restrict: 'AE',
