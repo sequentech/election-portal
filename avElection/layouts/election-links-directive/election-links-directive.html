@@ -7,7 +7,7 @@
     </a>
   </li>
   <li
-    ng-if="electionState === 'started' && authEvent.census === 'open' && authEvent.auth_method !== 'openid-connect' && !authEvent.parent_id"
+    ng-if="(electionState === 'started' || electionState === 'resumed') && authEvent.census === 'open' && authEvent.auth_method !== 'openid-connect' && !authEvent.parent_id"
     ng-class="{selected: name() === 'register'}">
     <a
       aria-current="{{name() === 'register'}}"
@@ -16,7 +16,7 @@
     </a>
   </li>
   <li
-    ng-if="electionState === 'started' && authEvent.census !== 'open' && ['openid-connect', 'email-otp', 'sms-otp'].indexOf(authEvent.auth_method) !== -1 && !authEvent.parent_id"
+    ng-if="(electionState === 'started' || electionState === 'resumed') && authEvent.census !== 'open' && ['openid-connect', 'email-otp', 'sms-otp'].indexOf(authEvent.auth_method) !== -1 && !authEvent.parent_id"
     ng-class="{selected: name() === 'login'}">
     <a
       aria-current="{{name() === 'login'}}"
@@ -25,7 +25,7 @@
     </a>
   </li>
   <li
-    ng-if="checkState(['created', 'started']) && !!authEvent.allow_public_census_query && !authEvent.parent_id"
+    ng-if="checkState(['created', 'started', 'suspended', 'resumed']) && !!authEvent.allow_public_census_query && !authEvent.parent_id"
     ng-class="{selected: pageName() === 'census_query.html'}">
     <a
       ui-sref="election.public.show.censusQuery({id: election.id})"
@@ -53,14 +53,14 @@
       ng-i18next="avElection.public.overviewLink">
     </a>
   </li>
-  <li ng-if="checkState(['registered', 'created', 'started']) && (!election.presentation || !election.presentation.extra_options || !election.presentation.extra_options.disable__demo_voting_booth)">
+  <li ng-if="checkState(['registered', 'created', 'started', 'suspended', 'resumed']) && (!election.presentation || !election.presentation.extra_options || !election.presentation.extra_options.disable__demo_voting_booth)">
     <a
       href="/booth/{{election.id}}/demo-vote"
       target="_blank"
       ng-i18next="avElection.public.demoVotingBoothLink"></a>
   </li>
   <li
-    ng-if="checkState(['started', 'stopped', 'doing_tally', 'tally_ok', 'results_ok', 'results_pub'])"
+    ng-if="checkState(['started', 'suspended', 'resumed', 'stopped', 'doing_tally', 'tally_ok', 'results_ok', 'results_pub'])"
     ng-class="{selected: name() === 'ballot-locator'}">
     <a
       aria-current="{{name() === 'ballot-locator'}}"

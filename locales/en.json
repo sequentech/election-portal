@@ -91,6 +91,8 @@
       "status-registered": "Status: <strong>election registered</strong>",
       "status-created": "Status: <strong>election created</strong>",
       "status-started": "Status: <strong>election started</strong>",
+      "status-suspended": "Status: <strong>election suspended</strong>",
+      "status-resumed": "Status: <strong>election resumed</strong>",
       "status-stopped": "Status: <strong>election stopped</strong>",
       "status-doing_tally": "Status: <strong>doing tally</strong>",
       "status-tally_ok": "Status: <strong>tally done</strong>",

@@ -59,7 +59,10 @@ angular
         // if state is not started but we are in login, redirect to default url
         if (
           $state.current.name === "election.public.show.login" &&
-          value.data.payload.state !== 'started' && 
+          !_.contains(
+            ['started', 'resumed'],
+            value.data.payload.state
+          ) && 
           $window.location.pathname !== ConfigService.defaultRoute &&
           (
             !value.data.payload.configuration.presentation ||

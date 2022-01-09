@@ -89,19 +89,19 @@
           <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-8">
               <a
-                ng-if="name().indexOf('home') !== -1 && electionState === 'started' && authEvent.census === 'open' && !election.presentation.show_login_link_on_home && authEvent.auth_method !== 'openid-connect'"
+                ng-if="name().indexOf('home') !== -1 && (electionState === 'started' || electionState === 'resumed') && authEvent.census === 'open' && !election.presentation.show_login_link_on_home && authEvent.auth_method !== 'openid-connect'"
                 class="btn btn-block btn-lg btn-transparent vote-btn"
                 ui-sref="election.public.show.register({id: election.id})"
                 ng-i18next="avElection.public.voteLink">
               </a>
               <a
-                ng-if="name().indexOf('home') !== -1 && electionState === 'started' &&  (authEvent.auth_method == 'openid-connect' || authEvent.census !== 'open' && election.presentation.show_login_link_on_home)"
+                ng-if="name().indexOf('home') !== -1 && (electionState === 'started' || electionState === 'resumed') &&  (authEvent.auth_method == 'openid-connect' || authEvent.census !== 'open' && election.presentation.show_login_link_on_home)"
                 class="btn btn-block btn-lg btn-transparent vote-btn"
                 ui-sref="election.public.show.login({id: election.id})"
                 ng-i18next="avElection.public.voteLink">
               </a>
               <a
-                ng-if="name().indexOf('home') !== -1 && electionState === 'started' && authEvent.census !== 'open' && election.presentation.show_login_link_on_home"
+                ng-if="name().indexOf('home') !== -1 && (electionState === 'started' || electionState === 'resumed') && authEvent.census !== 'open' && election.presentation.show_login_link_on_home"
                 class="btn btn-block btn-lg btn-transparent vote-btn"
                 href="/election/{{election.id}}/public/login"
                 ng-i18next="avElection.public.voteLink">
