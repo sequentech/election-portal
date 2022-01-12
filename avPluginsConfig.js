@@ -1,4 +1,4 @@
-var AV_PLUGINS_CONFIG_VERSION = '5.0.7';
+var AV_PLUGINS_CONFIG_VERSION = '5.0.8';
 angular.module('avPluginsConfig', [])
   .factory('PluginsConfigService', function() {
     return {};
