@@ -55,9 +55,10 @@
     "angular-aria": "^1.8.2"
   },
   "resolutions": {
+    "**/shelljs": ">=0.8.5",
+    "**/json-schema": ">=0.4.0",
     "**/underscore": "1.12.1",
     "**/xmlhttprequest-ssl": "1.6.2",
-    "**/socket.io": "2.4.0",
     "**/lodash": "^4.17.19",
     "**/minimist": "1.2.5",
     "**/yargs-parser": "13.1.2",
