@@ -1,6 +1,6 @@
 {
     "authorities": [
-        "agora-auth4"
+        "sequent-auth4"
     ],
     "description": "Blah blah",
     "director": "wadobo-auth3",

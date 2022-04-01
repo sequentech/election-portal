@@ -1,9 +1,9 @@
-# Integración de votaciones con Agora Voting y Podemos
+# Integración de votaciones con Sequent Tech y Podemos
 
 ## Introducción
 
 En este documento se va a exponer la forma de integrar la nueva versión de
-Agora Voting con los subsistemas de Podemos.
+Sequent Tech con los subsistemas de Podemos.
 
 ## Botón para votar
 
@@ -17,7 +17,7 @@ además también se encargará de generar un enlace específico para la votació
 curso, de la forma que se detalla en este documento.
 
 El enlace que se genera servirá para autenticar al votante, y es una forma
-segura de comunicación entre Podemos y Agora Voting de la validez de su
+segura de comunicación entre Podemos y Sequent Tech de la validez de su
 identidad con respecto a ese proceso de votación concreto.
 
 ## Procedimiento
@@ -35,13 +35,13 @@ alguna manera.
 
 El botón para votar sólo aparecerá (o sólo estará activo) en el caso de que haya
 una votación en curso. Este es relevante de cara a la integración, debido a que
-desde Agora Voting  estamos asumiendo que dicho botón no será activado una vez
+desde Sequent Tech  estamos asumiendo que dicho botón no será activado una vez
 terminada la  votación, y por tanto la cabina de votación sólo entrará en
 detalles de  comprobar si se está en periodo de votación en el último paso,
 cuando se envía  el voto al servidor.
 
-Proponemos que en el botón se haga referencia a Agora Voting, por ejemplo
-"Vota con Agora Voting" o "Vota" y el logo de Agora Voting dentro del botón (os
+Proponemos que en el botón se haga referencia a Sequent Tech, por ejemplo
+"Vota con Sequent Tech" o "Vota" y el logo de Sequent Tech dentro del botón (os
 lo pasaremos si usáis ese método).  Más allá de eso, es también recomendable
 dar información al usuario sobre la votación. Por ejemplo, puede aparecer
 una línea antes del botón de votar que diga algo similar a "Hay una votación en
@@ -80,7 +80,7 @@ Esta comunicación es necesaria debido a que ha de generarse en ese instante un
 credencial de autenticación que se incluirá en la url que en el paso
 siguiente (paso 6), y dicho credencial:
 1. será una cadena que incluye la fecha actual.
-2. será "firmado" por el servidor de la aplicación para que Agora Voting pueda verificar que es válido de forma segura.
+2. será "firmado" por el servidor de la aplicación para que Sequent Tech pueda verificar que es válido de forma segura.
 
 La fecha se incluye para que el credencial tenga una fecha de caducidad, por
 razones de seguridad. De esa forma, el enlace que se abre en el paso 5 no
@@ -90,14 +90,14 @@ votación.
 
 Además, el credencial es "firmado" mediante un proceso llamado "HMAC" que se
 detalla más adelante, que involucra una clave que sólo conoce el servidor de
-Podemos (y de Agora Voting).
+Podemos (y de Sequent Tech).
 
 Debido a lo anterior, es claro que el botón no puede implementarse como un
 simple enlace, sino que debe lanzar un procedimiento que solicite el credencial
 a los servidores de Podemos, y cuando lo obtenga lance un navegador web.
 
 Además dichos credenciales deben solicitarse a los servidores de Podemos (y no
-por ejemplo a Agora Voting) porque es contra estos servidores que está el
+por ejemplo a Sequent Tech) porque es contra estos servidores que está el
 usuario autenticado.
 
 La comunicación en este paso con los servidores de Podemos debe realizarse de
@@ -118,7 +118,7 @@ su aplicación sean seguros.
 
 En el paso anterior, el cliente pide al servidor los credenciales que
 autenticarán al votante y que son pasados, como se explica en los pasos
-subsiguientes, a Agora Voting mediante un enlace. El servidor debe recibir dicha
+subsiguientes, a Sequent Tech mediante un enlace. El servidor debe recibir dicha
 petición, procesarla, comprobar que la petición está debidamente autenticada, y
 generar dichos credenciales.
 
@@ -130,11 +130,11 @@ y escapan del ámbito de este documento.
 
 Aquí nos basta con decir HMAC es un procedimiento estándar criptográfico, que
 en nuestro caso lo utilizamos para transmitir de forma segura y autenticada un
-mensaje que contiene cierta información que se pasa a Agora Voting, y que la
+mensaje que contiene cierta información que se pasa a Sequent Tech, y que la
 seguridad proviene en parte de una clave secreta que conocen únicamente los
-servidores de Agora Voting y de Podemos. Con dicha clave y el mensaje, y
+servidores de Sequent Tech y de Podemos. Con dicha clave y el mensaje, y
 mediante el procedimiento de HMAC mediante hashes SHA-256, se genera un hash que
-autentica la validez del mensaje ante Agora Voting.
+autentica la validez del mensaje ante Sequent Tech.
 
 #### 4.1 El mensaje
 
@@ -147,15 +147,15 @@ un mensaje válido podría ser:
 Como puede verse hay tres datos dentro del mensaje:
 
 **voter-id**
-Es una cadena de texto que sirve a Agora Voting como identificador del votante.
+Es una cadena de texto que sirve a Sequent Tech como identificador del votante.
 Hay varias consideraciones importantes en el voter-id:
-* El voter-id debe ser siempre el mismo para cada votante en cada votación. Es decir, que si un votante vota dos veces en una misma votación, el voter-id será el mismo. Esto es muy importante, porque el voter-id es la forma en que Agora Voting buscará si el votante votó anteriormente, y de esa manera Agora Voting decide si debe guardar el voto como un nuevo voto o sobreescribir el voto anterior del votante.
+* El voter-id debe ser siempre el mismo para cada votante en cada votación. Es decir, que si un votante vota dos veces en una misma votación, el voter-id será el mismo. Esto es muy importante, porque el voter-id es la forma en que Sequent Tech buscará si el votante votó anteriormente, y de esa manera Sequent Tech decide si debe guardar el voto como un nuevo voto o sobreescribir el voto anterior del votante.
 * Por seguridad, para evitar transmitir ninguna información adicional acerca del votante más allá de un identificador único, el voter id debe ser un hash de un identificador interno único del votante, conocido sólo por Podemos y que no tiene porqué transcender fuera de Podemos. Por ejemplo, puede usarse el número de afiliado o el id de usuario.
 * Recomendamos especialmente que el identificador interno no sea el número de DNI, porque hay números de DNIs duplicados y por tanto no cumple con el requisito de ser único.
 * Sugerimos usar SHA-256 como función de hash, y evitar SHA-1 o MD5 por motivos de seguridad.
 * Además recomendamos que no se haga directamente el hash del id, sino que se haga el hash del id más un salt. El salt debe ser otra clave secreta, que sólo sepa Podemos, y así se protege ante ataques que desvelen el id utilizado.
 * También es recomendable que el salt varíe para cada votación, de esa manera en cada votación el voter-id para un mismo votante será diferente, disminuyendo así al mínimo necesario la información desvelada mediante el voter-id.
-* Si el voter-id se implementa como un hash con las anteriores consideraciones de seguridad, permite a Podemos tener la confianza de que Agora Voting no puede añadir votos porque Agora Voting no sabe cómo generar voter-ids válidos. Esto es por tanto una interesante medida de seguridad que aparece gracias a la separación e independencia entre la organización que gestiona el censo (Podemos) y la que registra los votos (Agora voting).
+* Si el voter-id se implementa como un hash con las anteriores consideraciones de seguridad, permite a Podemos tener la confianza de que Sequent Tech no puede añadir votos porque Sequent Tech no sabe cómo generar voter-ids válidos. Esto es por tanto una interesante medida de seguridad que aparece gracias a la separación e independencia entre la organización que gestiona el censo (Podemos) y la que registra los votos (Agora voting).
 
 **election-id**
 Es el identificador de la votación. Es necesario incluirlo para que el mensaje,
@@ -163,7 +163,7 @@ que está autenticado, asocie el voter-id a una votación específica, y así no
 pueda usarse el mismo mensaje para diferentes votaciones, en el caso de que se
 diera el caso de que haya dos o más procesos electorales simultáneos.
 
-El id de la votación lo proveerá Agora Voting para cada votación, y será un
+El id de la votación lo proveerá Sequent Tech para cada votación, y será un
 número entero.
 
 **timestamp**
@@ -174,7 +174,7 @@ timestamp", esto es, un entero con el número de segundos desde el 1 de enero de
 El mensaje incluye el timestamp como forma de poder calcular una fecha de
 caducidad de dicho mensaje autenticado, como hemos explicado anteriormente. Por
 tanto, tendremos que hacer pruebas para comprobar que los relojes de ambos
-servidores (el de Agora Voting y el de Podemos) están sincronizados, con el fin
+servidores (el de Sequent Tech y el de Podemos) están sincronizados, con el fin
 de que el cálculo de expiración de los mensajes sea posible.
 
 #### 4.2 El hash
@@ -216,10 +216,10 @@ enlace. Por ello, para poder trabajar en paralelo ambas partes, hemos generado
 una URL donde podéis hacer pruebas y ver si estáis generando bien los enlaces.
 Esta url tiene el siguiente formato (haced clic para probar):
 
-  [http://agoravoting.org/agora-core-view/dist#/test_hmac/:key/:hash/:message](http://agoravoting.org/agora-core-view/dist#/test_hmac/:key/:hash/:message)
+  [http://sequent.org/sequent-core-view/dist#/test_hmac/:key/:hash/:message](http://sequent.org/sequent-core-view/dist#/test_hmac/:key/:hash/:message)
 
 Donde :key es la clave secreta (la que sería compartida de forma secreta entre
-Agora Voting y Podemos, que aquí es pública y parte de la URL porque es sólo
+Sequent Tech y Podemos, que aquí es pública y parte de la URL porque es sólo
 para pruebas), :hash es el código HMAC y :message el mensaje.
 
 Lo bueno de esta página de pruebas es que no sólo verifica que se está generando

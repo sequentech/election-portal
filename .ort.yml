@@ -1,14 +1,14 @@
 ---
 resolutions:
   rule_violations:
-  - message: "The package Yarn::agora-gui-elections:.* has the declared ScanCode copyleft catalogized license AGPL-3.0-only."
+  - message: "The package Yarn::election-portal:.* has the declared ScanCode copyleft catalogized license AGPL-3.0-only."
     reason: "LICENSE_ACQUIRED_EXCEPTION"
     comment: "The project is part of our open source platform so it's normal that it's set as such."
 
-  - message: "The package NPM::agora-gui-common:.* has the declared ScanCode copyleft catalogized license AGPL-3.0-only."
+  - message: "The package NPM::common-ui:.* has the declared ScanCode copyleft catalogized license AGPL-3.0-only."
     reason: "LICENSE_ACQUIRED_EXCEPTION"
     comment: "The project is part of our open source platform so it's normal that it's set as such."
 
-  - message: "The project Yarn::agora-gui-elections:.* has the dependency NPM::agora-gui-common:.* licensed under the ScanCode copyleft categorized license AGPL-3.0-only."
+  - message: "The project Yarn::election-portal:.* has the dependency NPM::common-ui:.* licensed under the ScanCode copyleft categorized license AGPL-3.0-only."
     reason: "LICENSE_ACQUIRED_EXCEPTION"
     comment: "The project is part of our open source platform so it's normal that it's set as such."

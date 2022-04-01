@@ -1,10 +1,10 @@
-var AV_PLUGINS_CONFIG_VERSION = 'master';
-angular.module('avPluginsConfig', [])
+var SEQUENT_PLUGINS_CONFIG_VERSION = 'master';
+angular.module('SequentPluginsConfig', [])
   .factory('PluginsConfigService', function() {
     return {};
   });
 
-angular.module('avPluginsConfig')
+angular.module('SequentPluginsConfig')
   .provider('PluginsConfigService', function PluginsConfigServiceProvider() {
     _.extend(this, {});
 
