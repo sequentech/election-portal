@@ -1,11 +1,11 @@
 {
-  "name": "agora-gui-elections",
+  "name": "election-portal",
   "version" : "master",
   "license": "AGPL-3.0-only",
   "author": {
-    "name": "Agora Voting SL and others",
-    "email": "legal@nvotes.com",
-    "url": "https://nvotes.com"
+    "name": "Sequent Tech Inc and others",
+    "email": "legal@sequentech.io",
+    "url": "https://sequentech.io"
   },
   "browsers": [
     "ie >= 8",
@@ -51,7 +51,7 @@
     "yarn": "^1.22.0"
   },
   "dependencies": {
-    "agora-gui-common": "https://github.com/agoravoting/agora-gui-common.git#master",
+    "common-ui": "https://github.com/sequentech/common-ui.git#master",
     "angular-aria": "^1.8.2"
   },
   "resolutions": {

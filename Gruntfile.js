@@ -1,25 +1,25 @@
 /**
- * This file is part of agora-gui-elections.
- * Copyright (C) 2015-2016  Agora Voting SL <agora@agoravoting.com>
+ * This file is part of election-portal.
+ * Copyright (C) 2015-2016  Sequent Tech Inc <legal@sequentech.io>
 
- * agora-gui-elections is free software: you can redistribute it and/or modify
+ * election-portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License.
 
- * agora-gui-elections  is distributed in the hope that it will be useful,
+ * election-portal  is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
 
  * You should have received a copy of the GNU Affero General Public License
- * along with agora-gui-elections.  If not, see <http://www.gnu.org/licenses/>.
+ * along with election-portal.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
 /*jslint node: true */
 'use strict';
 
 var pkg = require('./package.json');
-var AV_CONFIG_VERSION = 'master';
+var SEQUENT_CONFIG_VERSION = 'master';
 
 //Using exclusion patterns slows down Grunt significantly
 //instead of creating a set of patterns like '**/*.js' and '!**/node_modules/**'
@@ -53,25 +53,25 @@ module.exports = function (grunt) {
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
-  // custom grunt task to check avConfig.js
+  // custom grunt task to check SequentConfig.js
   grunt.registerTask('check_config', function() {
     var fs = require('fs');
     var done = this.async();
-    grunt.log.ok('Checking avConfig.js...');
-    var conf = fs.readFile('avConfig.js', function(err, data) {
+    grunt.log.ok('Checking SequentConfig.js...');
+    var conf = fs.readFile('SequentConfig.js', function(err, data) {
         if (err) {
-            grunt.log.error('No avConfig.js file found');
+            grunt.log.error('No SequentConfig.js file found');
             done(false);
         } else {
-            var match = data.toString().match(/AV_CONFIG_VERSION = [\'\"]([\w\-\.]*)[\'\"];/);
+            var match = data.toString().match(/SEQUENT_CONFIG_VERSION = [\'\"]([\w\-\.]*)[\'\"];/);
             if (!match) {
-                grunt.log.error('Invalid avConfig.js version');
+                grunt.log.error('Invalid SequentConfig.js version');
             } else {
                 var v = match[1];
-                if (v === AV_CONFIG_VERSION) {
+                if (v === SEQUENT_CONFIG_VERSION) {
                     return done();
                 } else {
-                    grunt.log.error('Invalid avConfig.js version: ' + v);
+                    grunt.log.error('Invalid SequentConfig.js version: ' + v);
                 }
             }
             done(false);
@@ -79,23 +79,23 @@ module.exports = function (grunt) {
     });
   });
 
-  // custom grunt task to check avPluginsConfig.js
+  // custom grunt task to check SequentPluginsConfig.js
   grunt.registerTask('check_plugins_config', function() {
     var fs = require('fs');
     var done = this.async();
-    grunt.log.ok('Checking avPluginsConfig.js...');
+    grunt.log.ok('Checking SequentPluginsConfig.js...');
     function checkAvPluginsConfig() {
-        fs.readFile('avPluginsConfig.js', function(err, data) {
+        fs.readFile('SequentPluginsConfig.js', function(err, data) {
             if (err) {
-                grunt.log.ok('No avPluginsConfig.js file found, creating...');
-                var avPluginsConfigText = 
-                    "var AV_PLUGINS_CONFIG_VERSION = '" + AV_CONFIG_VERSION + "';\n" +
-                    "angular.module('avPluginsConfig', [])\n" +
+                grunt.log.ok('No SequentPluginsConfig.js file found, creating...');
+                var SequentPluginsConfigText = 
+                    "var SEQUENT_PLUGINS_CONFIG_VERSION = '" + SEQUENT_CONFIG_VERSION + "';\n" +
+                    "angular.module('SequentPluginsConfig', [])\n" +
                     "  .factory('PluginsConfigService', function() {\n" +
                     "    return {};\n" +
                     "  });\n" +
                     "\n" +
-                    "angular.module('avPluginsConfig')\n" +
+                    "angular.module('SequentPluginsConfig')\n" +
                     "  .provider('PluginsConfigService', function PluginsConfigServiceProvider() {\n" +
                     "    _.extend(this, {});\n" +
                     "\n" +
@@ -103,30 +103,30 @@ module.exports = function (grunt) {
                     "    return new PluginsConfigServiceProvider();\n" +
                     "    }];\n" +
                     "   });";
-                fs.writeFile("avPluginsConfig.js", 
-                    avPluginsConfigText, 
+                fs.writeFile("SequentPluginsConfig.js", 
+                    SequentPluginsConfigText, 
                     function(err) {
                         if(err) {
                             grunt.log.error(
-                                'Error creating avPluginsConfig.js file');
+                                'Error creating SequentPluginsConfig.js file');
                             done(false);
                         } else {
-                            grunt.log.ok('Created avPluginsConfig.js file, ' + 
+                            grunt.log.ok('Created SequentPluginsConfig.js file, ' + 
                                 'trying to read it again...');
                             checkAvPluginsConfig();
                         }
                 }); 
             } else {
                 var match = data.toString().match(
-                    /AV_PLUGINS_CONFIG_VERSION = [\'\"]([\w\.\-]*)[\'\"];/);
+                    /SEQUENT_PLUGINS_CONFIG_VERSION = [\'\"]([\w\.\-]*)[\'\"];/);
                 if (!match) {
-                    grunt.log.error('Invalid avPluginsConfig.js version');
+                    grunt.log.error('Invalid SequentPluginsConfig.js version');
                 } else {
                     var v = match[1];
-                    if (v === AV_CONFIG_VERSION) {
+                    if (v === SEQUENT_CONFIG_VERSION) {
                         return done();
                     } else {
-                        grunt.log.error('Invalid avPluginsConfig.js version: ' +
+                        grunt.log.error('Invalid SequentPluginsConfig.js version: ' +
                             v);
                     }
                 }
@@ -182,7 +182,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          src: ['node_modules/agora-gui-common/themes/**/app.less', 'plugins/**/*.less'],
+          src: ['node_modules/common-ui/themes/**/app.less', 'plugins/**/*.less'],
           dest: 'temp/',
           ext: '.css',
         }]
@@ -196,7 +196,7 @@ module.exports = function (grunt) {
         ]
       },
       dist: {
-        src: 'temp/node_modules/agora-gui-common/themes/**/app.css'
+        src: 'temp/node_modules/common-ui/themes/**/app.css'
       }
     },
     ngtemplates: {
@@ -213,7 +213,7 @@ module.exports = function (grunt) {
             module: pkg.name,
             htmlmin:'<%= htmlmin.main.options %>'
         },
-        cwd: 'node_modules/agora-gui-common/',
+        cwd: 'node_modules/common-ui/',
         src: ["avRegistration/**/*.html", "avUi/**/*.html"],
         dest: 'temp/templates-common.js'
       }
@@ -225,13 +225,13 @@ module.exports = function (grunt) {
             expand: true,
             cwd: 'node_modules/nanoscroller/bin/css/', 
             src: ['*'],
-            dest: 'temp/node_modules/agora-gui-common/'
+            dest: 'temp/node_modules/common-ui/'
           },
           {
             expand: true,
             cwd: 'node_modules/intl-tel-input/build/css/', 
             src: ['*'],
-            dest: 'temp/node_modules/agora-gui-common/'
+            dest: 'temp/node_modules/common-ui/'
           }
         ]
       },
@@ -240,12 +240,12 @@ module.exports = function (grunt) {
           {src: ['img/**'], dest: 'dist/'},
           {src: ['img/**'], dest: 'dist/'},
           {src: ['temp_data/**'], dest: 'dist/'},
-          {src: ['node_modules/agora-gui-common/dist/utils.js'], dest: 'dist/utils.js'},
-          {src: ['node_modules/agora-gui-common/dist/intlTelInput.css'], dest: 'dist/intlTelInput.css'},
-          {src: ['node_modules/agora-gui-common/dist/img/flags.png'], dest: 'dist/img/flags.png'},
+          {src: ['node_modules/common-ui/dist/utils.js'], dest: 'dist/utils.js'},
+          {src: ['node_modules/common-ui/dist/intlTelInput.css'], dest: 'dist/intlTelInput.css'},
+          {src: ['node_modules/common-ui/dist/img/flags.png'], dest: 'dist/img/flags.png'},
           {
             expand: true,
-            cwd:'node_modules/agora-gui-common/themes',
+            cwd:'node_modules/common-ui/themes',
             src: ['**/*.png'],
             dest: 'dist/themes/',
             ext: '.png',
@@ -293,12 +293,12 @@ module.exports = function (grunt) {
           append: [
             {selector:'body',html:'<%= variables.elections_html_body_include %>'},
             {selector:'body',html:'<!--[if lte IE 8]><script src="/election/libcompat-vmaster.min.js"></script><![endif]--><!--[if gte IE 9]><script src="/election/libnocompat-vmaster.min.js"></script><![endif]--><!--[if !IE]><!--><script src="/election/libnocompat-vmaster.min.js"></script><!--<![endif]-->'},
-            {selector:'body',html:'<!--All the source code of this program under copyright. Take a look at the license details at https://github.com/agoravoting/agora-core-view/blob/master/README.md -->'},
+            {selector:'body',html:'<!--All the source code of this program under copyright. Take a look at the license details at https://github.com/sequent/sequent-core-view/blob/master/README.md -->'},
             {selector:'body',html:'<script src="/election/lib-vmaster.min.js"></script>'},
-            {selector:'body',html:'<script src="/election/avConfig-vmaster.js"></script>'},
-            {selector:'body',html:'<script src="/election/avThemes-vmaster.js"></script>'},
+            {selector:'body',html:'<script src="/election/SequentConfig-vmaster.js"></script>'},
+            {selector:'body',html:'<script src="/election/SequentThemes-vmaster.js"></script>'},
             {selector:'body',html:'<script src="/election/app-vmaster.min.js"></script>'},
-            {selector:'body',html:'<script src="/election/avPlugins-vmaster.js"></script>'},
+            {selector:'body',html:'<script src="/election/SequentPlugins-vmaster.js"></script>'},
             {selector:'head',html:'<link rel="stylesheet" id="theme" data-base="/election/" href="/election/themes/default/app.min.css">'},
             {selector:'head',html:'<link rel="stylesheet" id="plugins" data-base="/election/" href="/election/plugins.css">'},
             {selector:'head',html:'<link rel="stylesheet" href="election/intlTelInput.css" />'}
@@ -312,7 +312,7 @@ module.exports = function (grunt) {
       main: {
         files: [{
             expand: true,
-            cwd:'temp/node_modules/agora-gui-common/themes',
+            cwd:'temp/node_modules/common-ui/themes',
             src: ['**/app.css'],
             dest: 'dist/themes/',
             ext: '.min.css',
@@ -332,10 +332,10 @@ module.exports = function (grunt) {
           'temp/libnocompat.js': ['<%= dom_munger.data.libnocompatjs %>'],
           'temp/lib.js': ['<%= dom_munger.data.libjs %>'],
           'temp/app.js': ['<%= dom_munger.data.appjs %>','<%= ngtemplates.main.dest %>','<%= ngtemplates.common.dest %>'],
-          'dist/avConfig-vmaster.js': ['avConfig.js'],
-          'dist/avThemes-vmaster.js': ['node_modules/agora-gui-common/dist/avThemes-vmaster.js'],
-          'dist/avPlugins-vmaster.js': [
-            'avPluginsConfig.js',
+          'dist/SequentConfig-vmaster.js': ['SequentConfig.js'],
+          'dist/SequentThemes-vmaster.js': ['node_modules/common-ui/dist/SequentThemes-vmaster.js'],
+          'dist/SequentPlugins-vmaster.js': [
+            'SequentPluginsConfig.js',
             'plugins/**/*.js',
             '!plugins/**/*-spec.js'
           ]
@@ -348,37 +348,37 @@ module.exports = function (grunt) {
             "dist/locales/en.json": [
               "locales/en.json", 
               "plugins/**/locales/en.json", 
-              "node_modules/agora-gui-common/dist/locales/en.json"
+              "node_modules/common-ui/dist/locales/en.json"
             ],
             "dist/locales/es.json": [
               "locales/es.json", 
               "plugins/**/locales/es.json", 
-              "node_modules/agora-gui-common/dist/locales/es.json"
+              "node_modules/common-ui/dist/locales/es.json"
             ],
             "dist/locales/gl.json": [
               "locales/gl.json", 
               "plugins/**/locales/gl.json", 
-              "node_modules/agora-gui-common/dist/locales/gl.json"
+              "node_modules/common-ui/dist/locales/gl.json"
             ],
             "dist/locales/ca.json": [
               "locales/ca.json", 
               "plugins/**/locales/ca.json", 
-              "node_modules/agora-gui-common/dist/locales/ca.json"
+              "node_modules/common-ui/dist/locales/ca.json"
             ],
             "dist/locales/nb.json": [
               "locales/nb.json", 
               "plugins/**/locales/nb.json", 
-              "node_modules/agora-gui-common/dist/locales/nb.json"
+              "node_modules/common-ui/dist/locales/nb.json"
             ],
             "dist/locales/sv.json": [
               "locales/sv.json", 
               "plugins/**/locales/sv.json", 
-              "node_modules/agora-gui-common/dist/locales/sv.json"
+              "node_modules/common-ui/dist/locales/sv.json"
             ],
             "dist/locales/fi.json": [
               "locales/fi.json", 
               "plugins/**/locales/fi.json", 
-              "node_modules/agora-gui-common/dist/locales/fi.json"
+              "node_modules/common-ui/dist/locales/fi.json"
             ]
         }
       }
@@ -436,8 +436,8 @@ module.exports = function (grunt) {
         files: [  //this files data is also updated in the watch handler, if updated change there too
           '<%= dom_munger.data.libnocompatjs %>',
           '<%= dom_munger.data.libjs %>',
-          'avConfig.js',
-          'avThemes.js',
+          'SequentConfig.js',
+          'SequentThemes.js',
           'avWidgets.js',
           '<%= dom_munger.data.appjs %>',
           '<%= ngtemplates.main.dest %>',
@@ -533,8 +533,8 @@ module.exports = function (grunt) {
         var files = [].concat(grunt.config('dom_munger.data.libnocompatjs'));
         files.concat(grunt.config('dom_munger.data.libjs'));
         files.push('node_modules/angular-mocks/angular-mocks.js');
-        files.push('avConfig.js');
-        files.push('avThemes.js');
+        files.push('SequentConfig.js');
+        files.push('SequentThemes.js');
         files.push('avWidgets.js');
         files.concat(grunt.config('dom_munger.data.appjs'));
         files.concat(grunt.config('ngtemplates.main.dest'));

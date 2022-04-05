@@ -1,6 +1,6 @@
 {
     "authorities": [
-        "agora-auth4"
+        "sequent-auth4"
     ],
     "description": "Votación con layout normal",
     "director": "wadobo-auth3",

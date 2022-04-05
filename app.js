@@ -1,24 +1,24 @@
 /**
- * This file is part of agora-gui-elections.
- * Copyright (C) 2015-2016  Agora Voting SL <agora@agoravoting.com>
+ * This file is part of election-portal.
+ * Copyright (C) 2015-2016  Sequent Tech Inc <legal@sequentech.io>
 
- * agora-gui-elections is free software: you can redistribute it and/or modify
+ * election-portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License.
 
- * agora-gui-elections  is distributed in the hope that it will be useful,
+ * election-portal  is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
 
  * You should have received a copy of the GNU Affero General Public License
- * along with agora-gui-elections.  If not, see <http://www.gnu.org/licenses/>.
+ * along with election-portal.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
-window.avConfigData.base = '/election';
+window.SequentConfigData.base = '/election';
 
 angular.module(
-  'agora-gui-elections',
+  'election-portal',
   ['ui.bootstrap',
   'ui.utils',
   'ui.router',
@@ -30,8 +30,8 @@ angular.module(
   'ngSanitize',
   'infinite-scroll',
   'angularMoment',
-  'avConfig',
-  'avPluginsConfig',
+  'SequentConfig',
+  'SequentPluginsConfig',
   'jm.i18next',
   'avUi',
   'avRegistration',
@@ -42,7 +42,7 @@ angular.module(
   'angularLoad',
   'angular-date-picker-polyfill',
   'ng-autofocus',
-  'agora-gui-common'
+  'common-ui'
 ]);
 
 angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServiceProvider) {
@@ -64,11 +64,11 @@ angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServicePro
     ConfigServiceProvider.i18nextInitOptions);
 });
 
-angular.module('agora-gui-elections').config(function($sceDelegateProvider, ConfigServiceProvider) {
+angular.module('election-portal').config(function($sceDelegateProvider, ConfigServiceProvider) {
   $sceDelegateProvider.resourceUrlWhitelist(ConfigServiceProvider.resourceUrlWhitelist);
 });
 
-angular.module('agora-gui-elections').config(
+angular.module('election-portal').config(
   function(
     $stateProvider,
     $urlRouterProvider,
@@ -228,7 +228,7 @@ angular.module('agora-gui-elections').config(
       });
 });
 
-angular.module('agora-gui-elections').run(function($http, $rootScope, $window, ConfigService) {
+angular.module('election-portal').run(function($http, $rootScope, $window, ConfigService) {
 
   $rootScope.electionsTitle = ConfigService.webTitle;
   $rootScope.safeApply = function(fn) {
@@ -267,7 +267,7 @@ angular.module('agora-gui-elections').run(function($http, $rootScope, $window, C
 /*
 This directive allows us to pass a function in on an enter key to do what we want.
  */
-angular.module('agora-gui-elections').directive('ngEnter', function () {
+angular.module('election-portal').directive('ngEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if(event.which === 13) {
@@ -288,7 +288,7 @@ angular.module('agora-gui-elections').directive('ngEnter', function () {
  * @Param end, default is "..."
  * @return string
  */
-angular.module('agora-gui-elections').filter('truncate', function () {
+angular.module('election-portal').filter('truncate', function () {
         return function (text, length, end) {
             if (isNaN(length)) {
                 length = 10;

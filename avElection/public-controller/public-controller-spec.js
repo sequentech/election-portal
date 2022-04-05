@@ -1,18 +1,18 @@
 /**
- * This file is part of agora-gui-elections.
- * Copyright (C) 2015-2021  Agora Voting SL <agora@agoravoting.com>
+ * This file is part of election-portal.
+ * Copyright (C) 2015-2021  Sequent Tech Inc <legal@sequentech.io>
 
- * agora-gui-elections is free software: you can redistribute it and/or modify
+ * election-portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License.
 
- * agora-gui-elections  is distributed in the hope that it will be useful,
+ * election-portal  is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
 
  * You should have received a copy of the GNU Affero General Public License
- * along with agora-gui-elections.  If not, see <http://www.gnu.org/licenses/>.
+ * along with election-portal.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
 /* jshint ignore:start */
@@ -33,7 +33,7 @@ describe("Public Controller tests", function () {
       var $scope = $rootScope.$new();
       var controller = $controller('PublicController', {
         $scope: $scope,
-        $stateParams: { id: 1, code: 'qwerty', email: 'test@nvotes.com', isOpenId: false },
+        $stateParams: { id: 1, code: 'qwerty', email: 'test@sequentech.io', isOpenId: false },
         $filter: undefined,
         $i18next: undefined,
         $cookies: undefined,
