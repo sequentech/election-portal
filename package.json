@@ -60,7 +60,7 @@
     "**/underscore": "1.12.1",
     "**/xmlhttprequest-ssl": "1.6.2",
     "**/lodash": "^4.17.19",
-    "**/minimist": "1.2.5",
+    "**/minimist": "1.2.6",
     "**/yargs-parser": "13.1.2",
     "**/cheerio": "0.12.3",
     "**/cheerio-select": "0.0.3",
