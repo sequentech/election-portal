@@ -20,7 +20,7 @@
  * in this same file, which you might want to edit and tune if needed.
  */
 
-var SEQUENT_CONFIG_VERSION = '6.0.2';
+var SEQUENT_CONFIG_VERSION = '6.1.0';
 
 var SequentConfigData = {
   // the base url path for ajax requests, for example for sending ballots or
@@ -219,7 +219,7 @@ var SequentConfigData = {
     title: ""
   },
 
-  mainVersion: '6.0.2',
+  mainVersion: '6.1.0',
   repoVersions: []
 };
 
