@@ -28,11 +28,13 @@ angular
       $stateParams,
       $http,
       $scope,
+      $rootScope,
       $window,
       $i18next,
       ConfigService,
       InsideIframeService,
-      Authmethod
+      Authmethod,
+      I18nOverride
     ) {
       $("#theme")
         .attr("href", "election/themes/" + ConfigService.theme + "/app.min.css");
@@ -55,6 +57,7 @@ angular
 
       $scope.autoReloadReceive = function (value)
       {
+        var presentation = value.data.payload.configuration.presentation;
 
         // if state is not started but we are in login, redirect to default url
         if (
@@ -65,9 +68,9 @@ angular
           ) && 
           $window.location.pathname !== ConfigService.defaultRoute &&
           (
-            !value.data.payload.configuration.presentation ||
-            !value.data.payload.configuration.presentation.extra_options ||
-            !value.data.payload.configuration.presentation.extra_options.disable__public_home
+            !presentation ||
+            !presentation.extra_options ||
+            !presentation.extra_options.disable__public_home
           )
         ) {
           $window.location.href = '/election/' + $stateParams.id + '/public/home';
@@ -78,12 +81,20 @@ angular
         // login
         if (
           $state.current.name === "election.public.show.home" &&
-          value.data.payload.configuration.presentation &&
-          value.data.payload.configuration.presentation.extra_options &&
-          value.data.payload.configuration.presentation.extra_options.disable__public_home
+          presentation &&
+          presentation.extra_options &&
+          presentation.extra_options.disable__public_home
         ) {
           $window.location.href = '/election/' + $stateParams.id + '/public/login';
           return;
+        }
+
+        if (presentation && presentation.i18n_override)
+        {
+          I18nOverride(
+            /* overrides = */ presentation.i18n_override,
+            /* force = */ false
+          );
         }
 
         $scope.results = angular.fromJson(value.data.payload.results);

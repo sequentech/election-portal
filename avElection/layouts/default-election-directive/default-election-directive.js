@@ -39,8 +39,11 @@ angular
         scope.$watch(
           "election",
           function() {
-            if (scope.election) 
-            {
+            if (
+              scope.election &&
+              scope.election.presentation &&
+              scope.election.presentation.share_text
+            ) {
               var data = scope.election.presentation.share_text;
               for (var i = 0, length = data.length; i < length; i++)
               {
