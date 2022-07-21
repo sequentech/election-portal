@@ -7,21 +7,33 @@
       >
         <div class="container">
           <div class="row avb-top-navbar">
-            <div class="pull-left">
-              <span ng-if="election.logo_url">
+            <div class="col-xs-12 col-sm-4" ng-if="election.logo_url">
+              <span >
                 <img
                   alt="{{election.title}}"
                   class="logo-img" 
                   ng-src="{{election.logo_url}}"
                 />
               </span>
-              <span
-                ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy"
-                ng-if="!election.logo_url"
-              >
+            </div>
+            <div
+              class="col-xs-12 col-sm-6"
+              ng-if="!election.logo_url"
+            >
+              <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
               </span>
             </div>
-            <div class="pull-right">
+            <div
+              class="hidden-xs col-sm-4 text-center center-col"
+              ng-if="election.logo_url"
+            >
+              <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
+              </span>
+            </div>
+            <div
+              class="col-xs-12 text-right"
+              ng-class="{'col-sm-4': !!election.logo_url, 'col-sm-6': !election.logo_url}"
+            >
               <a
                 ng-if="!!configService.mainVersion"
                 target="_top"
@@ -56,14 +68,6 @@
               >
               </span>
             </div>
-            <div
-              class="text-center"
-              ng-if="election.logo_url"
-            >
-              <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
-              </span>
-              <h1 class="election-title">{{ election.presentation && election.presentation.extra_options && election.presentation.extra_options.public_title || election.title}}</h1>
-            </div>
           </div>
         </div>
       </div><!-- /.navbar-collapse -->
@@ -74,7 +78,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 top-section">
-        <h1 class="text-center election-title" ng-if="!election.logo_url">
+        <h1 class="text-center election-title">
           {{ election.presentation && election.presentation.extra_options && election.presentation.extra_options.public_title || election.title}}
         </h1>
         
