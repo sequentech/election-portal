@@ -39,6 +39,7 @@ describe("Public Controller tests", function () {
         $cookies: undefined,
         $window: window,
         ConfigService: { authAPI: '' },
+        I18nOverride: function () {},
         Authmethod: {
           viewEvent: function() {
             return {
