@@ -597,10 +597,9 @@ commander@^2.19.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-"common-ui@https://github.com/sequentech/common-ui.git#master":
-  version "6.0.0"
-  uid "60d1bcdda455543e301220460d28dcb27243123f"
-  resolved "https://github.com/sequentech/common-ui.git#60d1bcdda455543e301220460d28dcb27243123f"
+"common-ui@https://github.com/sequentech/common-ui.git#6.1.x":
+  version "6.1.5"
+  resolved "https://github.com/sequentech/common-ui.git#47ac32b3f1c4aa015103132e04a1fda511b2b4a1"
   dependencies:
     browser-update "^3.3.28"
     karma-ng-html2js-preprocessor "^1.0.0"
