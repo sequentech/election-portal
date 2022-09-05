@@ -1,4 +1,4 @@
-var SEQUENT_PLUGINS_CONFIG_VERSION = 'master';
+var SEQUENT_PLUGINS_CONFIG_VERSION = '7.0.0-beta.1';
 angular.module('SequentPluginsConfig', [])
   .factory('PluginsConfigService', function() {
     return {};
