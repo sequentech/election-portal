@@ -184,6 +184,14 @@ angular.module('election-portal').config(
           withCode: true
         }
       })
+      .state('election.public.show.otl', {
+        url: '/otl/:otlSecret',
+        templateUrl: 'avRegistration/login-controller/login-controller.html',
+        controller: "LoginController",
+        params: {
+          isOtl: true
+        }
+      })
       .state('election.public.show.logout', {
         url: '/logout',
         controller: "LogoutController"
