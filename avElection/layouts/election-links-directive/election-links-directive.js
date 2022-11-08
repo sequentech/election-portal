@@ -30,6 +30,7 @@ angular.module('avElection')
       scope.shouldEnableElectionLinks = function () {
         return (
           scope.name().indexOf('login') === -1 &&
+          scope.name().indexOf('otl') === -1 &&
           scope.name().indexOf('register') === -1 &&
           (
             !scope.election ||
