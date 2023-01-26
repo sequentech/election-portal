@@ -1,0 +1,127 @@
+{
+    "yes": "oui",
+    "no": "pas de",
+    "eg": "eg.",
+    "next": "Suivant",
+    "done": "Termin\u00e9",
+    "loading": "Chargement...",
+    "nomore": "Plus d'\u00e9l\u00e9ments",
+    "registered": "enregistr\u00e9",
+    "created": "cr\u00e9\u00e9",
+    "started": "a commenc\u00e9",
+    "stopped": "arr\u00eat\u00e9",
+    "tally_ok": "le d\u00e9compte est fait",
+    "results_ok": "r\u00e9sultats obtenus",
+    "results_pub": "r\u00e9sultats publi\u00e9s",
+    "doing_tally": "faire le d\u00e9compte",
+    "tally_error": "erreur de pointage",
+    "app": {
+        "name": "Sequent Tech"
+    },
+    "avAdmin": {
+        "childrenElections": {
+            "main": "Principale \u00e9lection"
+        }
+    },
+    "avCommon": {
+        "cancel": "Annuler",
+        "poweredBy": "Powered by <strong><a href=\"__url__\" target=\"_blank\">__name__</a></strong>",
+        "shareLink": "\u00a1Tweet cette \u00e9lection !",
+        "votingSystem": "Syst\u00e8me de vote",
+        "votings": {
+            "plurality-at-large": "Pluralit\u00e9 au sens large",
+            "borda-nauru": "Le comte Borda de Nauru ou Borda Dowdall (1/n)",
+            "borda": "Comte de Borda (traditionnel)",
+            "pairwise-beta": "Par paires (distribution b\u00eata)",
+            "desborda3": "DesBorda3",
+            "desborda2": "DesBorda2",
+            "desborda": "DesBorda",
+            "cumulative": "Cumulatif"
+        }
+    },
+    "avElection": {
+        "thisisATest": "<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> <strong>Avertissement!</strong>Il s'agit d'une \u00e9lection TEST",
+        "ballotLocatorTitle": "Localisez votre bulletin de vote",
+        "ballotLocatorSubtitle": "\u00c9lection : __titre__",
+        "inputLocatorPlaceholder": "Pr\u00e9sentez ici votre traceur de bulletins de vote",
+        "ballotLocatorPTitle": "Suivi des bulletins de vote",
+        "searchLocatorButton": "Trouvez votre bulletin de vote",
+        "locatorDescription": "Lorsque vous d\u00e9posez votre bulletin de vote, le traceur de bulletins vous est pr\u00e9sent\u00e9 et vous permet de le suivre sans r\u00e9v\u00e9ler l'intention de l'\u00e9lecteur. Ici, vous pouvez introduire ce traceur de bulletin et d\u00e9couvrir si un bulletin crypt\u00e9 particulier a \u00e9t\u00e9 effectivement d\u00e9pos\u00e9 avec succ\u00e8s.",
+        "locatorFoundText": "\u00a1Ballot found ! En effet, le bulletin avec le traceur de bulletin <strong>__locator__</strong> a \u00e9t\u00e9 d\u00e9pos\u00e9 correctement. Le texte du bulletin crypt\u00e9 est le suivant :",
+        "locatorSearchingStatus": "<span class=\"text-primary\">Localiser le traceur de bulletins de vote..</span>",
+        "locatorFoundStatus": "<span class=\"text-success\">Traqueur de bulletins de vote trouv\u00e9!</span>",
+        "locatorNotFoundStatus": "<span class=\"text-danger\">Traqueur de bulletins de vote introuvable : <strong>__locator__</strong></span>",
+        "locatorInfoText": "Exemple de tracker de bulletin de vote : 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
+        "resultsLoadingText": "R\u00e9sultats du chargement",
+        "errorLoadingText": "Erreur de chargement des r\u00e9sultats. Peut-\u00eatre qu'ils n'ont pas \u00e9t\u00e9 publi\u00e9s, que vous n'avez pas les permissions ou que l'\u00e9lection n'existe pas.",
+        "defaultShareText": "Votez dans __title__ avec @__handle__ __url__",
+        "resultsHeader": "__title__ : R\u00e9sultats",
+        "resultsTableNPositionHeader": "Nombre de votes par poste :",
+        "resultsTableCandidateHeader": "Candidature",
+        "resultsTableVotesHeader": "Votes",
+        "resultsTableVotesPercentageHeader": "",
+        "resultsTablePositionHeader": "Position",
+        "resultsLastUpdated": "Derni\u00e8re mise \u00e0 jour : __date__",
+        "resultsSummary": "R\u00e9sum\u00e9 du Scrutiny",
+        "totalNumberOfVotes": "Nombre total de votes :",
+        "validVotes": "Votes aux options :",
+        "blankVotes": "Votes blancs :",
+        "nullVotes": "Votes nuls :",
+        "stateNotPublished": "D\u00e9sol\u00e9 : les r\u00e9sultats ne peuvent \u00eatre affich\u00e9s car ils n'ont pas encore \u00e9t\u00e9 publi\u00e9s.",
+        "errorLoadingQuestionTest": "Disposition des questions inconnues",
+        "public": {
+            "homeText": "Accueil",
+            "resultsTitle": "R\u00e9sultats",
+            "chooseElectionResults": "S\u00e9lectionnez les r\u00e9sultats de l'\u00e9lection \u00e0 afficher :",
+            "loadingText": "Chargement de l'\u00e9lection",
+            "voteLink": "Vote",
+            "censusQueryLink": "Requ\u00eate de recensement",
+            "loadingDataText": "Cargando datos..",
+            "errorNotFoundText": "Erreur de chargement de l'information.",
+            "errorLoadingText": "Erreur de chargement de l'\u00e9lection. Il se peut que cette \u00e9lection n'existe pas, ou qu'elle n'ait pas encore \u00e9t\u00e9 publi\u00e9e.",
+            "faqsLink": "FAQs",
+            "authoritiesLink": "Autorit\u00e9s",
+            "overviewLink": "Vue d'ensemble",
+            "technicalOverviewLink": "Aper\u00e7u technique",
+            "demoVotingBoothLink": "Cabine de vote d\u00e9mo",
+            "voteNowLink": "Votez maintenant",
+            "answers": "__count__ candidats",
+            "answers_plural": "__count__ candidats",
+            "answersRandomized": "__count__ candidats (dans un ordre al\u00e9atoire)",
+            "answersRandomized_plural": "__count__ candidats (dans un ordre al\u00e9atoire)",
+            "questionsTitle": "Questions",
+            "questionInfoText": "Les votants choisiront entre <strong>__min__</strong> et <strong>__max</strong> candidats. <strong>__numWinners__</strong> gagnants.",
+            "votingSystemText": "Syst\u00e8me de vote : <strong>__m\u00e9thode__</strong>.",
+            "status-registered": "Statut : <strong>\u00c9lection enregistr\u00e9e</strong>",
+            "status-created": "Statut : <strong>\u00e9lection cr\u00e9\u00e9e</strong>",
+            "status-started": "Statut : <strong>Les \u00e9lections ont commenc\u00e9</strong>",
+            "status-suspended": "Statut : <strong>\u00e9lection suspendue</strong>",
+            "status-resumed": "Statut : <strong>reprise des \u00e9lections</strong>",
+            "status-stopped": "Statut : <strong>S\u00e9lection arr\u00eat\u00e9e</strong>",
+            "status-doing_tally": "Statut : <strong>Faire le d\u00e9compte</strong>",
+            "status-tally_ok": "Statut : <strong>totalement fait</strong>",
+            "status-results_ok": "Statut : <strong>r\u00e9sultats calcul\u00e9s</strong>",
+            "status-results_pub": "Statut : <strong>r\u00e9sultats publi\u00e9s</strong>"
+        },
+        "authorities": {
+            "loading": "Erreur de chargement des autorit\u00e9s.",
+            "title": "Autorit\u00e9s \u00e9lectorales",
+            "intro": "Les autorit\u00e9s \u00e9lectorales jouent un r\u00f4le cl\u00e9. La force du syst\u00e8me de s\u00e9curit\u00e9 utilis\u00e9 dans cette \u00e9lection r\u00e9side dans un syst\u00e8me de s\u00e9curit\u00e9 partag\u00e9 similaire \u00e0 celui des scrutateurs dans une \u00e9lection traditionnelle, o\u00f9 la cl\u00e9 de cryptage de l'\u00e9lection est g\u00e9n\u00e9r\u00e9e de mani\u00e8re distribu\u00e9e par de multiples autorit\u00e9s \u00e9lectorales ind\u00e9pendantes, qui garantissent le secret du vote et sont en fait charg\u00e9es de faire le d\u00e9compte. Ce sont les autorit\u00e9s \u00e9lectorales :"
+        },
+        "resultsDirective": {
+            "ballotLocatorLink": "Suivi des bulletins de vote",
+            "verifiableResultsLink": "D\u00e9compte v\u00e9rifiable"
+        },
+        "verifyResults": {
+            "title": "Un d\u00e9compte \u00e9lectoral v\u00e9rifiable",
+            "subtitle": "\u00c9lection : __titre__",
+            "stateNotPublished": "D\u00e9sol\u00e9. Le d\u00e9compte des \u00e9lections ne peut \u00eatre v\u00e9rifi\u00e9 car les r\u00e9sultats des \u00e9lections n'ont pas encore \u00e9t\u00e9 publi\u00e9s.",
+            "stateLoading": "Chargement de l'\u00e9lection : attendez s'il vous pla\u00eet..",
+            "verifyText": "<p>Dans cette page, nous d\u00e9crirons le processus par lequel il est possible de v\u00e9rifier que le r\u00e9sultat d'une \u00e9lection est valide. Chaque \u00e9lecteur peut v\u00e9rifier que son bulletin de vote est inclus dans le d\u00e9compte, et peut \u00e9galement v\u00e9rifier math\u00e9matiquement le r\u00e9sultat du d\u00e9compte.</p><p>\n\n<strong>Pour effectuer cette v\u00e9rification, il est n\u00e9cessaire d'avoir une formation technique. Si vous ne l'avez pas, nous vous recommandons d'ex\u00e9cuter ce processus de v\u00e9rification avec l'aide d'une personne ayant une formation technique.</strong></p><p>\n\nLa premi\u00e8re chose dont vous avez besoin pour v\u00e9rifier le d\u00e9compte est de t\u00e9l\u00e9charger le &quot;v\u00e9rificateur d'\u00e9lection&quot; Logiciel. C'est le programme qui effectue les v\u00e9rifications n\u00e9cessaires sur une \u00e9lection de __name__. Vous pouvez t\u00e9l\u00e9charger le v\u00e9rificateur d'\u00e9lection \u00e0 partir d'ici:<p>\n\n<p>\n\n<p><a href=\"{{verifier.link}}\" target=\"_blank\">v\u00e9rificateur d'\u00e9lection</a><span class=\"special\"> (sha256sum : {{verifier.hash}})</span></p>\n\n<p>ou vous pouvez <a href=\"https://github.com/sequetech/election-verifier\">l'installer manuellement \u00e0 partir du code source, en suivant les instructions de github</a>.</p><p >\n\nelections-verifier a \u00e9t\u00e9 test\u00e9 pour fonctionner sous Linux et n\u00e9cessite :</p>\n<ul>\n<li>Un syst\u00e8me d'exploitation Linux 64 bits.</li>\n<li>Python 3.3 ou ult\u00e9rieur</li>\n<li>Java v7 ou install\u00e9 ult\u00e9rieurement.</li>\n<li>uuencode (\"sudo apt-get install sharutils\" dans Debian/Ubuntu).</li>\n</ul>\n\n<p>Le fichier qui contient les donn\u00e9es de l'\u00e9lection, que nous appelons habituellement \"tally.tar\" est le suivant :</p>\n\n<p><a class=\"tally-link\" href=\"{{publicURL}}{{electionId}}/{{electionId}}.tar\" target=\"_blank\">D\u00e9compte des \u00e9lections ({{electionId}}.tar )</a></p>\n\n<p>Pour v\u00e9rifier le d\u00e9compte, vous pouvez simplement ex\u00e9cuter:</p>\n\n<p>\n<code>\nsh v\u00e9rificateur d'\u00e9lection {{electionId}}.tar\n</code>\n</p>\n\n<p>Le r\u00e9sultat de cette ex\u00e9cution ressemblera \u00e0 ce qui suit:</p>\n\n<code>\nsh election-verifier {{electionId}}.tar<br/><br/>\n\n* extracted to /tmp/tmp9c2r5e3jtally<br/>\n* extracted raw tally to /tmp/tmp9c2r5e3jtally/tally-raw-0<br/>\n* running ['./tally-pipes', '-t', '/tmp/tmp9c2r5e3jtally/0.tar.gz', '-c', '/tmp/tmp9c2r5e3jtally/config.json', '-s', '-o', 'json']<br/>\n* results hash verification OK<br/>\n* processing /tmp/tmp9c2r5e3jtally/tally-raw-0<br/>\n# Results ##########################################<br/>\ntotal number of votes (including blank/invalid votes): 37<br/>\nQuestion #1: Secretario General<br/>\n<br/>\nnumber of options available: 2<br/>\n<br/>\nRaw winning options (position):<br/>\n...<br/>\n<br/>\n<br/>\n####################################################<br/>\n<br/>\n* verifying proofs of knowledge of the plaintexts...<br/>\n* ..finished. Verified 37 votes (0 invalid)<br/>\n* proofs of knowledge of plaintexts OK (0 invalid)<br/>\n* running './pverify.sh .rnd /tmp/tmp9c2r5e3jtally/tally-raw-0'<br/>\n* initializing random source..Successfully initialized random source!<br/>\n* begin proof verification on '/tmp/tmp9c2r5e3jtally/tally-raw-0'<br/>\n* processing /tmp/tmp9c2r5e3jtally/tally-raw-0/0-089b56b3-3ffc-4f91-ace5-eef571162d8c..<br/>\n*<br/>\n* ============ Read and derive common values. ====================<br/>\n* 150101 18:46:10 Read joint public key... * done.<br/>\n* 150101 18:46:11 Read individual El Gamal public keys... * done.<br/>\n* 150101 18:46:11 Verify relation between public keys... * done.<br/>\n* 150101 18:46:11 Read input ciphertexts... * done.<br/>\n* 150101 18:46:11 Derive independent generators... * done.<br/>\n*<br/>\n* ============ Verify shuffle of Party 1. ========================<br/>\n* 150101 18:46:11 Read output of Party 1... * done.<br/>\n* 150101 18:46:11 Verify proof of shuffle... * done.<br/>\n*<br/>\n* ============ Verify shuffle of Party 2. ========================<br/>\n* 150101 18:46:12 Read output of Party 2... * done.<br/>\n* 150101 18:46:12 Verify proof of shuffle... * done.<br/>\n*<br/>\n* ============ Verify decryption of Party 1. =====================<br/>\n* 150101 18:46:12 Read decryption factors... * done.<br/>\n* 150101 18:46:12 Verify decryption proof... * done.<br/>\n*<br/>\n* ============ Verify decryption of Party 2. =====================<br/>\n* 150101 18:46:13 Read decryption factors... * done.<br/>\n* 150101 18:46:13 Verify decryption proof... * done.<br/>\n*<br/>\n* ============ Verify finalization. ==============================<br/>\n* 150101 18:46:13 Decrypt using verified decryption factors... * done.<br/>\n* 150101 18:46:13 Read and verify plaintexts... * done.<br/>\n*<br/>\n* Verification completed SUCCESSFULLY after 0h 0m 4s.<br/>\n* verification is OK<br/>\n* processing question_dir 0-089b56b3-3ffc-4f91-ace5-eef571162d8c<br/>\n* running '/tmp/tmp.J9d7GWUECw/election-verifier/vmnc.sh .rnd -plain -outi json proofs/PlaintextElements.bt plaintexts_json2'<br/>\n* initializing random source..Successfully initialized random source!<br/>\n* calling mixnet interface with vmnc .rnd  -plain -outi json proofs/PlaintextElements.bt plaintexts_json2..<br/>\n* vmnc call succeeded<br/>\n* plaintexts_json verification OK<br/>\n* running '/tmp/tmp.J9d7GWUECw/election-verifier/vmnc.sh .rnd -ciphs -ini json ciphertexts_json ciphertexts_raw'<br/>\n* calling mixnet interface with vmnc .rnd  -ciphs -ini json ciphertexts_json ciphertexts_raw..<br/>\n* vmnc call succeeded<br/>\n* ciphertexts_json verification OK<br/>\n<br/>\n</code>\n\n<p></p>\n<p>La chose la plus importante est que la commande se termine en disant &quot;OK&quot;. S'il y a un \u00e9chec, la commande ne finira pas de dire OK mais FAILED. Nous allons maintenant \u00e9num\u00e9rer les \u00e9tapes impliqu\u00e9es dans la v\u00e9rification. Pour des raisons techniques, la commande ne suit pas exactement le m\u00eame ordre que celui indiqu\u00e9 ici, mais nous les listons toujours de cette fa\u00e7on pour plus de clart\u00e9:</p>\n<ol>\n<li>Extraire le fichier dans un r\u00e9pertoire dont le chemin est imprim\u00e9 \u00e0 l'\u00e9cran</li><li>\nAfficher bri\u00e8vement \u00e0 l'\u00e9cran les donn\u00e9es les plus importantes du d\u00e9compte: le nombre de votes et la liste des options gagnantes (PAS dans l'ordre).</li><li>\nLisez le fichier result_json qui correspond aux r\u00e9sultats du d\u00e9compte indiqu\u00e9 \u00e0 l'\u00e9tape pr\u00e9c\u00e9dente et hachez-le.</li><li>\nLire les cl\u00e9s publiques avec lesquelles les bulletins de vote ont \u00e9t\u00e9 chiffr\u00e9s (fichier pubkeys_json)</li><li>\nLisez les bulletins de vote \u00e0 partir du fichier ciphertexts_json et v\u00e9rifiez la validit\u00e9 des preuves math\u00e9matiques Zero Knownledge Proofs (ZKP) qui prouvent que la personne qui a chiffr\u00e9 le bulletin de vote connaissait le contenu en texte brut du bulletin de vote.</li><li>\nL'\u00e9tape suivante consiste \u00e0 v\u00e9rifier certains \u00e9l\u00e9ments de chaque question. Chaque question est crypt\u00e9e s\u00e9par\u00e9ment, et donc le d\u00e9compte et certaines v\u00e9rifications sont \u00e9galement effectu\u00e9s s\u00e9par\u00e9ment:<ol><li>\nV\u00e9rifiez qu'en commen\u00e7ant par le scrutin du fichier &quot;ciphertexts_json&quot; il peut \u00eatre obtenu le bulletin de vote crypt\u00e9 au format brut. Un hachage des deux fichiers est effectu\u00e9 et il est v\u00e9rifi\u00e9 que le r\u00e9sultat est le m\u00eame. Si cette v\u00e9rification \u00e9choue, le script imprime \u00e0 l'\u00e9cran &quot;ciphertexts_json verification FAILED&quot;.</li><li>\nLisez les preuves ZKP qui prouvent math\u00e9matiquement qu'\u00e0 partir des bulletins de vote crypt\u00e9s de cette question, le r\u00e9sultat est les bulletins de vote d\u00e9crypt\u00e9s au format brut. Si ces preuves \u00e9chouent, le script imprime &quot;la v\u00e9rification \u00c9CHEC&quot;.</li><li>\nV\u00e9rifiez que les bulletins d\u00e9crypt\u00e9s au format brut peuvent \u00eatre convertis dans les bulletins de r\u00e9sultat au format texte du fichier &quot;plaintexts_json&quot;. Un hachage des deux fichiers est cr\u00e9\u00e9 et il est v\u00e9rifi\u00e9 que les deux correspondent. Si cette v\u00e9rification \u00e9choue, le script affiche &quot;plaintexts_json verification FAILED&quot;.</li>\n</ol><li>\nLisez le fichier qui contient les votes d\u00e9crypt\u00e9s et calculez le d\u00e9compte de l'\u00e9lection \u00e0 partir de ces donn\u00e9es.</li><li>\nV\u00e9rifiez que le hachage de ce fichier correspond au hachage de result_json obtenu \u00e0 l'\u00e9tape 3. Si la comparaison \u00e9choue, le script imprime &quot;tally verification FAILED&quot;.</li>\n</p>\n<p>Comme on peut le voir, <strong>il est math\u00e9matiquement et univoquement prouv\u00e9</strong> qu'\u00e0 partir des bulletins de vote crypt\u00e9s, le d\u00e9compte des \u00e9lections est correct. Certaines questions pourraient \u00eatre soulev\u00e9es: d'o\u00f9 viennent tous ces bulletins de vote ? mon bulletin de vote est-il inclus?</p><p>\n\nTout d'abord, nous devons dire que le syst\u00e8me de vote implique la n\u00e9cessit\u00e9 d'une certaine confiance dans les organisations organisant l'\u00e9lection, surtout qu'il est suppos\u00e9 qu'aucun bourrage d'urnes ne s'est produit. Il s'agit d'une limitation (refl\u00e9t\u00e9e dans la <a href=\"https://sequetech.io/static/generic_tech_overview_20_08_15.pdf\">vue d'ensemble technique</a>, section 6.3.3) qui d\u00e9coule du fait que les bulletins de vote ne sont pas num\u00e9riques sign\u00e9s, et ils ne le sont pas car tr\u00e8s peu de personnes disposent d'un certificat num\u00e9rique qu'ils peuvent facilement utiliser lors d'une \u00e9lection de ce type. Dans d'autres pays europ\u00e9ens comme par exemple l'Estonie, <a href=\"http://www.vvk.ee/ vote-methodes-in-estonia/engindex/statistics\">l'e-ID semble \u00eatre largement utilis\u00e9e et donc 24,3 % de l'\u00e9lectorat a vot\u00e9 par Internet lors des \u00e9lections de 2011</a>.</p><p>\n\nN\u00e9anmoins, il peut \u00eatre prouv\u00e9 math\u00e9matiquement que votre bulletin de vote individuel, celui que vous avez \u00e9mis en tant qu'\u00e9lecteur, est inclus dans la liste des bulletins de vote crypt\u00e9s, dans cette liste que nous avons v\u00e9rifi\u00e9e pour g\u00e9n\u00e9rer le r\u00e9sultat \u00e9lectoral correct. Pour v\u00e9rifier votre vote, vous devez avoir enregistr\u00e9 le suivi des bulletins de vote, qui n'est qu'un hachage du bulletin de vote. </p><p>\n\nCe suivi des bulletins de vote appara\u00eet \u00e0 l'\u00e9cran lorsque vous avez termin\u00e9 le processus de vote de l'isoloir. Si vous n'avez pas enregistr\u00e9 votre outil de suivi des bulletins de vote, n'oubliez pas que vous devez l'enregistrer si vous souhaitez pouvoir effectuer cette v\u00e9rification. </p><p>\n\nPour v\u00e9rifier que votre bulletin de vote est inclus dans le d\u00e9compte, il vous suffit d'ex\u00e9cuter la m\u00eame commande que pr\u00e9c\u00e9demment, en ajoutant en param\u00e8tre votre outil de suivi des bulletins:</p>\n\n<code>\nsh v\u00e9rificateur d'\u00e9lection {{electionId}}.tar [suivi des bulletins de vote]\n</code>"
+        },
+        "legal": {
+            "title": "Mentions l\u00e9gales",
+            "contact": "contacter"
+        }
+    }
+}
