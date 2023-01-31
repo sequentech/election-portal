@@ -18,11 +18,6 @@
     "app": {
         "name": "Sequent Tech"
     },
-    "avAdmin": {
-        "childrenElections": {
-            "main": "Principale \u00e9lection"
-        }
-    },
     "avCommon": {
         "cancel": "Annuler",
         "poweredBy": "Powered by <strong><a href=\"__url__\" target=\"_blank\">__name__</a></strong>",
@@ -37,6 +32,11 @@
             "desborda2": "DesBorda2",
             "desborda": "DesBorda",
             "cumulative": "Cumulatif"
+        }
+    },
+    "avAdmin": {
+        "childrenElections": {
+            "main": "Principale \u00e9lection"
         }
     },
     "avElection": {
@@ -90,8 +90,8 @@
             "answersRandomized": "__count__ candidats (dans un ordre al\u00e9atoire)",
             "answersRandomized_plural": "__count__ candidats (dans un ordre al\u00e9atoire)",
             "questionsTitle": "Questions",
-            "questionInfoText": "Les votants choisiront entre <strong>__min__</strong> et <strong>__max</strong> candidats. <strong>__numWinners__</strong> gagnants.",
-            "votingSystemText": "Syst\u00e8me de vote : <strong>__m\u00e9thode__</strong>.",
+            "questionInfoText": "Les votants choisiront entre <strong>__min__</strong> et <strong>__max__</strong> candidats. <strong>__numWinners__</strong> gagnants.",
+            "votingSystemText": "Syst\u00e8me de vote: <strong>__method__</strong>.",
             "status-registered": "Statut : <strong>\u00c9lection enregistr\u00e9e</strong>",
             "status-created": "Statut : <strong>\u00e9lection cr\u00e9\u00e9e</strong>",
             "status-started": "Statut : <strong>Les \u00e9lections ont commenc\u00e9</strong>",
