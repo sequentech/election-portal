@@ -35,9 +35,9 @@
     "searchLocatorButton": "Etsi ääneni",
     "locatorDescription": "Kun tallennat äänesi, sinulle ilmoitetaan äänen tarkistusnumero. Tarkistusnumeron avulla voi tarkastaa, että ääni on todella tallentunut sähköiseen vaaliuurnaan ilman, että äänen sisältö paljastuu. Tähän voit syöttää tarkistusnumeron.",
     "locatorFoundText": "Ääni löytyi! Tarkistusnumerolla <strong>__locator__</strong> annettu ääni on todella tallentunut oikein sähköisen vaaliuurnaan. Äänestyslipun tieto on:",
-    "locatorSearchingStatus": "<span class=\"text-primary\">Pengotaan sähköistä vaaliuurnaa...</span>",
-    "locatorFoundStatus": "<span class=\"text-success\">Ääni löytyi!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\" role=\"alert\">Ääntä ei löytynyt: <strong>__locator__</strong></span>",
+    "locatorSearchingStatus": "Pengotaan sähköistä vaaliuurnaa...",
+    "locatorFoundStatus": "Ääni löytyi!",
+    "locatorNotFoundStatus": "Ääntä ei löytynyt: <strong>__locator__</strong>",
     "locatorInfoText": "Tarkistusnumero näyttää tämäntapaiselta: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
     "resultsLoadingText": "Haetaan tuloksia",

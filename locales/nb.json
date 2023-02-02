@@ -35,9 +35,9 @@
     "searchLocatorButton": "Finn din stemmeseddel",
     "locatorDescription": "Når du avlegger din stemme vises sporings-IDen til din stemmeseddel og du kan spore den uten å avsløre hva du har stemt. Her kan du legge inn sporings-ID for å kontrollere at en bestemt, kryptert stemmeseddel ble levert og er med i resultatet.",
     "locatorFoundText": "Stemmeseddel funnet! Stemmeseddelen med sporings-ID <strong>__locator__</strong> er inkludert i resultatet. Teksten er:",
-    "locatorSearchingStatus": "<span class=\"text-primary\">Søker etter sporings-ID..</span>",
-    "locatorFoundStatus": "<span class=\"text-success\">Sporings-ID funnet!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\" role=\"alert\">Sporings-ID ikke funnet: <strong>__locator__</strong></span>",
+    "locatorSearchingStatus": "Søker etter sporings-ID..",
+    "locatorFoundStatus": "Sporings-ID funnet!",
+    "locatorNotFoundStatus": "Sporings-ID ikke funnet: <strong>__locator__</strong>",
     "locatorInfoText": "Eksempel på sporings-ID: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
     "resultsLoadingText": "Laster resultat",

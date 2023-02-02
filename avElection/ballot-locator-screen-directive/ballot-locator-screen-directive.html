@@ -89,7 +89,8 @@
             <span
               ng-if="locatorStatus === 'found'"
               ng-i18next="avElection.locatorFoundStatus"
-              class="text-success">
+              class="text-success"
+              role="alert">
             </span>
             <span
               ng-if="locatorStatus === 'not-found'"
@@ -99,7 +100,7 @@
             </span>
           </div>
           
-          <div ng-if="ballot.length > 0">
+          <div ng-if="ballot.length > 0" class="wrap-words">
             <div 
               class="results" 
               ng-i18next="[html:i18next]({locator:foundLocator})avElection.locatorFoundText"
@@ -118,7 +119,8 @@
             <span
               ng-if="locatorStatus === 'found'"
               ng-i18next="avElection.locatorFoundStatus"
-              class="text-success">
+              class="text-success"
+              role="alert">
             </span>
             <span
               ng-if="locatorStatus === 'not-found'"

@@ -40,9 +40,9 @@
     "searchLocatorButton": "Encontrar papeleta",
     "locatorDescription": "Cuando emite su voto, le aparece el localizador de su papeleta para que pueda seguirle el rastro sin desvelar el sentido del voto. Aquí puede introducir ese localizador y ver que efectivamente esa papeleta cifrada fue emitida y registrada correctamente.",
     "locatorFoundText": "¡Papeleta encontrada! Efectivamente, la papeleta con el localizador <strong>__locator__</strong> fue emitida y registrada correctamente. El texto de la papeleta cifrada es:",
-    "locatorSearchingStatus": "<span class=\"text-primary\">Buscando localizador..</span>",
-    "locatorFoundStatus": "<span class=\"text-success\">¡Localizador encontrado!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\" role=\"alert\">Localizador no encontrado: <strong>__locator__</strong></span>",
+    "locatorSearchingStatus": "Buscando localizador..",
+    "locatorFoundStatus": "¡Localizador encontrado!",
+    "locatorNotFoundStatus": "Localizador no encontrado: <strong>__locator__</strong>",
     "locatorInfoText": "Ejemplo de localizador: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
 

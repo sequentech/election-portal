@@ -33,9 +33,9 @@
     "searchLocatorButton": "Troba el vot",
     "locatorDescription": "Quan emet el seu vot, li apareixerà el localitzador del seu vot perquè pugui seguir-li el rastre sense desvetllar-ne el sentit del vot. Aquí podeu introduir aquest localitzador i comprovar que efectivament aquest vot xifrat ha estat emès i registrat correctament.",
     "locatorFoundText": "Vot trobat! Efectivament, el vot amb el localitzador <strong>__locator__</strong> ha estat emès i registrat correctament. El text del vot xifrat és:",
-    "locatorSearchingStatus": "<span class=\"text-primary\">Cercant localitzador..</span>",
-    "locatorFoundStatus": "<span class=\"text-success\">Localitzador trobat!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\" role=\"alert\">Localitzador no trobat: <strong>__locator__</strong></span>",
+    "locatorSearchingStatus": "Cercant localitzador..",
+    "locatorFoundStatus": "Localitzador trobat!",
+    "locatorNotFoundStatus": "Localitzador no trobat: <strong>__locator__</strong>",
     "locatorInfoText": "Exemple de localitzador: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
 
