@@ -34,6 +34,11 @@
   "avElection": {
     "thisisATest": "<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> <strong>Warning!</strong> This is a TEST election",
     "ballotLocatorTitle": "Locate your ballot",
+    "downloadElectionData": "Download election configuration",
+    "twitterShare": "Share on Twitter",
+    "facebookShare": "Share on Facebook",
+    "electionLink": "Link to election portal",
+    "rotateQuestions": "Rotate questions",
     "ballotLocatorSubtitle": "Election: __title__",
     "inputLocatorPlaceholder": "Introduce here your ballot tracker",
     "ballotLocatorPTitle": "Ballot tracker",

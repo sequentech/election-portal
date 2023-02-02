@@ -34,6 +34,11 @@
   "avElection": {
     "thisisATest": "<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> <strong>¡Atención!</strong> Esto es una votación de PRUEBA",
     "ballotLocatorTitle": "Encuentre su papeleta",
+    "downloadElectionData": "Descargar configuración de votación",
+    "twitterShare": "Compartir en Twitter",
+    "facebookShare": "Compartir en Facebook",
+    "electionLink": "Enlace a portal de la votación",
+    "rotateQuestions": "Rotar preguntas",
     "ballotLocatorSubtitle": "Election: __title__",
     "inputLocatorPlaceholder": "Introduzca aquí el localizador",
     "ballotLocatorPTitle": "Localizador de la papeleta",
