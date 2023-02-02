@@ -34,22 +34,19 @@ angular.module('avElection')
         scope.searchEnabled = false;
         scope.ballot = "";
         scope.foundLocator = scope.locator;
-        scope.locatorStatus = $i18next("avElection.locatorSearchingStatus");
+        scope.locatorStatus = "searching";
         $http.get(ConfigService.baseUrl + "election/" + attrs.electionId + "/hash/" + scope.locator)
           .then(
             function onSuccess(response) {
               scope.searchEnabled = true;
-              scope.locatorStatus = $i18next("avElection.locatorFoundStatus");
+              scope.locatorStatus = "found";
               scope.ballot = response.data.payload.vote;
             },
             // on error, like parse error or 404
             function onError(response) {
               scope.searchEnabled = true;
               scope.ballot = "";
-              scope.locatorStatus = $i18next(
-                "avElection.locatorNotFoundStatus", 
-                {locator: scope.foundLocator}
-              );
+              scope.locatorStatus = "not-found";
             }
           );
       };
