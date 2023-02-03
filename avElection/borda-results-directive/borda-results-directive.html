@@ -4,8 +4,12 @@
   ng-bind-html="question.description">
 </p>
 <div class="col-xs-12 col-md-4 col-md-offset-1 pull-right">
-  <table class="table table-hover table-condensed resume">
-    <caption ng-i18next="avElection.resultsSummary"></caption>
+  <table class="table table-hover table-condensed results">
+    <thead>
+      <tr>
+        <th ng-i18next="avElection.resultsSummary"></th>
+      </tr>
+    </thead>
     <tbody>
       <tr>
         <td ng-i18next="avCommon.votingSystem" class="title"></td>
