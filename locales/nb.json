@@ -48,7 +48,7 @@
     "resultsTableNPositionHeader": "Antall stemmer etter posisjon:",
     "resultsTableCandidateHeader": "Kandidatur",
     "resultsTableVotesHeader": "Stemmer",
-    "resultsTableVotesPercentageHeader": "",
+    "resultsTableVotesPercentageHeader": "Dele",
     "resultsTablePositionHeader": "Posisjon",
     "resultsLastUpdated": "Sist oppdatert: __date__",
     "resultsSummary": "Oppsummering",

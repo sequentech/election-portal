@@ -58,7 +58,7 @@
     "resultsTableNPositionHeader": "Number of votes by position:",
     "resultsTableCandidateHeader": "Candidature",
     "resultsTableVotesHeader": "Votes",
-    "resultsTableVotesPercentageHeader": "",
+    "resultsTableVotesPercentageHeader": "Share",
     "resultsTablePositionHeader": "Position",
     "resultsLastUpdated": "Last updated: __date__",
     "resultsSummary": "Scrutiny summary",

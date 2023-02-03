@@ -47,7 +47,7 @@
     "resultsTableNPositionHeader": "Número de votos por posición:",
     "resultsTableCandidateHeader": "Candidatura",
     "resultsTableVotesHeader": "Votos",
-    "resultsTableVotesPercentageHeader": "",
+    "resultsTableVotesPercentageHeader": "Cuota",
     "resultsTablePositionHeader": "Posición",
     "resultsLastUpdated": "última actualización: __date__",
     "resultsSummary": "Resume do escrutinio",
