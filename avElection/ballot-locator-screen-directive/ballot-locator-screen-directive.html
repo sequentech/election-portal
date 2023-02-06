@@ -50,18 +50,20 @@
       <div class="row">
         <div class="col-xs-12 col-sm-7 padded-left padded-right">
           <p>
-            <label for="ballot-locator-input">
+            <label for="ballot-locator-input" id="ballot-locator-input-label">
               <strong ng-i18next="avElection.ballotLocatorPTitle"></strong>
             </label>
           </p>
           <input
             type="text"
             id="ballot-locator-input"
-            aria-label="label-locator-input"
+            aria-labeledby="ballot-locator-input-label"
+            aria-describedby="ballot-locator-description"
             ng-model="locator"
             ng-disabled="!searchEnabled"
             class="input-lg form-control locator-input"
             ng-i18next="[placeholder]avElection.inputLocatorPlaceholder"
+            ng-enter="searchLocator()"
           />
 
           <p 
@@ -78,11 +80,27 @@
           </button>
           
           <div 
-            class="locatorStatus visible-xs" 
-            ng-bind-html="locatorStatus">
+            class="locatorStatus wrap-words visible-xs">
+            <span
+              ng-if="locatorStatus === 'searching'"
+              ng-i18next="avElection.locatorSearchingStatus"
+              class="text-primary">
+            </span>
+            <span
+              ng-if="locatorStatus === 'found'"
+              ng-i18next="avElection.locatorFoundStatus"
+              class="text-success"
+              role="alert">
+            </span>
+            <span
+              ng-if="locatorStatus === 'not-found'"
+              ng-i18next="[html:i18next]({locator:foundLocator})avElection.locatorNotFoundStatus"
+              class="text-danger"
+              role="alert">
+            </span>
           </div>
           
-          <div ng-if="ballot.length > 0">
+          <div ng-if="ballot.length > 0" class="wrap-words">
             <div 
               class="results" 
               ng-i18next="[html:i18next]({locator:foundLocator})avElection.locatorFoundText"
@@ -90,9 +108,27 @@
             <div class="ballot">{{ballot}}</div>
           </div>
         </div>
-        <div class="hidden-xs col-sm-5 padded-left locator-desc">
-          <p ng-i18next="[html]avElection.locatorDescription"></p>
-          <div class="locatorStatus hidden-xs" ng-bind-html="locatorStatus"></div>
+        <div class="hidden-xs wrap-words col-sm-5 padded-left locator-desc">
+          <p ng-i18next="[html]avElection.locatorDescription" id="ballot-locator-description"></p>
+          <div class="locatorStatus hidden-xs">
+            <span
+              ng-if="locatorStatus === 'searching'"
+              ng-i18next="avElection.locatorSearchingStatus"
+              class="text-primary">
+            </span>
+            <span
+              ng-if="locatorStatus === 'found'"
+              ng-i18next="avElection.locatorFoundStatus"
+              class="text-success"
+              role="alert">
+            </span>
+            <span
+              ng-if="locatorStatus === 'not-found'"
+              ng-i18next="[html:i18next]({locator:foundLocator})avElection.locatorNotFoundStatus"
+              class="text-danger"
+              role="alert">
+            </span>
+          </div>
         </div>
       </div>
     </div>

@@ -29,13 +29,13 @@
             <a
               href="{{electionDataUrl}}"
               target="_blank"
-              ng-i18next="[alt]avElection.downloadElectionData">
+              ng-i18next="[alt]avElection.downloadElectionData;[aria-label]avElection.downloadElectionData">
               <i class="fa fa-fw fa-cloud-download"></i>
             </a>
             <a
               href="{{electionTwitterUrl}}"
               ng-if="!noHeader"
-              ng-i18next="[alt]avElection.tweetElection"
+              ng-i18next="[alt]avElection.twitterShare;[aria-label]avElection.twitterShare"
               target="_blank">
               <i class="fa fa-fw fa-facebook"></i>
             </a>
@@ -43,18 +43,20 @@
               href="{{electionFacebookUrl}}"
               ng-if="!noHeader"
               target="_blank"
-              ng-i18next="[alt]avElection.tweetElection">
+              ng-i18next="[alt]avElection.facebookShare;[aria-label]avElection.facebookShare">
               <i class="fa fa-fw fa-twitter"></i>
             </a>
             <a
               href="#election/{{election.id}}/public/home"
               ng-if="!noHeader"
+              ng-i18next="[alt]avElection.electionLink;[aria-label]avElection.electionLink"
               target="_blank">
               <span class="glyphicon glyphicon-share"></span>
             </a>
             <span
               ng-click="toggleRotateQuestions()"
               class="glyphicon glyphicon-retweet"
+              ng-i18next="[alt]avElection.rotateQuestions;[aria-label]avElection.rotateQuestions"
               ng-class="{'toggle-rotate-questions-selected': rotateQuestions}"
             >
             </span>
