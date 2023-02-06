@@ -97,7 +97,10 @@ angular
           );
         }
 
-        $scope.results = angular.fromJson(value.data.payload.results);
+        var newJson = angular.fromJson(value.data.payload.results);
+        if (!$scope.results || angular.toJson($scope.results) !== angular.toJson(newJson)) {
+          $scope.results = newJson;
+        }
 
         // reload every 15 seconds
         $scope.autoreloadResultsTimer = setTimeout(

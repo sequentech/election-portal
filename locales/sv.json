@@ -35,9 +35,9 @@
     "searchLocatorButton": "Hitta min röst",
     "locatorDescription": "När du lagrar din röst får du ett kontrollnummer för din röst. Med hjälp av kontrollnumret kan du kontrollera att din röst verkligen har lagrats i den elektroniska valurnan, utan att innehållet i din röst visas. Du kan mata in kontrollnumret här.",
     "locatorFoundText": "Rösten hittades! En röst som getts med kontrollnumret <strong>__locator__</strong> har verkligen lagrats rätt i den elektroniska valurnan. Uppgifterna på valsedeln är:",
-    "locatorSearchingStatus": "<span class=\"text-primary\">Gräver i den elektroniska valurnan...</span>",
-    "locatorFoundStatus": "<span class=\"text-success\">Rösten hittades!</span>",
-    "locatorNotFoundStatus": "<span class=\"text-danger\">Ingen röst hittades!: <strong>__locator__</strong></span>",
+    "locatorSearchingStatus": "Gräver i den elektroniska valurnan...",
+    "locatorFoundStatus": "Rösten hittades!",
+    "locatorNotFoundStatus": "Ingen röst hittades!: <strong>__locator__</strong>",
     "locatorInfoText": "Kontrollnumret ser ut ungefär så här: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
 
     "resultsLoadingText": "Letar efter resultat",
