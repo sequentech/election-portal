@@ -36,7 +36,6 @@
     }
 
     .header-container {
-        display: flex;
         flex-direction: row;
         align-items: center;
         background-color: var(--light-bg-color);
@@ -45,24 +44,26 @@
 
     @media(max-width: @screen-sm-max) {
         .header-container, .footer-container {
-            padding: 20px 30px;
+            padding: 54px 30px;
+        }
+
+        .version {
+            margin-top: 10px;
         }
     }
 
     .footer-container {
         width: 100%;
-        padding: 0 55px;
+        padding: 30px 55px;
         background-color: var(--light-bg-color);
     }
 
     .powered-by {
-        padding: 30px 0;
         display: flex;
         justify-content: center;
     }
 
     .version {
-        padding: 30px 0;
         display: flex;
         justify-content: right;
     }
