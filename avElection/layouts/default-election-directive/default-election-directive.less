@@ -50,9 +50,7 @@
     }
 
     .footer-container {
-        display: flex;
         width: 100%;
-        justify-content: space-between;
         padding: 30px 55px;
         background-color: var(--light-bg-color);
     }
@@ -63,8 +61,36 @@
 
 
     .logo-img {
-        max-height: 27px;
+        max-height: 40px;
         max-width: 400px;
         width: auto;
+    }
+
+    .btn-twitter {
+        background-color: #1da1f2;
+
+        &:hover {
+        background-color: darken(#1da1f2, 20%);
+        }
+    }
+
+    .btn-facebook {
+        background-color: #3b579d;
+
+        &:hover {
+        background-color: darken(#3b579d, 20%);
+        }
+    }
+
+    .social-img {
+      max-height: 20px;
+      max-width: 50px;
+      width: auto;
+    }
+
+    .header-right {
+        justify-content: right;
+        display: flex;
+        gap: 10px;
     }
 }

@@ -10,7 +10,24 @@
                   />
                 </span>
             </div>
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-6 header-right">
+                <span
+                  ng-if="!!buttonsInfo"
+                  ng-repeat="q in buttonsInfo"
+                >
+                  <a
+                    href="{{ q.link }}"
+                    target="_blank"
+                    class="{{ q.class }}"
+                  >
+                    <img
+                      class="social-img"
+                      ng-src="{{ q.img }}"
+                      alt="{{ q.network }}"
+                    />
+                    {{ q.button_text|truncate:25 }}
+                  </a>
+                </span>
                 <span
                     class="dropdown pull-right"
                     role="menuitem"
@@ -27,12 +44,12 @@
             </div>
         </div>
         <div class="footer-container">
-            <div></div>
-            <div>
+            <div class="hidden-xs col-sm-4"></div>
+            <div class="col-xs-12 col-sm-4">
                 <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
                 </span>
             </div>
-            <div>
+            <div class="col-xs-12 col-sm-4">
                 <a
                     ng-if="!!configService.mainVersion"
                     target="_top"
