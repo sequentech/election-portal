@@ -1,6 +1,6 @@
 /**
  * This file is part of election-portal.
- * Copyright (C) 2015-2016  Sequent Tech Inc <legal@sequentech.io>
+ * Copyright (C) 2015-2023  Sequent Tech Inc <legal@sequentech.io>
 
  * election-portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -16,155 +16,34 @@
 **/
 
 [ave-default-election], [ave-public-view] {
-  .config-version {
-    margin-right: 20px;
-  }
-
-  .navbar-admin .navbar-toggle {
-    border-color: @av-primary-contrast;
-  }
-  .navbar-admin .navbar-toggle:hover,
-  .navbar-admin .navbar-toggle:focus {
-    background-color: @av-secondary;
-  }
-  .navbar-admin .navbar-toggle .icon-bar {
-    background-color: @av-primary-contrast;
-  }
-
-  .logo-img {
-    max-height: 27px;
-    max-width: 400px;
-    width: auto;
-  }
-
-  .top-section > .container-fluid {
-    min-height: 50px;
-  }
-
-  .no-hpadding {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
-  .navbar-fixed-top {
-    color: @av-secondary;
-    background-color: @av-primary;
-
-    h1.election-title {
-      color: @av-secondary;
-      margin-left: 200px;
-    }
-  }
-
-  .background {
-    background-color: lighten(@av-primary-contrast, 30%);
-
-    &.first {
-      background-color: @av-primary;
-      color: @av-secondary;
-      margin-top: 30px;
-
-    .top-section {
-        background-color: @av-primary;
-        color: @av-secondary;
-
-        h1.election-title {
-          color: @av-secondary;
-        }
-
-        ul.election-links > li > a, ul.election-links > li.selected > a {
-          color: @av-secondary;
-        }
-      }
+    .absolute-full-screen {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
     }
 
-    .top-section {
-      border-radius: 5px;
-      color: @av-secondary;
-      background-color: @av-primary;
-      margin-top: 14px;
-      padding: 10px;
-      min-height: 100px;
-      margin-bottom: 30px;
+    .full-height-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 
-      .vote-btn {
-        margin-top: 20px;
-      }
-
-      h1.election-title {
-        padding: 18px;
-        color: @av-secondary;
-      }
-
-      h2 {
+    .header-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--light-bg-color);
         padding: 10px;
-      }
-
-      p.election-description {
-        padding: 10px 8%;
-        text-align: center;
-      }
-
-      > .pad {
-        padding: 15px;
-      }
     }
-  }
 
-  .social-img {
-    max-height: 20px;
-    max-width: 50px;
-    width: auto;
-  }
-
-  .btn-primary {
-    border: 0px;
-    margin-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-
-  .btn-twitter {
-    background-color: #1da1f2;
-
-    &:hover {
-      background-color: darken(#1da1f2, 20%);
+    .footer-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: var(--light-bg-color);
     }
-  }
-
-  .btn-login {
-    background-color: #bd2719;
-
-    &:hover {
-      background-color: darken(#bd2719, 20%);
-    }
-  }
-
-  .btn-facebook {
-    background-color: #3b579d;
-
-    &:hover {
-      background-color: darken(#3b579d, 20%);
-    }
-  }
-}
-
-@media(max-width: @screen-sm-max) {
-  .background > .container, .background  .top-section > .pad {
-    padding: 0;
-  }
-}
-
-@media(max-width: @screen-xs-max) {
-  h1.election-title {
-    font-size: 24px;
-  }
-}
-
-.warning-demo {
-  background-color: @btn-warning-bg;
-  color: @av-primary-contrast;
-  color: white;
-  height: 50px;
-  line-height: 50px;
 }
