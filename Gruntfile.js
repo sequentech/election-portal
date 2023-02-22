@@ -243,6 +243,7 @@ module.exports = function (grunt) {
           {src: ['node_modules/common-ui/dist/utils.js'], dest: 'dist/utils.js'},
           {src: ['node_modules/common-ui/dist/intlTelInput.css'], dest: 'dist/intlTelInput.css'},
           {src: ['node_modules/common-ui/dist/img/flags.png'], dest: 'dist/img/flags.png'},
+          {src: ['node_modules/common-ui/dist/img/lang.svg'], dest: 'dist/img/lang.svg'},
           {
             expand: true,
             cwd:'node_modules/common-ui/themes',
