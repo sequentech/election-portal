@@ -1,8 +1,23 @@
 <div class="absolute-full-screen">
     <div class="full-height-container">
         <div class="header-container">
-            <img src="https://sequentech.io/wp-content/uploads/2022/05/Sequent-logo-positive-1.svg">
-            <div>English</div>
+            <div class="col-xs-12 col-sm-6">
+                <span ng-if="election.logo_url">
+                  <img
+                    alt="{{election.title}}"
+                    class="logo-img" 
+                    ng-src="{{election.logo_url}}"
+                  />
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <span
+                    class="dropdown"
+                    role="menuitem"
+                    av-change-lang
+                >
+                </span>
+            </div>
         </div>
         <div class="container-fluid background">
             <div class="container">
@@ -13,8 +28,21 @@
         </div>
         <div class="footer-container">
             <div></div>
-            <div>Powered by Sequent Tech Inc</div>
-            <div>Version: master</div>
+            <div>
+                <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
+                </span>
+            </div>
+            <div>
+                <a
+                    ng-if="!!configService.mainVersion"
+                    target="_top"
+                    tabindex="0"
+                    class="config-version"
+                    ng-click="showVersionsModal()"
+                    ng-i18next="[i18next]({version: configService.mainVersion})avCommon.showVersion"
+                >
+                </a>
+            </div>
         </div>
     </div>
 </div>
