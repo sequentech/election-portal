@@ -22,6 +22,11 @@
         bottom: 0;
         right: 0;
         left: 0;
+        color: var(--light-text-color);
+    }
+
+    a {
+        color: var(--light-text-color);
     }
 
     .full-height-container {
@@ -35,14 +40,20 @@
         flex-direction: row;
         align-items: center;
         background-color: var(--light-bg-color);
-        padding: 54px 100px;
+        padding: 54px 85px;
+    }
+
+    @media(max-width: @screen-sm-max) {
+        .header-container, .footer-container {
+            padding: 20px 30px;
+        }
     }
 
     .footer-container {
         display: flex;
         width: 100%;
         justify-content: space-between;
-        padding: 30px 70px;
+        padding: 30px 55px;
         background-color: var(--light-bg-color);
     }
 
