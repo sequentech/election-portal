@@ -1,7 +1,7 @@
 <div class="absolute-full-screen">
     <div class="full-height-container">
         <div class="header-container">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-6">
                 <span ng-if="election.logo_url">
                   <img
                     alt="{{election.title}}"
@@ -10,8 +10,9 @@
                   />
                 </span>
             </div>
-            <div class="col-xs-12 col-sm-6 header-right">
+            <div class="col-xs-6 header-right">
                 <span
+                  class="hidden-xs"
                   ng-if="!!buttonsInfo"
                   ng-repeat="q in buttonsInfo"
                 >
