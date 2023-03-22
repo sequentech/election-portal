@@ -61,7 +61,13 @@ angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServicePro
       resGetPath: '/election/locales/__lng__.json',
       defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
     },
-    ConfigServiceProvider.i18nextInitOptions);
+    ConfigServiceProvider.i18nextInitOptions
+  );
+
+  // Prevent site translation if configured
+  if (ConfigServiceProvider.preventSiteTranslation) {
+    $('html').attr('translate', 'no');
+  }
 });
 
 angular.module('election-portal').config(function($sceDelegateProvider, ConfigServiceProvider) {
