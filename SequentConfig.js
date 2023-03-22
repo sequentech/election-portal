@@ -62,6 +62,10 @@ var SequentConfigData = {
   // allowed values: true| false
   showDocOnVoteCast: false,
 
+  // Prevents site translation using the translation=on html attribute
+  // allowed values: true | false
+  preventSiteTranslation: false,
+
   resourceUrlWhitelist: [
     // Allow same origin resource loads.
     'self',
