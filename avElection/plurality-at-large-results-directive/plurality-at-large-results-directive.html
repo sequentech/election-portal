@@ -58,7 +58,7 @@
       <tr
           ng-repeat="answer in question.answers"
           ng-class="{winner: winnerPosition(answer) > 0}"
-          style="background: linear-gradient(to right, rgba(220,220,220,1) 0%,rgba(220,220,220,1) {{percentVotes(answer.total_votes, question)}},rgba(255,255,255,1) {{percentVotes(answer.total_votes, question)}},rgba(255,255,255,1) 100%);">
+          style="background: linear-gradient(to right, rgba(220,220,220,1) 0%,rgba(220,220,220,1) {{percentVotes(answer.total_count, question)}},rgba(255,255,255,1) {{percentVotes(answer.total_count, question)}},rgba(255,255,255,1) 100%);">
         <td ng-bind-html="answer.text"></td>
         <td class="text-right">{{numVotes(answer.total_count)}}</td>
         <!-- Disabled for now td class="text-right">
