@@ -16,15 +16,6 @@
 **/
 
 [ave-default-election], [ave-public-view] {
-    .absolute-full-screen {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        color: @av-secondary;
-    }
-
     a {
         color: @av-secondary;
     }
@@ -33,24 +24,6 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-    }
-
-    .header-container {
-        flex-direction: row;
-        align-items: center;
-        background-color: @av-primary;
-        padding: 54px 85px;
-        display: flex;
-    }
-
-    @media(max-width: @screen-sm-max) {
-        .header-container, .footer-container {
-            padding: 54px 30px;
-        }
-
-        .version {
-            margin-top: 10px;
-        }
     }
 
     .footer-container {
