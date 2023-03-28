@@ -1,47 +1,46 @@
-<!-- div class="absolute-full-screen">
-  <div class="full-height-container" -->
-    <div class="header-container">
-      <div class="col-xs-6">
-          <span ng-if="election.logo_url">
-            <img
-              alt="{{election.title}}"
-              class="logo-img" 
-              ng-src="{{election.logo_url}}"
-            />
-          </span>
-      </div>
-      <div class="col-xs-6 header-right">
-          <span
-            class="hidden-xs"
-            ng-if="!!buttonsInfo"
-            ng-repeat="q in buttonsInfo"
-          >
-            <a
-              href="{{ q.link }}"
-              target="_blank"
-              class="{{ q.class }}"
-            >
-              <img
-                class="social-img"
-                ng-src="{{ q.img }}"
-                alt="{{ q.network }}"
-              />
-              {{ q.button_text|truncate:25 }}
-            </a>
-          </span>
-          <span
-              class="dropdown pull-right"
-              role="menuitem"
-              av-change-lang
-          >
-          </span>
-      </div>
-    </div>
-    <div class="container-fluid background">
-        <div class="container">
-            <div class="row">
-                <div ui-view></div>
-            </div>
+<div avb-common-header></div>
+<div class="header-container">
+  <div class="col-xs-6">
+      <span ng-if="election.logo_url">
+        <img
+          alt="{{election.title}}"
+          class="logo-img" 
+          ng-src="{{election.logo_url}}"
+        />
+      </span>
+  </div>
+  <div class="col-xs-6 header-right">
+      <span
+        class="hidden-xs"
+        ng-if="!!buttonsInfo"
+        ng-repeat="q in buttonsInfo"
+      >
+        <a
+          href="{{ q.link }}"
+          target="_blank"
+          class="{{ q.class }}"
+        >
+          <img
+            class="social-img"
+            ng-src="{{ q.img }}"
+            alt="{{ q.network }}"
+          />
+          {{ q.button_text|truncate:25 }}
+        </a>
+      </span>
+      <span
+          class="dropdown pull-right"
+          role="menuitem"
+          av-change-lang
+      >
+      </span>
+  </div>
+</div>
+<div class="container-fluid background">
+    <div class="container">
+        <div class="row">
+            <div ui-view></div>
         </div>
     </div>
-    <div avb-common-footer></div>
+</div>
+<div avb-common-footer></div>

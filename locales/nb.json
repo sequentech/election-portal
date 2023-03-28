@@ -21,7 +21,7 @@
   },
   "avCommon": {
     "cancel": "Avbryt",
-    "poweredBy": "Laget med <strong><a href=\"__url__\" target=\"_blank\">__name__</a></strong>",
+    "poweredBy": "Laget med <a href=\"__url__\" target=\"_blank\">__name__</a>",
     "shareLink": "Tweet dette valget!",
     "votingSystem": "Valgsystem",
     "votings": {"plurality-at-large": "Plurality at large", "borda-nauru": "Nauru's Borda Count or Borda Dowdall (1/n)", "borda": "Borda Count (traditional)", "pairwise-beta": "Pairwise (beta-distribution)", "desborda3": "DesBorda3", "desborda2": "DesBorda2", "desborda": "DesBorda"}
