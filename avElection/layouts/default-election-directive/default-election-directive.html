@@ -1,4 +1,6 @@
-<div 
+<div ng-if="!election" avb-common-header is-election-portal="true"></div>
+<div
+    ng-if="!!election"
     avb-common-header
     is-election-portal="true"
     buttons-info="{{ buttonsInfo }}"
