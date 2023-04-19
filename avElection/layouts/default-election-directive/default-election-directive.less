@@ -23,4 +23,59 @@
     .container-fluid {
         flex-grow: 2;
     }
+
+    .background {
+        background-color: lighten(@av-primary-contrast, 30%);
+    
+        &.first {
+          background-color: @av-primary;
+          color: @av-secondary;
+          margin-top: 30px;
+    
+        .top-section {
+            background-color: @av-primary;
+            color: @av-secondary;
+    
+            h1.election-title {
+              color: @av-secondary;
+            }
+    
+            ul.election-links > li > a, ul.election-links > li.selected > a {
+              color: @av-secondary;
+            }
+          }
+        }
+    
+        .top-section {
+          border-radius: 5px;
+          color: @av-secondary;
+          background-color: @av-primary;
+          margin-top: 14px;
+          padding: 10px;
+          min-height: 100px;
+          margin-bottom: 30px;
+    
+          .vote-btn {
+            margin-top: 20px;
+          }
+    
+          h1.election-title {
+            padding: 18px;
+            color: @av-secondary;
+          }
+    
+          h2 {
+            padding: 10px;
+          }
+    
+          p.election-description {
+            padding: 10px 8%;
+            text-align: center;
+          }
+    
+          > .pad {
+            padding: 15px;
+          }
+        }
+      }
 }
