@@ -5,6 +5,53 @@
     is-election-portal="true"
     buttons-info="{{ buttonsInfo }}"
 ></div>
+
+<div class="container-fluid background first">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 top-section">
+        <h1 class="text-center election-title">
+          {{ election.presentation && election.presentation.extra_options && election.presentation.extra_options.public_title || election.title}}
+        </h1>
+        
+        <p
+          class="election-description"
+          ng-bind-html="election.description | addTargetBlank"
+          ng-if="name().indexOf('home') !== -1">
+
+        </p>
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+              <a
+                ng-if="name().indexOf('home') !== -1 && (electionState === 'started' || electionState === 'resumed') && authEvent.census === 'open' && !election.presentation.show_login_link_on_home && authEvent.auth_method !== 'openid-connect'"
+                class="btn btn-block btn-lg btn-transparent vote-btn"
+                ui-sref="election.public.show.register({id: election.id})"
+                ng-i18next="avElection.public.voteLink">
+              </a>
+              <a
+                ng-if="name().indexOf('home') !== -1 && (electionState === 'started' || electionState === 'resumed') &&  (authEvent.auth_method == 'openid-connect' || authEvent.census !== 'open' && election.presentation.show_login_link_on_home)"
+                class="btn btn-block btn-lg btn-transparent vote-btn"
+                ui-sref="election.public.show.login({id: election.id})"
+                ng-i18next="avElection.public.voteLink">
+              </a>
+              <a
+                ng-if="name().indexOf('home') !== -1 && (electionState === 'started' || electionState === 'resumed') && authEvent.census !== 'open' && election.presentation.show_login_link_on_home"
+                class="btn btn-block btn-lg btn-transparent vote-btn"
+                href="/election/{{election.id}}/public/login"
+                ng-i18next="avElection.public.voteLink">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div ave-election-links></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid background">
     <div class="container">
         <div class="row">
