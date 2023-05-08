@@ -597,9 +597,9 @@ commander@^2.19.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-"common-ui@https://github.com/sequentech/common-ui.git#7.2.0":
-  version "7.2.0"
-  resolved "https://github.com/sequentech/common-ui.git#f8cb84e902b5358025cb0d4e83d63b600e3ae40a"
+"common-ui@https://github.com/sequentech/common-ui.git#7.3.0":
+  version "7.3.0"
+  resolved "https://github.com/sequentech/common-ui.git#d78fff2718bff2a63900389efaa32e5b129fecc5"
   dependencies:
     browser-update "^3.3.28"
     karma-ng-html2js-preprocessor "^1.0.0"
@@ -938,10 +938,10 @@ engine.io-parser@~5.0.3:
   dependencies:
     "@socket.io/base64-arraybuffer" "~1.0.2"
 
-engine.io@~6.1.0:
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/engine.io/-/engine.io-6.1.3.tgz#f156293d011d99a3df5691ac29d63737c3302e6f"
-  integrity sha512-rqs60YwkvWTLLnfazqgZqLa/aKo+9cueVfEi/dZ8PyGyaf8TLOxj++4QMIgeG3Gn0AhrWiFXvghsoY9L9h25GA==
+engine.io@6.4.2, engine.io@~6.1.0:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/engine.io/-/engine.io-6.4.2.tgz#ffeaf68f69b1364b0286badddf15ff633476473f"
+  integrity sha512-FKn/3oMiJjrOEOeUub2WCox6JhxBXq/Zn3fZOMCBxKnNYtsdKjxhl7yR3fZhM9PV+rdE75SU5SYMc+2PGzo+Tg==
   dependencies:
     "@types/cookie" "^0.4.1"
     "@types/cors" "^2.8.12"
@@ -952,7 +952,7 @@ engine.io@~6.1.0:
     cors "~2.8.5"
     debug "~4.3.1"
     engine.io-parser "~5.0.3"
-    ws "~8.2.3"
+    ws "~8.11.0"
 
 ent@~2.2.0:
   version "2.2.0"
@@ -3952,7 +3952,7 @@ wrappy@1:
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
-ws@7.4.6, ws@^3.2.0, ws@~0.4.31, ws@~8.2.3:
+ws@7.4.6, ws@^3.2.0, ws@~0.4.31, ws@~8.11.0:
   version "7.4.6"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
   integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
