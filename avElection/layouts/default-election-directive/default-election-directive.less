@@ -30,7 +30,7 @@
         &.first {
           background-color: @av-primary;
           color: @av-secondary;
-          padding-top: 30px;
+          padding-top: 0;
     
         .top-section {
             background-color: @av-primary;
@@ -45,15 +45,21 @@
             }
           }
         }
+
+        .container-fluid.background.second {
+          [av-login] {
+            align-items: flex-start;
+          }
+        }
     
         .top-section {
           border-radius: 5px;
           color: @av-secondary;
           background-color: @bg-primary;
-          margin-top: 14px;
+          margin-top: 0;
           padding: 10px;
           min-height: 100px;
-          margin-bottom: 30px;
+          margin-bottom: 0;
     
           .vote-btn {
             margin-top: 20px;
