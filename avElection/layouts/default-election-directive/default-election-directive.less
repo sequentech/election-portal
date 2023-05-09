@@ -32,6 +32,17 @@
       flex-grow: 2;
     }
 
+    .container-fluid.background.first .top-section {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      min-height: unset;
+
+      .election-title {
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+    }
+
     .background {
         background-color: lighten(@grey-darker, 30%);
 
@@ -51,17 +62,6 @@
             ul.election-links > li > a, ul.election-links > li.selected > a {
               color: @av-secondary;
             }
-          }
-        }
-
-        .container-fluid.background.first .top-section {
-          padding-top: 0px;
-          padding-bottom: 0px;
-          min-height: unset;
-
-          .election-title {
-            margin-bottom: 0px;
-            margin-top: 0px;
           }
         }
 
