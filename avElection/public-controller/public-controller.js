@@ -59,7 +59,7 @@ angular
       {
         var presentation = value.data.payload.configuration.presentation;
 
-        if (presentation.theme && presentation.theme !== ConfigService.theme) {
+        if (presentation && presentation.theme && presentation.theme !== ConfigService.theme) {
           $("#theme")
           .attr("href", "election/themes/" + presentation.theme + "/app.min.css");
           ConfigService.theme = presentation.theme;
