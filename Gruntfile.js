@@ -268,6 +268,10 @@ module.exports = function (grunt) {
             cwd: 'node_modules/font-awesome/fonts/',
             src: ['**'],
             dest: 'dist/fonts/'
+          },
+          {
+            src: ['node_modules/common-ui/dist/fonts/Manrope-VariableFont_wght.ttf'],
+            dest: 'dist/fonts/Manrope-VariableFont_wght.ttf'
           }
           //{src: ['node_modules/angular-ui-utils/ui-utils-ieshiv.min.js'], dest: 'dist/'},
           //{src: ['node_modules/select2/*.png','node_modules/select2/*.gif'], dest:'dist/css/',flatten:true,expand:true},

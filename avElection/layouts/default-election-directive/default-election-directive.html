@@ -1,78 +1,10 @@
-<nav class="navbar navbar-admin adminhead navbar-fixed-top" av-affix-top=".navbar-unfixed-top" role="navigation">
-    <div class="no-hpadding" ng-class="{'container-fluid': admin, 'container': !admin}">
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div
-        class="navbar-collapse"
-        id="navbar-collapse-1"
-      >
-        <div class="container">
-          <div class="row avb-top-navbar">
-            <div class="col-xs-12 col-sm-4" ng-if="election.logo_url">
-              <span >
-                <img
-                  alt="{{election.title}}"
-                  class="logo-img" 
-                  ng-src="{{election.logo_url}}"
-                />
-              </span>
-            </div>
-            <div
-              class="col-xs-12 col-sm-6"
-              ng-if="!election.logo_url"
-            >
-              <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
-              </span>
-            </div>
-            <div
-              class="hidden-xs col-sm-4 text-center center-col"
-              ng-if="election.logo_url"
-            >
-              <span ng-i18next="[html:i18next]({url: organization.orgUrl, name: organization.orgName})avCommon.poweredBy">
-              </span>
-            </div>
-            <div
-              class="col-xs-12 text-right"
-              ng-class="{'col-sm-4': !!election.logo_url, 'col-sm-6': !election.logo_url}"
-            >
-              <a
-                ng-if="!!configService.mainVersion"
-                target="_top"
-                tabindex="0"
-                class="config-version"
-                ng-click="showVersionsModal()"
-                ng-i18next="[i18next]({version: configService.mainVersion})avCommon.showVersion"
-              >
-              </a>
-              <span
-                ng-if="!!buttonsInfo"
-                ng-repeat="q in buttonsInfo"
-              >
-                <a
-                  href="{{ q.link }}"
-                  target="_blank"
-                  class="{{ q.class }}"
-                >
-                  <img
-                    class="social-img"
-                    ng-src="{{ q.img }}"
-                    alt="{{ q.network }}"
-                  />
-                  {{ q.button_text|truncate:25 }}
-                </a>
-              </span>
-
-              <span
-                class="dropdown"
-                role="menuitem"
-                av-change-lang
-              >
-              </span>
-            </div>
-          </div>
-        </div>
-      </div><!-- /.navbar-collapse -->
-    </div>
-</nav>
+<div ng-if="!election" avb-common-header is-election-portal="true"></div>
+<div
+    ng-if="!!election"
+    avb-common-header
+    is-election-portal="true"
+    buttons-info="{{ buttonsInfo }}"
+></div>
 
 <div class="container-fluid background first">
   <div class="container">
@@ -120,13 +52,11 @@
   </div>
 </div>
 
-<div class="container-fluid background">
-  <div class="container">
-    <div class="row">
-      <div ui-view></div>
+<div class="container-fluid background second">
+    <div class="container">
+        <div class="row">
+            <div ui-view></div>
+        </div>
     </div>
-  </div>
 </div>
-
-<div av-foot class="hidden-xs" ng-if="name().indexOf('login') === -1">
-</div>
+<div avb-common-footer></div>

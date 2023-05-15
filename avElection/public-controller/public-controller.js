@@ -59,6 +59,12 @@ angular
       {
         var presentation = value.data.payload.configuration.presentation;
 
+        if (presentation && presentation.theme && presentation.theme !== ConfigService.theme) {
+          $("#theme")
+          .attr("href", "election/themes/" + presentation.theme + "/app.min.css");
+          ConfigService.theme = presentation.theme;
+        }
+
         // if state is not started but we are in login, redirect to default url
         if (
           $state.current.name === "election.public.show.login" &&
