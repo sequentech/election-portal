@@ -1,4 +1,4 @@
-var SEQUENT_PLUGINS_CONFIG_VERSION = 'master';
+var SEQUENT_PLUGINS_CONFIG_VERSION = '8.0.0';
 angular.module('SequentPluginsConfig', [])
   .factory('PluginsConfigService', function() {
     return {};
