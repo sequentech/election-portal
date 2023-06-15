@@ -190,7 +190,7 @@ angular.module('election-portal').config(
           withCode: true
         }
       })
-      .state('election.public.show.login_with_code', {
+      .state('election.public.show.login_alt', {
         url: '/login-alt/:altmethod',
         templateUrl: 'avRegistration/login-controller/login-controller.html',
         controller: "LoginController",
