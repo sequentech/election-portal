@@ -224,7 +224,10 @@ var SequentConfigData = {
   },
 
   mainVersion: '8.0.0',
-  repoVersions: []
+  repoVersions: [],
+
+  // Number of seconds after which an authentication token expires.
+  authTokenExpirationSeconds: 600
 };
 
 angular.module('SequentConfig', [])
