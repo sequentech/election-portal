@@ -20,13 +20,13 @@
  * in this same file, which you might want to edit and tune if needed.
  */
 
-var SEQUENT_CONFIG_VERSION = '8.0.0';
+var SEQUENT_CONFIG_VERSION = "8.0.0";
 
 var SequentConfigData = {
   // the base url path for ajax requests, for example for sending ballots or
   // getting info about an election. This url is usually in the form of
   // 'https://foo/api/v3/' and always ends in '/'.
-  base: '',
+  base: "",
   theme: "default",
   baseUrl: "https://sequent/elections/api/",
   freeAuthId: 1,
@@ -46,7 +46,7 @@ var SequentConfigData = {
   // Agora Admin help url
   helpUrl: "https://sequentech.io/help",
 
-  authorities: ['local-auth2'],
+  authorities: ["local-auth2"],
   director: "local-auth1",
 
   // For admins:
@@ -68,7 +68,7 @@ var SequentConfigData = {
 
   resourceUrlWhitelist: [
     // Allow same origin resource loads.
-    'self',
+    "self",
 
     // Allow loading from our assets domain.  Notice the difference between * and **.
     // Uncomment the following to allow youtube videos
@@ -86,20 +86,17 @@ var SequentConfigData = {
     //
     language: "es",
 
-
     // Forces a specific language.
     //
     // Default: not set
     //
     lng: "es",
 
-
     // specifies the set language query string.
     //
     // Default: "lang"
     //
-    detectLngQS: 'lang',
-
+    detectLngQS: "lang",
 
     // Specifies what translations will be available.
     //
@@ -116,8 +113,6 @@ var SequentConfigData = {
     // Default: 360
     //
     // expires: 360,
-
-
     // Cookie domain
     //
     // Default: not set
@@ -135,7 +130,7 @@ var SequentConfigData = {
   // If no Route is set, this is the route that will be loaded
   //
   // Default: '/admin/login'
-  defaultRoute: '/admin/login',
+  defaultRoute: "/admin/login",
 
   timeoutSeconds: 3600,
 
@@ -150,17 +145,17 @@ var SequentConfigData = {
     email: "contact@example.com",
     // Sales contact email displayed in the footer links
     sales: "sales@example.com",
-    tlf: "-no tlf-"
+    tlf: "-no tlf-",
   },
 
   // social networks footer links
   social: {
-      facebook: "https://www.facebook.com/AgoraVoting",
-      twitter: "https://twitter.com/sequent",
-      twitterHandle: "sequent",
-      googleplus: "https://plus.google.com/101939665794445172389/posts",
-      youtube: "https://www.youtube.com/results?search_query=Agora+Voting",
-      github: "https://github.com/sequent/"
+    facebook: "https://www.facebook.com/AgoraVoting",
+    twitter: "https://twitter.com/sequent",
+    twitterHandle: "sequent",
+    googleplus: "https://plus.google.com/101939665794445172389/posts",
+    youtube: "https://www.youtube.com/results?search_query=Agora+Voting",
+    github: "https://github.com/sequent/",
   },
 
   // technology footer links
@@ -169,7 +164,7 @@ var SequentConfigData = {
     pricing: "https://sequentech.io/#pricing",
     overview: "https://sequentech.io/overview/",
     solutions: "https://sequentech.io/solutions/",
-    documentation: "https://bit.ly/avguiadeuso"
+    documentation: "https://bit.ly/avguiadeuso",
   },
 
   // legality footer links
@@ -178,65 +173,74 @@ var SequentConfigData = {
     cookies: "https://sequentech.io/cookies/",
     privacy: "https://sequentech.io/privacy/",
     security_contact: "https://sequentech.io/security_contact/",
-    community_website: "https://sequent.org"
+    community_website: "https://sequent.org",
   },
 
   documentation: {
     show_help: true,
-    faq: 'https://sequentech.io/doc/en/',
-    overview: 'https://sequentech.io/overview/',
-    technical: 'https://sequentech.io/static/generic_tech_overview_20_08_15.pdf',
-    security_contact: "https://sequentech.io/security_contact/"
+    faq: "https://sequentech.io/doc/en/",
+    overview: "https://sequentech.io/overview/",
+    technical:
+      "https://sequentech.io/static/generic_tech_overview_20_08_15.pdf",
+    security_contact: "https://sequentech.io/security_contact/",
   },
 
-  documentation_html_include: '',
+  documentation_html_include: "",
 
-  legal_html_include: '',
+  legal_html_include: "",
 
   // Details pertaining to the organization that runs the software
   organization: {
     // Name of the organization, appears in the logo mouse hover, in the login
     // page ("Login into __NAME__ admin account"), in the poweredBy, etc
-    orgName: 'Sequent Tech',
+    orgName: "Sequent Tech",
 
     // Subtitle of the organization, used in the ballot ticket PDF
-    orgSubtitle: '',
+    orgSubtitle: "",
 
     //  Big logo of the organization, used in the ballot ticket PDF
-    orgBigLogo: '',
+    orgBigLogo: "",
 
     // URL that the logo links to
-    orgUrl: 'https://sequentech.io'
+    orgUrl: "https://sequentech.io",
   },
 
   verifier: {
     link: "",
-    hash: ""
+    hash: "",
   },
 
   success: {
-    text: ""
+    text: "",
   },
 
   tos: {
-    text:"",
-    title: ""
+    text: "",
+    title: "",
   },
 
-  mainVersion: '8.0.0',
-  repoVersions: []
+  mainVersion: "8.0.0",
+  repoVersions: [],
 };
 
-angular.module('SequentConfig', [])
-  .factory('ConfigService', function() {
-    return SequentConfigData;
-  });
+angular.module("SequentConfig", []).factory("ConfigService", function () {
+  baseUrl = $location.protocol() + "://" + $location.host;
+  SequentConfigData.publicURL = baseUrl + SequentConfigData.publicURL;
+  SequentConfigData.electionsAPI = baseUrl + SequentConfigData.electionsAPI;
+  SequentConfigData.dnieUrl = baseUrl + SequentConfigData.dnieUrl;
+  SequentConfigData.authAPI = baseUrl + SequentConfigData.authAPI;
+  SequentConfigData.baseUrl = baseUrl + SequentConfigData.baseUrl;
+  return SequentConfigData;
+});
 
-angular.module('SequentConfig')
-  .provider('ConfigService', function ConfigServiceProvider() {
+angular
+  .module("SequentConfig")
+  .provider("ConfigService", function ConfigServiceProvider() {
     _.extend(this, SequentConfigData);
 
-    this.$get = [function ConfigServiceProviderFactory() {
-    return new ConfigServiceProvider();
-    }];
+    this.$get = [
+      function ConfigServiceProviderFactory() {
+        return new ConfigServiceProvider();
+      },
+    ];
   });
