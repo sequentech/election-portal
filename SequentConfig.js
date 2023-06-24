@@ -223,15 +223,17 @@ var SequentConfigData = {
   repoVersions: [],
 };
 
-angular.module("SequentConfig", []).factory("ConfigService", function () {
-  baseUrl = $location.protocol() + "://" + $location.host;
-  SequentConfigData.publicURL = baseUrl + SequentConfigData.publicURL;
-  SequentConfigData.electionsAPI = baseUrl + SequentConfigData.electionsAPI;
-  SequentConfigData.dnieUrl = baseUrl + SequentConfigData.dnieUrl;
-  SequentConfigData.authAPI = baseUrl + SequentConfigData.authAPI;
-  SequentConfigData.baseUrl = baseUrl + SequentConfigData.baseUrl;
-  return SequentConfigData;
-});
+angular
+  .module("SequentConfig", [])
+  .factory("ConfigService", function ($location) {
+    baseUrl = $location.protocol() + "://" + $location.host;
+    SequentConfigData.publicURL = baseUrl + SequentConfigData.publicURL;
+    SequentConfigData.electionsAPI = baseUrl + SequentConfigData.electionsAPI;
+    SequentConfigData.dnieUrl = baseUrl + SequentConfigData.dnieUrl;
+    SequentConfigData.authAPI = baseUrl + SequentConfigData.authAPI;
+    SequentConfigData.baseUrl = baseUrl + SequentConfigData.baseUrl;
+    return SequentConfigData;
+  });
 
 angular
   .module("SequentConfig")
