@@ -137,8 +137,6 @@ var SequentConfigData = {
   // Default: '/admin/login'
   defaultRoute: '/admin/login',
 
-  timeoutSeconds: 3600,
-
   publicURL: "https://sequent/elections/public/",
 
   // if we are in debug mode or not
