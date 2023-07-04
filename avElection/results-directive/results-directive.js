@@ -60,11 +60,12 @@ angular.module('avElection')
         };
 
         // generate share links
-        var shortedTitle = scope.election.title;
+        var lang = window.i18n.lng();
+        var shortedTitle = scope.election.title_i18 && scope.election.title_i18[lang] || scope.election.title;
         if (shortedTitle.length > 64) {
           shortedTitle = shortedTitle.substr(0, 64) + "..";
         }
-        var shareText = $i18next("avElection.resultsHeader", {title: scope.election.title}) + " " + $location.absUrl();
+        var shareText = $i18next("avElection.resultsHeader", {title: shortedTitle}) + " " + $location.absUrl();
         scope.electionTwitterUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(shareText);
         scope.electionFacebookUrl = "https://twitter.com/home?status=" + encodeURIComponent(shareText);
 
