@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row" ng-if="!inside_iframe && !noHeader">
     <div class="col-xs-12">
-      <h1 ng-i18next="[i18next]({title: election | customI18n : 'title'})avElection.resultsHeader"></h1>
+      <h1 ng-i18next="[i18next]({title: (election | customI18n : 'title')})avElection.resultsHeader"></h1>
     </div>
   </div>
   <div ng-if="electionState !== 'results_pub'">

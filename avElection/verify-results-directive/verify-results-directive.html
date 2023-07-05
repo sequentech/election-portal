@@ -26,7 +26,7 @@
         <h1 ng-i18next="avElection.verifyResults.title"></h1>
         <p
           ng-if="!noHeader"
-          ng-i18next="[i18next]({title: election | customI18n : 'title'})avElection.verifyResults.subtitle">
+          ng-i18next="[i18next]({title: (election | customI18n : 'title')})avElection.verifyResults.subtitle">
         </p>
       </div>
     </div>
@@ -38,7 +38,7 @@
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 padded-left padded-right">
           <div
           ng-if="electionState === 'results_pub'"
-          ng-i18next="[i18next:html]({title: election | customI18n : 'title', electionId: electionId, publicURL: publicURL, name: organization.orgName})avElection.verifyResults.verifyText">
+          ng-i18next="[i18next:html]({title: (election | customI18n : 'title'), electionId: electionId, publicURL: publicURL, name: organization.orgName})avElection.verifyResults.verifyText">
           </div>
           <div
           ng-if="electionState !== 'results_pub'"
