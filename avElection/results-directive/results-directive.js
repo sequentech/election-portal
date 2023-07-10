@@ -19,7 +19,7 @@
  * Shows the results of an election
  */
 angular.module('avElection')
-  .directive('avResults', function(moment, ConfigService, $stateParams, $location, $i18next) {
+  .directive('avResults', function(moment, ConfigService, $stateParams, $location, $i18next, $filter) {
     // works like a controller
     function link(scope, element, attrs) {
 
@@ -60,11 +60,11 @@ angular.module('avElection')
         };
 
         // generate share links
-        var shortedTitle = scope.election.title;
+        var shortedTitle = $filter('customI18n')(scope.election, 'title');
         if (shortedTitle.length > 64) {
           shortedTitle = shortedTitle.substr(0, 64) + "..";
         }
-        var shareText = $i18next("avElection.resultsHeader", {title: scope.election.title}) + " " + $location.absUrl();
+        var shareText = $i18next("avElection.resultsHeader", {title: shortedTitle}) + " " + $location.absUrl();
         scope.electionTwitterUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(shareText);
         scope.electionFacebookUrl = "https://twitter.com/home?status=" + encodeURIComponent(shareText);
 

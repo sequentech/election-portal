@@ -11,12 +11,12 @@
     <div class="row">
       <div class="col-xs-12 top-section">
         <h1 class="text-center election-title">
-          {{ election.presentation && election.presentation.extra_options && election.presentation.extra_options.public_title || election.title}}
+          {{ (election.presentation | customI18n : 'public_title') || (election | customI18n : 'title')}}
         </h1>
         
         <p
           class="election-description"
-          ng-bind-html="election.description | addTargetBlank"
+          ng-bind-html="(election | customI18n : 'description') | addTargetBlank"
           ng-if="name().indexOf('home') !== -1">
 
         </p>

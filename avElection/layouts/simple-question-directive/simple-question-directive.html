@@ -1,8 +1,8 @@
 <h3>
   <span>{{qindex}}</span>.
-  <span class="question-title" ng-bind-html="question.title"></span>
+  <span class="question-title" ng-bind-html="question | customI18n : 'title'"></span>
 </h3>
-<p ng-bind-html="question.description | addTargetBlank"></p>
+<p ng-bind-html="question | customI18n : 'description' | addTargetBlank"></p>
 <p>
   <span ng-i18next="[html:i18next]({method: tallyMethod})avElection.public.votingSystemText"></span>
   <span ng-i18next="[html:i18next]({min: question.min, max: question.max, numWinners: question.num_winners})avElection.public.questionInfoText"></span>
@@ -17,7 +17,7 @@
   <div category-group ng-repeat="category in categories">
     <li
       ng-repeat="option in category.options"
-      ng-bind-html="option.text">
+      ng-bind-html="option | customI18n : 'text'">
     </li>
   </div>
 </ul>
