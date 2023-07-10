@@ -19,7 +19,7 @@
  * Shows the results of an election
  */
 angular.module('avElection')
-  .directive('avResults', function(moment, ConfigService, $stateParams, $location, $i18next) {
+  .directive('avResults', function(moment, ConfigService, $stateParams, $location, $i18next, $filter) {
     // works like a controller
     function link(scope, element, attrs) {
 
@@ -60,8 +60,7 @@ angular.module('avElection')
         };
 
         // generate share links
-        var lang = window.i18n.lng();
-        var shortedTitle = scope.election.title_i18 && scope.election.title_i18[lang] || scope.election.title;
+        var shortedTitle = $filter('customI18n')(scope.election, 'title');
         if (shortedTitle.length > 64) {
           shortedTitle = shortedTitle.substr(0, 64) + "..";
         }
