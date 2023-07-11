@@ -1,6 +1,6 @@
-<div ng-if="!election" avb-common-header is-election-portal="true"></div>
+<div ng-class="{'hide-header': !!election}" avb-common-header is-election-portal="true"></div>
 <div
-    ng-if="!!election"
+    ng-class="{'hide-header': !election}"
     avb-common-header
     is-election-portal="true"
     buttons-info="{{ buttonsInfo }}"
