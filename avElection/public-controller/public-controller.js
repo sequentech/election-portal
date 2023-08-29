@@ -91,7 +91,12 @@ angular
           presentation.extra_options &&
           presentation.extra_options.disable__public_home
         ) {
-          $window.location.href = '/election/' + $stateParams.id + '/public/login';
+
+          $window.location.href =
+            "smart-link" === $scope.auth_method
+            ? ConfigService.settingsHelpBaseUrl
+            : '/election/' + $stateParams.id + '/public/login';
+
           return;
         }
 
@@ -160,7 +165,6 @@ angular
             $scope.election.extra_data = extra_data;
             $scope.layout = "default";
             $scope.electionState = value.data.payload.state;
-            $scope.autoReloadReceive(value);
 
             $http
             .get(ConfigService.authAPI + "auth-event/" + $stateParams.id + "/")
@@ -168,6 +172,8 @@ angular
               function(authEventResponse)
               {
                 $scope.election.children_election_info = authEventResponse.data.events.children_election_info;
+                $scope.auth_method = authEventResponse.events.auth_method;
+                $scope.autoReloadReceive(value);
               }
             );
           }
