@@ -83,18 +83,30 @@ angular
           return;
         }
 
+        //
+        if (
+          ($state.current.name.startsWith("election.public.show.home") ||
+          $state.current.name.startsWith("election.public.show.login")) &&
+          presentation &&
+          presentation.extra_options &&
+          presentation.extra_options.disable__public_home &&
+          "smart-link" === $scope.auth_method 
+        ) {
+          window.location.href = ConfigService.settingsHelpBaseUrl;
+
+          return
+        }
+
         // if we are showing the election home but it is disable, redirect to
         // login
         if (
           $state.current.name.startsWith("election.public.show.home") &&
           presentation &&
           presentation.extra_options &&
-          presentation.extra_options.disable__public_home
+          presentation.extra_options.disable__public_home &&
+          "smart-link" !== $scope.auth_method 
         ) {
-
-          $window.location.href = ("smart-link" === $scope.auth_method ?
-            ConfigService.settingsHelpBaseUrl :
-            ('/election/' + $stateParams.id + '/public/login'));
+          $window.location.href = '/election/' + $stateParams.id + '/public/login';
 
           return;
         }
