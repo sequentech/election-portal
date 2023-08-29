@@ -92,10 +92,9 @@ angular
           presentation.extra_options.disable__public_home
         ) {
 
-          $window.location.href =
-            "smart-link" === $scope.auth_method
-            ? ConfigService.settingsHelpBaseUrl
-            : '/election/' + $stateParams.id + '/public/login';
+          $window.location.href = ("smart-link" === $scope.auth_method ?
+            ConfigService.settingsHelpBaseUrl :
+            ('/election/' + $stateParams.id + '/public/login'));
 
           return;
         }
