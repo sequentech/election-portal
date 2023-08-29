@@ -171,7 +171,7 @@ angular
               function(authEventResponse)
               {
                 $scope.election.children_election_info = authEventResponse.data.events.children_election_info;
-                $scope.auth_method = authEventResponse.events.auth_method;
+                $scope.auth_method = authEventResponse.data.events.auth_method;
                 $scope.autoReloadReceive(value);
               }
             );
