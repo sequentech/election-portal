@@ -86,7 +86,7 @@ angular
         // if we are showing the election home but it is disable, redirect to
         // login
         if (
-          $state.current.name === "election.public.show.home" &&
+          $state.current.name.startsWith("election.public.show.home") &&
           presentation &&
           presentation.extra_options &&
           presentation.extra_options.disable__public_home
