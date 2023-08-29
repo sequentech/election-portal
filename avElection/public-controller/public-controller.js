@@ -94,7 +94,7 @@ angular
         ) {
           window.location.href = ConfigService.settingsHelpBaseUrl;
 
-          return
+          return;
         }
 
         // if we are showing the election home but it is disable, redirect to
