@@ -92,7 +92,7 @@ angular
           presentation.extra_options.disable__public_home &&
           "smart-link" === $scope.auth_method 
         ) {
-          window.location.href = ConfigService.settingsHelpBaseUrl;
+          window.location.href = ConfigService.defaultRoute;
 
           return;
         }
