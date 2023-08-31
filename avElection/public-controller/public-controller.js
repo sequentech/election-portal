@@ -83,15 +83,31 @@ angular
           return;
         }
 
+        //
+        if (
+          ($state.current.name.startsWith("election.public.show.home") ||
+          $state.current.name.startsWith("election.public.show.login")) &&
+          presentation &&
+          presentation.extra_options &&
+          presentation.extra_options.disable__public_home &&
+          "smart-link" === $scope.auth_method 
+        ) {
+          window.location.href = ConfigService.defaultRoute;
+
+          return;
+        }
+
         // if we are showing the election home but it is disable, redirect to
         // login
         if (
-          $state.current.name === "election.public.show.home" &&
+          $state.current.name.startsWith("election.public.show.home") &&
           presentation &&
           presentation.extra_options &&
-          presentation.extra_options.disable__public_home
+          presentation.extra_options.disable__public_home &&
+          "smart-link" !== $scope.auth_method 
         ) {
           $window.location.href = '/election/' + $stateParams.id + '/public/login';
+
           return;
         }
 
@@ -160,7 +176,6 @@ angular
             $scope.election.extra_data = extra_data;
             $scope.layout = "default";
             $scope.electionState = value.data.payload.state;
-            $scope.autoReloadReceive(value);
 
             $http
             .get(ConfigService.authAPI + "auth-event/" + $stateParams.id + "/")
@@ -168,6 +183,8 @@ angular
               function(authEventResponse)
               {
                 $scope.election.children_election_info = authEventResponse.data.events.children_election_info;
+                $scope.auth_method = authEventResponse.data.events.auth_method;
+                $scope.autoReloadReceive(value);
               }
             );
           }
