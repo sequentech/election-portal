@@ -1,0 +1,132 @@
+{
+  "app": {
+    "name": "Sequent Tech"
+  },
+  "avAdmin": {
+    "childrenElections": {
+      "main": "Elezione principale"
+    }
+  },
+  "avCommon": {
+    "cancel": "Annulla",
+    "poweredBy": "Offerto da <strong><a href=\"__url__\" target=\"_blank\">__name__</a></strong>",
+    "shareLink": "Twitta queste elezioni!",
+    "votingSystem": "Sistema di voto",
+    "votings": {
+      "borda": "Tabellone di conteggio",
+      "borda-nauru": "Tabellone di conteggio di Borda",
+      "cumulative": "Cumulativo",
+      "desborda": "Des Borda",
+      "desborda2": "Des Borda 2",
+      "desborda3": "Des Borda 3",
+      "pairwise-beta": "A coppie",
+      "plurality-at-large": "Larga maggioranza"
+    }
+  },
+  "avElection": {
+    "authorities": {
+      "intro": "Le autorit\u00e0 elettorali svolgono un ruolo chiave. La forza del sistema di sicurezza utilizzato in queste elezioni risiede in un sistema di sicurezza condiviso simile agli scrutinatori elettorali in un'elezione tradizionale, in cui la chiave di crittografia dell'elezione viene generata in modo distribuito da pi\u00f9 autorit\u00e0 elettorali indipendenti, che garantiscono il segreto della scheda e in effetti sono responsabili del conteggio. Queste sono le autorit\u00e0 elettorali:",
+      "loading": "Errore durante il caricamento delle autorit\u00e0.",
+      "title": "Autorit\u00e0 elettorali"
+    },
+    "ballotLocatorPTitle": "Localizzatore di schede elettorali",
+    "ballotLocatorSubtitle": "Elezione: __title__",
+    "ballotLocatorTitle": "Individua la tua scheda elettorale",
+    "blankVotes": "Voti bianchi:",
+    "defaultShareText": "Vota in __title__ con @__handle__ __url__",
+    "downloadElectionData": "downloadElectionData",
+    "electionLink": "electionLink",
+    "errorLoadingQuestionTest": "Layout della domanda sconosciuto",
+    "errorLoadingText": "Errore durante il caricamento dei risultati. Forse non sono stati pubblicati, non hai i permessi o forse l'elezione non esiste.",
+    "facebookShare": "facebookShare",
+    "inputLocatorPlaceholder": "Introduci qui il tuo localizzatore di schede elettorali",
+    "legal": {
+      "contact": "contatto",
+      "title": "Legale"
+    },
+    "locatorDescription": "Quando esprimi il tuo voto, ti viene mostrato il tracciatore delle schede elettorali che ti consente di seguirle senza rivelare l'intenzione dell'elettore. Qui puoi introdurre questo scrutinio e scoprire se un particolare voto crittografato \u00e8 stato effettivamente espresso con successo.",
+    "locatorFoundStatus": "<span class=\"text-success\">Scheda elettorale trovata!</span>",
+    "locatorFoundText": "Scheda trovata! In effetti, la scheda elettorale con il tracker <strong>__locator__</strong> \u00e8 stata espressa correttamente. Il testo della scheda crittografata \u00e8:",
+    "locatorInfoText": "Esempio di tracciamento scheda elettorale: 78a319dbd699c5d6ff08ca08990b395e593bcb8282a7660417a50d0ee470503f",
+    "locatorNotFoundStatus": "<span class=\"text-danger\">Scheda elettorale non trovata: <strong>__locator__</strong></span>",
+    "locatorSearchingStatus": "<span class=\"text-primary\">Individuazione del tracciatore elettorale..</span>",
+    "nullVotes": "Voti nulli:",
+    "public": {
+      "answers": "__count__ candidati",
+      "answersRandomized": "__count__ candidati (in ordine casuale)",
+      "answersRandomized_plural": "__count__ candidati (in ordine casuale)",
+      "answers_plural": "__count__ candidati",
+      "authoritiesLink": "Autorit\u00e0",
+      "censusQueryLink": "Domanda di censimento",
+      "chooseElectionResults": "Seleziona i risultati elettorali da visualizzare:",
+      "demoVotingBoothLink": "Cabina elettorale dimostrativa",
+      "errorLoadingText": "Errore durante il caricamento dell'elezione. Questa elezione potrebbe non esistere, o forse non \u00e8 stata ancora pubblicata.",
+      "errorNotFoundText": "Errore durante il caricamento delle informazioni.",
+      "faqsLink": "Domande frequenti",
+      "homeText": "Home",
+      "loadingDataText": "Caricamento dati..",
+      "loadingText": "Caricamento delle elezioni",
+      "overviewLink": "Panoramica",
+      "questionInfoText": "Gli elettori selezioneranno tra i candidati <strong>__min__</strong> e <strong>__max__</strong>. <strong>__numWinners__</strong> vincitori.",
+      "questionsTitle": "Domande",
+      "resultsTitle": "Risultati",
+      "status-created": "Stato: <strong>elezione creata</strong>",
+      "status-doing_tally": "Stato: <strong>contaggio</strong>",
+      "status-registered": "Stato: <strong>elezione registrata</strong>",
+      "status-results_ok": "Stato: <strong>risultati calcolati</strong>",
+      "status-results_pub": "Stato: <strong>risultati pubblicati</strong>",
+      "status-resumed": "Stato: <strong>elezioni riprese</strong>",
+      "status-started": "Stato: <strong>elezioni iniziate</strong>",
+      "status-stopped": "Stato: <strong>elezione interrotta</strong>",
+      "status-suspended": "Stato: <strong>elezione sospesa</strong>",
+      "status-tally_ok": "Stato: <strong>conteggio effettuato</strong>",
+      "technicalOverviewLink": "Panoramica tecnica",
+      "voteLink": "Vota",
+      "voteNowLink": "Vota ora",
+      "votingSystemText": "Sistema di voto: <strong>__method__</strong>."
+    },
+    "resultsDirective": {
+      "ballotLocatorLink": "Localizzatore di schede elettorali",
+      "verifiableResultsLink": "Conto verificabile"
+    },
+    "resultsHeader": "__title__: Risultati",
+    "resultsLastUpdated": "Ultimo aggiornamento: __date__",
+    "resultsLoadingText": "Caricamento dei risultati",
+    "resultsSummary": "Sommario della verifica",
+    "resultsTableCandidateHeader": "Candidature",
+    "resultsTableNPositionHeader": "Numero di voti per posizione:",
+    "resultsTablePositionHeader": "Posizione",
+    "resultsTableVotesHeader": "Voti",
+    "resultsTableVotesPercentageHeader": "resultsTableVotesPercentageHeader",
+    "rotateQuestions": "rotateQuestions",
+    "searchLocatorButton": "Trova la tua scheda",
+    "stateNotPublished": "Spiacenti: i risultati non possono essere visualizzati perch\u00e9 non sono ancora stati pubblicati.",
+    "thisisATest": "<span class=\"glyphicon glyphicon-info-sign\" aria-hidden=\"true\"></span> <strong>Attenzione!</strong> Questa \u00e8 un'elezione TEST",
+    "totalNumberOfVotes": "Numero totale di voti:",
+    "twitterShare": "twitterShare",
+    "validVotes": "Voti alle opzioni",
+    "verifyResults": {
+      "stateLoading": "Caricamento delle elezioni: aspetta per favore..",
+      "stateNotPublished": "Scusa. Il conteggio delle elezioni non pu\u00f2 essere verificato perch\u00e9 i risultati delle elezioni non sono stati ancora pubblicati.",
+      "subtitle": "Elezione: __title__",
+      "title": "Conteggio elettorale verificabile",
+      "verifyText": "*Read the comment"
+    }
+  },
+  "created": "Creato",
+  "doing_tally": "conteggio in corso",
+  "done": "Fatto",
+  "eg": "es.",
+  "loading": "Caricamento...",
+  "next": "Prossimo",
+  "no": "no",
+  "nomore": "Nessun altro elemento",
+  "registered": "Registrato",
+  "results_ok": "risultati raggiunti",
+  "results_pub": "risultati pubblicati",
+  "started": "Iniziato",
+  "stopped": "fermato",
+  "tally_error": "errore di conteggio",
+  "tally_ok": "conteggio",
+  "yes": "si"
+}
