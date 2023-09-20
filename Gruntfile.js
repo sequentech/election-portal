@@ -19,7 +19,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-var SEQUENT_CONFIG_VERSION = 'master';
+var SEQUENT_CONFIG_VERSION = '10.0.0';
 
 //Using exclusion patterns slows down Grunt significantly
 //instead of creating a set of patterns like '**/*.js' and '!**/node_modules/**'
@@ -299,13 +299,13 @@ module.exports = function (grunt) {
             {selector:'head',html:'<link class="favicon" rel="icon" href="/election/img/cropped-FAV-6-192x192.png" sizes="192x192" />'},
             {selector:'head',html:'<link class="favicon" rel="apple-touch-icon" href="/election/img/cropped-FAV-6-180x180.png" />'},
             {selector:'body',html:'<%= variables.elections_html_body_include %>'},
-            {selector:'body',html:'<!--[if lte IE 8]><script src="/election/libcompat-vmaster.min.js"></script><![endif]--><!--[if gte IE 9]><script src="/election/libnocompat-vmaster.min.js"></script><![endif]--><!--[if !IE]><!--><script src="/election/libnocompat-vmaster.min.js"></script><!--<![endif]-->'},
+            {selector:'body',html:'<!--[if lte IE 8]><script src="/election/libcompat-v10.0.0.min.js"></script><![endif]--><!--[if gte IE 9]><script src="/election/libnocompat-v10.0.0.min.js"></script><![endif]--><!--[if !IE]><!--><script src="/election/libnocompat-v10.0.0.min.js"></script><!--<![endif]-->'},
             {selector:'body',html:'<!--All the source code of this program under copyright. Take a look at the license details at https://github.com/sequent/sequent-core-view/blob/master/README.md -->'},
-            {selector:'body',html:'<script src="/election/lib-vmaster.min.js"></script>'},
-            {selector:'body',html:'<script src="/election/SequentConfig-vmaster.js"></script>'},
-            {selector:'body',html:'<script src="/election/SequentThemes-vmaster.js"></script>'},
-            {selector:'body',html:'<script src="/election/app-vmaster.min.js"></script>'},
-            {selector:'body',html:'<script src="/election/SequentPlugins-vmaster.js"></script>'},
+            {selector:'body',html:'<script src="/election/lib-v10.0.0.min.js"></script>'},
+            {selector:'body',html:'<script src="/election/SequentConfig-v10.0.0.js"></script>'},
+            {selector:'body',html:'<script src="/election/SequentThemes-v10.0.0.js"></script>'},
+            {selector:'body',html:'<script src="/election/app-v10.0.0.min.js"></script>'},
+            {selector:'body',html:'<script src="/election/SequentPlugins-v10.0.0.js"></script>'},
             {selector:'head',html:'<link rel="stylesheet" id="theme" data-base="/election/" href="/election/themes/default/app.min.css">'},
             {selector:'head',html:'<link rel="stylesheet" id="plugins" data-base="/election/" href="/election/plugins.css">'},
             {selector:'head',html:'<link rel="stylesheet" href="election/intlTelInput.css" />'}
@@ -339,9 +339,9 @@ module.exports = function (grunt) {
           'temp/libnocompat.js': ['<%= dom_munger.data.libnocompatjs %>'],
           'temp/lib.js': ['<%= dom_munger.data.libjs %>'],
           'temp/app.js': ['<%= dom_munger.data.appjs %>','<%= ngtemplates.main.dest %>','<%= ngtemplates.common.dest %>'],
-          'dist/SequentConfig-vmaster.js': ['SequentConfig.js'],
-          'dist/SequentThemes-vmaster.js': ['node_modules/common-ui/dist/SequentThemes-vmaster.js'],
-          'dist/SequentPlugins-vmaster.js': [
+          'dist/SequentConfig-v10.0.0.js': ['SequentConfig.js'],
+          'dist/SequentThemes-v10.0.0.js': ['node_modules/common-ui/dist/SequentThemes-v10.0.0.js'],
+          'dist/SequentPlugins-v10.0.0.js': [
             'SequentPluginsConfig.js',
             'plugins/**/*.js',
             '!plugins/**/*-spec.js'
@@ -418,10 +418,10 @@ module.exports = function (grunt) {
           beautify: true
         },
         files: {
-          'dist/app-vmaster.min.js': 'temp/app.js',
-          'dist/lib-vmaster.min.js': 'temp/lib.js',
-          'dist/libnocompat-vmaster.min.js': 'temp/libnocompat.js',
-          'dist/libcompat-vmaster.min.js': 'temp/libcompat.js',
+          'dist/app-v10.0.0.min.js': 'temp/app.js',
+          'dist/lib-v10.0.0.min.js': 'temp/lib.js',
+          'dist/libnocompat-v10.0.0.min.js': 'temp/libnocompat.js',
+          'dist/libcompat-v10.0.0.min.js': 'temp/libcompat.js',
           'dist/avWidgets.min.js': 'avWidgets.js',
 
           "dist/locales/moment/en.js": "node_modules/moment/locale/en-gb.js",
