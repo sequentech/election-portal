@@ -72,42 +72,33 @@ angular
             ['started', 'resumed'],
             value.data.payload.state
           ) && 
-          $window.location.pathname !== ConfigService.defaultRoute &&
-          (
+          $window.location.pathname !== ConfigService.defaultRoute
+        ) {
+          if (
             !presentation ||
             !presentation.extra_options ||
             !presentation.extra_options.disable__public_home
-          )
-        ) {
-          $window.location.href = '/election/' + $stateParams.id + '/public/home';
+          ) {
+            $window.location.href = '/election/' + $stateParams.id + '/public/home';
+          } else {
+            window.location.href = ConfigService.defaultRoute;
+          }
           return;
         }
 
-        //
-        if (
-          ($state.current.name.startsWith("election.public.show.home") ||
-          $state.current.name.startsWith("election.public.show.login")) &&
-          presentation &&
-          presentation.extra_options &&
-          presentation.extra_options.disable__public_home &&
-          "smart-link" === $scope.auth_method 
-        ) {
-          window.location.href = ConfigService.defaultRoute;
-
-          return;
-        }
-
-        // if we are showing the election home but it is disable, redirect to
-        // login
+        // if we are showing the election home but it is disabled then perform
+        // a redirect
         if (
           $state.current.name.startsWith("election.public.show.home") &&
           presentation &&
           presentation.extra_options &&
-          presentation.extra_options.disable__public_home &&
-          "smart-link" !== $scope.auth_method 
+          presentation.extra_options.disable__public_home
         ) {
-          $window.location.href = '/election/' + $stateParams.id + '/public/login';
-
+          if ("smart-link" === $scope.auth_method) {
+            window.location.href = ConfigService.defaultRoute;
+          } else {
+            $window.location.href = '/election/' + $stateParams.id + '/public/login';
+          }
           return;
         }
 
