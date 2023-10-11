@@ -1,6 +1,6 @@
 {
   "name": "election-portal",
-  "version" : "master",
+  "version": "master",
   "license": "AGPL-3.0-only",
   "author": {
     "name": "Sequent Tech Inc and others",
@@ -47,12 +47,12 @@
     "load-grunt-tasks": "^3.5.0",
     "moment": "2.29.4",
     "nanoscroller": "^0.8.7",
-    "postcss": "^8.2.13",
+    "postcss": "^8.4.31",
     "yarn": "^1.22.0"
   },
   "dependencies": {
-    "common-ui": "https://github.com/sequentech/common-ui.git#master",
-    "angular-aria": "^1.8.2"
+    "angular-aria": "^1.8.2",
+    "common-ui": "https://github.com/sequentech/common-ui.git#master"
   },
   "resolutions": {
     "**/semver": "5.7.2",
