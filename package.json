@@ -1,6 +1,6 @@
 {
   "name": "election-portal",
-  "version" : "10.0.1",
+  "version" : "10.0.2",
   "license": "AGPL-3.0-only",
   "author": {
     "name": "Sequent Tech Inc and others",
@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "angular-aria": "^1.8.2",
-    "common-ui": "https://github.com/sequentech/common-ui.git#10.0.1"
+    "common-ui": "https://github.com/sequentech/common-ui.git#10.0.2"
   },
   "resolutions": {
     "**/semver": "5.7.2",
