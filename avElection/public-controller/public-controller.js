@@ -55,11 +55,44 @@ angular
        */
       $scope.autoreloadResultsTimer = null;
 
+
+      function reloadTranslations(force, ms) {
+        setTimeout(
+          function () {
+            var election = $scope.election;
+
+            // reset $window.i18nOverride
+            var overrides = (
+              election &&
+              election.presentation &&
+              election.presentation.i18n_override
+            ) ? election.presentation.i18n_override : null;
+
+            var languagesConf = (
+              election &&
+              election.presentation &&
+              election.presentation.i18n_languages_conf
+            ) ? election.presentation.i18n_languages_conf : null;
+
+            I18nOverride(
+              /* overrides = */ overrides,
+              /* force = */ force,
+              /* languagesConf = */ languagesConf
+            );
+          },
+          ms || 1000
+        );
+      }
+
       $scope.autoReloadReceive = function (value)
       {
         var presentation = value.data.payload.configuration.presentation;
 
-        if (presentation && presentation.theme && presentation.theme !== ConfigService.theme) {
+        if (
+          presentation &&
+          presentation.theme &&
+          presentation.theme !== ConfigService.theme
+        ) {
           $("#theme")
           .attr("href", "election/themes/" + presentation.theme + "/app.min.css");
           ConfigService.theme = presentation.theme;
@@ -102,13 +135,7 @@ angular
           return;
         }
 
-        if (presentation && presentation.i18n_override)
-        {
-          I18nOverride(
-            /* overrides = */ presentation.i18n_override,
-            /* force = */ false
-          );
-        }
+        reloadTranslations(false);
 
         var newJson = angular.fromJson(value.data.payload.results);
         if (!$scope.results || angular.toJson($scope.results) !== angular.toJson(newJson)) {
