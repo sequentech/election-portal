@@ -49,6 +49,17 @@ angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServicePro
   // note that we do not send the language: by default, it will try the language
   // supported by the web browser
   $("#no-js").hide();
+  var loading = {};
+  window.i18nOriginal = {};
+
+  function getExtended(data, lngValue) {
+    var override = {};
+    if (window.i18nOverride && lngValue in window.i18nOverride) {
+      var baseOverride = window.i18nOverride[lngValue];
+      override = angular.copy(baseOverride);
+    }
+    return angular.merge({}, data, override);
+  }
 
   $i18nextProvider.options = _.extend(
     {
@@ -57,8 +68,40 @@ angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServicePro
       fallbackLng: 'en',
       cookieName: 'lang',
       detectLngQS: 'lang',
-      lngWhitelist: ['en', 'es', 'gl', 'ca', 'nb'],
-      resGetPath: '/election/locales/__lng__.json',
+      lngWhitelist: ['en', 'es'],
+      customLoad: function (lngValue, nsValue, options, loadComplete) {
+        var url = '/booth/locales/' + lngValue + '.json';
+        if (window.i18nOriginal && lngValue in window.i18nOriginal) {
+          console.log("customLoad: RET ORIGINAL EXTENDED lng=" + lngValue);
+          // if we already loaded the original, then we don't reload it. 
+          // Otherwise the language selector goes crazy
+          return;
+        }
+        if (lngValue in loading) {
+          console.log("customLoad: already loading lng=" + lngValue);
+          loadComplete(/*err*/ "customLoad: already loading lng=" + lngValue, null);
+          return;
+        }
+        loading[lngValue] = true;
+        var req = new XMLHttpRequest();
+        // Configure it: GET-request for the URL /your/api/endpoint
+        req.open('GET', url, true);
+        req.onload = function() {
+          console.log("customLoad: complete lng=" + lngValue + ", req.status=" + req.status);
+          if (req.status >= 200 && req.status < 300) {
+              var data = JSON.parse(req.responseText);
+              window.i18nOriginal[lngValue] = angular.copy(data);
+              var extended = getExtended(window.i18nOriginal[lngValue], lngValue);
+              console.log("customLoad: complete lng=" + lngValue + " DONE");
+              loadComplete(/*err*/ null, extended);
+          } else {
+            console.log("customLoad: complete lng=" + lngValue + " ERROR");
+              loadComplete(/*err*/ "Error loading locale at url=" + url, null);
+          }
+        };
+        console.log("customLoad: sending GET url=" + url);
+        req.send("");
+      },
       defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
     },
     ConfigServiceProvider.i18nextInitOptions
