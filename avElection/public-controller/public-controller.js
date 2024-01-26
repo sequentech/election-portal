@@ -54,34 +54,76 @@ angular
        * @param {number} electionId election whose results should be shown.
        */
       $scope.autoreloadResultsTimer = null;
+      $scope.alreadyReloaded = null;
 
+      function reloadTranslations(force) {
+        function reloadInner() {
+          var election = $scope.election;
 
-      function reloadTranslations(force, ms) {
-        setTimeout(
-          function () {
-            var election = $scope.election;
+          if ($scope.alreadyReloaded === election.id) {
+            $i18next.reInit();
+            return;
+          } else {
+            $scope.alreadyReloaded = election.id;
+          }
 
-            // reset $window.i18nOverride
-            var overrides = (
-              election &&
-              election.presentation &&
-              election.presentation.i18n_override
-            ) ? election.presentation.i18n_override : null;
+          // reset $window.i18nOverride
+          var overrides = (
+            election &&
+            election.presentation &&
+            election.presentation.i18n_override
+          ) ? election.presentation.i18n_override : null;
 
-            var languagesConf = (
-              election &&
-              election.presentation &&
-              election.presentation.i18n_languages_conf
-            ) ? election.presentation.i18n_languages_conf : null;
+          var languagesConf = (
+            election &&
+            election.presentation &&
+            election.presentation.i18n_languages_conf
+          ) ? election.presentation.i18n_languages_conf : null;
 
-            I18nOverride(
-              /* overrides = */ overrides,
-              /* force = */ force,
-              /* languagesConf = */ languagesConf
-            );
-          },
-          ms || 1000
-        );
+          $i18next.options.useLocalStorage = true;
+          I18nOverride(
+            /* overrides = */ overrides,
+            /* force = */ force,
+            /* languagesConf = */ languagesConf
+          );
+        }
+        function timeoutWrap() {
+          console.log("timeoutWrap");
+          var election = $scope.election;
+          $i18next.options.useLocalStorage = true;
+
+          if (election && $scope.alreadyReloaded === election.id) {
+            return;
+          }
+          if (!election) {
+            console.log("timeoutWrap: delaying for election..");
+            setTimeout(timeoutWrap, 200);
+            return;
+          }
+          var languagesConf = (
+            election &&
+            election.presentation &&
+            election.presentation.i18n_languages_conf
+          ) ? election.presentation.i18n_languages_conf : null;
+
+          var languageNotFound = false;
+          if (languagesConf && languagesConf.available_languages) {
+            _.each(languagesConf.available_languages, function (langCode) {
+              if (!window.i18nOriginal || !(langCode in window.i18nOriginal)) {
+                console.log("bundle not found for lang=" + langCode);
+                window.i18n.preload([langCode]);
+                languageNotFound = true;
+              }
+            });
+          }
+          if (languageNotFound) {
+            console.log("timeoutWrap: delaying for bundle..");
+            setTimeout(timeoutWrap, 200);
+            return;
+          }
+          reloadInner();
+        }
+        timeoutWrap();
       }
 
       $scope.autoReloadReceive = function (value)
