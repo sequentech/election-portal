@@ -30,7 +30,6 @@ angular
       $scope,
       $rootScope,
       $window,
-      $i18next,
       ConfigService,
       InsideIframeService,
       Authmethod,
@@ -54,34 +53,58 @@ angular
        * @param {number} electionId election whose results should be shown.
        */
       $scope.autoreloadResultsTimer = null;
+      $scope.alreadyReloaded = null;
 
+      function reloadTranslations(force) {
+        function reloadInner() {
+          var election = $scope.election;
 
-      function reloadTranslations(force, ms) {
-        setTimeout(
-          function () {
-            var election = $scope.election;
+          if ($scope.alreadyReloaded === election.id) {
+            console.log("booth-directive: broadcast i18nextLanguageChange");
+            $rootScope.$broadcast('i18nextLanguageChange', $window.i18next.resolvedLanguage);
+            return;
+          } else {
+            $scope.alreadyReloaded = election.id;
+          }
 
-            // reset $window.i18nOverride
-            var overrides = (
-              election &&
-              election.presentation &&
-              election.presentation.i18n_override
-            ) ? election.presentation.i18n_override : null;
+          // should we reset $window.i18nOverride?
+          var overrides = (
+            election &&
+            election.presentation &&
+            election.presentation.i18n_override
+          ) ? election.presentation.i18n_override : null;
 
-            var languagesConf = (
-              election &&
-              election.presentation &&
-              election.presentation.i18n_languages_conf
-            ) ? election.presentation.i18n_languages_conf : null;
+          var languagesConf = (
+            election &&
+            election.presentation &&
+            election.presentation.i18n_languages_conf
+          ) ? election.presentation.i18n_languages_conf : null;
 
-            I18nOverride(
-              /* overrides = */ overrides,
-              /* force = */ force,
-              /* languagesConf = */ languagesConf
-            );
-          },
-          ms || 1000
-        );
+          I18nOverride(
+            /* overrides = */ overrides,
+            /* force = */ force,
+            /* languagesConf = */ languagesConf
+          );
+        }
+        function timeoutWrap() {
+          console.log("timeoutWrap");
+          var election = $scope.election;
+          if (election && $scope.alreadyReloaded === election.id) {
+            return;
+          }
+          if (!election) {
+            console.log("timeoutWrap: delaying for election..");
+            setTimeout(timeoutWrap, 200);
+            return;
+          }
+          // call reloadInner only after i18next initialization
+          if ($window.i18next.isInitialized) {
+            reloadInner();
+          } else {
+            $window.i18next.on('initialized', reloadInner);
+          }
+        }
+        timeoutWrap();
       }
 
       $scope.autoReloadReceive = function (value)

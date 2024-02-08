@@ -45,30 +45,109 @@ angular.module(
   'common-ui'
 ]);
 
-angular.module('jm.i18next').config(function ($i18nextProvider, ConfigServiceProvider) {
-  // note that we do not send the language: by default, it will try the language
-  // supported by the web browser
-  $("#no-js").hide();
-
-  $i18nextProvider.options = _.extend(
+angular
+  .module('jm.i18next')
+  .config(function ($i18nextProvider, ConfigServiceProvider)
+  {
+    function expandObject(obj)
     {
-      useCookie: true,
-      useLocalStorage: false,
-      fallbackLng: 'en',
-      cookieName: 'lang',
-      detectLngQS: 'lang',
-      lngWhitelist: ['en', 'es', 'gl', 'ca', 'nb'],
-      resGetPath: '/election/locales/__lng__.json',
-      defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
-    },
-    ConfigServiceProvider.i18nextInitOptions
-  );
+      var result = {};
+      // Helper function to handle the recursion
+      function assignValue(ref, keys, value) {
+          var key = keys.shift(); // Get the current key part
+          if (keys.length === 0) {
+              // If no more keys, assign the value directly
+              ref[key] = value;
+          } else {
+              // Prepare the next level sub-object if necessary
+              if (!ref[key]) {
+                ref[key] = {};
+              }
+              // Recurse with the next level of the key and the corresponding sub-object
+              assignValue(ref[key], keys, value);
+          }
+      }
+      // Iterate over each property in the input object
+      for (var prop in obj) {
+          if (obj.hasOwnProperty(prop)) {
+              var keys = prop.split('.'); // Split the property by dots into parts
+              assignValue(result, keys, obj[prop]); // Use the helper to assign the value in the result object
+          }
+      }
+      return result;
+    }
 
-  // Prevent site translation if configured
-  if (ConfigServiceProvider.preventSiteTranslation) {
-    $('html').attr('translate', 'no');
-  }
-});
+    // note that we do not send the language: by default, it will try the language
+    // supported by the web browser
+    $("#no-js").hide();
+    window.i18next
+      .use(window.i18nextChainedBackend)
+      .init(_.extend(
+        {
+          debug: true,
+          load: 'languageOnly',
+          useCookie: true,
+          // Preload is needed because the language selector shows an item for
+          // each element in lngWhitelist, and the translation for each language
+          // is contained at each language i18n file, so we either preload it
+          // or it wouldn't work.
+          preload: ConfigServiceProvider.i18nextInitOptions.lngWhitelist || [],
+          useLocalStorage: false,
+          fallbackLng: 'en',
+          cookieName: 'lang',
+          detectLngQS: 'lang',
+          lngWhitelist: ['en', 'es'],
+          interpolation: {
+            prefix: '__',
+            suffix: '__',
+          },
+          // Define the backends to use in the chain
+          backend: {
+            backends: [
+              {
+                type: 'backend',
+                /* use services and options */
+                init: function(services, backendOptions, i18nextOptions) {},
+                /* return resources */
+                read: function(language, namespace, callback)
+                {
+                  if (
+                    window.i18nOverride &&
+                    typeof window.i18nOverride === 'object' &&
+                    window.i18nOverride[language] &&
+                    typeof window.i18nOverride[language] === 'object'
+                  ) {
+                    var override = expandObject(window.i18nOverride[language]);
+                    callback(null, override);
+                  } else {
+                    // not found
+                    callback(true, null);
+                  }
+                },
+                /* save the missing translation */
+                create: function(languages, namespace, key, fallbackValue) {}
+              },
+              window.i18nextHttpBackend, // Primary backend
+            ],
+            backendOptions: [
+              // Configuration for custom backend
+              {},
+              // Configuration for http backend
+              {
+                loadPath: '/election/locales/__lng__.json',
+              },
+            ]
+          },
+          defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
+        },
+        ConfigServiceProvider.i18nextInitOptions
+      ));
+
+    // Prevent site translation if configured
+    if (ConfigServiceProvider.preventSiteTranslation) {
+      $('html').attr('translate', 'no');
+    }
+  });
 
 angular.module('election-portal').config(function($sceDelegateProvider, ConfigServiceProvider) {
   $sceDelegateProvider.resourceUrlWhitelist(ConfigServiceProvider.resourceUrlWhitelist);
