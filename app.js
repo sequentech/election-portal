@@ -134,7 +134,7 @@ angular
               {},
               // Configuration for http backend
               {
-                loadPath: '/booth/locales/__lng__.json',
+                loadPath: '/election/locales/__lng__.json',
               },
             ]
           },
