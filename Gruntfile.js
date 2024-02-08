@@ -404,7 +404,6 @@ module.exports = function (grunt) {
       main: {
         files: {
         'temp/app.js':['temp/app.js'],
-        'temp/lib.js': ['temp/lib.js'],
         'temp/libnocompat.js': ['temp/libnocompat.js'],
         'temp/libcompat.js': ['temp/libcompat.js']
         }
