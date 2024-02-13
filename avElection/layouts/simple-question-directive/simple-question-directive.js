@@ -18,7 +18,7 @@
 angular.module('avElection')
   .directive('aveSimpleQuestion', function(AddDotsToIntService, PercentVotesService, $i18next) {
     function link(scope, element, attrs) {
-      scope.tallyMethod = $i18next("avCommon.votings." + scope.question.tally_type);
+      scope.tallyMethod = $i18next.t("avCommon.votings." + scope.question.tally_type);
 
       // group by category
       var categories = _.groupBy(scope.question.answers, "category");

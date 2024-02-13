@@ -64,7 +64,7 @@ angular.module('avElection')
         if (shortedTitle.length > 64) {
           shortedTitle = shortedTitle.substr(0, 64) + "..";
         }
-        var shareText = $i18next("avElection.resultsHeader", {title: shortedTitle}) + " " + $location.absUrl();
+        var shareText = $i18next.t("avElection.resultsHeader", {title: shortedTitle}) + " " + $location.absUrl();
         scope.electionTwitterUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(shareText);
         scope.electionFacebookUrl = "https://twitter.com/home?status=" + encodeURIComponent(shareText);
 

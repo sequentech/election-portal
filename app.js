@@ -97,6 +97,12 @@ angular
           cookieName: 'lang',
           detectLngQS: 'lang',
           lngWhitelist: ['en', 'es'],
+          // files to load
+          ns: ['override', 'locales'],
+          // default namespace (needs no prefix on calling t)
+          defaultNS: 'override',
+          // fallback, can be a string or an array of namespaces
+          fallbackNS: 'locales',
           interpolation: {
             prefix: '__',
             suffix: '__',
@@ -111,14 +117,18 @@ angular
                 /* return resources */
                 read: function(language, namespace, callback)
                 {
-                  if (
-                    window.i18nOverride &&
-                    typeof window.i18nOverride === 'object' &&
-                    window.i18nOverride[language] &&
-                    typeof window.i18nOverride[language] === 'object'
-                  ) {
-                    var override = expandObject(window.i18nOverride[language]);
-                    callback(null, override);
+                  if (namespace === 'override') {
+                    if (
+                      window.i18nOverride &&
+                      typeof window.i18nOverride === 'object' &&
+                      window.i18nOverride[language] &&
+                      typeof window.i18nOverride[language] === 'object'
+                    ) {
+                      var override = expandObject(window.i18nOverride[language]);
+                      callback(null, override);
+                    } else {
+                      callback(null, {noop: "noop"});
+                    }
                   } else {
                     // not found
                     callback(true, null);
@@ -134,7 +144,7 @@ angular
               {},
               // Configuration for http backend
               {
-                loadPath: '/election/locales/__lng__.json',
+                loadPath: '/election/__ns__/__lng__.json',
               },
             ]
           },
