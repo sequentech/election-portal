@@ -121,27 +121,6 @@ angular
           ConfigService.theme = presentation.theme;
         }
 
-        // if state is not started but we are in login, redirect to default url
-        if (
-          $state.current.name === "election.public.show.login" &&
-          !_.contains(
-            ['started', 'resumed'],
-            value.data.payload.state
-          ) && 
-          $window.location.pathname !== ConfigService.defaultRoute
-        ) {
-          if (
-            !presentation ||
-            !presentation.extra_options ||
-            !presentation.extra_options.disable__public_home
-          ) {
-            $window.location.href = '/election/' + $stateParams.id + '/public/home';
-          } else {
-            window.location.href = ConfigService.defaultRoute;
-          }
-          return;
-        }
-
         // if we are showing the election home but it is disabled then perform
         // a redirect
         if (
