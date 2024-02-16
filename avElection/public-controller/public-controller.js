@@ -135,11 +135,9 @@ angular
             !presentation.extra_options ||
             !presentation.extra_options.disable__public_home
           ) {
-            $window.location.href = '/election/' + $stateParams.id + '/public/home';
-          } else {
             window.location.href = ConfigService.defaultRoute;
+            return;
           }
-          return;
         }
 
         // if we are showing the election home but it is disabled then perform
