@@ -1,8 +1,12 @@
+<!-- top navbar -->
+<a href="#main-content" class="skip-link">{{ 'avElection.skipLinks.skipToMain' | i18next }}</a>
+<a href="#footer" class="skip-link">{{ 'avElection.skipLinks.skipToFooter' | i18next }}</a>
 <div ng-if="!election" avb-common-header is-election-portal="true"></div>
 <div
     ng-if="!!election"
     avb-common-header
     is-election-portal="true"
+    id="main-content"
     buttons-info="{{ buttonsInfo }}"
 ></div>
 
@@ -54,9 +58,9 @@
 
 <div class="container-fluid background second">
     <div class="container">
-        <div class="row">
+        <div class="row" id="main-content">
             <div ui-view></div>
         </div>
     </div>
 </div>
-<div avb-common-footer></div>
+<div avb-common-footer id="footer"></div>

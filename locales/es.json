@@ -124,6 +124,10 @@
     "legal": {
         "title": "Legal",
         "contact": "contacto"
+    },
+    "skipLinks": {
+      "skipToMain": "Skip to main content",
+      "skipToActions": "Skip to Actions"
     }
   }
 }
