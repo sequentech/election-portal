@@ -126,8 +126,8 @@
         "contact": "contacto"
     },
     "skipLinks": {
-      "skipToMain": "Skip to main content",
-      "skipToActions": "Skip to Actions"
+      "skipToMain": "Saltar al contenido principal",
+      "skipToFooter": "Saltar al pie de página"
     }
   }
 }

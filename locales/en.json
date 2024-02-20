@@ -129,7 +129,7 @@
     },
     "skipLinks": {
       "skipToMain": "Skip to main content",
-      "skipToActions": "Skip to Actions"
+      "skipToFooter": "Skip to footer"
     }
   }
 }
