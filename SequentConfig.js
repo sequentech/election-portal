@@ -20,7 +20,7 @@
  * in this same file, which you might want to edit and tune if needed.
  */
 
-var SEQUENT_CONFIG_VERSION = '10.4.2';
+var SEQUENT_CONFIG_VERSION = '10.5.0';
 
 var SequentConfigData = {
   // the base url path for ajax requests, for example for sending ballots or
@@ -221,7 +221,7 @@ var SequentConfigData = {
     title: ""
   },
 
-  mainVersion: '10.4.2',
+  mainVersion: '10.5.0',
   repoVersions: [],
 
   // Number of seconds after which an authentication token expires.
