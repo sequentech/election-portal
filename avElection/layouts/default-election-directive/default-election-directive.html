@@ -13,8 +13,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 top-section">
-        <h1 class="text-center election-title">
-          {{ (election.presentation | customI18n : 'public_title') || (election | customI18n : 'title')}}
+        <h1 class="text-center election-title"
+          ng-bind-html="(election.presentation | customI18n : 'public_title') || (election | customI18n : 'title') || ''"
+        >
         </h1>
         
         <p
