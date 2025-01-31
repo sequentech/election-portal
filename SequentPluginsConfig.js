@@ -1,4 +1,4 @@
-var SEQUENT_PLUGINS_CONFIG_VERSION = '10.5.2';
+var SEQUENT_PLUGINS_CONFIG_VERSION = '10.5.3';
 angular.module('SequentPluginsConfig', [])
   .factory('PluginsConfigService', function() {
     return {};
